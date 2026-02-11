@@ -16,6 +16,7 @@ export default function Study() {
   const [changes, setChanges] = useState([{ id: 1, problem: '', prompt: '' }])
   const [phase, setPhase] = useState('collect') // 'collect' | 'review' | 'done'
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [validationById, setValidationById] = useState({})
 
   // Per-change generation + feedback
   const [resultsById, setResultsById] = useState({})
@@ -31,6 +32,20 @@ export default function Study() {
       copy[index] = { ...copy[index], [field]: value }
       return copy
     })
+    setValidationById((prev) => {
+      const changeId = changes[index]?.id
+      if (!changeId) return prev
+      const next = { ...prev }
+      const trimmed = value.trim()
+      if (trimmed) {
+        next[changeId] = { ...(next[changeId] || {}) }
+        delete next[changeId][field]
+        if (Object.keys(next[changeId]).length === 0) {
+          delete next[changeId]
+        }
+      }
+      return next
+    })
   }
 
   function handleAddChange() {
@@ -42,20 +57,34 @@ export default function Study() {
 
   function handleRemoveChange(idToRemove) {
     setChanges((prev) => prev.filter((c) => c.id !== idToRemove))
+    setValidationById((prev) => {
+      if (!prev[idToRemove]) return prev
+      const next = { ...prev }
+      delete next[idToRemove]
+      return next
+    })
   }
 
   function handleStartReview(e) {
     e.preventDefault()
-    // Filter out completely empty rows
-    const nonEmpty = changes.filter((c) => c.problem.trim() || c.prompt.trim())
-    if (!nonEmpty.length) {
+    const errors = {}
+    changes.forEach((c) => {
+      const problemEmpty = !c.problem.trim()
+      const promptEmpty = !c.prompt.trim()
+      if (problemEmpty || promptEmpty) {
+        errors[c.id] = {}
+        if (problemEmpty) errors[c.id].problem = 'Please describe the change.'
+        if (promptEmpty) errors[c.id].prompt = 'Please add an AI prompt.'
+      }
+    })
+    if (Object.keys(errors).length > 0) {
+      setValidationById(errors)
       return
     }
-    setChanges(nonEmpty)
     setPhase('review')
     setCurrentIndex(0)
     // eslint-disable-next-line no-console
-    console.log('Saved changes for task', id, nonEmpty)
+    console.log('Saved changes for task', id, changes)
   }
 
   // Trigger generation for current change when entering review phase / moving to next change
@@ -138,6 +167,7 @@ export default function Study() {
   const isCollect = phase === 'collect'
   const currentChange = changes[currentIndex]
   const currentResult = currentChange ? resultsById[currentChange.id] : null
+  const hasMissingRequired = changes.some((c) => !c.problem.trim() || !c.prompt.trim())
 
   return (
     <div className="study">
@@ -197,23 +227,29 @@ export default function Study() {
                 <label className="study__label">
                   What is the small change or issue?
                   <textarea
-                    className="study__textarea"
+                    className={`study__textarea${validationById[change.id]?.problem ? ' study__textarea--error' : ''}`}
                     value={change.problem}
                     onChange={(e) => handleChangeField(index, 'problem', e.target.value)}
                     rows={2}
                     placeholder="e.g. The primary button is too low in the hierarchy; move it closer to the form."
                   />
+                  {validationById[change.id]?.problem && (
+                    <span className="study__error-text">{validationById[change.id].problem}</span>
+                  )}
                 </label>
 
                 <label className="study__label">
                   AI prompt you would use for this change
                   <textarea
-                    className="study__textarea"
+                    className={`study__textarea${validationById[change.id]?.prompt ? ' study__textarea--error' : ''}`}
                     value={change.prompt}
                     onChange={(e) => handleChangeField(index, 'prompt', e.target.value)}
                     rows={2}
                     placeholder='e.g. "Move the primary submit button directly below the last form field and increase its size by 10%."'
                   />
+                  {validationById[change.id]?.prompt && (
+                    <span className="study__error-text">{validationById[change.id].prompt}</span>
+                  )}
                 </label>
               </div>
             ))}
@@ -222,7 +258,7 @@ export default function Study() {
               + Add another small change
             </button>
 
-            <button type="submit" className="study__btn study__btn--primary">
+            <button type="submit" className="study__btn study__btn--primary" disabled={hasMissingRequired}>
               Save changes and start evaluation
             </button>
           </form>
@@ -470,8 +506,15 @@ const studyStyles = `
     outline: none;
     border-color: var(--accent);
   }
+  .study__textarea--error {
+    border-color: var(--error);
+  }
   .study__textarea::placeholder {
     color: var(--muted);
+  }
+  .study__error-text {
+    color: var(--error);
+    font-size: 0.85rem;
   }
   .study__btn {
     padding: 0.75rem 1.25rem;
