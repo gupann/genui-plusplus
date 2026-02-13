@@ -172,7 +172,7 @@ export default function Study() {
   return (
     <div className="study">
       <header className="study__header">
-        <button type="button" className="study__back" onClick={() => navigate('/')}>
+        <button type="button" className="study__back" onClick={() => navigate('/user-study')}>
           ← Case studies
         </button>
         <h1>Case Study {id}</h1>

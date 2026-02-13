@@ -1,30 +1,30 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 const CASE_STUDIES = [
   { id: 1, label: 'Case Study 1' },
   { id: 2, label: 'Case Study 2' },
   { id: 3, label: 'Case Study 3' },
-]
+];
 
 export default function UserStudy() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
-    <div className="user-study">
-      <header className="user-study__header">
-        <h1>GenUI++: A Dataset for Understanding, Generating, and Evaluating Incremental UI Design</h1>
-        <p className="user-study__subtitle">User study - pick a case study to start.</p>
+    <div className='user-study'>
+      <header className='user-study__header'>
+        <h1>Pick a case study to start</h1>
+        <p className='user-study__subtitle'>blah</p>
       </header>
-      <nav className="user-study__nav" aria-label="Case studies">
+      <nav className='user-study__nav' aria-label='Case studies'>
         {CASE_STUDIES.map(({ id, label }) => (
           <button
             key={id}
-            type="button"
-            className="user-study__card"
+            type='button'
+            className='user-study__card'
             onClick={() => navigate(`/study/${id}`)}
           >
-            <span className="user-study__card-label">{label}</span>
-            <span className="user-study__card-hint">Start study →</span>
+            <span className='user-study__card-label'>{label}</span>
+            <span className='user-study__card-hint'>Start study →</span>
           </button>
         ))}
       </nav>
@@ -78,5 +78,5 @@ export default function UserStudy() {
         }
       `}</style>
     </div>
-  )
+  );
 }
