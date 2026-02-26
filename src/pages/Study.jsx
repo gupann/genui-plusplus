@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { generateAfterScreen } from '../services/api'
+import { generateAfterScreen, getProviderStatus } from '../services/api'
 
 // Placeholder image per task. Replace with your images in public/ e.g. task1-before.png
 function getBeforeImageUrl(taskId) {
   return `/task${taskId}-before.png`
+}
+
+function getBeforeCodeUrl(taskId) {
+  return `/task${taskId}-before.html`
 }
 
 export default function Study() {
@@ -13,6 +17,7 @@ export default function Study() {
   const id = parseInt(taskId, 10) || 1
 
   const [beforeImageFailed, setBeforeImageFailed] = useState(false)
+  const [beforeCode, setBeforeCode] = useState('')
   const [changes, setChanges] = useState([{ id: 1, problem: '', prompt: '' }])
   const [phase, setPhase] = useState('collect') // 'collect' | 'review' | 'done'
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -23,8 +28,10 @@ export default function Study() {
   const [successById, setSuccessById] = useState({})
   const [notSuccessById, setNotSuccessById] = useState({})
   const [approvedById, setApprovedById] = useState({})
+  const [iframeHeightsById, setIframeHeightsById] = useState({})
 
   const beforeImageUrl = getBeforeImageUrl(id)
+  const beforeCodeUrl = getBeforeCodeUrl(id)
 
   function handleChangeField(index, field, value) {
     setChanges((prev) => {
@@ -87,48 +94,219 @@ export default function Study() {
     console.log('Saved changes for task', id, changes)
   }
 
-  // Trigger generation for current change when entering review phase / moving to next change
+  function getEntriesById(map, changeId) {
+    const entries = map[changeId]
+    return Array.isArray(entries) && entries.length ? entries : ['']
+  }
+
+  function updateEntry(setter, changeId, index, value) {
+    setter((prev) => {
+      const next = { ...prev }
+      const entries = Array.isArray(next[changeId]) ? [...next[changeId]] : ['']
+      while (entries.length <= index) entries.push('')
+      entries[index] = value
+      next[changeId] = entries
+      return next
+    })
+  }
+
+  function addEntry(setter, changeId) {
+    setter((prev) => {
+      const next = { ...prev }
+      const entries = Array.isArray(next[changeId]) ? [...next[changeId]] : ['']
+      entries.push('')
+      next[changeId] = entries
+      return next
+    })
+  }
+
+  function removeEntry(setter, changeId, index) {
+    setter((prev) => {
+      const next = { ...prev }
+      const entries = Array.isArray(next[changeId]) ? [...next[changeId]] : ['']
+      if (entries.length <= 1) {
+        next[changeId] = ['']
+        return next
+      }
+      entries.splice(index, 1)
+      next[changeId] = entries.length ? entries : ['']
+      return next
+    })
+  }
+
+
   useEffect(() => {
-    if (phase !== 'review') return
+    let cancelled = false
+
+    async function loadBeforeCode() {
+      try {
+        const response = await fetch(beforeCodeUrl)
+        if (!response.ok) throw new Error('missing before code')
+        const text = await response.text()
+        if (!cancelled) setBeforeCode(text)
+      } catch {
+        if (!cancelled) setBeforeCode('')
+      }
+    }
+
+    loadBeforeCode()
+
+    return () => {
+      cancelled = true
+    }
+  }, [beforeCodeUrl])
+
+  useEffect(() => {
+    let cancelled = false
+    async function loadStatus() {
+      try {
+        const status = await getProviderStatus()
+        if (cancelled) return
+        setProviderStatus({
+          loading: false,
+          error: null,
+          providers: status.providers || null,
+          mode: status.mode || 'unknown',
+        })
+      } catch (err) {
+        if (cancelled) return
+        setProviderStatus({
+          loading: false,
+          error: err.message || 'Unable to reach generation server.',
+          providers: null,
+          mode: 'unknown',
+        })
+      }
+    }
+    loadStatus()
+    return () => {
+      cancelled = true
+    }
+  }, [])
+
+  const providers = [
+    { id: 'openai', label: 'OpenAI' },
+    { id: 'gemini', label: 'Gemini' },
+    { id: 'claude', label: 'Claude' },
+  ]
+  const [providerStatus, setProviderStatus] = useState({
+    loading: true,
+    error: null,
+    providers: null,
+    mode: 'unknown',
+  })
+
+  const availableProviders = providerStatus?.providers
+    ? providers.filter((p) => providerStatus.providers[p.id]?.available !== false)
+    : providers
+  const missingProviders = providerStatus?.providers
+    ? providers.filter((p) => providerStatus.providers[p.id]?.available === false)
+    : []
+
+  function buildDownloadHref(code) {
+    if (!code) return ''
+    return `data:text/html;charset=utf-8,${encodeURIComponent(code)}`
+  }
+
+  const CLIENT_WATCHDOG_MS = 50000
+
+  function triggerProviderGeneration(providerId, { force = false } = {}) {
+    // eslint-disable-next-line no-console
+    console.log('[ui] triggerProviderGeneration', { providerId, force })
     const current = changes[currentIndex]
     if (!current) return
-    if (resultsById[current.id]?.done || resultsById[current.id]?.loading) return
+    const changeId = current.id
+    const requestId = `${Date.now()}-${Math.random().toString(16).slice(2)}`
 
-    let cancelled = false
-    async function run() {
-      setResultsById((prev) => ({
+    setResultsById((prev) => {
+      const existingForChange = prev[changeId] || {}
+      const existingProvider = existingForChange[providerId]
+      if (!force && (existingProvider?.loading || existingProvider?.done)) return prev
+      return {
         ...prev,
-        [current.id]: { ...(prev[current.id] || {}), loading: true, error: null },
-      }))
+        [changeId]: {
+          ...existingForChange,
+          [providerId]: {
+            ...(existingProvider || {}),
+            loading: true,
+            error: null,
+            requestId,
+            startedAt: Date.now(),
+          },
+        },
+      }
+    })
+    // eslint-disable-next-line no-console
+    console.log('[ui] scheduling run', { providerId, requestId })
+
+    setTimeout(() => {
+      setResultsById((prev) => {
+        const currentProvider = prev?.[changeId]?.[providerId]
+        if (!currentProvider?.loading) return prev
+        if (currentProvider.requestId !== requestId) return prev
+        return {
+          ...prev,
+          [changeId]: {
+            ...(prev[changeId] || {}),
+            [providerId]: {
+              ...(currentProvider || {}),
+              loading: false,
+              done: true,
+              error: 'Request timed out or was blocked. Try again.',
+            },
+          },
+        }
+      })
+    }, CLIENT_WATCHDOG_MS)
+
+    const run = async () => {
       try {
+        // eslint-disable-next-line no-console
+        console.log('[ui] calling generateAfterScreen', {
+          providerId,
+          apiUrl: import.meta.env.VITE_UI_GENERATION_API_URL,
+        })
         const result = await generateAfterScreen({
           taskId: id,
           prompt: current.prompt,
           beforeImageUrl,
+          beforeCode,
+          provider: providerId,
         })
-        if (cancelled) return
+        // eslint-disable-next-line no-console
+        console.log('[ui] generateAfterScreen success', { providerId })
         setResultsById((prev) => ({
           ...prev,
-          [current.id]: { ...(prev[current.id] || {}), loading: false, done: true, result },
+          [changeId]: {
+            ...(prev[changeId] || {}),
+            [providerId]: {
+              ...(prev[changeId]?.[providerId] || {}),
+              loading: false,
+              done: true,
+              result,
+            },
+          },
         }))
       } catch (err) {
-        if (cancelled) return
+        // eslint-disable-next-line no-console
+        console.error('[ui] generateAfterScreen error', { providerId, err })
         setResultsById((prev) => ({
           ...prev,
-          [current.id]: {
-            ...(prev[current.id] || {}),
-            loading: false,
-            done: true,
-            error: err.message || 'Failed to generate screen.',
+          [changeId]: {
+            ...(prev[changeId] || {}),
+            [providerId]: {
+              ...(prev[changeId]?.[providerId] || {}),
+              loading: false,
+              done: true,
+              error: err.message || 'Failed to generate screen.',
+            },
           },
         }))
       }
     }
+
     run()
-    return () => {
-      cancelled = true
-    }
-  }, [phase, currentIndex, changes, beforeImageUrl, id, resultsById])
+  }
 
   function handleNextChange() {
     if (currentIndex < changes.length - 1) {
@@ -166,7 +344,41 @@ export default function Study() {
 
   const isCollect = phase === 'collect'
   const currentChange = changes[currentIndex]
-  const currentResult = currentChange ? resultsById[currentChange.id] : null
+  const currentChangeId = currentChange?.id
+  const currentResult = currentChange ? resultsById[currentChange.id] || {} : {}
+  const getIframeHeight = (changeId, providerId) =>
+    iframeHeightsById[changeId]?.[providerId] || 900
+
+  function scrollToBottom() {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: 'smooth',
+    })
+  }
+
+  function handleIframeLoad(changeId, providerId, event) {
+    try {
+      const doc = event.target?.contentDocument
+      if (!doc) return
+      const height =
+        doc.documentElement?.scrollHeight ||
+        doc.body?.scrollHeight ||
+        doc.documentElement?.offsetHeight ||
+        900
+      setIframeHeightsById((prev) => {
+        const next = { ...prev }
+        const entry = { ...(next[changeId] || {}) }
+        entry[providerId] = Math.max(height, 600)
+        next[changeId] = entry
+        return next
+      })
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.warn('Could not read iframe height', err)
+    }
+  }
+  const successEntries = currentChange ? getEntriesById(successById, currentChange.id) : ['']
+  const notSuccessEntries = currentChange ? getEntriesById(notSuccessById, currentChange.id) : ['']
   const hasMissingRequired = changes.some((c) => !c.problem.trim() || !c.prompt.trim())
 
   return (
@@ -176,6 +388,21 @@ export default function Study() {
           ← Case studies
         </button>
         <h1>Case Study {id}</h1>
+        <p className="study__debug">
+          Generator: {import.meta.env.VITE_UI_GENERATION_API_URL ? 'API' : 'Mock'}{' '}
+          {import.meta.env.VITE_UI_GENERATION_API_URL
+            ? `( ${import.meta.env.VITE_UI_GENERATION_API_URL} )`
+            : '(no VITE_UI_GENERATION_API_URL)'}
+        </p>
+        <p className="study__debug">
+          Debug: phase={phase} currentIndex={currentIndex}{' '}
+          {currentChange ? `changeId=${currentChange.id}` : 'changeId=none'}{' '}
+          {currentResult
+            ? `loading=${Boolean(currentResult.loading)} done=${Boolean(currentResult.done)} error=${
+                currentResult.error ? 'yes' : 'no'
+              }`
+            : 'result=none'}
+        </p>
       </header>
 
       <section className="study__section">
@@ -184,10 +411,17 @@ export default function Study() {
           Look at this screen and identify small, incremental changes you would make. For each change, describe the
           problem and write the exact AI prompt you would use to implement it.
         </p>
-        <div className="study__screen-wrap">
-          {beforeImageFailed ? (
+        <div className="study__screen-wrap study__screen-wrap--before">
+          {beforeCode ? (
+            <iframe
+              title="Before screen"
+              srcDoc={beforeCode}
+              className="study__iframe study__iframe--before"
+              sandbox="allow-same-origin allow-scripts"
+            />
+          ) : beforeImageFailed ? (
             <div className="study__img-placeholder">
-              Add your screenshot as <code>public/task{id}-before.png</code> (or .jpg)
+              Add your screenshot as <code>public/task{id}-before.png</code> (or .jpg). Optional code: <code>public/task{id}-before.html</code>
             </div>
           ) : (
             <img
@@ -270,7 +504,8 @@ export default function Study() {
           </h2>
           <p className="study__hint">
             We used your AI prompt for this small change to generate an updated screen. Tell us what is successful,
-            what is not, and whether you would approve this result as a designer.
+            what is not, and whether you would approve this result as a designer. Each success or failure should be one
+            thing to keep the feedback itemized.
           </p>
 
           <div className="study__change study__change--summary">
@@ -284,35 +519,102 @@ export default function Study() {
           </div>
 
           <div className="study__screen-wrap study__screen-wrap--after">
-            {currentResult?.loading && (
-              <div className="study__section--centered">
-                <div className="study__spinner" aria-hidden />
-                <p>Generating the after screen…</p>
-              </div>
-            )}
-            {currentResult?.error && !currentResult.loading && (
-              <div className="study__error" role="alert">
-                {currentResult.error}
-              </div>
-            )}
-            {currentResult?.result && !currentResult.loading && !currentResult.error && (
-              <>
-                {currentResult.result.afterImageUrl ? (
-                  <img
-                    src={currentResult.result.afterImageUrl}
-                    alt="Screen after applying this change"
-                    className="study__img"
-                  />
-                ) : (currentResult.result.afterHtml || currentResult.result.afterCode) ? (
-                  <iframe
-                    title="After screen"
-                    srcDoc={currentResult.result.afterHtml || currentResult.result.afterCode}
-                    className="study__iframe"
-                    sandbox="allow-same-origin"
-                  />
-                ) : null}
-              </>
-            )}
+            <div className="study__provider-grid">
+              {availableProviders.map((provider) => {
+                const providerResult = currentResult?.[provider.id]
+                const isLoading = providerResult?.loading
+                const error = providerResult?.error
+                const result = providerResult?.result
+                const code = result?.afterHtml || result?.afterCode || ''
+                const downloadHref = buildDownloadHref(code)
+
+                return (
+                  <div key={provider.id} className="study__provider-card">
+                    <div className="study__provider-header">
+                      <span className="study__provider-name">{provider.label}</span>
+                      <div className="study__provider-actions">
+                        {downloadHref ? (
+                          <a
+                            className="study__chip-btn"
+                            href={downloadHref}
+                            download={`task-${id}-change-${currentChange.id}-${provider.id}.html`}
+                          >
+                            Download Full Item
+                          </a>
+                        ) : (
+                          <span className="study__provider-status">No code yet</span>
+                        )}
+                        <button
+                          type="button"
+                          className="study__chip-btn"
+                          onClick={() => triggerProviderGeneration(provider.id, { force: true })}
+                        >
+                          {error ? 'Generate' : 'Generate'}
+                        </button>
+                      </div>
+                    </div>
+
+                    {isLoading && (
+                      <div className="study__section--centered study__provider-state">
+                        <div className="study__spinner" aria-hidden />
+                        <p>Generating…</p>
+                      </div>
+                    )}
+
+                    {error && !isLoading && (
+                      <div className="study__error" role="alert">
+                        {error}
+                      </div>
+                    )}
+
+                    {result && !isLoading && !error && (
+                      <>
+                        {result.afterImageUrl ? (
+                          <img
+                            src={result.afterImageUrl}
+                            alt={`${provider.label} after screen`}
+                            className="study__img"
+                          />
+                        ) : code ? (
+                          <iframe
+                            title={`${provider.label} after screen`}
+                            srcDoc={code}
+                            className="study__iframe"
+                            sandbox="allow-same-origin allow-scripts"
+                            scrolling="yes"
+                            style={{
+                              height: `${Math.min(
+                                Math.max(getIframeHeight(currentChange.id, provider.id), 700),
+                                900,
+                              )}px`,
+                              maxHeight: '75vh',
+                            }}
+                            onLoad={(e) => handleIframeLoad(currentChange.id, provider.id, e)}
+                          />
+                        ) : (
+                          <div className="study__img-placeholder">No output returned.</div>
+                        )}
+                      </>
+                    )}
+                  </div>
+                )
+              })}
+              {!providerStatus.loading && missingProviders.length > 0 && (
+                <div className="study__provider-note">
+                  Missing API keys: {missingProviders.map((p) => p.label).join(', ')}. Those providers are hidden.
+                </div>
+              )}
+              {providerStatus.error && (
+                <div className="study__provider-note study__provider-note--error">
+                  {providerStatus.error}
+                </div>
+              )}
+              {!providerStatus.loading && availableProviders.length === 0 && !providerStatus.error && (
+                <div className="study__provider-note study__provider-note--error">
+                  No providers available. Add an API key and restart the server.
+                </div>
+              )}
+            </div>
           </div>
 
           <form
@@ -322,31 +624,83 @@ export default function Study() {
             }}
             className="study__form"
           >
-            <label className="study__label">
-              What is successful about this result?
-              <textarea
-                className="study__textarea"
-                value={successById[currentChange.id] || ''}
-                onChange={(e) =>
-                  setSuccessById((prev) => ({ ...prev, [currentChange.id]: e.target.value }))
-                }
-                rows={3}
-                placeholder="e.g. The new button position makes it easier to find; the color and hierarchy are correct."
-              />
-            </label>
+            <div className="study__label">
+              <div className="study__label-row">
+                <span>What is successful about this result? (One thing per entry.)</span>
+                <button
+                  type="button"
+                  className="study__add-btn"
+                  onClick={() => addEntry(setSuccessById, currentChange.id)}
+                  aria-label="Add another successful point"
+                  title="Add another success"
+                >
+                  +
+                </button>
+              </div>
+              {successEntries.map((entry, index) => (
+                <div key={`success-${currentChange.id}-${index}`} className="study__entry">
+                  <div className="study__entry-header">
+                    <span className="study__entry-label">Success {index + 1}</span>
+                    <button
+                      type="button"
+                      className="study__chip-btn"
+                      onClick={() => removeEntry(setSuccessById, currentChange.id, index)}
+                      aria-label="Remove this successful point"
+                      title="Remove entry"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                  <textarea
+                    className="study__textarea"
+                    value={entry}
+                    onChange={(e) => updateEntry(setSuccessById, currentChange.id, index, e.target.value)}
+                    rows={3}
+                    placeholder="e.g. The new button position makes it easier to find."
+                  />
+                </div>
+              ))}
+            </div>
 
-            <label className="study__label">
-              What is not successful about this result?
-              <textarea
-                className="study__textarea"
-                value={notSuccessById[currentChange.id] || ''}
-                onChange={(e) =>
-                  setNotSuccessById((prev) => ({ ...prev, [currentChange.id]: e.target.value }))
-                }
-                rows={3}
-                placeholder="e.g. Other unrelated elements moved; typography changed unexpectedly; spacing is off."
-              />
-            </label>
+            <div className="study__label">
+              <div className="study__label-row">
+                <span>What is not successful about this result? (One thing per entry.)</span>
+                <button
+                  type="button"
+                  className="study__add-btn"
+                  onClick={() => addEntry(setNotSuccessById, currentChange.id)}
+                  aria-label="Add another unsuccessful point"
+                  title="Add another issue"
+                >
+                  +
+                </button>
+              </div>
+              {notSuccessEntries.map((entry, index) => (
+                <div key={`not-success-${currentChange.id}-${index}`} className="study__entry">
+                  <div className="study__entry-header">
+                    <span className="study__entry-label">Issue {index + 1}</span>
+                    <button
+                      type="button"
+                      className="study__chip-btn"
+                      onClick={() => removeEntry(setNotSuccessById, currentChange.id, index)}
+                      aria-label="Remove this unsuccessful point"
+                      title="Remove entry"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                  <textarea
+                    className="study__textarea"
+                    value={entry}
+                    onChange={(e) =>
+                      updateEntry(setNotSuccessById, currentChange.id, index, e.target.value)
+                    }
+                    rows={3}
+                    placeholder="e.g. Other unrelated elements moved."
+                  />
+                </div>
+              ))}
+            </div>
 
             <fieldset className="study__fieldset">
               <legend className="study__label">Would you approve this screen as a designer?</legend>
@@ -384,6 +738,14 @@ export default function Study() {
       )}
 
       <style>{studyStyles}</style>
+      <button
+        type="button"
+        className="study__scroll-down"
+        onClick={scrollToBottom}
+        aria-label="Scroll to bottom"
+      >
+        ↓ More
+      </button>
     </div>
   )
 }
@@ -419,6 +781,11 @@ const studyStyles = `
     font-weight: 600;
     margin: 0;
   }
+  .study__debug {
+    margin: 0.35rem 0 0;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
   .study__error {
     padding: 0.75rem 1rem;
     background: rgba(239, 68, 68, 0.12);
@@ -451,14 +818,96 @@ const studyStyles = `
     overflow: hidden;
     margin-bottom: 1.5rem;
   }
+  .study__screen-wrap--before {
+    max-height: 75vh;
+    min-height: 320px;
+    overflow: auto;
+    background: linear-gradient(180deg, rgba(148, 163, 184, 0.08) 0%, rgba(148, 163, 184, 0.04) 100%);
+  }
   .study__screen-wrap--after {
     min-height: 200px;
+    background: linear-gradient(180deg, rgba(148, 163, 184, 0.08) 0%, rgba(148, 163, 184, 0.04) 100%);
+  }
+  .study__provider-grid {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .study__provider-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: rgba(148, 163, 184, 0.06);
+    overflow: auto;
+  }
+  .study__provider-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border);
+    background: rgba(148, 163, 184, 0.05);
+  }
+  .study__provider-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .study__provider-name {
+    font-weight: 600;
+  }
+  .study__provider-status {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .study__provider-state {
+    padding: 2rem 0;
+  }
+  .study__provider-note {
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: rgba(148, 163, 184, 0.08);
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  .study__provider-note--error {
+    border-color: var(--error);
+    color: var(--error);
+    background: rgba(239, 68, 68, 0.08);
   }
   .study__img {
     display: block;
     max-width: 100%;
     height: auto;
     min-height: 120px;
+    margin: 0 auto;
+  }
+  /* Make scrollbars visible on dark background */
+  .study__screen-wrap--before,
+  .study__screen-wrap--after,
+  .study__iframe {
+    scrollbar-width: thin;
+    scrollbar-color: #ffffff rgba(148, 163, 184, 0.3);
+  }
+  .study__screen-wrap--before::-webkit-scrollbar,
+  .study__screen-wrap--after::-webkit-scrollbar,
+  .study__iframe::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  .study__screen-wrap--before::-webkit-scrollbar-track,
+  .study__screen-wrap--after::-webkit-scrollbar-track,
+  .study__iframe::-webkit-scrollbar-track {
+    background: rgba(148, 163, 184, 0.25);
+    border-radius: 999px;
+  }
+  .study__screen-wrap--before::-webkit-scrollbar-thumb,
+  .study__screen-wrap--after::-webkit-scrollbar-thumb,
+  .study__iframe::-webkit-scrollbar-thumb {
+    background: #ffffff;
+    border-radius: 999px;
+    border: 2px solid rgba(148, 163, 184, 0.35);
   }
   .study__img-placeholder {
     padding: 2rem;
@@ -481,6 +930,11 @@ const studyStyles = `
     min-height: 320px;
     border: none;
     display: block;
+    overflow: auto;
+    background: #f8f9fb;
+  }
+  .study__iframe--before {
+    min-height: 75vh;
   }
   .study__form {
     display: flex;
@@ -492,6 +946,29 @@ const studyStyles = `
     flex-direction: column;
     gap: 0.5rem;
     font-size: 0.95rem;
+  }
+  .study__label-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+  .study__entry {
+    display: grid;
+    gap: 0.5rem;
+  }
+  .study__entry-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+  .study__entry-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
   }
   .study__textarea {
     padding: 0.75rem 1rem;
@@ -524,6 +1001,26 @@ const studyStyles = `
     border: none;
     align-self: flex-start;
   }
+  .study__add-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--accent);
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+  }
+  .study__add-btn:hover {
+    border-color: var(--accent);
+    background: rgba(99, 102, 241, 0.08);
+  }
   .study__btn--primary {
     background: var(--accent);
     color: white;
@@ -543,6 +1040,26 @@ const studyStyles = `
   .study__btn:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+  }
+  .study__scroll-down {
+    position: fixed;
+    right: 1rem;
+    bottom: 1.25rem;
+    padding: 0.65rem 0.85rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+    z-index: 10;
+  }
+  .study__scroll-down:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 34px rgba(15, 23, 42, 0.16);
+    border-color: var(--accent);
   }
   .study__spinner {
     width: 40px;

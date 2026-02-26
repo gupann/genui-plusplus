@@ -49,6 +49,33 @@ If you want to persist results, you can:
 - Add a small API call in `Study.jsx` inside `handleSubmit` to POST the `changes` array to your backend.
 - Or integrate with any analytics/telemetry SDK you use.
 
+
+## Connect your UI generation tool (Figma/Claude/Stitch/backend)
+
+The study flow already calls `generateAfterScreen()` for each user prompt during evaluation.
+
+1. Put your task assets in `public/`:
+   - `task1-before.png`, `task2-before.png`, `task3-before.png`
+   - Optional code context: `task1-before.html`, `task2-before.html`, `task3-before.html`
+2. Set your generation endpoint in a `.env` file:
+
+   ```bash
+   VITE_UI_GENERATION_API_URL=https://your-api.example.com/generate-ui
+   ```
+
+3. Your endpoint should accept:
+   - `taskId`
+   - `prompt`
+   - `beforeImageUrl`
+   - `beforeCode` (if `task*-before.html` exists)
+
+4. Return one of:
+   - `{ "afterImageUrl": "https://..." }`
+   - `{ "afterHtml": "<html>...</html>" }`
+   - `{ "afterCode": "..." }`
+
+If no endpoint is set, the app uses a mock generated result so the study can still run locally.
+
 ## How to run
 
 1. **Install dependencies**

@@ -1,43 +1,134 @@
 /**
  * Service to generate the "after" screen from the user's prompt and the before screen.
- * Replace the implementation with your Figma Make / Stitch / backend API.
+ *
+ * Configure:
+ * - VITE_UI_GENERATION_API_URL: endpoint that accepts POST JSON
  *
  * Expected backend contract:
- * - Input: { taskId, prompt, beforeImageUrl? or beforeCode?, ... }
- * - Output: { afterImageUrl?, afterHtml?, afterCode? } so we can render the result
+ * - Input: { taskId, prompt, beforeImageUrl?, beforeCode? }
+ * - Output: { afterImageUrl?, afterHtml?, afterCode? }
  */
 
-const MOCK_DELAY_MS = 1500
+const MOCK_DELAY_MS = 1200;
+const API_URL = (import.meta.env.VITE_UI_GENERATION_API_URL || '').trim();
+// const REQUEST_TIMEOUT_MS = 45000;
+const REQUEST_TIMEOUT_MS = 120000;
+
+function getStatusUrl() {
+  if (!API_URL) return '';
+  try {
+    const url = new URL(API_URL);
+    url.pathname = '/status';
+    url.search = '';
+    return url.toString();
+  } catch {
+    return '';
+  }
+}
 
 /**
- * Generate the after screen. Replace this with a real API call.
+ * Generate the after screen.
+ * If VITE_UI_GENERATION_API_URL is set, the app will POST to that endpoint.
+ * Otherwise it falls back to a local mock response.
+ *
  * @param {object} params
- * @param {number} params.taskId - Case study id (1, 2, 3)
- * @param {string} params.prompt - User's fix prompt
- * @param {string} [params.beforeImageUrl] - URL of the before screenshot (if you send image)
- * @param {string} [params.beforeCode] - HTML/code of the before screen (if you send code)
+ * @param {number} params.taskId
+ * @param {string} params.prompt
+ * @param {string} [params.beforeImageUrl]
+ * @param {string} [params.beforeCode]
  * @returns {Promise<{ afterImageUrl?: string, afterHtml?: string, afterCode?: string }>}
  */
-export async function generateAfterScreen({ taskId, prompt, beforeImageUrl, beforeCode }) {
-  // --- Replace this block with your actual API call ---
-  await new Promise((r) => setTimeout(r, MOCK_DELAY_MS))
+export async function generateAfterScreen({
+  taskId,
+  prompt,
+  beforeImageUrl,
+  beforeCode,
+  provider,
+}) {
+  if (API_URL) {
+    // eslint-disable-next-line no-console
+    console.log('[generateAfterScreen] start', { provider, apiUrl: API_URL });
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+    let response;
+    try {
+      response = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          taskId,
+          prompt,
+          beforeImageUrl,
+          beforeCode,
+          provider,
+        }),
+        signal: controller.signal,
+      });
+    } catch (err) {
+      if (err?.name === 'AbortError') {
+        throw new Error(
+          `Generation timed out after ${REQUEST_TIMEOUT_MS / 1000}s.`,
+        );
+      }
+      throw err;
+    } finally {
+      clearTimeout(timeoutId);
+    }
 
-  // Mock: return a simple "after" HTML so the app works without a backend.
-  // In production, your API would return afterImageUrl (screenshot URL) or afterHtml/afterCode.
-  const mockAfterHtml = `
-    <div style="font-family: system-ui; padding: 24px; max-width: 400px; margin: 0 auto; background: #fff; color: #111;">
-      <h2 style="margin-top: 0;">After screen (mock)</h2>
-      <p>Task ${taskId}. Your prompt was used to generate this screen.</p>
-      <p><strong>Your prompt:</strong> "${(prompt || '').slice(0, 80)}${(prompt || '').length > 80 ? '…' : ''}"</p>
-      <p>Replace <code>src/services/api.js</code> with a call to Figma Make / Stitch / your backend to show the real result here.</p>
-    </div>
-  `
+    if (!response.ok) {
+      const text = await response.text().catch(() => '');
+      throw new Error(text || `Generation request failed (${response.status})`);
+    }
 
-  return {
-    afterHtml: mockAfterHtml,
-    // afterImageUrl: 'https://...',  // if your API returns a screenshot URL
+    const payload = await response.json();
+    // eslint-disable-next-line no-console
+    console.log('[generateAfterScreen] done', { provider, ok: response.ok });
+    return {
+      afterImageUrl: payload.afterImageUrl,
+      afterHtml: payload.afterHtml,
+      afterCode: payload.afterCode,
+    };
   }
-  // --- End replace block ---
+
+  // Local mock fallback for offline/dev use
+  await new Promise((r) => setTimeout(r, MOCK_DELAY_MS));
+
+  const promptPreview = (prompt || '').slice(0, 140);
+  const codeStatus = beforeCode
+    ? 'Before code attached.'
+    : 'Before code not attached.';
+  const mockAfterHtml = `
+    <div style="font-family: Inter, system-ui, sans-serif; padding: 24px; max-width: 680px; margin: 0 auto; color: #111827;">
+      <h2 style="margin: 0 0 8px;">Generated UI (mock)</h2>
+      <p style="margin: 0 0 8px;">Task ${taskId}</p>
+      <p style="margin: 0 0 12px;"><strong>Prompt:</strong> ${promptPreview}${(prompt || '').length > 140 ? '…' : ''}</p>
+      <p style="margin: 0; color: #4b5563;">${codeStatus}</p>
+      <p style="margin: 12px 0 0; color: #4b5563;">Set <code>VITE_UI_GENERATION_API_URL</code> to use your real generator.</p>
+    </div>
+  `;
+
+  return { afterHtml: mockAfterHtml };
+}
+
+export async function getProviderStatus() {
+  if (!API_URL) {
+    return {
+      mode: 'mock',
+      providers: {
+        openai: { available: true },
+        gemini: { available: true },
+        claude: { available: true },
+      },
+    };
+  }
+  const statusUrl = getStatusUrl();
+  if (!statusUrl) throw new Error('Invalid VITE_UI_GENERATION_API_URL');
+  const response = await fetch(statusUrl);
+  if (!response.ok) {
+    const text = await response.text().catch(() => '');
+    throw new Error(text || `Status request failed (${response.status})`);
+  }
+  return response.json();
 }
 
 /**
@@ -45,6 +136,6 @@ export async function generateAfterScreen({ taskId, prompt, beforeImageUrl, befo
  */
 export async function submitFeedback({ taskId, prompt, feedback }) {
   // POST to your backend, or log. Example:
-  console.log('Feedback', { taskId, prompt, feedback })
-  return { ok: true }
+  console.log('Feedback', { taskId, prompt, feedback });
+  return { ok: true };
 }
