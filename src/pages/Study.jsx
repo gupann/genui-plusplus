@@ -1,227 +1,277 @@
-import { useEffect, useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
-import { generateAfterScreen, getProviderStatus } from '../services/api'
+import { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import JSZip from 'jszip';
+import { generateAfterScreen, getProviderStatus } from '../services/api';
 
 // Placeholder image per task. Replace with your images in public/ e.g. task1-before.png
 function getBeforeImageUrl(taskId) {
-  return `/task${taskId}-before.png`
+  return `/task${taskId}-before.png`;
 }
 
 function getBeforeCodeUrl(taskId) {
-  return `/task${taskId}-before.html`
+  return `/task${taskId}-before.html`;
 }
 
 export default function Study() {
-  const { taskId } = useParams()
-  const navigate = useNavigate()
-  const id = parseInt(taskId, 10) || 1
+  const { taskId } = useParams();
+  const navigate = useNavigate();
+  const id = parseInt(taskId, 10) || 1;
 
-  const [beforeImageFailed, setBeforeImageFailed] = useState(false)
-  const [beforeCode, setBeforeCode] = useState('')
-  const [changes, setChanges] = useState([{ id: 1, problem: '', prompt: '' }])
-  const [phase, setPhase] = useState('collect') // 'collect' | 'review' | 'done'
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [validationById, setValidationById] = useState({})
+  const [beforeImageFailed, setBeforeImageFailed] = useState(false);
+  const [beforeCode, setBeforeCode] = useState('');
+  const [changes, setChanges] = useState([{ id: 1, problem: '', prompt: '' }]);
+  const [phase, setPhase] = useState('collect'); // 'collect' | 'review' | 'done'
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [validationById, setValidationById] = useState({});
 
   // Per-change generation + feedback
-  const [resultsById, setResultsById] = useState({})
-  const [successById, setSuccessById] = useState({})
-  const [notSuccessById, setNotSuccessById] = useState({})
-  const [approvedById, setApprovedById] = useState({})
-  const [iframeHeightsById, setIframeHeightsById] = useState({})
+  const [resultsById, setResultsById] = useState({});
+  const [successById, setSuccessById] = useState({});
+  const [notSuccessById, setNotSuccessById] = useState({});
+  const [approvedById, setApprovedById] = useState({});
+  const [approvalsByProvider, setApprovalsByProvider] = useState({});
+  const [rankingById, setRankingById] = useState({});
+  const [iframeHeightsById, setIframeHeightsById] = useState({});
 
-  const beforeImageUrl = getBeforeImageUrl(id)
-  const beforeCodeUrl = getBeforeCodeUrl(id)
+  const beforeImageUrl = getBeforeImageUrl(id);
+  const beforeCodeUrl = getBeforeCodeUrl(id);
 
   function handleChangeField(index, field, value) {
     setChanges((prev) => {
-      const copy = [...prev]
-      copy[index] = { ...copy[index], [field]: value }
-      return copy
-    })
+      const copy = [...prev];
+      copy[index] = { ...copy[index], [field]: value };
+      return copy;
+    });
     setValidationById((prev) => {
-      const changeId = changes[index]?.id
-      if (!changeId) return prev
-      const next = { ...prev }
-      const trimmed = value.trim()
+      const changeId = changes[index]?.id;
+      if (!changeId) return prev;
+      const next = { ...prev };
+      const trimmed = value.trim();
       if (trimmed) {
-        next[changeId] = { ...(next[changeId] || {}) }
-        delete next[changeId][field]
+        next[changeId] = { ...(next[changeId] || {}) };
+        delete next[changeId][field];
         if (Object.keys(next[changeId]).length === 0) {
-          delete next[changeId]
+          delete next[changeId];
         }
       }
-      return next
-    })
+      return next;
+    });
   }
 
   function handleAddChange() {
     setChanges((prev) => [
       ...prev,
-      { id: prev.length ? prev[prev.length - 1].id + 1 : 1, problem: '', prompt: '' },
-    ])
+      {
+        id: prev.length ? prev[prev.length - 1].id + 1 : 1,
+        problem: '',
+        prompt: '',
+      },
+    ]);
   }
 
   function handleRemoveChange(idToRemove) {
-    setChanges((prev) => prev.filter((c) => c.id !== idToRemove))
+    setChanges((prev) => prev.filter((c) => c.id !== idToRemove));
     setValidationById((prev) => {
-      if (!prev[idToRemove]) return prev
-      const next = { ...prev }
-      delete next[idToRemove]
-      return next
-    })
+      if (!prev[idToRemove]) return prev;
+      const next = { ...prev };
+      delete next[idToRemove];
+      return next;
+    });
   }
 
   function handleStartReview(e) {
-    e.preventDefault()
-    const errors = {}
+    e.preventDefault();
+    const errors = {};
     changes.forEach((c) => {
-      const problemEmpty = !c.problem.trim()
-      const promptEmpty = !c.prompt.trim()
+      const problemEmpty = !c.problem.trim();
+      const promptEmpty = !c.prompt.trim();
       if (problemEmpty || promptEmpty) {
-        errors[c.id] = {}
-        if (problemEmpty) errors[c.id].problem = 'Please describe the change.'
-        if (promptEmpty) errors[c.id].prompt = 'Please add an AI prompt.'
+        errors[c.id] = {};
+        if (problemEmpty) errors[c.id].problem = 'Please describe the change.';
+        if (promptEmpty) errors[c.id].prompt = 'Please add an AI prompt.';
       }
-    })
+    });
     if (Object.keys(errors).length > 0) {
-      setValidationById(errors)
-      return
+      setValidationById(errors);
+      return;
     }
-    setPhase('review')
-    setCurrentIndex(0)
+    setPhase('review');
+    setCurrentIndex(0);
     // eslint-disable-next-line no-console
-    console.log('Saved changes for task', id, changes)
+    console.log('Saved changes for task', id, changes);
   }
 
   function getEntriesById(map, changeId) {
-    const entries = map[changeId]
-    return Array.isArray(entries) && entries.length ? entries : ['']
+    const entries = map[changeId];
+    if (Array.isArray(entries) && entries.length) return entries;
+    return [{ text: '', providerId: '' }];
   }
 
-  function updateEntry(setter, changeId, index, value) {
+  function updateEntry(setter, changeId, index, key, value) {
     setter((prev) => {
-      const next = { ...prev }
-      const entries = Array.isArray(next[changeId]) ? [...next[changeId]] : ['']
-      while (entries.length <= index) entries.push('')
-      entries[index] = value
-      next[changeId] = entries
-      return next
-    })
+      const next = { ...prev };
+      const entries = Array.isArray(next[changeId])
+        ? [...next[changeId]]
+        : [{ text: '', providerId: '' }];
+      while (entries.length <= index)
+        entries.push({ text: '', providerId: '' });
+      entries[index] = { ...entries[index], [key]: value };
+      next[changeId] = entries;
+      return next;
+    });
   }
 
   function addEntry(setter, changeId) {
     setter((prev) => {
-      const next = { ...prev }
-      const entries = Array.isArray(next[changeId]) ? [...next[changeId]] : ['']
-      entries.push('')
-      next[changeId] = entries
-      return next
-    })
+      const next = { ...prev };
+      const entries = Array.isArray(next[changeId])
+        ? [...next[changeId]]
+        : [{ text: '', providerId: '' }];
+      entries.push({ text: '', providerId: '' });
+      next[changeId] = entries;
+      return next;
+    });
   }
 
   function removeEntry(setter, changeId, index) {
     setter((prev) => {
-      const next = { ...prev }
-      const entries = Array.isArray(next[changeId]) ? [...next[changeId]] : ['']
+      const next = { ...prev };
+      const entries = Array.isArray(next[changeId])
+        ? [...next[changeId]]
+        : [{ text: '', providerId: '' }];
       if (entries.length <= 1) {
-        next[changeId] = ['']
-        return next
+        next[changeId] = [{ text: '', providerId: '' }];
+        return next;
       }
-      entries.splice(index, 1)
-      next[changeId] = entries.length ? entries : ['']
-      return next
-    })
+      entries.splice(index, 1);
+      next[changeId] = entries.length
+        ? entries
+        : [{ text: '', providerId: '' }];
+      return next;
+    });
   }
 
-
   useEffect(() => {
-    let cancelled = false
+    let cancelled = false;
 
     async function loadBeforeCode() {
       try {
-        const response = await fetch(beforeCodeUrl)
-        if (!response.ok) throw new Error('missing before code')
-        const text = await response.text()
-        if (!cancelled) setBeforeCode(text)
+        const response = await fetch(beforeCodeUrl);
+        if (!response.ok) throw new Error('missing before code');
+        const text = await response.text();
+        if (!cancelled) setBeforeCode(text);
       } catch {
-        if (!cancelled) setBeforeCode('')
+        if (!cancelled) setBeforeCode('');
       }
     }
 
-    loadBeforeCode()
+    loadBeforeCode();
 
     return () => {
-      cancelled = true
-    }
-  }, [beforeCodeUrl])
+      cancelled = true;
+    };
+  }, [beforeCodeUrl]);
 
   useEffect(() => {
-    let cancelled = false
+    let cancelled = false;
     async function loadStatus() {
       try {
-        const status = await getProviderStatus()
-        if (cancelled) return
+        const status = await getProviderStatus();
+        if (cancelled) return;
         setProviderStatus({
           loading: false,
           error: null,
           providers: status.providers || null,
           mode: status.mode || 'unknown',
-        })
+        });
       } catch (err) {
-        if (cancelled) return
+        if (cancelled) return;
         setProviderStatus({
           loading: false,
           error: err.message || 'Unable to reach generation server.',
           providers: null,
           mode: 'unknown',
-        })
+        });
       }
     }
-    loadStatus()
+    loadStatus();
     return () => {
-      cancelled = true
-    }
-  }, [])
+      cancelled = true;
+    };
+  }, []);
 
   const providers = [
     { id: 'openai', label: 'OpenAI' },
     { id: 'gemini', label: 'Gemini' },
     { id: 'claude', label: 'Claude' },
-  ]
+  ];
   const [providerStatus, setProviderStatus] = useState({
     loading: true,
     error: null,
     providers: null,
     mode: 'unknown',
-  })
+  });
 
   const availableProviders = providerStatus?.providers
-    ? providers.filter((p) => providerStatus.providers[p.id]?.available !== false)
-    : providers
+    ? providers.filter(
+        (p) => providerStatus.providers[p.id]?.available !== false,
+      )
+    : providers;
   const missingProviders = providerStatus?.providers
-    ? providers.filter((p) => providerStatus.providers[p.id]?.available === false)
-    : []
+    ? providers.filter(
+        (p) => providerStatus.providers[p.id]?.available === false,
+      )
+    : [];
 
   function buildDownloadHref(code) {
-    if (!code) return ''
-    return `data:text/html;charset=utf-8,${encodeURIComponent(code)}`
+    if (!code) return '';
+    return `data:text/html;charset=utf-8,${encodeURIComponent(code)}`;
   }
 
-  const CLIENT_WATCHDOG_MS = 50000
+  async function handleDownloadFull(changeId, providerId) {
+    const change = changes.find((c) => c.id === changeId);
+    const providerResult = resultsById[changeId]?.[providerId]?.result;
+    const code = providerResult?.afterHtml || providerResult?.afterCode || '';
+    const promptText = change?.prompt || '';
+    const zip = new JSZip();
+    zip.file(
+      `before-task-${changeId}.html`,
+      beforeCode || '<!-- no before code found -->',
+    );
+    zip.file(
+      `task-${changeId}-prompt.txt`,
+      promptText || '(no prompt provided)',
+    );
+    zip.file(
+      `after-task-${changeId}-${providerId}.html`,
+      code || '<!-- no after code returned -->',
+    );
+    const blob = await zip.generateAsync({ type: 'blob' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `task-${changeId}-${providerId}.zip`;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 2000);
+  }
+
+  const CLIENT_WATCHDOG_MS = 50000;
 
   function triggerProviderGeneration(providerId, { force = false } = {}) {
     // eslint-disable-next-line no-console
-    console.log('[ui] triggerProviderGeneration', { providerId, force })
-    const current = changes[currentIndex]
-    if (!current) return
-    const changeId = current.id
-    const requestId = `${Date.now()}-${Math.random().toString(16).slice(2)}`
+    console.log('[ui] triggerProviderGeneration', { providerId, force });
+    const current = changes[currentIndex];
+    if (!current) return;
+    const changeId = current.id;
+    const requestId = `${Date.now()}-${Math.random().toString(16).slice(2)}`;
 
     setResultsById((prev) => {
-      const existingForChange = prev[changeId] || {}
-      const existingProvider = existingForChange[providerId]
-      if (!force && (existingProvider?.loading || existingProvider?.done)) return prev
+      const existingForChange = prev[changeId] || {};
+      const existingProvider = existingForChange[providerId];
+      if (!force && (existingProvider?.loading || existingProvider?.done))
+        return prev;
       return {
         ...prev,
         [changeId]: {
@@ -234,16 +284,16 @@ export default function Study() {
             startedAt: Date.now(),
           },
         },
-      }
-    })
+      };
+    });
     // eslint-disable-next-line no-console
-    console.log('[ui] scheduling run', { providerId, requestId })
+    console.log('[ui] scheduling run', { providerId, requestId });
 
     setTimeout(() => {
       setResultsById((prev) => {
-        const currentProvider = prev?.[changeId]?.[providerId]
-        if (!currentProvider?.loading) return prev
-        if (currentProvider.requestId !== requestId) return prev
+        const currentProvider = prev?.[changeId]?.[providerId];
+        if (!currentProvider?.loading) return prev;
+        if (currentProvider.requestId !== requestId) return prev;
         return {
           ...prev,
           [changeId]: {
@@ -255,9 +305,9 @@ export default function Study() {
               error: 'Request timed out or was blocked. Try again.',
             },
           },
-        }
-      })
-    }, CLIENT_WATCHDOG_MS)
+        };
+      });
+    }, CLIENT_WATCHDOG_MS);
 
     const run = async () => {
       try {
@@ -265,16 +315,16 @@ export default function Study() {
         console.log('[ui] calling generateAfterScreen', {
           providerId,
           apiUrl: import.meta.env.VITE_UI_GENERATION_API_URL,
-        })
+        });
         const result = await generateAfterScreen({
           taskId: id,
           prompt: current.prompt,
           beforeImageUrl,
           beforeCode,
           provider: providerId,
-        })
+        });
         // eslint-disable-next-line no-console
-        console.log('[ui] generateAfterScreen success', { providerId })
+        console.log('[ui] generateAfterScreen success', { providerId });
         setResultsById((prev) => ({
           ...prev,
           [changeId]: {
@@ -286,10 +336,10 @@ export default function Study() {
               result,
             },
           },
-        }))
+        }));
       } catch (err) {
         // eslint-disable-next-line no-console
-        console.error('[ui] generateAfterScreen error', { providerId, err })
+        console.error('[ui] generateAfterScreen error', { providerId, err });
         setResultsById((prev) => ({
           ...prev,
           [changeId]: {
@@ -301,93 +351,145 @@ export default function Study() {
               error: err.message || 'Failed to generate screen.',
             },
           },
-        }))
+        }));
       }
-    }
+    };
 
-    run()
+    run();
   }
 
   function handleNextChange() {
     if (currentIndex < changes.length - 1) {
-      setCurrentIndex((i) => i + 1)
+      setCurrentIndex((i) => i + 1);
     } else {
       // End of all changes
-      setPhase('done')
+      setPhase('done');
       // eslint-disable-next-line no-console
       console.log('Completed review for task', id, {
         changes,
         successById,
         notSuccessById,
         approvedById,
-      })
+      });
     }
   }
 
   if (phase === 'done') {
     return (
-      <div className="study study--centered">
-        <div className="study__done">
+      <div className='study study--centered'>
+        <div className='study__done'>
           <h2>Thank you</h2>
           <p>
-            Your small changes, prompts, and evaluations have been captured for this case study. You can start another
-            case study or close this page.
+            Your small changes, prompts, and evaluations have been captured for
+            this case study. You can start another case study or close this
+            page.
           </p>
-          <button type="button" className="study__btn study__btn--primary" onClick={() => navigate('/')}>
+          <button
+            type='button'
+            className='study__btn study__btn--primary'
+            onClick={() => navigate('/')}
+          >
             Back to case studies
           </button>
         </div>
         <style>{studyStyles}</style>
       </div>
-    )
+    );
   }
 
-  const isCollect = phase === 'collect'
-  const currentChange = changes[currentIndex]
-  const currentChangeId = currentChange?.id
-  const currentResult = currentChange ? resultsById[currentChange.id] || {} : {}
+  const isCollect = phase === 'collect';
+  const currentChange = changes[currentIndex];
+  const currentChangeId = currentChange?.id;
+  const currentResult = currentChange
+    ? resultsById[currentChange.id] || {}
+    : {};
   const getIframeHeight = (changeId, providerId) =>
-    iframeHeightsById[changeId]?.[providerId] || 900
+    iframeHeightsById[changeId]?.[providerId] || 900;
 
   function scrollToBottom() {
     window.scrollTo({
       top: document.documentElement.scrollHeight,
       behavior: 'smooth',
-    })
+    });
+  }
+
+  function setProviderApproval(changeId, providerId, value) {
+    setApprovalsByProvider((prev) => ({
+      ...prev,
+      [changeId]: { ...(prev[changeId] || {}), [providerId]: value },
+    }));
+  }
+
+  function updateRanking(changeId, slot, providerId) {
+    setRankingById((prev) => ({
+      ...prev,
+      [changeId]: { ...(prev[changeId] || {}), [slot]: providerId },
+    }));
   }
 
   function handleIframeLoad(changeId, providerId, event) {
     try {
-      const doc = event.target?.contentDocument
-      if (!doc) return
+      const doc = event.target?.contentDocument;
+      if (!doc) return;
       const height =
         doc.documentElement?.scrollHeight ||
         doc.body?.scrollHeight ||
         doc.documentElement?.offsetHeight ||
-        900
+        900;
       setIframeHeightsById((prev) => {
-        const next = { ...prev }
-        const entry = { ...(next[changeId] || {}) }
-        entry[providerId] = Math.max(height, 600)
-        next[changeId] = entry
-        return next
-      })
+        const next = { ...prev };
+        const entry = { ...(next[changeId] || {}) };
+        entry[providerId] = Math.max(height, 600);
+        next[changeId] = entry;
+        return next;
+      });
     } catch (err) {
       // eslint-disable-next-line no-console
-      console.warn('Could not read iframe height', err)
+      console.warn('Could not read iframe height', err);
     }
   }
-  const successEntries = currentChange ? getEntriesById(successById, currentChange.id) : ['']
-  const notSuccessEntries = currentChange ? getEntriesById(notSuccessById, currentChange.id) : ['']
-  const hasMissingRequired = changes.some((c) => !c.problem.trim() || !c.prompt.trim())
+  const successEntries = currentChange
+    ? getEntriesById(successById, currentChange.id)
+    : [''];
+  const notSuccessEntries = currentChange
+    ? getEntriesById(notSuccessById, currentChange.id)
+    : [''];
+  const hasMissingRequired = changes.some(
+    (c) => !c.problem.trim() || !c.prompt.trim(),
+  );
+  const providersForChange = availableProviders;
+  const ranksToShow = providersForChange.length || 0;
+  const approvalsComplete =
+    providersForChange.length > 0 &&
+    providersForChange.every(
+      (p) =>
+        approvalsByProvider[currentChangeId]?.[p.id] === true ||
+        approvalsByProvider[currentChangeId]?.[p.id] === false,
+    );
+  const rankingCurrent = rankingById[currentChangeId] || {};
+  const rankingValues = Array.from(
+    { length: ranksToShow },
+    (_, i) => rankingCurrent[i + 1],
+  ).filter(Boolean);
+  const uniqueRankCount = new Set(rankingValues).size;
+  const rankingComplete =
+    ranksToShow === 0 ||
+    (rankingValues.length === ranksToShow && uniqueRankCount === ranksToShow);
+  const finishDisabled =
+    hasMissingRequired || !approvalsComplete || !rankingComplete;
 
   return (
-    <div className="study">
-      <header className="study__header">
-        <button type="button" className="study__back" onClick={() => navigate('/user-study')}>
+    <div className='study'>
+      <header className='study__header'>
+        <button
+          type='button'
+          className='study__back'
+          onClick={() => navigate('/user-study')}
+        >
           ← Case studies
         </button>
         <h1>Case Study {id}</h1>
+        {/* 
         <p className="study__debug">
           Generator: {import.meta.env.VITE_UI_GENERATION_API_URL ? 'API' : 'Mock'}{' '}
           {import.meta.env.VITE_UI_GENERATION_API_URL
@@ -403,31 +505,34 @@ export default function Study() {
               }`
             : 'result=none'}
         </p>
+        */}
       </header>
 
-      <section className="study__section">
+      <section className='study__section'>
         <h2>Screen</h2>
-        <p className="study__hint">
-          Look at this screen and identify small, incremental changes you would make. For each change, describe the
-          problem and write the exact AI prompt you would use to implement it.
+        <p className='study__hint'>
+          Scroll through this screen and identify small, incremental changes you
+          would make. For each change, describe the problem and write the exact
+          AI prompt you would use to implement it.
         </p>
-        <div className="study__screen-wrap study__screen-wrap--before">
+        <div className='study__screen-wrap study__screen-wrap--before'>
           {beforeCode ? (
             <iframe
-              title="Before screen"
+              title='Before screen'
               srcDoc={beforeCode}
-              className="study__iframe study__iframe--before"
-              sandbox="allow-same-origin allow-scripts"
+              className='study__iframe study__iframe--before'
+              sandbox='allow-same-origin allow-scripts'
             />
           ) : beforeImageFailed ? (
-            <div className="study__img-placeholder">
-              Add your screenshot as <code>public/task{id}-before.png</code> (or .jpg). Optional code: <code>public/task{id}-before.html</code>
+            <div className='study__img-placeholder'>
+              Add your screenshot as <code>public/task{id}-before.png</code> (or
+              .jpg). Optional code: <code>public/task{id}-before.html</code>
             </div>
           ) : (
             <img
               src={beforeImageUrl}
-              alt="Screen for this case study"
-              className="study__img"
+              alt='Screen for this case study'
+              className='study__img'
               onError={() => setBeforeImageFailed(true)}
             />
           )}
@@ -435,22 +540,26 @@ export default function Study() {
       </section>
 
       {isCollect ? (
-        <section className="study__section">
+        <section className='study__section'>
           <h2>Small changes and AI prompts</h2>
-          <p className="study__hint">
-            Add as many small changes as you like. Each row is one small, incremental change (e.g. move a button,
-            adjust copy, tweak spacing, etc.) with the corresponding AI prompt you&apos;d send to your design agent.
+          <p className='study__hint'>
+            Add as many small changes as you like. Each row is one small,
+            incremental change (e.g. move a button, adjust copy, tweak spacing,
+            etc.) with the corresponding AI prompt you&apos;d send to your
+            design agent.
           </p>
 
-          <form onSubmit={handleStartReview} className="study__form">
+          <form onSubmit={handleStartReview} className='study__form'>
             {changes.map((change, index) => (
-              <div key={change.id} className="study__change">
-                <div className="study__change-header">
-                  <span className="study__change-label">Change {index + 1}</span>
+              <div key={change.id} className='study__change'>
+                <div className='study__change-header'>
+                  <span className='study__change-label'>
+                    Change {index + 1}
+                  </span>
                   {changes.length > 1 && (
                     <button
-                      type="button"
-                      className="study__chip-btn"
+                      type='button'
+                      className='study__chip-btn'
                       onClick={() => handleRemoveChange(change.id)}
                     >
                       Remove
@@ -458,111 +567,171 @@ export default function Study() {
                   )}
                 </div>
 
-                <label className="study__label">
+                <label className='study__label'>
                   What is the small change or issue?
                   <textarea
                     className={`study__textarea${validationById[change.id]?.problem ? ' study__textarea--error' : ''}`}
                     value={change.problem}
-                    onChange={(e) => handleChangeField(index, 'problem', e.target.value)}
+                    onChange={(e) =>
+                      handleChangeField(index, 'problem', e.target.value)
+                    }
                     rows={2}
-                    placeholder="e.g. The primary button is too low in the hierarchy; move it closer to the form."
+                    placeholder='e.g. The primary button is too low in the hierarchy; move it closer to the form.'
                   />
                   {validationById[change.id]?.problem && (
-                    <span className="study__error-text">{validationById[change.id].problem}</span>
+                    <span className='study__error-text'>
+                      {validationById[change.id].problem}
+                    </span>
                   )}
                 </label>
 
-                <label className="study__label">
+                <label className='study__label'>
                   AI prompt you would use for this change
                   <textarea
                     className={`study__textarea${validationById[change.id]?.prompt ? ' study__textarea--error' : ''}`}
                     value={change.prompt}
-                    onChange={(e) => handleChangeField(index, 'prompt', e.target.value)}
+                    onChange={(e) =>
+                      handleChangeField(index, 'prompt', e.target.value)
+                    }
                     rows={2}
                     placeholder='e.g. "Move the primary submit button directly below the last form field and increase its size by 10%."'
                   />
                   {validationById[change.id]?.prompt && (
-                    <span className="study__error-text">{validationById[change.id].prompt}</span>
+                    <span className='study__error-text'>
+                      {validationById[change.id].prompt}
+                    </span>
                   )}
                 </label>
               </div>
             ))}
 
-            <button type="button" className="study__btn study__btn--ghost" onClick={handleAddChange}>
+            <button
+              type='button'
+              className='study__btn study__btn--ghost'
+              onClick={handleAddChange}
+            >
               + Add another small change
             </button>
 
-            <button type="submit" className="study__btn study__btn--primary" disabled={hasMissingRequired}>
+            <button
+              type='submit'
+              className='study__btn study__btn--primary'
+              disabled={hasMissingRequired}
+            >
               Save changes and start evaluation
             </button>
           </form>
         </section>
       ) : (
-        <section className="study__section">
+        <section className='study__section'>
           <h2>
             Evaluate change {currentIndex + 1} of {changes.length}
           </h2>
-          <p className="study__hint">
-            We used your AI prompt for this small change to generate an updated screen. Tell us what is successful,
-            what is not, and whether you would approve this result as a designer. Each success or failure should be one
-            thing to keep the feedback itemized.
+          <p className='study__hint'>
+            Let's use your AI prompt for this small change to generate an
+            updated screen. Tell us what is successful, what is not, and whether
+            you would approve this result as a designer. Each success or failure
+            should be one thing to keep the feedback itemized.
           </p>
 
-          <div className="study__change study__change--summary">
-            <div className="study__change-header">
-              <span className="study__change-label">Original change</span>
+          <div className='study__change study__change--summary'>
+            <div className='study__change-header'>
+              <span className='study__change-label'>Provided AI prompt</span>
             </div>
-            <p className="study__meta-label">Issue / small change</p>
-            <p className="study__meta-body">{currentChange.problem || <em>(No description provided)</em>}</p>
-            <p className="study__meta-label">AI prompt</p>
-            <p className="study__meta-body">{currentChange.prompt || <em>(No prompt provided)</em>}</p>
+            <p className='study__meta-body study__meta-body--single'>
+              {currentChange.prompt || <em>(No prompt provided)</em>}
+            </p>
           </div>
 
-          <div className="study__screen-wrap study__screen-wrap--after">
-            <div className="study__provider-grid">
+          <div className='study__screen-wrap study__screen-wrap--after'>
+            <div className='study__provider-grid'>
               {availableProviders.map((provider) => {
-                const providerResult = currentResult?.[provider.id]
-                const isLoading = providerResult?.loading
-                const error = providerResult?.error
-                const result = providerResult?.result
-                const code = result?.afterHtml || result?.afterCode || ''
-                const downloadHref = buildDownloadHref(code)
+                const providerResult = currentResult?.[provider.id];
+                const isLoading = providerResult?.loading;
+                const error = providerResult?.error;
+                const result = providerResult?.result;
+                const code = result?.afterHtml || result?.afterCode || '';
+                const downloadHref = buildDownloadHref(code);
 
                 return (
-                  <div key={provider.id} className="study__provider-card">
-                    <div className="study__provider-header">
-                      <span className="study__provider-name">{provider.label}</span>
-                      <div className="study__provider-actions">
+                  <div key={provider.id} className='study__provider-card'>
+                    <div className='study__provider-header'>
+                      <span className='study__provider-name'>
+                        {provider.label}
+                      </span>
+                      <div className='study__provider-actions'>
                         {downloadHref ? (
-                          <a
-                            className="study__chip-btn"
-                            href={downloadHref}
-                            download={`task-${id}-change-${currentChange.id}-${provider.id}.html`}
+                          <button
+                            type='button'
+                            className='study__chip-btn'
+                            onClick={() =>
+                              handleDownloadFull(currentChange.id, provider.id)
+                            }
                           >
                             Download Full Item
-                          </a>
+                          </button>
                         ) : (
-                          <span className="study__provider-status">No code yet</span>
+                          <span className='study__provider-status'>
+                            No code yet
+                          </span>
                         )}
                         <button
-                          type="button"
-                          className="study__chip-btn"
-                          onClick={() => triggerProviderGeneration(provider.id, { force: true })}
+                          type='button'
+                          className='study__chip-btn'
+                          disabled={isLoading}
+                          onClick={() =>
+                            triggerProviderGeneration(provider.id, {
+                              force: true,
+                            })
+                          }
                         >
                           {error ? 'Generate' : 'Generate'}
                         </button>
                       </div>
                     </div>
+                    <p className='study__provider-approve-hint'>
+                      Let us know whether you'd approve this output:
+                      <button
+                        type='button'
+                        className={`study__chip-btn study__chip-btn--approve${approvalsByProvider[currentChange.id]?.[provider.id] === true ? ' is-active' : ''}`}
+                        disabled={!result || isLoading || error}
+                        onClick={() =>
+                          result &&
+                          setProviderApproval(
+                            currentChange.id,
+                            provider.id,
+                            true,
+                          )
+                        }
+                      >
+                        ✅ Approve
+                      </button>
+                      <button
+                        type='button'
+                        className={`study__chip-btn study__chip-btn--reject${approvalsByProvider[currentChange.id]?.[provider.id] === false ? ' is-active' : ''}`}
+                        disabled={!result || isLoading || error}
+                        onClick={() =>
+                          result &&
+                          setProviderApproval(
+                            currentChange.id,
+                            provider.id,
+                            false,
+                          )
+                        }
+                      >
+                        ❌ Disapprove
+                      </button>
+                    </p>
 
                     {isLoading && (
-                      <div className="study__section--centered study__provider-state">
-                        <div className="study__spinner" aria-hidden />
+                      <div className='study__section--centered study__provider-state'>
+                        <div className='study__spinner' aria-hidden />
                         <p>Generating…</p>
                       </div>
                     )}
 
                     {error && !isLoading && (
-                      <div className="study__error" role="alert">
+                      <div className='study__error' role='alert'>
                         {error}
                       </div>
                     )}
@@ -573,165 +742,263 @@ export default function Study() {
                           <img
                             src={result.afterImageUrl}
                             alt={`${provider.label} after screen`}
-                            className="study__img"
+                            className='study__img'
                           />
                         ) : code ? (
                           <iframe
                             title={`${provider.label} after screen`}
                             srcDoc={code}
-                            className="study__iframe"
-                            sandbox="allow-same-origin allow-scripts"
-                            scrolling="yes"
+                            className='study__iframe'
+                            sandbox='allow-same-origin allow-scripts'
+                            scrolling='yes'
                             style={{
                               height: `${Math.min(
-                                Math.max(getIframeHeight(currentChange.id, provider.id), 700),
+                                Math.max(
+                                  getIframeHeight(
+                                    currentChange.id,
+                                    provider.id,
+                                  ),
+                                  700,
+                                ),
                                 900,
                               )}px`,
                               maxHeight: '75vh',
                             }}
-                            onLoad={(e) => handleIframeLoad(currentChange.id, provider.id, e)}
+                            onLoad={(e) =>
+                              handleIframeLoad(currentChange.id, provider.id, e)
+                            }
                           />
                         ) : (
-                          <div className="study__img-placeholder">No output returned.</div>
+                          <div className='study__img-placeholder'>
+                            No output returned.
+                          </div>
                         )}
                       </>
                     )}
                   </div>
-                )
+                );
               })}
               {!providerStatus.loading && missingProviders.length > 0 && (
-                <div className="study__provider-note">
-                  Missing API keys: {missingProviders.map((p) => p.label).join(', ')}. Those providers are hidden.
+                <div className='study__provider-note'>
+                  Missing API keys:{' '}
+                  {missingProviders.map((p) => p.label).join(', ')}. Those
+                  providers are hidden.
                 </div>
               )}
               {providerStatus.error && (
-                <div className="study__provider-note study__provider-note--error">
+                <div className='study__provider-note study__provider-note--error'>
                   {providerStatus.error}
                 </div>
               )}
-              {!providerStatus.loading && availableProviders.length === 0 && !providerStatus.error && (
-                <div className="study__provider-note study__provider-note--error">
-                  No providers available. Add an API key and restart the server.
-                </div>
-              )}
+              {!providerStatus.loading &&
+                availableProviders.length === 0 &&
+                !providerStatus.error && (
+                  <div className='study__provider-note study__provider-note--error'>
+                    No providers available. Add an API key and restart the
+                    server.
+                  </div>
+                )}
             </div>
           </div>
 
           <form
             onSubmit={(e) => {
-              e.preventDefault()
-              handleNextChange()
+              e.preventDefault();
+              handleNextChange();
             }}
-            className="study__form"
+            className='study__form'
           >
-            <div className="study__label">
-              <div className="study__label-row">
-                <span>What is successful about this result? (One thing per entry.)</span>
+            <div className='study__label'>
+              <div className='study__label-row'>
+                <span>
+                  What is successful about each result? Mention all that you can
+                  think of.
+                </span>
                 <button
-                  type="button"
-                  className="study__add-btn"
+                  type='button'
+                  className='study__add-btn'
                   onClick={() => addEntry(setSuccessById, currentChange.id)}
-                  aria-label="Add another successful point"
-                  title="Add another success"
+                  aria-label='Add another successful point'
+                  title='Add another success'
                 >
                   +
                 </button>
               </div>
               {successEntries.map((entry, index) => (
-                <div key={`success-${currentChange.id}-${index}`} className="study__entry">
-                  <div className="study__entry-header">
-                    <span className="study__entry-label">Success {index + 1}</span>
+                <div
+                  key={`success-${currentChange.id}-${index}`}
+                  className='study__entry'
+                >
+                  <div className='study__entry-header'>
+                    <span className='study__entry-label'>
+                      Success {index + 1}
+                    </span>
                     <button
-                      type="button"
-                      className="study__chip-btn"
-                      onClick={() => removeEntry(setSuccessById, currentChange.id, index)}
-                      aria-label="Remove this successful point"
-                      title="Remove entry"
+                      type='button'
+                      className='study__chip-btn'
+                      onClick={() =>
+                        removeEntry(setSuccessById, currentChange.id, index)
+                      }
+                      aria-label='Remove this successful point'
+                      title='Remove entry'
                     >
                       Remove
                     </button>
                   </div>
-                  <textarea
-                    className="study__textarea"
-                    value={entry}
-                    onChange={(e) => updateEntry(setSuccessById, currentChange.id, index, e.target.value)}
-                    rows={3}
-                    placeholder="e.g. The new button position makes it easier to find."
-                  />
+                  <div className='study__entry-row'>
+                    <select
+                      className='study__select'
+                      value={entry.providerId}
+                      onChange={(e) =>
+                        updateEntry(
+                          setSuccessById,
+                          currentChange.id,
+                          index,
+                          'providerId',
+                          e.target.value,
+                        )
+                      }
+                    >
+                      <option value=''>Select a model</option>
+                      {providers.map((p) => (
+                        <option key={p.id} value={p.id}>
+                          {p.label}
+                        </option>
+                      ))}
+                    </select>
+                    <textarea
+                      className='study__textarea'
+                      value={entry.text || ''}
+                      onChange={(e) =>
+                        updateEntry(
+                          setSuccessById,
+                          currentChange.id,
+                          index,
+                          'text',
+                          e.target.value,
+                        )
+                      }
+                      rows={3}
+                      placeholder='e.g. The new button position makes it easier to find.'
+                    />
+                  </div>
                 </div>
               ))}
             </div>
 
-            <div className="study__label">
-              <div className="study__label-row">
-                <span>What is not successful about this result? (One thing per entry.)</span>
+            <div className='study__label'>
+              <div className='study__label-row'>
+                <span>
+                  What is not successful about each result? Mention all that you
+                  can think of.
+                </span>
                 <button
-                  type="button"
-                  className="study__add-btn"
+                  type='button'
+                  className='study__add-btn'
                   onClick={() => addEntry(setNotSuccessById, currentChange.id)}
-                  aria-label="Add another unsuccessful point"
-                  title="Add another issue"
+                  aria-label='Add another unsuccessful point'
+                  title='Add another issue'
                 >
                   +
                 </button>
               </div>
               {notSuccessEntries.map((entry, index) => (
-                <div key={`not-success-${currentChange.id}-${index}`} className="study__entry">
-                  <div className="study__entry-header">
-                    <span className="study__entry-label">Issue {index + 1}</span>
+                <div
+                  key={`not-success-${currentChange.id}-${index}`}
+                  className='study__entry'
+                >
+                  <div className='study__entry-header'>
+                    <span className='study__entry-label'>
+                      Issue {index + 1}
+                    </span>
                     <button
-                      type="button"
-                      className="study__chip-btn"
-                      onClick={() => removeEntry(setNotSuccessById, currentChange.id, index)}
-                      aria-label="Remove this unsuccessful point"
-                      title="Remove entry"
+                      type='button'
+                      className='study__chip-btn'
+                      onClick={() =>
+                        removeEntry(setNotSuccessById, currentChange.id, index)
+                      }
+                      aria-label='Remove this unsuccessful point'
+                      title='Remove entry'
                     >
                       Remove
                     </button>
                   </div>
-                  <textarea
-                    className="study__textarea"
-                    value={entry}
-                    onChange={(e) =>
-                      updateEntry(setNotSuccessById, currentChange.id, index, e.target.value)
-                    }
-                    rows={3}
-                    placeholder="e.g. Other unrelated elements moved."
-                  />
+                  <div className='study__entry-row'>
+                    <select
+                      className='study__select'
+                      value={entry.providerId}
+                      onChange={(e) =>
+                        updateEntry(
+                          setNotSuccessById,
+                          currentChange.id,
+                          index,
+                          'providerId',
+                          e.target.value,
+                        )
+                      }
+                    >
+                      <option value=''>Select a model</option>
+                      {providers.map((p) => (
+                        <option key={p.id} value={p.id}>
+                          {p.label}
+                        </option>
+                      ))}
+                    </select>
+                    <textarea
+                      className='study__textarea'
+                      value={entry.text || ''}
+                      onChange={(e) =>
+                        updateEntry(
+                          setNotSuccessById,
+                          currentChange.id,
+                          index,
+                          'text',
+                          e.target.value,
+                        )
+                      }
+                      rows={3}
+                      placeholder='e.g. Other unrelated elements moved.'
+                    />
+                  </div>
                 </div>
               ))}
             </div>
 
-            <fieldset className="study__fieldset">
-              <legend className="study__label">Would you approve this screen as a designer?</legend>
-              <div className="study__radio-row">
-                <label className="study__radio-label">
-                  <input
-                    type="radio"
-                    name={`approve-${currentChange.id}`}
-                    checked={approvedById[currentChange.id] === true}
-                    onChange={() =>
-                      setApprovedById((prev) => ({ ...prev, [currentChange.id]: true }))
-                    }
-                  />
-                  <span>Yes, I would approve it</span>
-                </label>
-                <label className="study__radio-label">
-                  <input
-                    type="radio"
-                    name={`approve-${currentChange.id}`}
-                    checked={approvedById[currentChange.id] === false}
-                    onChange={() =>
-                      setApprovedById((prev) => ({ ...prev, [currentChange.id]: false }))
-                    }
-                  />
-                  <span>No, I would not approve it</span>
-                </label>
+            <fieldset className='study__fieldset'>
+              <legend className='study__label'>
+                Rank the model outputs (1 = best)
+              </legend>
+              <div className='study__rank-grid'>
+                {Array.from({ length: Math.max(ranksToShow, 1) }, (_, idx) => idx + 1).map((rank) => (
+                  <label key={rank} className='study__rank-row'>
+                    <span>Rank {rank}</span>
+                    <select
+                      className='study__select'
+                      value={rankingById[currentChange.id]?.[rank] || ''}
+                      onChange={(e) =>
+                        updateRanking(currentChange.id, rank, e.target.value)
+                      }
+                    >
+                      <option value=''>Select a model</option>
+                      {providers.map((p) => (
+                        <option key={p.id} value={p.id}>
+                          {p.label}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                ))}
               </div>
             </fieldset>
 
-            <button type="submit" className="study__btn study__btn--primary">
-              {currentIndex < changes.length - 1 ? 'Next change' : 'Finish case study'}
+            <button
+              type='submit'
+              className='study__btn study__btn--primary'
+              disabled={finishDisabled}
+            >
+              {currentIndex < changes.length - 1
+                ? 'Next change'
+                : 'Finish case study'}
             </button>
           </form>
         </section>
@@ -739,15 +1006,15 @@ export default function Study() {
 
       <style>{studyStyles}</style>
       <button
-        type="button"
-        className="study__scroll-down"
+        type='button'
+        className='study__scroll-down'
         onClick={scrollToBottom}
-        aria-label="Scroll to bottom"
+        aria-label='Scroll to bottom'
       >
-        ↓ More
+        ↓
       </button>
     </div>
-  )
+  );
 }
 
 const studyStyles = `
@@ -848,6 +1115,16 @@ const studyStyles = `
     border-bottom: 1px solid var(--border);
     background: rgba(148, 163, 184, 0.05);
   }
+  .study__provider-approve-hint {
+    padding: 0.75rem 1rem;
+    margin: 0;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 0.92rem;
+    color: var(--text);
+  }
   .study__provider-actions {
     display: inline-flex;
     align-items: center;
@@ -887,27 +1164,27 @@ const studyStyles = `
   .study__screen-wrap--before,
   .study__screen-wrap--after,
   .study__iframe {
-    scrollbar-width: thin;
-    scrollbar-color: #ffffff rgba(148, 163, 184, 0.3);
+    scrollbar-width: auto;
+    scrollbar-color: #111827 #d1d5db;
   }
   .study__screen-wrap--before::-webkit-scrollbar,
   .study__screen-wrap--after::-webkit-scrollbar,
   .study__iframe::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+    width: 14px;
+    height: 14px;
   }
   .study__screen-wrap--before::-webkit-scrollbar-track,
   .study__screen-wrap--after::-webkit-scrollbar-track,
   .study__iframe::-webkit-scrollbar-track {
-    background: rgba(148, 163, 184, 0.25);
-    border-radius: 999px;
+    background: #d1d5db;
+    border-radius: 8px;
   }
   .study__screen-wrap--before::-webkit-scrollbar-thumb,
   .study__screen-wrap--after::-webkit-scrollbar-thumb,
   .study__iframe::-webkit-scrollbar-thumb {
-    background: #ffffff;
-    border-radius: 999px;
-    border: 2px solid rgba(148, 163, 184, 0.35);
+    background: #111827;
+    border-radius: 8px;
+    border: 3px solid #d1d5db;
   }
   .study__img-placeholder {
     padding: 2rem;
@@ -953,9 +1230,30 @@ const studyStyles = `
     justify-content: space-between;
     gap: 0.75rem;
   }
+  .study__radio-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .study__rank-grid {
+    display: grid;
+    gap: 0.75rem;
+  }
+  .study__rank-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 0.75rem;
+    align-items: center;
+  }
   .study__entry {
     display: grid;
     gap: 0.5rem;
+  }
+  .study__entry-row {
+    display: grid;
+    grid-template-columns: minmax(140px, 1fr) 3fr;
+    gap: 0.75rem;
+    align-items: start;
   }
   .study__entry-header {
     display: flex;
@@ -988,6 +1286,14 @@ const studyStyles = `
   }
   .study__textarea::placeholder {
     color: var(--muted);
+  }
+  .study__select {
+    padding: 0.65rem 0.75rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    font-size: 0.95rem;
   }
   .study__error-text {
     color: var(--error);
@@ -1091,6 +1397,12 @@ const studyStyles = `
     flex-direction: column;
     gap: 0.9rem;
   }
+  .study__change--summary {
+    margin-bottom: 1rem;
+  }
+  .study__change--summary {
+    margin-bottom: 1rem;
+  }
   .study__change-header {
     display: flex;
     align-items: center;
@@ -1116,7 +1428,17 @@ const studyStyles = `
     color: var(--text);
     background: rgba(148, 163, 184, 0.18);
   }
+  .study__chip-btn--approve.is-active {
+    background: rgba(34, 197, 94, 0.15);
+    color: #16a34a;
+    border: 1px solid rgba(22, 163, 74, 0.35);
+  }
+  .study__chip-btn--reject.is-active {
+    background: rgba(239, 68, 68, 0.15);
+    color: #dc2626;
+    border: 1px solid rgba(220, 38, 38, 0.35);
+  }
   @keyframes study-spin {
     to { transform: rotate(360deg); }
   }
-`
+`;
