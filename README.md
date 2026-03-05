@@ -27,13 +27,13 @@ Right now, the app logs data to the browser console when:
 
 You can hook these points up to a backend or analytics tool if you want to persist the data.
 
-## Before screens (images)
+## Before screens (images + optional HTML)
 
-Put one “before” screenshot per task in the `public/` folder:
+Put one “before” screenshot (and optional “before” HTML) per case study under `public/case-study-N/`:
 
-- `public/task1-before.png` (or `.jpg`) for Case Study 1  
-- `public/task2-before.png` for Case Study 2  
-- `public/task3-before.png` for Case Study 3  
+- `public/case-study-1/task1-before.png` (or `.jpg`) and optional `public/case-study-1/task1-before.html`
+- `public/case-study-2/task2-before.png` (or `.jpg`) and optional `public/case-study-2/task2-before.html`
+- `public/case-study-3/task3-before.png` (or `.jpg`) and optional `public/case-study-3/task3-before.html`
 
 If a file is missing, the app shows a placeholder and tells you the expected path.
 
@@ -41,7 +41,7 @@ If a file is missing, the app shows a placeholder and tells you the expected pat
 
 When a participant clicks **“Finish study”** on `/study/:taskId`, the app:
 
-- Keeps the list of `{ id, problem, prompt }` objects in memory.
+- Keeps the list of `{ id, problem }` objects in memory.
 - Logs them via `console.log('Submitted changes for task', taskId, changes)`.
 
 If you want to persist results, you can:
@@ -55,8 +55,8 @@ If you want to persist results, you can:
 The study flow already calls `generateAfterScreen()` for each user prompt during evaluation.
 
 1. Put your task assets in `public/`:
-   - `task1-before.png`, `task2-before.png`, `task3-before.png`
-   - Optional code context: `task1-before.html`, `task2-before.html`, `task3-before.html`
+   - `case-study-1/task1-before.png`, `case-study-2/task2-before.png`, `case-study-3/task3-before.png`
+   - Optional code context: `case-study-1/task1-before.html`, `case-study-2/task2-before.html`, `case-study-3/task3-before.html`
 2. Set your generation endpoint in a `.env` file:
 
    ```bash

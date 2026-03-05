@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b8cee",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-filled {
+            font-family: 'Material Symbols Outlined';
+            font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 overflow-x-hidden">
+<div class="relative flex h-screen w-full flex-col max-w-md mx-auto border-x border-slate-200 dark:border-slate-800 shadow-2xl">
+<!-- Top Navigation Bar: Counter-intuitive layout -->
+<header class="flex items-center justify-between px-4 py-3 bg-background-light dark:bg-background-dark border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50">
+<div class="flex items-center gap-3">
+<!-- Profile on Left (Unconventional) -->
+<div class="relative">
+<div class="w-9 h-9 rounded-full bg-slate-200 dark:bg-slate-700 bg-cover bg-center" data-alt="User profile picture in header" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCAMRsFCL_dCCoWcUYAHe7Dw-9Y_io_3c9p6JdHQQnMsy44uySTcbkLJE9MpU1HrjeSgHTPKrWDGpPHm-G2tRu6qxePT4LNJL9gQLJb_ZyKeugA3PivbDUqXBVwjSxo48lEQYaXDQWFf1Uruy1b_WDZVYVDX0YvM-rEq5HTvI-Bayl9CBcu0X2G732LzwyQcnpTL0eCSrQauJRwzXBXfIbEdatHZbF1WIGL24stTCtPMlTvPx-ACRmVNPFYcJrGWdWEPZUkIJBLIYMF')"></div>
+<!-- Notification badge: Low contrast against header background (Slate vs Dark Background) -->
+<div class="absolute -top-1 -right-1 w-4 h-4 bg-slate-500 dark:bg-slate-600 rounded-full border-2 border-background-dark flex items-center justify-center text-[8px] text-white">3</div>
+</div>
+</div>
+<h1 class="text-lg font-bold tracking-tight text-primary">ConnectHub</h1>
+<!-- Hamburger on Right (Unconventional for some platforms) -->
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<!-- Stories Section -->
+<div class="flex w-full overflow-x-auto px-4 py-4 gap-4 no-scrollbar border-b border-slate-200 dark:border-slate-800 bg-background-light dark:bg-background-dark">
+<div class="flex flex-col items-center gap-1 shrink-0">
+<div class="w-16 h-16 rounded-full p-0.5 border-2 border-primary">
+<div class="w-full h-full rounded-full bg-slate-200 dark:bg-slate-800 bg-cover bg-center" data-alt="User personal story highlight" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCpYmR0BB9JbFNTdOc8k_WXDsBl7IjmLVp9cY3UNzaTZdM9-i8GeHXIO9CufKKAj4_DuPBvUZ_eA4KtbmMiNiSEnO0nzW3E9D0946P9IHyF04_cK9-NRjIDgCADQhnw5IlflX-OX_zkdwVEVRW61mILvu3zeT3880AIsxOQCbWLcDyY4xEYyp-RYAUIk9MBIaBcvPcu3bMWEf8iZFT4IWMF2dG8jUPBJFgnFDxxdwiNASWOgkzziZGpLuZfrNAgMdaHKm4CNhq6JVkO')"></div>
+</div>
+<span class="text-[11px] font-medium text-slate-500">Your Story</span>
+</div>
+<div class="flex flex-col items-center gap-1 shrink-0">
+<div class="w-16 h-16 rounded-full p-0.5 border-2 border-primary">
+<div class="w-full h-full rounded-full bg-slate-200 dark:bg-slate-800 bg-cover bg-center" data-alt="Alex story bubble profile" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBZjdg4mitYmvixT4W9G9eOXPxftlEnah7AyamJO3UU7X6w1Jfjxar-sc8wUu8jTLZWj3Kqasgw76WRhmztA0J9drF0KfY0QJo-FkY0D77OuVWeI4Ix9m5pi24-WOtGHxAi8HELI1tI1q9kocaeUqDT3s9wB8vbVINQcp9Rqm2zlEZT-USYfc4j6HN987oOcCze7IIMJuTcLM-ZU3wOFli8mVw_A1uqozOq91KCXZ_b_UZ15bw1TJFLCCu9YlxgBkq3sC00a46svcfX')"></div>
+</div>
+<span class="text-[11px] font-medium">Alex</span>
+</div>
+<div class="flex flex-col items-center gap-1 shrink-0">
+<div class="w-16 h-16 rounded-full p-0.5 border-2 border-primary">
+<div class="w-full h-full rounded-full bg-slate-200 dark:bg-slate-800 bg-cover bg-center" data-alt="Jordan story bubble profile" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCuiYQsTBrRqROmNE762nTOjnsno7k8UMrUBJumEF4g8iQnFlYaB_ClsC0OpFyAzgNfqhnFgcOHmmOhZ-UJ3UbYjk3OeaWuXTFB3wSEtZXJnU5zjkXeQf8r8lNM1c5AkqQDXthX2cgOwy9LQnL5BDrglKZ_P8MjW9KKSk2tzcqj5hYMflHRYIdd9yG3wibt5BHJPOWzYeUYKnlBzz9OCqbSyp7TuxoD9sC1Xr__ccxXnFRxVdyUPeKIoTL6qmWWGQKqEUsW-jQG64O2')"></div>
+</div>
+<span class="text-[11px] font-medium">Jordan</span>
+</div>
+<div class="flex flex-col items-center gap-1 shrink-0">
+<div class="w-16 h-16 rounded-full p-0.5 border-2 border-slate-300">
+<div class="w-full h-full rounded-full bg-slate-200 dark:bg-slate-800 bg-cover bg-center" data-alt="Taylor story bubble profile" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBhvoFQYto20CHz4Y0av_G-i0EbvnDZeV5qH102iboysZYTI9WyTlwnGRfTFDWoDL7wyXdzYf9b2HujojaOFHAkTyckVE2Kl1FI7bQYadqJeO5wHoOV93BzS03E1DbWCP59WLJwq3m1jUCDxv-wjZYOAvhteBnoiVneb2HqzYPzsrlhb7HozL1g4Am-mI43V_UXcwODEBOF9XOvRwigOTGQ_bE_bBfYdcahLFEfcTrS4t2278ik7EfWrzD92mKwZtn648I6h0ZolCnY')"></div>
+</div>
+<span class="text-[11px] font-medium text-slate-400">Taylor</span>
+</div>
+</div>
+<!-- Feed Section -->
+<main class="flex-1 overflow-y-auto no-scrollbar pb-20">
+<!-- Post 1 -->
+<article class="flex flex-col border-b border-slate-200 dark:border-slate-800">
+<!-- Overcrowded Header -->
+<div class="flex items-center justify-between p-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 bg-cover bg-center" data-alt="Post author profile image" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAVgIobQL4LQ6hJQxDnNvh9AUUwkk8e5m165Fgf4gha3xxXmA2XQSAJJWGvrj9RwkaEvSHU8NevE591mlY_05-lfPK9stcHgBxF4Wj-tZrCDGN9gVNdXh4NaVPq6mfhlSmgzewk9CU8bvzfbVX_kKeSLH0layybZ-cYZmRxnaNRYuBwcE4RPVu3O399SOeFEJmKWFJ0ax2wasEWKPybuPCJ4MvbzJipQ9X-idUSVDtJLhTT9LuMzga3gdHq_snQ5kSgCuuIECoOM4q7')"></div>
+<div class="flex flex-col">
+<!-- All info same small size, overcrowded -->
+<p class="text-[12px] text-slate-900 dark:text-slate-100 font-bold leading-none">User_Name_123 • New York, NY • 2h ago • Category: Photography</p>
+</div>
+</div>
+<button class="text-slate-500">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+<!-- Post Image -->
+<div class="w-full aspect-square bg-slate-100 dark:bg-slate-900 bg-cover bg-center" data-alt="High quality photography landscape post image" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAvdekmxo8KwTieBN-j20zXx4n2WGLNfOHjSLvBZI2D_-waE3EaD4JGquIQRlxbi8hn2A1bQX7SNSkjPt-Ic9S7jyGsA_9lyrEw8QRqVyNjudTOeM4_FT4HxxY75Wpk2opuN0Y4td6i6TOfEU7FPcm_IlBqr0oF7rX_aT3cvdPT3BzTRZSCnr6RzN-VzeSEjd9FowdKJbXjgBmygaq1ElGw2A9bdFkz5LpgawAW_wXFCZuKrSdDCyF24qH18DeeNePJRUowfQ_80zvE')"></div>
+<!-- Post Actions: Inconsistent styles (Filled vs Outlined) -->
+<div class="flex items-center justify-between px-4 py-3">
+<div class="flex items-center gap-4">
+<button class="text-primary">
+<span class="material-symbols-filled text-2xl">favorite</span>
+</button>
+<button class="text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-2xl">chat_bubble</span>
+</button>
+<button class="text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-[30px] font-thin">send</span>
+</button>
+</div>
+<button class="text-slate-600 dark:text-slate-400">
+<span class="material-symbols-filled text-2xl">bookmark</span>
+</button>
+</div>
+<!-- Post Caption -->
+<div class="px-4 pb-4">
+<p class="text-sm">
+<span class="font-bold mr-1">User_Name_123</span>
+                        Capturing the essence of the city during the golden hour is always a challenge but so rewarding... 
+                        <!-- Very small, low contrast See More -->
+<span class="text-[9px] text-slate-400 dark:text-slate-600 cursor-pointer ml-1">See More</span>
+</p>
+</div>
+</article>
+<!-- Post 2 -->
+<article class="flex flex-col border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center justify-between p-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 bg-cover bg-center" data-alt="Second post author profile" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAyi5IhQMNYFKyOhup15EAiVhVCuqrnZ0ww5nfEVLE2qv-qLbiXTCWOGAG4g9XLfu6mWcSMyNqHNgsIaEWCfmAjp50dLYv8NmEapCjV09Wl1Rv78UgLVcfoVS-zalWZwfV_A0IAJHqwQ_xEwFqadYbPaODJuRvVNMXDoAEcBhiy2HnBr50YQlieOVkessIaARJ4oOFbcsfapctLssYzcvv0CKqZMk-KLIXS7nahDInXeI1MbT8S_Dg1N4bo1_RJn2RZjC-oO62YOwHO')"></div>
+<div class="flex flex-col">
+<p class="text-[12px] text-slate-900 dark:text-slate-100 font-bold leading-none">travel_enthusiast • London, UK • 5h ago • Category: Adventure</p>
+</div>
+</div>
+<button class="text-slate-500">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+<div class="w-full aspect-[4/5] bg-slate-100 dark:bg-slate-900 bg-cover bg-center" data-alt="Travel destination mountain view photo" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCSnTOlOTQh0a5l0rtSlqtGQ4XjuYUlRZ4cqN7Ig62_zbp6M687TNRv_DDcDxo3L4lKQ2Fm1eWVlb9LM2wj1FZUmJRXZ9VLw4ToPwpacX-FZ_ngqXEI-lu16anBaPxCA6ezrwuxIVvmVryCATeLdR56_BcSTP4oW0HLGfO0hxMktmyJ_opsFRYiTnT1V_m_12bCAxF-S92Vdqb4JNQ6jMLm-AYQgXmurPRwKnIat8MhpC1s_xUtiOgFeK5PObVKxUzuI4-RdvBD0ekI')"></div>
+<div class="flex items-center justify-between px-4 py-3">
+<div class="flex items-center gap-4">
+<button class="text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-2xl">favorite</span>
+</button>
+<button class="text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-2xl">chat_bubble</span>
+</button>
+<button class="text-slate-600 dark:text-slate-400">
+<span class="material-symbols-filled text-2xl">send</span>
+</button>
+</div>
+</div>
+</article>
+</main>
+<!-- Bottom Navigation: Inconsistent Icons (Mix of Outlined, Filled, and Weights) -->
+<nav class="fixed bottom-0 w-full max-w-md bg-background-light dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 px-4 pb-4 pt-2 flex justify-between items-center z-50">
+<a class="flex flex-col items-center gap-1 flex-1 text-primary" href="#">
+<span class="material-symbols-filled text-[26px]">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 flex-1 text-slate-500" href="#">
+<span class="material-symbols-outlined text-[24px]">search</span>
+<span class="text-[10px] font-medium">Search</span>
+</a>
+<a class="flex flex-col items-center gap-1 flex-1 text-slate-500" href="#">
+<!-- Different Weight/Style -->
+<span class="material-symbols-outlined text-[30px] font-bold">add_box</span>
+<span class="text-[10px] font-medium">Post</span>
+</a>
+<a class="flex flex-col items-center gap-1 flex-1 text-slate-500" href="#">
+<span class="material-symbols-outlined text-[24px]">favorite</span>
+<span class="text-[10px] font-medium">Activity</span>
+</a>
+<a class="flex flex-col items-center gap-1 flex-1 text-slate-500" href="#">
+<!-- UserCircle filled vs Home filled vs Others outlined -->
+<span class="material-symbols-filled text-[24px]">account_circle</span>
+<span class="text-[10px] font-medium">Profile</span>
+</a>
+</nav>
+</div>
+</body></html>

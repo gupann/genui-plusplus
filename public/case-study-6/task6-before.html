@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>E-commerce Search</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#067ff9",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f1923",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-filled {
+            font-family: 'Material Symbols Outlined';
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Low contrast helper for the placeholder flaw */
+        .low-contrast-placeholder::placeholder {
+            color: #d1d5db !important; /* Extremely light gray on light blue background */
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden max-w-md mx-auto border-x border-slate-200 dark:border-slate-800">
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between">
+<div class="text-slate-900 dark:text-slate-100 flex size-12 shrink-0 items-center">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-[-0.015em] flex-1">Search</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex cursor-pointer items-center justify-center rounded-lg h-12 bg-transparent text-slate-900 dark:text-slate-100 p-0">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+</div>
+</div>
+<div class="px-4 py-3">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-slate-400 flex border-none bg-slate-200/50 dark:bg-slate-800 items-center justify-center pl-4 rounded-l-lg">
+<span class="material-symbols-outlined">search</span>
+</div>
+<!-- FLAW 5: Low contrast placeholder text -->
+<input class="low-contrast-placeholder flex w-full min-w-0 flex-1 rounded-lg text-slate-900 dark:text-slate-100 focus:outline-0 focus:ring-0 border-none bg-slate-200/50 dark:bg-slate-800 h-full px-4 rounded-l-none pl-2 text-base font-normal" placeholder="Search for electronics, fashion..." value=""/>
+</div>
+</label>
+</div>
+<div class="px-4 py-2">
+<h3 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-[-0.015em] pb-2">Recent Searches</h3>
+<div class="flex flex-wrap gap-2">
+<!-- FLAW 3: 'X' buttons too close to text, hard to tap -->
+<div class="flex items-center bg-slate-200/50 dark:bg-slate-800 rounded-full px-3 py-1.5 group">
+<span class="text-sm text-slate-700 dark:text-slate-300 mr-0.5">iPhone 15 Pro</span>
+<button class="flex items-center justify-center p-0 h-4 w-4">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</div>
+<div class="flex items-center bg-slate-200/50 dark:bg-slate-800 rounded-full px-3 py-1.5">
+<span class="text-sm text-slate-700 dark:text-slate-300 mr-0.5">Mechanical Keyboard</span>
+<button class="flex items-center justify-center p-0 h-4 w-4">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</div>
+<div class="flex items-center bg-slate-200/50 dark:bg-slate-800 rounded-full px-3 py-1.5">
+<span class="text-sm text-slate-700 dark:text-slate-300 mr-0.5">Running</span>
+<button class="flex items-center justify-center p-0 h-4 w-4">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</div>
+</div>
+</div>
+<div class="px-4 pt-6 pb-2">
+<h3 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight">Trending Categories</h3>
+</div>
+<div class="flex overflow-x-auto px-4 gap-4 no-scrollbar pb-2">
+<!-- FLAW 1: Inconsistent icon styles (outlined vs filled) -->
+<div class="flex flex-col items-center gap-2 min-w-[70px]">
+<div class="size-14 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">devices</span>
+</div>
+<span class="text-xs font-medium">Tech</span>
+</div>
+<div class="flex flex-col items-center gap-2 min-w-[70px]">
+<div class="size-14 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-filled">apparel</span>
+</div>
+<span class="text-xs font-medium">Fashion</span>
+</div>
+<div class="flex flex-col items-center gap-2 min-w-[70px]">
+<div class="size-14 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">chair</span>
+</div>
+<span class="text-xs font-medium">Home</span>
+</div>
+<div class="flex flex-col items-center gap-2 min-w-[70px]">
+<div class="size-14 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-filled">fitness_center</span>
+</div>
+<span class="text-xs font-medium">Sports</span>
+</div>
+<div class="flex flex-col items-center gap-2 min-w-[70px]">
+<div class="size-14 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">auto_stories</span>
+</div>
+<span class="text-xs font-medium">Books</span>
+</div>
+</div>
+<div class="px-4 pt-8 pb-4">
+<h3 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight">Popular Recommendations</h3>
+</div>
+<!-- FLAW 2: Misaligned product cards (height and padding variations) -->
+<div class="grid grid-cols-2 gap-4 px-4 pb-24">
+<div class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-800 h-[240px] p-2">
+<div class="h-32 bg-slate-100 dark:bg-slate-800 rounded-lg mb-2">
+<img class="w-full h-full object-cover rounded-lg" data-alt="Minimalist white watch on gray background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNmvI7ARFFHnGR2AuaFRoT5CigGaBuJmgWWNaZ08Ymsq2yA-95yQK7ebPBI5cFmOn93GTsqddNufRXp4UZCi8X58lbgjiPgoPE84nGRygFqUxK_PaPKnn_Iflm8KuFSya5miqTEzBDKtTaRXZS3FdYRFum4iMbxZ1cK-w6fNw76lm9VfoUOaQTaJEAztHRw0QWwEXE-XQd3j-pPpAg_bCmpBCllNlm6n_pSfPYCBn-XIN7KNRx1Fa2b3AbiWAgMKSUn3Y7tJqhQTT4"/>
+</div>
+<h4 class="text-sm font-semibold truncate px-1">Minimalist Watch</h4>
+<p class="text-slate-500 text-[11px] px-1">Modern accessories</p>
+<!-- FLAW 4: Small price font size -->
+<p class="text-primary font-bold text-[10px] mt-2 px-1">$120.00</p>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-800 h-[255px] p-4">
+<div class="h-32 bg-slate-100 dark:bg-slate-800 rounded-lg mb-2">
+<img class="w-full h-full object-cover rounded-lg" data-alt="Professional wireless headphones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxzKGLTvOWMDkTmzaEkEi4A0CijJf-KtxHs0V8Gs2KWtH7FA8Aodysmay-dfG6MtZDTmBpeeaADJRcXKah0IB_ZkrcbLauqHc_SIB5WCQz--oe5y52oF6Wf-J6DZzMqhgDu81qcKJjRHOHkhsGk9-zbs29_Q3LzopKoZ2_Ew4Vp9_1H3HlVylh4BHULeg4uvFX6y5Bf0Xq5_qd8mlMzqg62oTnt2qbgDdJ4ZpCph-L-ESaHLudxRZLrLRffMPnjDeF-ftyzXI6Ox85"/>
+</div>
+<h4 class="text-sm font-semibold truncate">Noise Cancelling...</h4>
+<p class="text-slate-500 text-[11px]">Premium audio gear</p>
+<!-- FLAW 4: Small price font size -->
+<p class="text-primary font-bold text-[10px] mt-2">$299.99</p>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-800 h-[235px] p-3">
+<div class="h-32 bg-slate-100 dark:bg-slate-800 rounded-lg mb-2">
+<img class="w-full h-full object-cover rounded-lg" data-alt="Bright red athletic running shoes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBC-McYMzQZB_tWW0XtFuDNq8uhKOCZeQgKYNyDLefB9IIytJWoUjhco_INXaRZJpJProE7t_0F0Ah__IAvI48jEre9ZCmnx_Y3WzLWX-OqA5H1zUx3A2_APscjByMhkYPddZXa-XNbcM7bSMWU0XyT-mOZSPL9_fWeeXSkqhib3qv4H_p3j-HqGYOfwgVQ848POZtfjPpgiHW-O2WX41PgreIv0tiegF5GE1gsAzuD_z4yanny1jK6W5rhDrY4WBrj8VUIGrv3Yyql"/>
+</div>
+<h4 class="text-sm font-semibold truncate px-2">Speed Runners</h4>
+<p class="text-slate-500 text-[11px] px-2">Athletic performance</p>
+<!-- FLAW 4: Small price font size -->
+<p class="text-primary font-bold text-[10px] mt-2 px-2">$85.50</p>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-800 h-[248px] p-1">
+<div class="h-32 bg-slate-100 dark:bg-slate-800 rounded-lg mb-2">
+<img class="w-full h-full object-cover rounded-lg" data-alt="Classic aviator style sunglasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWCA54nEJQBLYKImNBugQRkoQvk3MdSBdFroKwHd_jzbOPqA8fHufUEVFlG6bEPpzdWlxslYm-QoCUdQn850vzGw-NPMFOJrzR1q6US5ZgWLi5v0HuT5QPTbfHW1Y81FCge3ZLLtBSFsthMjZl5c3fb_t7gt5YYgHaVDn8OFQ3i_GAD69UwPUvd_XWLMf5hIZm0S9Dp88SMKp-xniHzsMJ-h-c3I4ai5m8DzYy5P_9aF1vI-2DRyjkaUxPBmQ7-p2-dMDb_kjxeLD3"/>
+</div>
+<h4 class="text-sm font-semibold truncate px-3">Aviator Shades</h4>
+<p class="text-slate-500 text-[11px] px-3">Summer collection</p>
+<!-- FLAW 4: Small price font size -->
+<p class="text-primary font-bold text-[10px] mt-2 px-3">$45.00</p>
+</div>
+</div>
+<div class="fixed bottom-0 w-full max-w-md bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 pb-safe z-50">
+<div class="flex gap-2 px-4 pb-3 pt-2">
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">home</span>
+<p class="text-xs font-medium leading-normal">Home</p>
+</a>
+<!-- FLAW 6: Search button slightly off-center (ml-4 push) -->
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-primary ml-4" href="#">
+<span class="material-symbols-filled">search</span>
+<p class="text-xs font-medium leading-normal">Search</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<p class="text-xs font-medium leading-normal">Orders</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">person</span>
+<p class="text-xs font-medium leading-normal">Profile</p>
+</a>
+</div>
+</div>
+</div>
+</body></html>

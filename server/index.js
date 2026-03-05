@@ -37,7 +37,7 @@ const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
 
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
 const ANTHROPIC_MODEL =
-  process.env.ANTHROPIC_MODEL || 'claude-3-5-sonnet-20240620';
+  process.env.ANTHROPIC_MODEL || 'claude-haiku-4-5-20251001';
 const ANTHROPIC_VERSION = process.env.ANTHROPIC_VERSION || '2023-06-01';
 
 const MAX_TOKENS = parseInt(process.env.UI_MAX_TOKENS || '8000', 10);
@@ -121,15 +121,6 @@ function extractTextFromClaude(payload) {
     .trim();
 }
 
-// function extractHtml(text) {
-//   if (!text) return '';
-//   const fenced = text.match(/```html\s*([\s\S]*?)```/i);
-//   if (fenced?.[1]) return fenced[1].trim();
-//   const htmlStart = text.indexOf('<html');
-//   if (htmlStart !== -1) return text.slice(htmlStart).trim();
-//   return text.trim();
-// }
-
 function extractHtml(text) {
   if (!text) return '';
   const fenced = text.match(/```html\s*([\s\S]*?)```/i);
@@ -192,14 +183,14 @@ async function loadImageAsDataUrl(beforeImageUrl) {
 function buildPrompt({ prompt, beforeCode }) {
   const sections = [
     'You are a senior UI engineer.',
-    'Task: Apply the requested change to the given UI and return the updated full HTML only.',
+    'Task: You will be given a designer-provided issue. First rewrite it into a concrete, actionable UI revision instruction, then apply it to the given UI and return the updated full HTML only.',
     'Rules:',
     '- Return only HTML starting with <!DOCTYPE html>. No Markdown, no explanations.',
     '- Preserve ALL existing content and structure; do not remove sections. Only modify what the change requires.',
     '- Keep the layout mobile-first and consistent with the original.',
   ];
   const body = [
-    `User change request:\n${prompt || '(no prompt provided)'}`,
+    `Designer-provided issue:\n${prompt || '(no issue provided)'}`,
     beforeCode
       ? `\nBefore HTML:\n${beforeCode}`
       : '\nBefore HTML: (not provided)',
@@ -209,19 +200,25 @@ function buildPrompt({ prompt, beforeCode }) {
 
 async function callOpenAI({ prompt, beforeCode, beforeImageUrl }) {
   if (!OPENAI_API_KEY) throw new Error('Missing OPENAI_API_KEY');
-  const imageDataUrl = await loadImageAsDataUrl(beforeImageUrl);
+  // const imageDataUrl = await loadImageAsDataUrl(beforeImageUrl);
   const input = [
     {
       role: 'system',
-      content: [{ type: 'input_text', text: 'You generate UI HTML edits.' }],
+      content: [
+        {
+          type: 'input_text',
+          text: 'You convert a designer issue into a concrete UI revision and apply it. Return only full HTML.',
+        },
+      ],
     },
     {
       role: 'user',
       content: [
         { type: 'input_text', text: buildPrompt({ prompt, beforeCode }) },
-        ...(imageDataUrl
-          ? [{ type: 'input_image', image_url: imageDataUrl }]
-          : []),
+        // TEMP: Disable before-image conditioning for OpenAI to compare results.
+        // ...(imageDataUrl
+        //   ? [{ type: 'input_image', image_url: imageDataUrl }]
+        //   : []),
       ],
     },
   ];
@@ -250,7 +247,6 @@ async function callOpenAI({ prompt, beforeCode, beforeImageUrl }) {
 
   const payload = await response.json();
   const text = extractTextFromOpenAI(payload);
-  // return extractHtml(text);
 
   let html = extractHtml(text);
 
@@ -266,13 +262,15 @@ async function callOpenAI({ prompt, beforeCode, beforeImageUrl }) {
 
 async function callGemini({ prompt, beforeCode, beforeImageUrl }) {
   if (!GEMINI_API_KEY) throw new Error('Missing GEMINI_API_KEY');
-  const imageDataUrl = await loadImageAsDataUrl(beforeImageUrl);
+  // const imageDataUrl = await loadImageAsDataUrl(beforeImageUrl);
   const parts = [{ text: buildPrompt({ prompt, beforeCode }) }];
-  if (imageDataUrl) {
-    const [header, data] = imageDataUrl.split(',', 2);
-    const mime = header?.match(/data:(.*);base64/i)?.[1] || 'image/png';
-    parts.push({ inline_data: { mime_type: mime, data } });
-  }
+
+  // TEMP: Disable before-image conditioning for Gemini to compare results.
+  // if (imageDataUrl) {
+  //   const [header, data] = imageDataUrl.split(',', 2);
+  //   const mime = header?.match(/data:(.*);base64/i)?.[1] || 'image/png';
+  //   parts.push({ inline_data: { mime_type: mime, data } });
+  // }
 
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), PROVIDER_TIMEOUT_MS);
@@ -300,7 +298,6 @@ async function callGemini({ prompt, beforeCode, beforeImageUrl }) {
 
   const payload = await response.json();
   const text = extractTextFromGemini(payload);
-  // return extractHtml(text);
 
   let html = extractHtml(text);
 
@@ -316,16 +313,17 @@ async function callGemini({ prompt, beforeCode, beforeImageUrl }) {
 
 async function callClaude({ prompt, beforeCode, beforeImageUrl }) {
   if (!ANTHROPIC_API_KEY) throw new Error('Missing ANTHROPIC_API_KEY');
-  const imageDataUrl = await loadImageAsDataUrl(beforeImageUrl);
+  // const imageDataUrl = await loadImageAsDataUrl(beforeImageUrl);
   const content = [{ type: 'text', text: buildPrompt({ prompt, beforeCode }) }];
-  if (imageDataUrl) {
-    const [header, data] = imageDataUrl.split(',', 2);
-    const mime = header?.match(/data:(.*);base64/i)?.[1] || 'image/png';
-    content.push({
-      type: 'image',
-      source: { type: 'base64', media_type: mime, data },
-    });
-  }
+  // TEMP: Disable before-image conditioning for Claude to compare results.
+  // if (imageDataUrl) {
+  //   const [header, data] = imageDataUrl.split(',', 2);
+  //   const mime = header?.match(/data:(.*);base64/i)?.[1] || 'image/png';
+  //   content.push({
+  //     type: 'image',
+  //     source: { type: 'base64', media_type: mime, data },
+  //   });
+  // }
 
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), PROVIDER_TIMEOUT_MS);
@@ -352,7 +350,6 @@ async function callClaude({ prompt, beforeCode, beforeImageUrl }) {
 
   const payload = await response.json();
   const text = extractTextFromClaude(payload);
-  // return extractHtml(text);
 
   let html = extractHtml(text);
 

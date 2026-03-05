@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ConnectHub Onboarding</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#256af4",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden">
+<!-- TopAppBar with misplaced Get Started -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800">
+<h2 class="text-slate-900 dark:text-slate-100 text-2xl font-extrabold leading-tight tracking-[-0.015em] flex-1">ConnectHub</h2>
+<div class="flex items-center justify-end">
+<button class="bg-primary text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg shadow-primary/40 hover:scale-105 transition-transform">
+                Get Started
+            </button>
+</div>
+</div>
+<!-- Hero Section -->
+<div class="@container">
+<div class="@[480px]:px-4 @[480px]:py-3">
+<div class="w-full bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden bg-slate-200 dark:bg-slate-800 @[480px]:rounded-xl min-h-[400px] relative" data-alt="High contrast crowd of people networking in city" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC43QvIJ70zw7eXr56imp-eG-HU8k4z7UPKi-IguXTmks_qaIlCWsFu2m1fmG1SYWFuGfqSMlv9e3K5Kbc3Zk4EpJR2NsVlS0USDtGbF9AjEf1iWZfSFlKhtM4w53LiM_6-sXu8uy6rjLOpLJi711Vi9m-piIcJLFbiXR1P1mjeOfczqvJaCYbJ-TaEP9XVk5PncpnJ1Y57d8QhuQX87DMsh55GMVMVtktj7Q73SAyup2d5W7aT5ln4ISRRPcwH2LMwUNXTpUwgk03W");'>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent opacity-80"></div>
+<div class="relative p-6">
+<h1 class="text-white tracking-tight text-5xl font-black leading-none mb-2">EVERYONE. EVERYTHING. EVERYWHERE.</h1>
+<p class="text-slate-300 text-lg max-w-md">The most overwhelming social experience ever built for the modern attention span.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="px-4 py-6">
+<h2 class="text-slate-900 dark:text-slate-100 text-3xl font-bold leading-tight tracking-tight mb-6">Why You'll Be Hooked</h2>
+<!-- Busy Grid of Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="flex flex-col gap-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm">
+<div class="text-primary">
+<span class="material-symbols-outlined text-4xl">notifications_active</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-slate-900 dark:text-slate-100 text-2xl font-extrabold">Endless Noise</h3>
+<p class="text-slate-500 dark:text-slate-400 text-base leading-snug">Never have a quiet moment again with our persistent, unmutable notifications that sync across all devices.</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-primary/10 dark:bg-primary/5 p-6 shadow-sm scale-105 border-primary/50">
+<div class="text-primary">
+<span class="material-symbols-outlined text-4xl">sync_alt</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-slate-900 dark:text-slate-100 text-lg font-bold">Infinite Scrolls</h3>
+<p class="text-slate-500 dark:text-slate-400 text-xs leading-normal">Keep scrolling forever through content algorithms think you want, even when you know you don't. We never stop loading.</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm">
+<div class="text-primary">
+<span class="material-symbols-outlined text-4xl">group_add</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-slate-900 dark:text-slate-100 text-3xl font-black italic uppercase">Hyper-Link</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-normal">Connect with everyone you've ever met in one giant messy list that updates every single second.</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm border-dashed">
+<div class="text-primary">
+<span class="material-symbols-outlined text-4xl">query_stats</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-slate-900 dark:text-slate-100 text-base font-semibold">Data Overload</h3>
+<p class="text-slate-500 dark:text-slate-400 text-[10px] leading-tight">We provide more analytics about your social life than you can handle. 1,400 metrics per post, 24/7 monitoring, and emotional heatmaps.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Oversized Social Logins -->
+<div class="px-4 py-8 flex flex-col gap-4">
+<h3 class="text-center text-slate-500 uppercase tracking-widest text-xs font-bold mb-2">Connect Your Digital Life</h3>
+<button class="w-full h-20 flex items-center justify-center gap-4 bg-[#1877F2] text-white rounded-xl font-bold text-xl hover:opacity-90">
+<span class="material-symbols-outlined text-3xl">social_leaderboard</span>
+            Continue with Facebook
+        </button>
+<button class="w-full h-20 flex items-center justify-center gap-4 bg-white text-slate-900 border-2 border-slate-200 rounded-xl font-bold text-xl hover:bg-slate-50">
+<span class="material-symbols-outlined text-3xl">account_circle</span>
+            Continue with Google
+        </button>
+<button class="w-full h-20 flex items-center justify-center gap-4 bg-black text-white rounded-xl font-bold text-xl hover:bg-slate-900">
+<span class="material-symbols-outlined text-3xl">ios</span>
+            Continue with Apple
+        </button>
+<button class="w-full h-20 flex items-center justify-center gap-4 bg-[#1DA1F2] text-white rounded-xl font-bold text-xl hover:opacity-90">
+<span class="material-symbols-outlined text-3xl">share</span>
+            Continue with Twitter
+        </button>
+<button class="w-full h-20 flex items-center justify-center gap-4 bg-primary text-white rounded-xl font-bold text-xl hover:opacity-90">
+<span class="material-symbols-outlined text-3xl">mail</span>
+            Continue with Email
+        </button>
+</div>
+<!-- Hard to read skip link -->
+<div class="p-8 text-center bg-slate-100 dark:bg-slate-950 mt-10">
+<a class="text-slate-300 dark:text-slate-800 text-[8px] hover:text-primary transition-colors cursor-default" href="#">
+            I don't want to connect right now, maybe I will skip this part for a later time when I feel more ready to join the network.
+        </a>
+</div>
+<div class="h-10 bg-background-light dark:bg-background-dark"></div>
+</div>
+</body></html>

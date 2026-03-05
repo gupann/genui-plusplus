@@ -11,7 +11,6 @@
 
 const MOCK_DELAY_MS = 1200;
 const API_URL = (import.meta.env.VITE_UI_GENERATION_API_URL || '').trim();
-// const REQUEST_TIMEOUT_MS = 45000;
 const REQUEST_TIMEOUT_MS = 120000;
 
 function getStatusUrl() {

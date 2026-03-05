@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Camera Interface</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0df2f2",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#102222",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 overflow-hidden">
+<!-- Camera Feed Background Simulation -->
+<div class="fixed inset-0 z-0 bg-cover bg-center" data-alt="A cinematic outdoor street photography background" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBcMQIBJQZ8QblfPoiCmUbb4AXWpW2-665lufn1MWO4eoGPtcs_QC_PPGuCfK9te3ATeJotT3ZqGZtxqDl8LlJcjQ7NxboTfbxu3V620cSJM_mkyEmgZgnRIkQrFgQmBG3byCtLcIIbBaNH84vvQZd0V9jK6F7qjvZrRXEAs2z7RFKQGTobQOSFojo236VtSaZJ3O_8XnOTUU-SLyzn7eShU04UJ-lkRCDUAeepEKDaScuWbHW_diM6DmcUm50552twty7smaoQIylu')">
+<div class="absolute inset-0 bg-black/20"></div>
+</div>
+<!-- UI Overlay -->
+<div class="relative z-10 flex flex-col h-screen w-full justify-between p-6">
+<!-- Top Controls -->
+<div class="flex items-start justify-end relative">
+<button class="absolute top-2 right-8 flex items-center justify-center size-10 rounded-full bg-slate-900/40 backdrop-blur-md text-white/60 border border-white/5 z-20">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+<div class="flex flex-col items-end">
+<button class="flex items-center justify-center size-14 rounded-full bg-slate-900/40 backdrop-blur-md text-white border border-white/10 mb-2">
+<span class="material-symbols-outlined">flash_on</span>
+</button>
+<button class="flex items-center justify-center size-11 rounded-full bg-slate-900/40 backdrop-blur-md text-white border border-white/10 mb-6 mr-2">
+<span class="material-symbols-outlined">flip_camera_ios</span>
+</button>
+<button class="flex items-center justify-center size-12 rounded-full bg-slate-900/40 backdrop-blur-md text-white border border-white/10">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</div>
+<!-- Bottom Controls Area -->
+<div class="flex flex-col gap-6">
+<!-- Filters Horizontal Scroll -->
+<div class="flex overflow-x-auto gap-4 py-2 no-scrollbar">
+<div class="flex flex-col items-center gap-2 min-w-[72px]">
+<div class="size-16 rounded-full border-2 border-primary bg-cover bg-center ring-2 ring-primary/20 ring-offset-2 ring-offset-transparent" data-alt="Warm retro sunset filter preview" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBn6RYmdaqqJ3rIRijS2eNvHg8C2hF2dgn3FchzibFbB9J9l3pQzNzUk1si_UviYnVO2jDqaxShTDhPqS8Uv8FYxRng-DP7HD5OufFy5SkHS8nrRQCIXxDxEr54nyMO8vIN7yVMQvtvhmjh8UVYTLqbKarLBe431CcQ9o8bCRt1_oPe_wHyZt9rH3n0V60APyilUIvMk8UGZDeQ04xGs_RbaGztGFCXVTup_Ko2VkxONJKMl4tZ1BTFwMcUJ6LRuX8ajPn_rvFzGumz')"></div>
+<span class="text-[10px] font-normal text-slate-400/50 drop-shadow-none">Retro</span>
+</div>
+<div class="flex flex-col items-center gap-2 min-w-[72px]">
+<div class="size-16 rounded-full border-2 border-white/20 bg-cover bg-center grayscale" data-alt="High contrast black and white filter preview" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDjqNTzCRp11DnkXc4cm-BeJxc0W1vrVmUvwBGHwS0KyizRiO1D2K615tIwcae9oqc6RxTpcRYUL9-ekRoxyPSLCdH5V0jY1LlGAOOUgcDnLx8bY35RullpwdXVTJX6dwQ3T-__krAxyWLVx1-k2qSyjxqxKpvmcZvQfXKxadpL8v9eFMrE7RKDgnvZpYQ__8FaWGv6gw2q707E-bjoHhuMCc1Xo7WIfRCLumDlYFSdLfiSIB6WxxoLQNg4bXKFkQbvwB5vbPLOxnNS')"></div>
+<span class="text-[10px] font-normal text-slate-400/50 drop-shadow-none">B&amp;W</span>
+</div>
+<div class="flex flex-col items-center gap-2 min-w-[72px]">
+<div class="size-16 rounded-full border-2 border-white/20 bg-cover bg-center saturate-200" data-alt="Vibrant high saturation color filter preview" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDnJ5PrHWwFa50HG8AIUnGuDwsNDPZrPbCOTBsFBlHV9KlM1aWTgb826rTtMCjzUMFMj4XZAb-1OqWoPvkBqEKvVKycR7MG4VP7Hs7WN3GJuI9U5DtP3oBQtCFvCYqcmBXeI9GB3zar8jq-8ZsAEEa-u0tiYwtEPKt0MCbEDuPQpxfTAzc5Dy0kY6HRI4oX6B6fap15apcNTPNo7TiBksVGAVcrrEYxVFKjqiGAPUGlyNomXfx8aeG0-Z7bxpl6cuq7Ge-RRN2aaxKj')"></div>
+<span class="text-[10px] font-normal text-slate-400/50 drop-shadow-none">Vivid</span>
+</div>
+<div class="flex flex-col items-center gap-2 min-w-[72px]">
+<div class="size-16 rounded-full border-2 border-white/20 bg-cover bg-center sepia" data-alt="Antique sepia tone filter preview" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCWKSe81j94Zv-lbczo1TCk_6gPwUF58SA6-onPzdwwruT_t5YPVjQQW7ARRYVrzENbw4cYum6RqXwHP3QqOj5WTxoQRs2rt4IL1KgARAHxXrj7hX43vNsfSPX21uJAb2J_Fh6f0iPvZyIgB4OACG6hZR14b1-pHUbDu3KZs4DGucljZ9CECKuS7opSMHwwqFUZXpBl9DI9vMWwgFpfa3v0HoaGWbn-VKpdNMn2OVa-R6kmdkAudTHMFCR9rnJ3zmA820T0X84WsuPO')"></div>
+<span class="text-[10px] font-normal text-slate-400/50 drop-shadow-none">Antique</span>
+</div>
+<div class="flex flex-col items-center gap-2 min-w-[72px]">
+<div class="size-16 rounded-full border-2 border-white/20 bg-cover bg-center brightness-125" data-alt="Bright and airy light filter preview" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuANOiUsSmh7taVp4aNrSIwGJdT2EKZlpKeiNg5csF4AW8J0GCnJw8RlHOr7gbTlBT_ntzn3g8vqf42tjWd4_3HKbqgS6vE-x7uA6CEWtDzxdaZPlJbFdIPBJuV6XvxVqESkTbrr1eeHn07ncReobhhDu4XxXaG-XcZJ57iG7ZXwS_pjgpk5zOZplydmC3yLJqVuBbyk4ni5pafvWka4kjJX205EzOwkgzFDpipzPj1OfMB0j2_2dWeXl-_oqCjyClXVqKEtJskovqqj')"></div>
+<span class="text-[10px] font-normal text-slate-400/50 drop-shadow-none">Glow</span>
+</div>
+</div>
+<!-- Main Capture Row -->
+<div class="flex items-center justify-between pb-8">
+<!-- Gallery Shortcut -->
+<button class="size-12 rounded-lg bg-slate-900/40 backdrop-blur-md overflow-hidden border border-white/20 ring-1 ring-white/10">
+<img class="w-full h-full object-cover opacity-80" data-alt="Recent photo gallery thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa_09zGZ6R5KkU4d7_ipSkPFTCJ-xag447nYE3SFqsk1Mupp-EeIb8I6iIQn4RMvm9h0Lko_Utgx9Ym7KAtcC6nesG2YzzuWBG5bDXluabtsCEpzEhDC1QGEuVkgwYdpXacraJzxNiL8V_krxJocAEtN6PGhmgq2AkmvYfmgs_mUScunI_Iy9DaGASVtaJeAmz9n7DKyPsY_v8gktzxK40Xq_-L7Q4g3sz8NsrZe2j5nF93NQ-leDLHuyWvEAS41XEd7xOz2puKT7n"/>
+</button>
+<!-- Shutter Button -->
+<div class="absolute left-1/4 -top-8">
+<span class="material-symbols-outlined text-yellow-500 text-lg opacity-70" style="font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 20">timer</span>
+</div><div class="relative flex items-center justify-center translate-x-5">
+<div class="absolute size-24 rounded-full border-4 border-white/30 animate-pulse"></div>
+<button class="relative size-20 rounded-full border-4 border-white bg-white/10 backdrop-blur-sm flex items-center justify-center group active:scale-95 transition-transform">
+<div class="size-16 rounded-full bg-white group-active:bg-primary transition-colors"></div>
+</button>
+</div>
+<!-- Mode Switcher/Music -->
+<button class="flex items-center justify-center size-12 rounded-full bg-slate-900/40 backdrop-blur-md text-white border border-white/10">
+<span class="material-symbols-outlined">music_note</span>
+</button>
+</div>
+</div>
+</div>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</body></html>

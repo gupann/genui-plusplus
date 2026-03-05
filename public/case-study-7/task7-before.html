@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Discovery - Social Media</title>
+<!-- BEGIN: External Scripts -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- END: External Scripts -->
+<style data-purpose="typography">
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-900 min-h-screen">
+<!-- BEGIN: StickyHeader -->
+<header class="sticky top-0 bg-white border-b border-gray-200 z-50 pt-4 pb-2">
+<!-- Flaw: Search bar is slightly too small and layout is cramped -->
+<div class="flex items-center px-4 relative h-10">
+<div class="relative flex-grow">
+<input class="w-full bg-gray-100 border-none rounded-md py-1 px-8 text-sm focus:ring-blue-500" placeholder="Search" type="text"/>
+<!-- Flaw: Icon style 1 (Thin Line) -->
+<svg class="h-4 w-4 absolute left-2 top-2 text-gray-400" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path>
+</svg>
+</div>
+<!-- Flaw: Filter button too close to screen edge and different icon style (Solid) -->
+<button class="ml-3 p-2 text-gray-500 hover:text-blue-500 transition-colors" data-purpose="filter-toggle">
+<svg class="h-5 w-5 fill-current" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" fill-rule="evenodd"></path>
+</svg>
+</button>
+</div>
+<!-- Flaw: Overlapping text tabs -->
+<nav class="flex space-x-6 px-4 mt-4 overflow-x-auto whitespace-nowrap scrollbar-hide border-b border-gray-100">
+<a class="text-blue-600 font-bold border-b-2 border-blue-600 pb-1" href="#">For You</a>
+<a class="text-gray-500 font-medium pb-1" href="#">Trending</a>
+<a class="text-gray-500 font-medium pb-1" href="#">News &amp; Media</a>
+<a class="text-gray-500 font-medium pb-1" href="#">Entertainment</a>
+</nav>
+</header>
+<!-- END: StickyHeader -->
+<main>
+<!-- BEGIN: SuggestedAccounts -->
+<section class="py-4 border-b border-gray-100" data-purpose="suggested-section">
+<h2 class="px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">Suggested Accounts</h2>
+<div class="flex space-x-5 overflow-x-auto px-4 pb-4">
+<!-- User 1 -->
+<div class="flex-shrink-0 flex flex-col items-center w-20">
+<div class="w-16 h-16 rounded-full bg-gradient-to-tr from-yellow-400 to-fuchsia-600 p-0.5">
+<img alt="Profile" class="rounded-full border-2 border-white w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNIuRWCuGK3NYmOeMFfHrjZRlMgaIY0TCRKJ-sDhws33sYkVkMiZ6pidOSuxZqpXkPR1nH5AbL6eBdMLBQFNc1ekXtd1OyzgAK4UeuAhprF29APi4o0phGDQ55z8IY2fPNChPcf8C9fZdJNsF4GS-kh0BL34oSdmDWP3onThyA-DNYBrMbuGIrOOF6WyyJq5d8E8vtA1YJYZ3wD8RIzM5N8OpInkBBq0QzBbRt-NIg-r-EhDYcmMBiU41W3izU6Ae7R9nJ7r9QUONd"/>
+</div>
+<span class="text-[10px] mt-1 text-center truncate w-full">creative_mind</span>
+<button class="mt-2 w-full py-1 rounded text-[11px] font-semibold transition-colors">Follow</button>
+</div>
+<!-- User 2 -->
+<div class="flex-shrink-0 flex flex-col items-center w-20">
+<div class="w-16 h-16 rounded-full bg-gray-200 p-0.5">
+<img alt="Profile" class="rounded-full border-2 border-white w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1Dbl9LsMTKfNt4nZN09Of8mUGXgAqvGyJxrgRfOTsCCMlV94zvv9k-MOOQFMumwMhvAzaxpknwAJfTPh9jR_gO3c2ynEsqMz9cezVaMDImHVuCY3WCaURbj8wS5qWxsJiaLFw608CDufi63WaAkBOl83tAvy-1DvRAZXZLEmZSNBDow7mPRIokio1X-rePSQ1A9Xgvee7RKlwED3DHCy6YvPB-oKVXwyp9JUPoUulTE_0oAh5zAnZYZ3MveeYug1vvEhSuoUyRFfR"/>
+</div>
+<span class="text-[10px] mt-1 text-center truncate w-full">daily_vibe</span>
+<button class="mt-2 w-full py-1 rounded text-[11px] font-semibold transition-colors">Follow</button>
+</div>
+<!-- User 3 -->
+<div class="flex-shrink-0 flex flex-col items-center w-20">
+<div class="w-16 h-16 rounded-full bg-gray-200 p-0.5">
+<img alt="Profile" class="rounded-full border-2 border-white w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzwXrP_haT9301vr0M_skF81Xf_LWkHrUGqntkRFwZyxgKMJlPNmUOQby9S8MS5UDFX_BbGACGqR8PAD-AKj3iClPQXSJnvAtBzWr1uyQkfUiX7u2ck7rwgwOE4q3azr83POdU_RuJSzcItYJ6sUhmSAquhmiGlGjJXUR01Py66uAF_AdRVRxRs2zK8khD6u3ZwyYKFjmLAGolAvxLemF8Uwvubg1jgtdtU_U1gqfLWGzZG5biUHnbMiXFds93QWcnuJur85dSIsdv"/>
+</div>
+<span class="text-[10px] mt-1 text-center truncate w-full">travel_bug</span>
+<button class="mt-2 w-full py-1 rounded text-[11px] font-semibold transition-colors">Follow</button>
+</div>
+</div>
+</section>
+<!-- END: SuggestedAccounts -->
+<!-- BEGIN: TrendingGrid -->
+<!-- Flaw: Inconsistent grid spacing and asymmetrical margins -->
+<section class="px-1 mt-1" data-purpose="trending-images">
+<div class="grid grid-cols-3 gap-0.5">
+<!-- Row 1 -->
+<div class="aspect-square bg-gray-200 relative">
+<img alt="Trending" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaeMERXLDh74qhxxAE18iv7G-m6V5DvCbXwuW5MUlgGapfl-_V3M3xc8Wa9M6m2Qt4EAwf-9_43XuC24bg9VSdSAYD8TUMst22UrFNCyEnCTJTb4IvHjmLcMQNRtHgxZ9i4Cc2t7Qwsazm0uAQyfxZHoDe-02qbR5NVssr2_mQ01tHvXLmX1eYlWNgQbGIfnsKQjQxYIbIZsfXf6DH5pOsTRuImwJN1lTdJYeEEl3LkoUCae1i0fhvxbiiSppgiMEilNWWbyIw6E0C"/>
+<!-- Icon Style 3 (Hand-drawn look/different weight) -->
+<div class="absolute top-1 right-1">
+<svg fill="white" height="18" viewbox="0 0 24 24" width="18"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"></path></svg>
+</div>
+</div>
+<div class="aspect-square bg-gray-200">
+<img alt="Trending" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrn3dRElX1o198VlKe6v8FYzK5TBDLphwZSZ4BeywyrVMl3Y7ceLwrlOMPO2Ixw09V4nn8XXubuuV1N62Y5p94HNWvxerh9oXXp8cbngshO_z8_9-Q542PU4q20jy3WT0mTt9POLBGJKLj-4MlEgmpT4r_CnoDTLSQZStthDmUkIXt-TEq3DwC99VIYKqWb5NVlSKRS2Q4ybyiSpV_BgERaiWkkNQaT4smnvUcXv_-3e0KcSqwDQ1qIWcjSZrDN32C80fQa15cLBRd"/>
+</div>
+<div class="aspect-square bg-gray-200">
+<img alt="Trending" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5sGPnYtlflsQIh16snjNyZDqu2mlZGhGbMYQ-QJs1rsF5QZplVvS-qp5OpRduWbGzvPqTFcB8_nIAx8T1WK_xziAqsmBXQFT7h-kptk_R6lUuyQ-mLbU8IhRCs2BQGhF-vWtX6_I0YuH8ZVJcA97VSxMI9FGITLroaCrrtmHr9RBOaCAseDtmVPNAFsN5fcEgbyk-EB4fMFdrpMUCjcTKIsX1A8ZSPCB6-gL0vME8htlHiTu9UURm9AFCtLg74CG7lKJU8lvhfYJc"/>
+</div>
+<!-- Row 2 (Tall item) -->
+<div class="col-span-2 row-span-2 bg-gray-200">
+<img alt="Featured" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCy6A7eMBl7CG2bIIQL1S3jhC2ngnp2QC_0Ox6yMx6mDEm-notaqy4BNpPfHlT9zU-yKiB1-84_kyZVs1H7De1l5xIN8okwzAr9TzEcKlWi6dwVw36OVC4qXv7QCkFH111qYxEftAkEw0uixmm3v4grTQcLMR8ToSZi7B_JFn2qFg-DQE4RUD7Ew1Q4Shmf-J7OG0kcE_83Ak4x4VRx3OfERb4fh7v6XmS4zCn3YM52UnZ-ccv2rcSs_cPR0LeWxU0Da-fNA3XZ7Bh0"/>
+<!-- Flaw: Text overlap on image -->
+<div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm text-[10px] px-2 py-1 font-bold uppercase tracking-tight rounded-sm shadow-sm">Featured Post</div>
+</div>
+<div class="aspect-square bg-gray-200">
+<img alt="Trending" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNG8LMahMqCA-9bZbQZM750--In-X6-nnKZ2ryW_RsLX_jf47_gMSuUsBfUVKWq1tx_Reqr1Ms4Int8BzxrtsCgR68rOi0aZVCnvcIqKEA5d4U8wzfR-wAxr6aiKiR62pal3yZa6JwvgbnNAgNSu7hbFrGHZNDw-NJivu9ZS9KTJMkyq7U2gu8w8dkOnNm1V7KteOyZGL0UFjhtbcA6bR_gIeTBqIgF6Nu1hU8I8k3SJzqH7H6SDEtIreKLu06owCg01m751noplFV"/>
+</div>
+<div class="aspect-square bg-gray-200">
+<img alt="Trending" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4FeNlzmil48ZdhBGqmiSOtr4V6ox7JLEmBVfSpmTLdlJNtz9ccjl5QR9O-9LLngVV5LIXGQae07xusVFQbJ_hYV_F6kr_k5zD0YFkv2elXAqOdEH2mOhPQiFwsH2LtJu_18AoOQvRvusQuW5dOJnJEaeA9qZIA_k-8Ih_jJ95mapcK3_yU0cr-lpjLwG3iC2IB93nd4xJ6CpuuML93pmY35WHHyNQ2fyVMMs5NLQBk2xspt8B23fk7ehlZudKxhsG-A_GpA8-CwSD"/>
+</div>
+<!-- Row 3 -->
+<div class="aspect-square bg-gray-200">
+<img alt="Trending" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDywFUmqZY7c6WmbZY9ZqO4KoOdzSmmztLIA4dAlzumZ4riy6bz3j5TCNoxQJxxi9G9bF1CSiaVC_GI77l6nxkawzOzSyymFWQzkuWBbaIoiGsms8XOHuO1E0AQExE41mu896G8nEE_4BSt5Y3OlMCzeTBQPHDxqOhv9cb6CBGYtXlVG4_naJNyV2r8Uiw3DINQvwBT1IMIvKLye0Q-aZTSD4REW76B9F9VuG1AWMkRy8gtgR6j-B36unSi1mPEspEOgzflv7H7aHus"/>
+</div>
+<div class="aspect-square bg-gray-200">
+<img alt="Trending" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCp8FZxHVCrFCqAtHlf0ovYCAzxsMMDm9XLiQThDgM2K-2SH6YKzt6ppikmRp817KZrf22gjtuQLCWLgxkkboBc_pvQXfx0CralIAcJd1lz9HTM05rArfu8Z8CC6qYYu17qh5yiQtmIo6C9aUJ4011aWc0-p6yXTPnw8Kx4acB7gl9oA5THbJRP1MzH2FHGoGbTZ1qTfoZZoY3CnTcAVWgFbnBSMk5kVSRZ3hwi5__ZrGJsIY7CcVhnjhnWWg7HgvbUEcHynIG9DbTk"/>
+</div>
+<div class="aspect-square bg-gray-200">
+<img alt="Trending" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBm7314bnaB1ZwKk2VQkWa8tlNATRDLbPwcp7pC_MHNbvIQORPGCT2MczSbtRGVx7H8_eskn4yIsnGfgP-9wHvmV6rZ-VIgZFXpoQZWGkMys0nO4zu7v2FGSLx5WO-mtZKVuS8VKwEDAAW9B1x03wBc9lc6NWwd_bwfh1hIVpenk9i0K4CUKFdRtpbPVodusuXjbj--vqBYbsFn75h2j_wew4Iy1d7GPMV7P8doGe0IOnryVJ8ccQtr7_RSmQ-u1xeE35eGKZ53zuAD"/>
+</div>
+</div>
+</section>
+<!-- END: TrendingGrid -->
+</main>
+<!-- BEGIN: NavigationFooter -->
+<footer class="fixed bottom-0 w-full bg-white/95 backdrop-blur-md border-t border-gray-200 h-16 flex justify-around items-center px-4 pb-safe z-50">
+<!-- Home (Outline) -->
+<button class="p-2">
+<svg class="h-7 w-7" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<!-- Search (Solid - Style Mismatch) -->
+<button class="p-2 text-blue-600">
+<svg class="h-7 w-7 fill-current" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" fill-rule="evenodd"></path>
+</svg>
+</button>
+<!-- Add (Plus inside circle - Style Mismatch) -->
+<button class="p-2">
+<svg class="h-7 w-7" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<!-- Heart (Rounded solid) -->
+<button class="p-2">
+<svg class="h-7 w-7 fill-current text-gray-400" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" fill-rule="evenodd"></path>
+</svg>
+</button>
+<!-- Profile (Circle) -->
+<div class="h-7 w-7 rounded-full bg-gray-300 border border-gray-400 overflow-hidden">
+<img alt="Me" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBr1IsEh7ZnDUvo7ACaahwdFWGe6gYuH-85t2_STKILNRHYtPDCG4ZcLNg7BjoIvqKHi3-UenH-mHNe8G-aysBM8W0qezb53VsA9gSw4nwJcBDFWyw_7I4ZBrBr8_GwYNWI9IpTkFQvbSoMq043rbatxJkC6JPWBSHE4o4FNmCF7ruBmgXC1Ptdsgh709rjXDlfaVse6wqVKcTa_xVeFvbKquKNEPEMVFoLDSYvuuyS4ZsogOJgV7YVO7--Dg80Bn1C6aMTUnxBsRTT"/>
+</div>
+</footer>
+<!-- END: NavigationFooter -->
+</body></html>

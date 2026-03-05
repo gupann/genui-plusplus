@@ -4,6 +4,10 @@ const CASE_STUDIES = [
   { id: 1, label: 'Case Study 1' },
   { id: 2, label: 'Case Study 2' },
   { id: 3, label: 'Case Study 3' },
+  { id: 4, label: 'Case Study 4' },
+  { id: 5, label: 'Case Study 5' },
+  { id: 6, label: 'Case Study 6' },
+  { id: 7, label: 'Case Study 7' },
 ];
 
 export default function UserStudy() {
@@ -12,8 +16,8 @@ export default function UserStudy() {
   return (
     <div className='user-study'>
       <header className='user-study__header'>
-        <h1>Pick a case study to start</h1>
-        <p className='user-study__subtitle'>blah</p>
+        <h1>Phase 1: Data Collection</h1>
+        <p className='user-study__subtitle'>Pick a case study to start.</p>
       </header>
       <nav className='user-study__nav' aria-label='Case studies'>
         {CASE_STUDIES.map(({ id, label }) => (
