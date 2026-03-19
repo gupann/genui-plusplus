@@ -89,17 +89,14 @@ export default function Study({ listPath = '/user-study' }) {
   const { providerStatus, availableProviders, missingProviders } =
     useProviderCatalog();
 
-  const {
-    resultsById,
-    triggerProviderGeneration,
-    handleIframeLoad,
-  } = useStudyGeneration({
-    taskId: id,
-    changes,
-    currentIndex,
-    beforeImageUrl,
-    beforeCode,
-  });
+  const { resultsById, triggerProviderGeneration, handleIframeLoad } =
+    useStudyGeneration({
+      taskId: id,
+      changes,
+      currentIndex,
+      beforeImageUrl,
+      beforeCode,
+    });
 
   function buildDownloadHref(code) {
     if (!code) return '';
@@ -116,10 +113,7 @@ export default function Study({ listPath = '/user-study' }) {
       `before-task-${changeId}.html`,
       beforeCode || '<!-- no before code found -->',
     );
-    zip.file(
-      `task-${changeId}-issue.txt`,
-      issueText || '(no issue provided)',
-    );
+    zip.file(`task-${changeId}-issue.txt`, issueText || '(no issue provided)');
     zip.file(
       `after-task-${changeId}-${providerId}.html`,
       code || '<!-- no after code returned -->',
@@ -144,10 +138,7 @@ export default function Study({ listPath = '/user-study' }) {
       `before-task-${changeId}.html`,
       beforeCode || '<!-- no before code found -->',
     );
-    zip.file(
-      `task-${changeId}-issue.txt`,
-      issueText || '(no issue provided)',
-    );
+    zip.file(`task-${changeId}-issue.txt`, issueText || '(no issue provided)');
 
     if (beforeImageUrl) {
       try {
@@ -262,8 +253,13 @@ export default function Study({ listPath = '/user-study' }) {
       ) : beforeImageFailed ? (
         <div className='study__img-placeholder'>
           Add your screenshot as{' '}
-          <code>public/case-study-{id}/task{id}-before.png</code> (or .jpg).
-          Optional code: <code>public/case-study-{id}/task{id}-before.html</code>
+          <code>
+            public/case-study-{id}/task{id}-before.png
+          </code>{' '}
+          (or .jpg). Optional code:{' '}
+          <code>
+            public/case-study-{id}/task{id}-before.html
+          </code>
         </div>
       ) : (
         <img
@@ -277,9 +273,7 @@ export default function Study({ listPath = '/user-study' }) {
   );
 
   return (
-    <div
-      className={`study${isCollect ? ' study--collect' : ' study--review'}`}
-    >
+    <div className={`study${isCollect ? ' study--collect' : ' study--review'}`}>
       <header className='study__header'>
         <button
           type='button'
@@ -289,23 +283,6 @@ export default function Study({ listPath = '/user-study' }) {
           ← Case studies
         </button>
         <h1>Case Study {id}</h1>
-        {/* 
-        <p className="study__debug">
-          Generator: {import.meta.env.VITE_UI_GENERATION_API_URL ? 'API' : 'Mock'}{' '}
-          {import.meta.env.VITE_UI_GENERATION_API_URL
-            ? `( ${import.meta.env.VITE_UI_GENERATION_API_URL} )`
-            : '(no VITE_UI_GENERATION_API_URL)'}
-        </p>
-        <p className="study__debug">
-          Debug: phase={phase} currentIndex={currentIndex}{' '}
-          {currentChange ? `changeId=${currentChange.id}` : 'changeId=none'}{' '}
-          {currentResult
-            ? `loading=${Boolean(currentResult.loading)} done=${Boolean(currentResult.done)} error=${
-                currentResult.error ? 'yes' : 'no'
-              }`
-            : 'result=none'}
-        </p>
-        */}
       </header>
 
       {isCollect ? (
