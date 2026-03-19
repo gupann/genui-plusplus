@@ -186,6 +186,7 @@ export default function Study({ listPath = '/user-study' }) {
         approvalsByProvider: evaluation.approvalsByProvider,
         rankingById: evaluation.rankingById,
       });
+      navigate(listPath, { replace: true });
     }
   }
 
