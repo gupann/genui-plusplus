@@ -263,13 +263,15 @@ async function callOpenAI({ prompt, beforeCode, beforeImageUrl, renderSpec }) {
     console.log('[generate] html incomplete, retrying…');
     // do a 2nd call:
     // "Return the FULL HTML again. Ensure it ends with </body></html>. No markdown."
-    const text2 = await callOpenAI({
-      prompt,
-      beforeCode,
-      beforeImageUrl,
-      renderSpec,
-    });
-    html = extractHtml(text2);
+    // const text2 = await callOpenAI({
+    //   prompt,
+    //   beforeCode,
+    //   beforeImageUrl,
+    //   renderSpec,
+    // });
+    // html = extractHtml(text2);
+
+    console.warn('[generate] html incomplete');
   }
   return html;
 }
@@ -319,13 +321,14 @@ async function callGemini({ prompt, beforeCode, beforeImageUrl, renderSpec }) {
     console.log('[generate] html incomplete, retrying…');
     // do a 2nd call:
     // "Return the FULL HTML again. Ensure it ends with </body></html>. No markdown."
-    const text2 = await callOpenAI({
-      prompt,
-      beforeCode,
-      beforeImageUrl,
-      renderSpec,
-    });
-    html = extractHtml(text2);
+    // const text2 = await callOpenAI({
+    //   prompt,
+    //   beforeCode,
+    //   beforeImageUrl,
+    //   renderSpec,
+    // });
+    // html = extractHtml(text2);
+    console.warn('[generate] html incomplete');
   }
   return html;
 }
@@ -378,13 +381,14 @@ async function callClaude({ prompt, beforeCode, beforeImageUrl, renderSpec }) {
     console.log('[generate] html incomplete, retrying…');
     // do a 2nd call:
     // "Return the FULL HTML again. Ensure it ends with </body></html>. No markdown."
-    const text2 = await callOpenAI({
-      prompt,
-      beforeCode,
-      beforeImageUrl,
-      renderSpec,
-    });
-    html = extractHtml(text2);
+    // const text2 = await callOpenAI({
+    //   prompt,
+    //   beforeCode,
+    //   beforeImageUrl,
+    //   renderSpec,
+    // });
+    // html = extractHtml(text2);
+    console.warn('[generate] html incomplete');
   }
   return html;
 }
