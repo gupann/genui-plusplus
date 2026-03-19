@@ -83,6 +83,10 @@ body {
   padding: 2.5rem 0 3.5rem;
 }
 
+.site-main.site-shell {
+  max-width: 1440px;
+}
+
 .page {
   min-height: calc(100vh - 160px);
 }

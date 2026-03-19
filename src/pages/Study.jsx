@@ -1,42 +1,28 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import JSZip from 'jszip';
-import { generateAfterScreen, getProviderStatus } from '../services/api';
+import { useCaseStudyAssets } from '../hooks/useCaseStudyAssets';
+import { useProviderCatalog } from '../hooks/useProviderCatalog';
+import { useStudyGeneration } from '../hooks/useStudyGeneration';
+import { useStudyEvaluation } from '../hooks/useStudyEvaluation';
+import CollectChangesSection from '../components/study/CollectChangesSection';
+import ReviewSection from '../components/study/ReviewSection';
 
-// Placeholder assets per case study. Put them under public/case-study-N/
-// e.g. public/case-study-1/task1-before.png and public/case-study-1/task1-before.html
-function getBeforeImageUrl(taskId) {
-  return `/case-study-${taskId}/task${taskId}-before.png`;
-}
-
-function getBeforeCodeUrl(taskId) {
-  return `/case-study-${taskId}/task${taskId}-before.html`;
-}
-
-export default function Study() {
+export default function Study({ listPath = '/user-study' }) {
   const { taskId } = useParams();
   const navigate = useNavigate();
   const id = parseInt(taskId, 10) || 1;
 
-  const [beforeImageFailed, setBeforeImageFailed] = useState(false);
-  const [beforeCode, setBeforeCode] = useState('');
+  const {
+    beforeCode,
+    beforeImageUrl,
+    beforeImageFailed,
+    setBeforeImageFailed,
+  } = useCaseStudyAssets(id);
   const [changes, setChanges] = useState([{ id: 1, problem: '' }]);
   const [phase, setPhase] = useState('collect'); // 'collect' | 'review' | 'done'
   const [currentIndex, setCurrentIndex] = useState(0);
   const [validationById, setValidationById] = useState({});
-
-  // Per-change generation + feedback
-  const [resultsById, setResultsById] = useState({});
-  const [successById, setSuccessById] = useState({});
-  const [notSuccessById, setNotSuccessById] = useState({});
-  const [approvedById, setApprovedById] = useState({});
-  const [approvalsByProvider, setApprovalsByProvider] = useState({});
-  const [rankingById, setRankingById] = useState({});
-  const [iframeHeightsById, setIframeHeightsById] = useState({});
-  const [activeProviderId, setActiveProviderId] = useState('');
-
-  const beforeImageUrl = getBeforeImageUrl(id);
-  const beforeCodeUrl = getBeforeCodeUrl(id);
 
   function handleChangeField(index, field, value) {
     setChanges((prev) => {
@@ -100,196 +86,20 @@ export default function Study() {
     console.log('Saved changes for task', id, changes);
   }
 
-  function getEntriesById(map, changeId) {
-    const entries = map[changeId];
-    if (Array.isArray(entries) && entries.length) return entries;
-    return [{ text: '', providerId: '' }];
-  }
+  const { providerStatus, availableProviders, missingProviders } =
+    useProviderCatalog();
 
-  function updateEntry(setter, changeId, index, key, value) {
-    setter((prev) => {
-      const next = { ...prev };
-      const entries = Array.isArray(next[changeId])
-        ? [...next[changeId]]
-        : [{ text: '', providerId: '' }];
-      while (entries.length <= index)
-        entries.push({ text: '', providerId: '' });
-      entries[index] = { ...entries[index], [key]: value };
-      next[changeId] = entries;
-      return next;
-    });
-  }
-
-  function addEntry(setter, changeId) {
-    setter((prev) => {
-      const next = { ...prev };
-      const entries = Array.isArray(next[changeId])
-        ? [...next[changeId]]
-        : [{ text: '', providerId: '' }];
-      entries.push({ text: '', providerId: '' });
-      next[changeId] = entries;
-      return next;
-    });
-  }
-
-  function removeEntry(setter, changeId, index) {
-    setter((prev) => {
-      const next = { ...prev };
-      const entries = Array.isArray(next[changeId])
-        ? [...next[changeId]]
-        : [{ text: '', providerId: '' }];
-      if (entries.length <= 1) {
-        next[changeId] = [{ text: '', providerId: '' }];
-        return next;
-      }
-      entries.splice(index, 1);
-      next[changeId] = entries.length
-        ? entries
-        : [{ text: '', providerId: '' }];
-      return next;
-    });
-  }
-
-  function getScopedEntries(map, changeId, providerId) {
-    const entries = Array.isArray(map[changeId]) ? map[changeId] : [];
-    return entries
-      .map((entry, index) => ({ entry, index }))
-      .filter(({ entry }) => entry?.providerId === providerId);
-  }
-
-  function addEntryForProvider(setter, changeId, providerId) {
-    setter((prev) => {
-      const next = { ...prev };
-      const entries = Array.isArray(next[changeId]) ? [...next[changeId]] : [];
-      entries.push({ text: '', providerId });
-      next[changeId] = entries;
-      return next;
-    });
-  }
-
-  function removeEntryForProvider(setter, changeId, providerId, globalIndex) {
-    setter((prev) => {
-      const next = { ...prev };
-      const entries = Array.isArray(next[changeId]) ? [...next[changeId]] : [];
-      const countForProvider = entries.filter((e) => e?.providerId === providerId)
-        .length;
-      // Keep at least one entry per provider.
-      if (countForProvider <= 1) return prev;
-      entries.splice(globalIndex, 1);
-      next[changeId] = entries.length ? entries : [{ text: '', providerId }];
-      return next;
-    });
-  }
-
-  useEffect(() => {
-    let cancelled = false;
-
-    async function loadBeforeCode() {
-      try {
-        const response = await fetch(beforeCodeUrl);
-        if (!response.ok) throw new Error('missing before code');
-        const text = await response.text();
-        if (!cancelled) setBeforeCode(text);
-      } catch {
-        if (!cancelled) setBeforeCode('');
-      }
-    }
-
-    loadBeforeCode();
-
-    return () => {
-      cancelled = true;
-    };
-  }, [beforeCodeUrl]);
-
-  useEffect(() => {
-    let cancelled = false;
-    async function loadStatus() {
-      try {
-        const status = await getProviderStatus();
-        if (cancelled) return;
-        setProviderStatus({
-          loading: false,
-          error: null,
-          providers: status.providers || null,
-          mode: status.mode || 'unknown',
-        });
-      } catch (err) {
-        if (cancelled) return;
-        setProviderStatus({
-          loading: false,
-          error: err.message || 'Unable to reach generation server.',
-          providers: null,
-          mode: 'unknown',
-        });
-      }
-    }
-    loadStatus();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
-  const providers = [
-    { id: 'openai', label: 'OpenAI' },
-    { id: 'gemini', label: 'Gemini' },
-    { id: 'claude', label: 'Claude' },
-  ];
-  const [providerStatus, setProviderStatus] = useState({
-    loading: true,
-    error: null,
-    providers: null,
-    mode: 'unknown',
+  const {
+    resultsById,
+    triggerProviderGeneration,
+    handleIframeLoad,
+  } = useStudyGeneration({
+    taskId: id,
+    changes,
+    currentIndex,
+    beforeImageUrl,
+    beforeCode,
   });
-
-  const availableProviders = providerStatus?.providers
-    ? providers.filter(
-        (p) => providerStatus.providers[p.id]?.available !== false,
-      )
-    : providers;
-  const missingProviders = providerStatus?.providers
-    ? providers.filter(
-        (p) => providerStatus.providers[p.id]?.available === false,
-      )
-    : [];
-
-  useEffect(() => {
-    if (!activeProviderId && availableProviders.length) {
-      setActiveProviderId(availableProviders[0].id);
-      return;
-    }
-    if (
-      activeProviderId &&
-      availableProviders.length &&
-      !availableProviders.some((p) => p.id === activeProviderId)
-    ) {
-      setActiveProviderId(availableProviders[0].id);
-    }
-  }, [activeProviderId, availableProviders]);
-
-  useEffect(() => {
-    if (phase !== 'review') return;
-    const changeId = changes[currentIndex]?.id;
-    if (!changeId) return;
-    const providerIds = (availableProviders || []).map((p) => p.id);
-    if (!providerIds.length) return;
-
-    const ensure = (setter) => {
-      setter((prev) => {
-        const existing = Array.isArray(prev[changeId]) ? [...prev[changeId]] : [];
-        const nextEntries = [...existing];
-        providerIds.forEach((providerId) => {
-          if (!nextEntries.some((e) => e?.providerId === providerId)) {
-            nextEntries.push({ text: '', providerId });
-          }
-        });
-        return { ...prev, [changeId]: nextEntries };
-      });
-    };
-
-    ensure(setSuccessById);
-    ensure(setNotSuccessById);
-  }, [phase, currentIndex, changes, availableProviders]);
 
   function buildDownloadHref(code) {
     if (!code) return '';
@@ -325,105 +135,50 @@ export default function Study() {
     setTimeout(() => URL.revokeObjectURL(url), 2000);
   }
 
-  const CLIENT_WATCHDOG_MS = 50000;
+  async function handleDownloadOriginal(changeId) {
+    const change = changes.find((c) => c.id === changeId);
+    const issueText = change?.problem || '';
+    const zip = new JSZip();
 
-  function triggerProviderGeneration(providerId, { force = false } = {}) {
-    // eslint-disable-next-line no-console
-    console.log('[ui] triggerProviderGeneration', { providerId, force });
-    const current = changes[currentIndex];
-    if (!current) return;
-    const changeId = current.id;
-    const requestId = `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+    zip.file(
+      `before-task-${changeId}.html`,
+      beforeCode || '<!-- no before code found -->',
+    );
+    zip.file(
+      `task-${changeId}-issue.txt`,
+      issueText || '(no issue provided)',
+    );
 
-    setResultsById((prev) => {
-      const existingForChange = prev[changeId] || {};
-      const existingProvider = existingForChange[providerId];
-      if (!force && (existingProvider?.loading || existingProvider?.done))
-        return prev;
-      return {
-        ...prev,
-        [changeId]: {
-          ...existingForChange,
-          [providerId]: {
-            ...(existingProvider || {}),
-            loading: true,
-            error: null,
-            requestId,
-            startedAt: Date.now(),
-          },
-        },
-      };
-    });
-    // eslint-disable-next-line no-console
-    console.log('[ui] scheduling run', { providerId, requestId });
-
-    setTimeout(() => {
-      setResultsById((prev) => {
-        const currentProvider = prev?.[changeId]?.[providerId];
-        if (!currentProvider?.loading) return prev;
-        if (currentProvider.requestId !== requestId) return prev;
-        return {
-          ...prev,
-          [changeId]: {
-            ...(prev[changeId] || {}),
-            [providerId]: {
-              ...(currentProvider || {}),
-              loading: false,
-              done: true,
-              error: 'Request timed out or was blocked. Try again.',
-            },
-          },
-        };
-      });
-    }, CLIENT_WATCHDOG_MS);
-
-    const run = async () => {
+    if (beforeImageUrl) {
       try {
-        // eslint-disable-next-line no-console
-        console.log('[ui] calling generateAfterScreen', {
-          providerId,
-          apiUrl: import.meta.env.VITE_UI_GENERATION_API_URL,
-        });
-        const result = await generateAfterScreen({
-          taskId: id,
-          prompt: current.problem,
-          beforeImageUrl,
-          beforeCode,
-          provider: providerId,
-        });
-        // eslint-disable-next-line no-console
-        console.log('[ui] generateAfterScreen success', { providerId });
-        setResultsById((prev) => ({
-          ...prev,
-          [changeId]: {
-            ...(prev[changeId] || {}),
-            [providerId]: {
-              ...(prev[changeId]?.[providerId] || {}),
-              loading: false,
-              done: true,
-              result,
-            },
-          },
-        }));
-      } catch (err) {
-        // eslint-disable-next-line no-console
-        console.error('[ui] generateAfterScreen error', { providerId, err });
-        setResultsById((prev) => ({
-          ...prev,
-          [changeId]: {
-            ...(prev[changeId] || {}),
-            [providerId]: {
-              ...(prev[changeId]?.[providerId] || {}),
-              loading: false,
-              done: true,
-              error: err.message || 'Failed to generate screen.',
-            },
-          },
-        }));
+        const response = await fetch(beforeImageUrl);
+        if (response.ok) {
+          const blob = await response.blob();
+          const extFromPath = beforeImageUrl.split('.').pop()?.toLowerCase();
+          const ext =
+            extFromPath && ['png', 'jpg', 'jpeg', 'webp'].includes(extFromPath)
+              ? extFromPath
+              : blob.type.includes('jpeg')
+                ? 'jpg'
+                : blob.type.includes('webp')
+                  ? 'webp'
+                  : 'png';
+          zip.file(`before-task-${changeId}.${ext}`, blob);
+        }
+      } catch {
+        // If the image is missing/unreadable, still allow HTML + task text download.
       }
-    };
+    }
 
-    run();
+    const blob = await zip.generateAsync({ type: 'blob' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `task-${changeId}-original.zip`;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 2000);
   }
 
   function handleNextChange() {
@@ -435,9 +190,10 @@ export default function Study() {
       // eslint-disable-next-line no-console
       console.log('Completed review for task', id, {
         changes,
-        successById,
-        notSuccessById,
-        approvedById,
+        successById: evaluation.successById,
+        notSuccessById: evaluation.notSuccessById,
+        approvalsByProvider: evaluation.approvalsByProvider,
+        rankingById: evaluation.rankingById,
       });
     }
   }
@@ -455,7 +211,7 @@ export default function Study() {
           <button
             type='button'
             className='study__btn study__btn--primary'
-            onClick={() => navigate('/')}
+            onClick={() => navigate(listPath)}
           >
             Back to case studies
           </button>
@@ -467,12 +223,16 @@ export default function Study() {
 
   const isCollect = phase === 'collect';
   const currentChange = changes[currentIndex];
-  const currentChangeId = currentChange?.id;
   const currentResult = currentChange
     ? resultsById[currentChange.id] || {}
     : {};
-  const getIframeHeight = (changeId, providerId) =>
-    iframeHeightsById[changeId]?.[providerId] || 900;
+
+  const evaluation = useStudyEvaluation({
+    phase,
+    changes,
+    currentIndex,
+    availableProviders,
+  });
 
   function scrollToBottom() {
     window.scrollTo({
@@ -481,106 +241,50 @@ export default function Study() {
     });
   }
 
-  function setProviderApproval(changeId, providerId, value) {
-    setApprovalsByProvider((prev) => ({
-      ...prev,
-      [changeId]: { ...(prev[changeId] || {}), [providerId]: value },
-    }));
-  }
-
-  function updateRanking(changeId, slot, providerId) {
-    setRankingById((prev) => ({
-      ...prev,
-      [changeId]: { ...(prev[changeId] || {}), [slot]: providerId },
-    }));
-  }
-
-  function handleIframeLoad(changeId, providerId, event) {
-    try {
-      const doc = event.target?.contentDocument;
-      if (!doc) return;
-      const height =
-        doc.documentElement?.scrollHeight ||
-        doc.body?.scrollHeight ||
-        doc.documentElement?.offsetHeight ||
-        900;
-      setIframeHeightsById((prev) => {
-        const next = { ...prev };
-        const entry = { ...(next[changeId] || {}) };
-        entry[providerId] = Math.max(height, 600);
-        next[changeId] = entry;
-        return next;
-      });
-    } catch (err) {
-      // eslint-disable-next-line no-console
-      console.warn('Could not read iframe height', err);
-    }
-  }
   const hasMissingRequired = changes.some((c) => !c.problem.trim());
-  const providersForChange = availableProviders;
-  const ranksToShow = providersForChange.length || 0;
-  const approvalsComplete =
-    providersForChange.length > 0 &&
-    providersForChange.every(
-      (p) =>
-        approvalsByProvider[currentChangeId]?.[p.id] === true ||
-        approvalsByProvider[currentChangeId]?.[p.id] === false,
-    );
-  const rankingCurrent = rankingById[currentChangeId] || {};
-  const rankingValues = Array.from(
-    { length: ranksToShow },
-    (_, i) => rankingCurrent[i + 1],
-  ).filter(Boolean);
-  const uniqueRankCount = new Set(rankingValues).size;
-  const rankingComplete =
-    ranksToShow === 0 ||
-    (rankingValues.length === ranksToShow && uniqueRankCount === ranksToShow);
-
-  const hasTextForProvider = (map, changeId, providerId) => {
-    const entries = Array.isArray(map?.[changeId]) ? map[changeId] : [];
-    return entries.some(
-      (e) => e?.providerId === providerId && String(e?.text || '').trim(),
-    );
-  };
-  const successComplete =
-    providersForChange.length > 0 &&
-    providersForChange.every((p) =>
-      hasTextForProvider(successById, currentChangeId, p.id),
-    );
-  const failureComplete =
-    providersForChange.length > 0 &&
-    providersForChange.every((p) =>
-      hasTextForProvider(notSuccessById, currentChangeId, p.id),
-    );
-
+  const providersForChange = evaluation.providersForChange;
   const finishDisabled =
     hasMissingRequired ||
-    !approvalsComplete ||
-    !rankingComplete ||
-    !successComplete ||
-    !failureComplete;
+    !evaluation.approvalsComplete ||
+    !evaluation.rankingComplete ||
+    !evaluation.successComplete ||
+    !evaluation.failureComplete;
 
-  const activeProvider =
-    providersForChange.find((p) => p.id === activeProviderId) ||
-    providersForChange[0] ||
-    null;
-  const activeProviderResult = activeProvider
-    ? currentResult?.[activeProvider.id]
-    : null;
-  const scopedSuccess = activeProvider
-    ? getScopedEntries(successById, currentChangeId, activeProvider.id)
-    : [];
-  const scopedFailure = activeProvider
-    ? getScopedEntries(notSuccessById, currentChangeId, activeProvider.id)
-    : [];
+  const beforeScreen = (
+    <div className='study__screen-wrap study__screen-wrap--before'>
+      {beforeCode ? (
+        <iframe
+          title='Before screen'
+          srcDoc={beforeCode}
+          className='study__iframe study__iframe--before'
+          sandbox='allow-same-origin allow-scripts'
+        />
+      ) : beforeImageFailed ? (
+        <div className='study__img-placeholder'>
+          Add your screenshot as{' '}
+          <code>public/case-study-{id}/task{id}-before.png</code> (or .jpg).
+          Optional code: <code>public/case-study-{id}/task{id}-before.html</code>
+        </div>
+      ) : (
+        <img
+          src={beforeImageUrl}
+          alt='Screen for this case study'
+          className='study__img'
+          onError={() => setBeforeImageFailed(true)}
+        />
+      )}
+    </div>
+  );
 
   return (
-    <div className='study'>
+    <div
+      className={`study${isCollect ? ' study--collect' : ' study--review'}`}
+    >
       <header className='study__header'>
         <button
           type='button'
           className='study__back'
-          onClick={() => navigate('/user-study')}
+          onClick={() => navigate(listPath)}
         >
           ← Case studies
         </button>
@@ -604,492 +308,62 @@ export default function Study() {
         */}
       </header>
 
-      <section className='study__section'>
-        <h2>Screen</h2>
-        <p className='study__hint'>
-          Scroll through this screen and identify small, incremental changes you
-          would make. For each change, describe the issue you want fixed.
-        </p>
-        <div className='study__screen-wrap study__screen-wrap--before'>
-          {beforeCode ? (
-            <iframe
-              title='Before screen'
-              srcDoc={beforeCode}
-              className='study__iframe study__iframe--before'
-              sandbox='allow-same-origin allow-scripts'
-            />
-          ) : beforeImageFailed ? (
-            <div className='study__img-placeholder'>
-              Add your screenshot as{' '}
-              <code>public/case-study-{id}/task{id}-before.png</code> (or .jpg).
-              Optional code:{' '}
-              <code>public/case-study-{id}/task{id}-before.html</code>
-            </div>
-          ) : (
-            <img
-              src={beforeImageUrl}
-              alt='Screen for this case study'
-              className='study__img'
-              onError={() => setBeforeImageFailed(true)}
-            />
-          )}
-        </div>
-      </section>
-
       {isCollect ? (
-        <section className='study__section'>
-          <h2>Small changes</h2>
-          <p className='study__hint'>
-            Add as many small changes as you like. Each row is one small,
-            incremental change (e.g. move a button, adjust copy, tweak spacing,
-            etc.).
-          </p>
-
-          <form onSubmit={handleStartReview} className='study__form'>
-            {changes.map((change, index) => (
-              <div key={change.id} className='study__change'>
-                <div className='study__change-header'>
-                  <span className='study__change-label'>
-                    Change {index + 1}
-                  </span>
-                  {changes.length > 1 && (
-                    <button
-                      type='button'
-                      className='study__chip-btn'
-                      onClick={() => handleRemoveChange(change.id)}
-                    >
-                      Remove
-                    </button>
-                  )}
-                </div>
-
-                <label className='study__label'>
-                  What is the small change or issue?
-                  <textarea
-                    className={`study__textarea${validationById[change.id]?.problem ? ' study__textarea--error' : ''}`}
-                    value={change.problem}
-                    onChange={(e) =>
-                      handleChangeField(index, 'problem', e.target.value)
-                    }
-                    rows={2}
-                    placeholder='e.g. The primary button is too low in the hierarchy; move it closer to the form.'
-                  />
-                  {validationById[change.id]?.problem && (
-                    <span className='study__error-text'>
-                      {validationById[change.id].problem}
-                    </span>
-                  )}
-                </label>
-
-                <p className='study__hint'>
-                  We&apos;ll convert this into a concrete UI revision prompt
-                  internally.
-                </p>
-              </div>
-            ))}
-
-            <button
-              type='button'
-              className='study__btn study__btn--ghost'
-              onClick={handleAddChange}
-            >
-              + Add another small change
-            </button>
-
-            <button
-              type='submit'
-              className='study__btn study__btn--primary'
-              disabled={hasMissingRequired}
-            >
-              Save changes and start evaluation
-            </button>
-          </form>
+        <section className='study__collect-layout'>
+          <aside className='study__collect-preview'>
+            <h2>Screen</h2>
+            <p className='study__hint'>
+              Scroll through this screen and identify small, incremental changes
+              you would make. For each change, describe the issue you want
+              fixed.
+            </p>
+            {beforeScreen}
+          </aside>
+          <CollectChangesSection
+            changes={changes}
+            validationById={validationById}
+            hasMissingRequired={hasMissingRequired}
+            onStartReview={handleStartReview}
+            onAddChange={handleAddChange}
+            onRemoveChange={handleRemoveChange}
+            onChangeField={handleChangeField}
+          />
         </section>
       ) : (
-        <section className='study__section'>
-          <h2>
-            Evaluate change {currentIndex + 1} of {changes.length}
-          </h2>
-          <p className='study__hint'>
-            Let&apos;s use your issue description for this small change to
-            generate an updated screen. Tell us what is successful, what is not, and whether
-            you would approve this result as a designer. Each success or failure
-            should be one thing to keep the feedback itemized.
-          </p>
-
-          <div className='study__change study__change--summary'>
-            <div className='study__change-header'>
-              <span className='study__change-label'>Provided issue</span>
-            </div>
-            <p className='study__meta-body study__meta-body--single'>
-              {currentChange.problem || <em>(No issue provided)</em>}
-            </p>
-          </div>
-
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleNextChange();
-            }}
-            className='study__form'
-          >
-            <div className='study__llm-divider' aria-hidden='true' />
-            <div className='study__tabs'>
-              {providersForChange.map((provider) => (
-                <button
-                  key={provider.id}
-                  type='button'
-                  className={`study__tab${provider.id === activeProvider?.id ? ' is-active' : ''}`}
-                  onClick={() => setActiveProviderId(provider.id)}
-                >
-                  {provider.label}
-                </button>
-              ))}
-            </div>
-
-            <div className='study__tab-panel'>
-              {activeProvider ? (
-                (() => {
-                  const provider = activeProvider;
-                  const providerResult = activeProviderResult;
-                  const isLoading = providerResult?.loading;
-                  const error = providerResult?.error;
-                  const result = providerResult?.result;
-                  const code = result?.afterHtml || result?.afterCode || '';
-                  const downloadHref = buildDownloadHref(code);
-                  const successCountForProvider = scopedSuccess.length;
-                  const failureCountForProvider = scopedFailure.length;
-
-                  return (
-                    <>
-                      <div className='study__provider-card'>
-                        <div className='study__provider-header'>
-                          <span className='study__provider-name'>
-                            {provider.label}
-                          </span>
-                          <div className='study__provider-actions'>
-                            {downloadHref ? (
-                              <button
-                                type='button'
-                                className='study__chip-btn'
-                                onClick={() =>
-                                  handleDownloadFull(
-                                    currentChange.id,
-                                    provider.id,
-                                  )
-                                }
-                              >
-                                Download Full Item
-                              </button>
-                            ) : (
-                              <span className='study__provider-status'>
-                                No code yet
-                              </span>
-                            )}
-                            <button
-                              type='button'
-                              className='study__chip-btn'
-                              disabled={Boolean(isLoading)}
-                              onClick={() =>
-                                triggerProviderGeneration(provider.id, {
-                                  force: true,
-                                })
-                              }
-                            >
-                              Generate
-                            </button>
-                          </div>
-                        </div>
-
-                        <p className='study__provider-approve-hint'>
-                          Let us know whether you&apos;d approve this output:
-                          <button
-                            type='button'
-                            className={`study__chip-btn study__chip-btn--approve${approvalsByProvider[currentChange.id]?.[provider.id] === true ? ' is-active' : ''}`}
-                            disabled={!result || isLoading || error}
-                            onClick={() =>
-                              result &&
-                              setProviderApproval(
-                                currentChange.id,
-                                provider.id,
-                                true,
-                              )
-                            }
-                          >
-                            ✅ Approve
-                          </button>
-                          <button
-                            type='button'
-                            className={`study__chip-btn study__chip-btn--reject${approvalsByProvider[currentChange.id]?.[provider.id] === false ? ' is-active' : ''}`}
-                            disabled={!result || isLoading || error}
-                            onClick={() =>
-                              result &&
-                              setProviderApproval(
-                                currentChange.id,
-                                provider.id,
-                                false,
-                              )
-                            }
-                          >
-                            ❌ Disapprove
-                          </button>
-                        </p>
-
-                        {isLoading && (
-                          <div className='study__section--centered study__provider-state'>
-                            <div className='study__spinner' aria-hidden />
-                            <p>Generating…</p>
-                          </div>
-                        )}
-
-                        {error && !isLoading && (
-                          <div className='study__error' role='alert'>
-                            {error}
-                          </div>
-                        )}
-
-                        {result && !isLoading && !error && (
-                          <>
-                            {result.afterImageUrl ? (
-                              <img
-                                src={result.afterImageUrl}
-                                alt={`${provider.label} after screen`}
-                                className='study__img'
-                              />
-                            ) : code ? (
-                              <iframe
-                                title={`${provider.label} after screen`}
-                                srcDoc={code}
-                                className='study__iframe'
-                                sandbox='allow-same-origin allow-scripts'
-                                scrolling='yes'
-                                style={{
-                                  height: `${Math.min(
-                                    Math.max(
-                                      getIframeHeight(
-                                        currentChange.id,
-                                        provider.id,
-                                      ),
-                                      700,
-                                    ),
-                                    900,
-                                  )}px`,
-                                  maxHeight: '75vh',
-                                }}
-                                onLoad={(e) =>
-                                  handleIframeLoad(
-                                    currentChange.id,
-                                    provider.id,
-                                    e,
-                                  )
-                                }
-                              />
-                            ) : (
-                              <div className='study__img-placeholder'>
-                                No output returned.
-                              </div>
-                            )}
-                          </>
-                        )}
-                      </div>
-
-                      <div className='study__label'>
-                        <div className='study__label-row'>
-                          <span>
-                            What is successful about {provider.label}&apos;s
-                            output?
-                          </span>
-                          <button
-                            type='button'
-                            className='study__add-btn'
-                            onClick={() =>
-                              addEntryForProvider(
-                                setSuccessById,
-                                currentChange.id,
-                                provider.id,
-                              )
-                            }
-                            aria-label='Add another successful point'
-                            title='Add another success'
-                          >
-                            +
-                          </button>
-                        </div>
-                        {scopedSuccess.map(({ entry, index }, scopedIndex) => (
-                          <div
-                            key={`success-${currentChange.id}-${provider.id}-${scopedIndex}`}
-                            className='study__entry'
-                          >
-                            <div className='study__entry-header'>
-                              <span className='study__entry-label'>
-                                Success {scopedIndex + 1}
-                              </span>
-                              <button
-                                type='button'
-                                className='study__chip-btn'
-                                disabled={successCountForProvider <= 1}
-                                onClick={() =>
-                                  removeEntryForProvider(
-                                    setSuccessById,
-                                    currentChange.id,
-                                    provider.id,
-                                    index,
-                                  )
-                                }
-                                aria-label='Remove this successful point'
-                                title='Remove entry'
-                              >
-                                Remove
-                              </button>
-                            </div>
-                            <textarea
-                              className='study__textarea'
-                              value={entry.text || ''}
-                              onChange={(e) =>
-                                updateEntry(
-                                  setSuccessById,
-                                  currentChange.id,
-                                  index,
-                                  'text',
-                                  e.target.value,
-                                )
-                              }
-                              rows={3}
-                              placeholder='e.g. The new button position makes it easier to find.'
-                            />
-                          </div>
-                        ))}
-                      </div>
-
-                      <div className='study__label'>
-                        <div className='study__label-row'>
-                          <span>
-                            What is not successful about {provider.label}
-                            &apos;s output?
-                          </span>
-                          <button
-                            type='button'
-                            className='study__add-btn'
-                            onClick={() =>
-                              addEntryForProvider(
-                                setNotSuccessById,
-                                currentChange.id,
-                                provider.id,
-                              )
-                            }
-                            aria-label='Add another unsuccessful point'
-                            title='Add another issue'
-                          >
-                            +
-                          </button>
-                        </div>
-                        {scopedFailure.map(({ entry, index }, scopedIndex) => (
-                          <div
-                            key={`not-success-${currentChange.id}-${provider.id}-${scopedIndex}`}
-                            className='study__entry'
-                          >
-                            <div className='study__entry-header'>
-                              <span className='study__entry-label'>
-                                Issue {scopedIndex + 1}
-                              </span>
-                              <button
-                                type='button'
-                                className='study__chip-btn'
-                                disabled={failureCountForProvider <= 1}
-                                onClick={() =>
-                                  removeEntryForProvider(
-                                    setNotSuccessById,
-                                    currentChange.id,
-                                    provider.id,
-                                    index,
-                                  )
-                                }
-                                aria-label='Remove this unsuccessful point'
-                                title='Remove entry'
-                              >
-                                Remove
-                              </button>
-                            </div>
-                            <textarea
-                              className='study__textarea'
-                              value={entry.text || ''}
-                              onChange={(e) =>
-                                updateEntry(
-                                  setNotSuccessById,
-                                  currentChange.id,
-                                  index,
-                                  'text',
-                                  e.target.value,
-                                )
-                              }
-                              rows={3}
-                              placeholder='e.g. Other unrelated elements moved.'
-                            />
-                          </div>
-                        ))}
-                      </div>
-                    </>
-                  );
-                })()
-              ) : (
-                <div className='study__provider-note study__provider-note--error'>
-                  No providers available. Add an API key and restart the server.
-                </div>
-              )}
-
-              {!providerStatus.loading && missingProviders.length > 0 && (
-                <div className='study__provider-note'>
-                  Missing API keys:{' '}
-                  {missingProviders.map((p) => p.label).join(', ')}. Those
-                  providers are hidden.
-                </div>
-              )}
-              {providerStatus.error && (
-                <div className='study__provider-note study__provider-note--error'>
-                  {providerStatus.error}
-                </div>
-              )}
-            </div>
-
-            <div className='study__llm-divider' aria-hidden='true' />
-            <fieldset className='study__fieldset'>
-              <legend className='study__label'>
-                Rank the model outputs (1 = best)
-              </legend>
-              <div className='study__rank-grid'>
-                {Array.from({ length: Math.max(ranksToShow, 1) }, (_, idx) => idx + 1).map((rank) => (
-                  <label key={rank} className='study__rank-row'>
-                    <span>Rank {rank}</span>
-                    <select
-                      className='study__select'
-                      value={rankingById[currentChange.id]?.[rank] || ''}
-                      onChange={(e) =>
-                        updateRanking(currentChange.id, rank, e.target.value)
-                      }
-                    >
-                      <option value=''>Select a model</option>
-                      {providersForChange.map((p) => (
-                        <option key={p.id} value={p.id}>
-                          {p.label}
-                        </option>
-                      ))}
-                    </select>
-                  </label>
-                ))}
-              </div>
-            </fieldset>
-
-            <button
-              type='submit'
-              className='study__btn study__btn--primary'
-              disabled={finishDisabled}
-            >
-              {currentIndex < changes.length - 1
-                ? 'Next change'
-                : 'Finish case study'}
-            </button>
-          </form>
-        </section>
+        <ReviewSection
+          beforeScreen={beforeScreen}
+          currentIndex={currentIndex}
+          changes={changes}
+          currentChange={currentChange}
+          currentResult={currentResult}
+          providersForChange={providersForChange}
+          activeProvider={evaluation.activeProvider}
+          scopedSuccess={evaluation.scopedSuccess}
+          scopedFailure={evaluation.scopedFailure}
+          providerStatus={providerStatus}
+          missingProviders={missingProviders}
+          approvalsByProvider={evaluation.approvalsByProvider}
+          rankingById={evaluation.rankingById}
+          ranksToShow={evaluation.ranksToShow}
+          finishDisabled={finishDisabled}
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleNextChange();
+          }}
+          setActiveProviderId={evaluation.setActiveProviderId}
+          buildDownloadHref={buildDownloadHref}
+          handleDownloadFull={handleDownloadFull}
+          handleDownloadOriginal={handleDownloadOriginal}
+          triggerProviderGeneration={triggerProviderGeneration}
+          setProviderApproval={evaluation.setProviderApproval}
+          handleIframeLoad={handleIframeLoad}
+          addEntryForProvider={evaluation.addEntryForProvider}
+          removeEntryForProvider={evaluation.removeEntryForProvider}
+          updateEntry={evaluation.updateEntry}
+          setSuccessById={evaluation.setSuccessById}
+          setNotSuccessById={evaluation.setNotSuccessById}
+          updateRanking={evaluation.updateRanking}
+        />
       )}
 
       <style>{studyStyles}</style>
@@ -1111,6 +385,12 @@ const studyStyles = `
     padding: 1.5rem;
     max-width: 720px;
     margin: 0 auto;
+  }
+  .study--collect {
+    max-width: 1200px;
+  }
+  .study--review {
+    max-width: 1400px;
   }
   .study--centered {
     display: flex;
@@ -1152,6 +432,93 @@ const studyStyles = `
   .study__section {
     margin-bottom: 2rem;
   }
+  .study__collect-layout {
+    display: grid;
+    grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+  }
+  .study__collect-preview {
+    position: static;
+  }
+  .study__collect-preview h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+  }
+  .study__collect-preview .study__hint {
+    margin: 0 0 1rem 0;
+  }
+  .study__collect-preview .study__screen-wrap {
+    margin: 0;
+  }
+  .study__collect-layout > .study__section {
+    margin-top: 0;
+  }
+  .study__compare-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: start;
+    margin: 0 0 1rem 0;
+  }
+  .study__compare-col {
+    min-width: 0;
+    padding: 0 0.75rem;
+    border-left: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .study__compare-col:first-child {
+    border-left: none;
+    padding-left: 0;
+  }
+  .study__compare-col:last-child {
+    padding-right: 0;
+  }
+  .study__compare-label {
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    width: min(100%, 320px);
+  }
+  .study__compare-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin: 0 0 0.75rem 0;
+    min-height: 32px;
+    width: min(100%, 320px);
+  }
+  .study__compare-phone-slot {
+    width: min(100%, 320px);
+    aspect-ratio: 375 / 812;
+  }
+  .study__compare-phone-slot > .study__screen-wrap,
+  .study__compare-phone .study__screen-wrap {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+  .study__compare-phone-slot > .study__provider-state,
+  .study__compare-phone-slot > .study__error,
+  .study__compare-phone-slot > .study__img-placeholder {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    border-radius: 2rem;
+    background: rgba(148, 163, 184, 0.04);
+    text-align: center;
+    padding: 1rem;
+  }
+  .study__compare-phone .study__screen-wrap {
+    margin: 0;
+  }
   .study__section--centered {
     text-align: center;
     padding: 3rem 0;
@@ -1167,20 +534,22 @@ const studyStyles = `
     margin: 0 0 1rem 0;
   }
   .study__screen-wrap {
+    width: min(100%, 320px);
+    max-width: 100%;
+    aspect-ratio: 375 / 812;
+    margin: 0 auto 1.5rem;
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-    margin-bottom: 1.5rem;
+    border-radius: 2rem;
+    overflow: auto;
+    box-shadow:
+      0 14px 30px rgba(15, 23, 42, 0.2),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.06);
   }
   .study__screen-wrap--before {
-    max-height: 75vh;
-    min-height: 320px;
-    overflow: auto;
     background: linear-gradient(180deg, rgba(148, 163, 184, 0.08) 0%, rgba(148, 163, 184, 0.04) 100%);
   }
   .study__screen-wrap--after {
-    min-height: 200px;
     background: linear-gradient(180deg, rgba(148, 163, 184, 0.08) 0%, rgba(148, 163, 184, 0.04) 100%);
   }
   .study__llm-divider {
@@ -1218,16 +587,20 @@ const studyStyles = `
     display: grid;
     gap: 1.25rem;
   }
-  .study__provider-grid {
+  .study__providers-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .study__providers-grid {
     display: grid;
+    grid-template-columns: repeat(3, minmax(400px, 1fr));
     gap: 1rem;
-    padding: 1rem;
   }
   .study__provider-card {
     border: 1px solid var(--border);
     border-radius: var(--radius);
     background: rgba(148, 163, 184, 0.06);
-    overflow: auto;
+    overflow: hidden;
   }
   .study__provider-header {
     display: flex;
@@ -1239,14 +612,16 @@ const studyStyles = `
     background: rgba(148, 163, 184, 0.05);
   }
   .study__provider-approve-hint {
-    padding: 0.75rem 1rem;
     margin: 0;
-    display: flex;
-    gap: 0.5rem;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+  }
+  .study__provider-approve-actions {
+    display: inline-flex;
     align-items: center;
+    gap: 0.6rem;
     flex-wrap: wrap;
-    font-size: 0.92rem;
-    color: var(--text);
   }
   .study__provider-actions {
     display: inline-flex;
@@ -1261,7 +636,7 @@ const studyStyles = `
     color: var(--muted);
   }
   .study__provider-state {
-    padding: 2rem 0;
+    padding: 1rem 0;
   }
   .study__provider-note {
     padding: 0.75rem 1rem;
@@ -1278,10 +653,10 @@ const studyStyles = `
   }
   .study__img {
     display: block;
-    max-width: 100%;
-    height: auto;
-    min-height: 120px;
-    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #f8f9fb;
   }
   /* Make scrollbars visible on dark background */
   .study__screen-wrap--before,
@@ -1310,11 +685,11 @@ const studyStyles = `
     border: 3px solid #d1d5db;
   }
   .study__img-placeholder {
-    padding: 2rem;
+    height: 100%;
+    padding: 1.25rem;
     color: var(--muted);
     font-size: 0.9rem;
     text-align: center;
-    min-height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1327,14 +702,67 @@ const studyStyles = `
   }
   .study__iframe {
     width: 100%;
-    min-height: 320px;
+    height: 100%;
     border: none;
     display: block;
     overflow: auto;
     background: #f8f9fb;
   }
   .study__iframe--before {
-    min-height: 75vh;
+    height: 100%;
+  }
+  @media (max-width: 1360px) {
+    .study__compare-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    .study__compare-col {
+      border-left: none;
+      border-top: 1px solid var(--border);
+      padding: 1rem 0 0 0;
+    }
+    .study__compare-col:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+  }
+  @media (max-width: 1200px) {
+    .study__screen-wrap,
+    .study__compare-phone-slot,
+    .study__compare-label,
+    .study__compare-actions {
+      width: min(100%, 280px);
+    }
+  }
+  @media (max-width: 900px) {
+    .study__collect-layout {
+      grid-template-columns: 1fr;
+    }
+    .study__collect-preview {
+      position: static;
+    }
+    .study__compare-grid {
+      grid-template-columns: 1fr;
+    }
+    .study__screen-wrap {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+  @media (max-width: 780px) {
+    .study {
+      padding: 1rem;
+    }
+    .study__feedback-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .study__feedback-col--failure {
+      border-left: none;
+      border-top: 1px solid var(--border);
+      padding-left: 0;
+      padding-top: 1rem;
+    }
   }
   .study__form {
     display: flex;
@@ -1353,10 +781,15 @@ const studyStyles = `
     justify-content: space-between;
     gap: 0.75rem;
   }
-  .study__radio-row {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+  .study__feedback-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    align-items: start;
+  }
+  .study__feedback-col--failure {
+    border-left: 1px solid var(--border);
+    padding-left: 1.5rem;
   }
   .study__rank-grid {
     display: grid;
@@ -1371,12 +804,6 @@ const studyStyles = `
   .study__entry {
     display: grid;
     gap: 0.5rem;
-  }
-  .study__entry-row {
-    display: grid;
-    grid-template-columns: minmax(140px, 1fr) 3fr;
-    gap: 0.75rem;
-    align-items: start;
   }
   .study__entry-header {
     display: flex;
@@ -1546,6 +973,11 @@ const studyStyles = `
     padding: 0.25rem 0.7rem;
     font-size: 0.8rem;
     color: var(--muted);
+  }
+  .study__chip-btn--decision {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.95rem;
+    font-weight: 600;
   }
   .study__chip-btn:hover {
     color: var(--text);

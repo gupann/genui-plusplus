@@ -1,38 +1,26 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
+import { STAGES } from '../config/stages'
 
-const CASE_STUDIES = [
-  { id: 1, label: 'Case Study 1' },
-  { id: 2, label: 'Case Study 2' },
-  { id: 3, label: 'Case Study 3' },
-  { id: 4, label: 'Case Study 4' },
-  { id: 5, label: 'Case Study 5' },
-  { id: 6, label: 'Case Study 6' },
-  { id: 7, label: 'Case Study 7' },
-];
-
-export default function UserStudy({
-  studyBasePath = '/study',
-  title = 'Phase 1: Data Collection',
-  subtitle = 'Pick a case study to start.',
-}) {
-  const navigate = useNavigate();
+export default function StagesOverview() {
+  const navigate = useNavigate()
 
   return (
     <div className='user-study'>
       <header className='user-study__header'>
-        <h1>{title}</h1>
-        <p className='user-study__subtitle'>{subtitle}</p>
+        <h1>Project Stages</h1>
+        <p className='user-study__subtitle'>
+          Follow the progression from manual human study to full auto-evaluation.
+        </p>
       </header>
-      <nav className='user-study__nav' aria-label='Case studies'>
-        {CASE_STUDIES.map(({ id, label }) => (
+      <nav className='user-study__nav' aria-label='Project stages'>
+        {STAGES.map((stage) => (
           <button
-            key={id}
+            key={stage.id}
             type='button'
             className='user-study__card'
-            onClick={() => navigate(`${studyBasePath}/${id}`)}
+            onClick={() => navigate(stage.path)}
           >
-            <span className='user-study__card-label'>{label}</span>
-            <span className='user-study__card-hint'>Start study →</span>
+            <span className='user-study__card-label'>{stage.title}</span>
           </button>
         ))}
       </nav>
@@ -63,7 +51,7 @@ export default function UserStudy({
         .user-study__card {
           display: flex;
           align-items: center;
-          justify-content: space-between;
+          justify-content: flex-start;
           padding: 1.25rem 1.5rem;
           background: var(--surface);
           border: 1px solid var(--border);
@@ -78,13 +66,9 @@ export default function UserStudy({
           background: rgba(99, 102, 241, 0.06);
         }
         .user-study__card-label {
-          font-weight: 500;
-        }
-        .user-study__card-hint {
-          color: var(--muted);
-          font-size: 0.9rem;
+          font-weight: 600;
         }
       `}</style>
     </div>
-  );
+  )
 }

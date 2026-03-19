@@ -5,13 +5,20 @@
  * - VITE_UI_GENERATION_API_URL: endpoint that accepts POST JSON
  *
  * Expected backend contract:
- * - Input: { taskId, prompt, beforeImageUrl?, beforeCode? }
+ * - Input: { taskId, prompt, beforeImageUrl?, beforeCode?, renderSpec? }
  * - Output: { afterImageUrl?, afterHtml?, afterCode? }
  */
 
 const MOCK_DELAY_MS = 1200;
 const API_URL = (import.meta.env.VITE_UI_GENERATION_API_URL || '').trim();
 const REQUEST_TIMEOUT_MS = 120000;
+const PHONE_RENDER_SPEC = {
+  cssWidth: 375,
+  cssHeight: 812,
+  exportWidth: 750,
+  exportHeight: 1624,
+  scale: 2,
+};
 
 function getStatusUrl() {
   if (!API_URL) return '';
@@ -60,6 +67,7 @@ export async function generateAfterScreen({
           beforeImageUrl,
           beforeCode,
           provider,
+          renderSpec: PHONE_RENDER_SPEC,
         }),
         signal: controller.signal,
       });

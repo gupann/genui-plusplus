@@ -180,7 +180,11 @@ async function loadImageAsDataUrl(beforeImageUrl) {
   return null;
 }
 
-function buildPrompt({ prompt, beforeCode }) {
+function buildPrompt({ prompt, beforeCode, renderSpec }) {
+  const cssWidth = renderSpec?.cssWidth || 375;
+  const cssHeight = renderSpec?.cssHeight || 812;
+  const exportWidth = renderSpec?.exportWidth || 750;
+  const exportHeight = renderSpec?.exportHeight || 1624;
   const sections = [
     'You are a senior UI engineer.',
     'Task: You will be given a designer-provided issue. First rewrite it into a concrete, actionable UI revision instruction, then apply it to the given UI and return the updated full HTML only.',
@@ -188,6 +192,8 @@ function buildPrompt({ prompt, beforeCode }) {
     '- Return only HTML starting with <!DOCTYPE html>. No Markdown, no explanations.',
     '- Preserve ALL existing content and structure; do not remove sections. Only modify what the change requires.',
     '- Keep the layout mobile-first and consistent with the original.',
+    `- Target phone viewport: ${cssWidth}x${cssHeight} CSS px.`,
+    `- If rendering image outputs, use ${exportWidth}x${exportHeight} px export resolution.`,
   ];
   const body = [
     `Designer-provided issue:\n${prompt || '(no issue provided)'}`,
@@ -198,7 +204,7 @@ function buildPrompt({ prompt, beforeCode }) {
   return `${sections.join('\n')}\n\n${body.join('\n')}`;
 }
 
-async function callOpenAI({ prompt, beforeCode, beforeImageUrl }) {
+async function callOpenAI({ prompt, beforeCode, beforeImageUrl, renderSpec }) {
   if (!OPENAI_API_KEY) throw new Error('Missing OPENAI_API_KEY');
   // const imageDataUrl = await loadImageAsDataUrl(beforeImageUrl);
   const input = [
@@ -214,7 +220,10 @@ async function callOpenAI({ prompt, beforeCode, beforeImageUrl }) {
     {
       role: 'user',
       content: [
-        { type: 'input_text', text: buildPrompt({ prompt, beforeCode }) },
+        {
+          type: 'input_text',
+          text: buildPrompt({ prompt, beforeCode, renderSpec }),
+        },
         // TEMP: Disable before-image conditioning for OpenAI to compare results.
         // ...(imageDataUrl
         //   ? [{ type: 'input_image', image_url: imageDataUrl }]
@@ -254,16 +263,21 @@ async function callOpenAI({ prompt, beforeCode, beforeImageUrl }) {
     console.log('[generate] html incomplete, retrying…');
     // do a 2nd call:
     // "Return the FULL HTML again. Ensure it ends with </body></html>. No markdown."
-    const text2 = await callOpenAI({ prompt, beforeCode, beforeImageUrl });
+    const text2 = await callOpenAI({
+      prompt,
+      beforeCode,
+      beforeImageUrl,
+      renderSpec,
+    });
     html = extractHtml(text2);
   }
   return html;
 }
 
-async function callGemini({ prompt, beforeCode, beforeImageUrl }) {
+async function callGemini({ prompt, beforeCode, beforeImageUrl, renderSpec }) {
   if (!GEMINI_API_KEY) throw new Error('Missing GEMINI_API_KEY');
   // const imageDataUrl = await loadImageAsDataUrl(beforeImageUrl);
-  const parts = [{ text: buildPrompt({ prompt, beforeCode }) }];
+  const parts = [{ text: buildPrompt({ prompt, beforeCode, renderSpec }) }];
 
   // TEMP: Disable before-image conditioning for Gemini to compare results.
   // if (imageDataUrl) {
@@ -305,16 +319,23 @@ async function callGemini({ prompt, beforeCode, beforeImageUrl }) {
     console.log('[generate] html incomplete, retrying…');
     // do a 2nd call:
     // "Return the FULL HTML again. Ensure it ends with </body></html>. No markdown."
-    const text2 = await callOpenAI({ prompt, beforeCode, beforeImageUrl });
+    const text2 = await callOpenAI({
+      prompt,
+      beforeCode,
+      beforeImageUrl,
+      renderSpec,
+    });
     html = extractHtml(text2);
   }
   return html;
 }
 
-async function callClaude({ prompt, beforeCode, beforeImageUrl }) {
+async function callClaude({ prompt, beforeCode, beforeImageUrl, renderSpec }) {
   if (!ANTHROPIC_API_KEY) throw new Error('Missing ANTHROPIC_API_KEY');
   // const imageDataUrl = await loadImageAsDataUrl(beforeImageUrl);
-  const content = [{ type: 'text', text: buildPrompt({ prompt, beforeCode }) }];
+  const content = [
+    { type: 'text', text: buildPrompt({ prompt, beforeCode, renderSpec }) },
+  ];
   // TEMP: Disable before-image conditioning for Claude to compare results.
   // if (imageDataUrl) {
   //   const [header, data] = imageDataUrl.split(',', 2);
@@ -357,7 +378,12 @@ async function callClaude({ prompt, beforeCode, beforeImageUrl }) {
     console.log('[generate] html incomplete, retrying…');
     // do a 2nd call:
     // "Return the FULL HTML again. Ensure it ends with </body></html>. No markdown."
-    const text2 = await callOpenAI({ prompt, beforeCode, beforeImageUrl });
+    const text2 = await callOpenAI({
+      prompt,
+      beforeCode,
+      beforeImageUrl,
+      renderSpec,
+    });
     html = extractHtml(text2);
   }
   return html;
@@ -408,7 +434,8 @@ const server = http.createServer(async (req, res) => {
   try {
     const startedAt = Date.now();
     const body = await readBody(req);
-    const { prompt, beforeImageUrl, beforeCode, provider } = body || {};
+    const { prompt, beforeImageUrl, beforeCode, provider, renderSpec } =
+      body || {};
     const chosen = (provider || PROVIDER_DEFAULT).toLowerCase();
     console.log(
       `[generate] provider=${chosen} promptLen=${(prompt || '').length}`,
@@ -416,11 +443,26 @@ const server = http.createServer(async (req, res) => {
 
     let afterHtml = '';
     if (chosen === 'openai') {
-      afterHtml = await callOpenAI({ prompt, beforeCode, beforeImageUrl });
+      afterHtml = await callOpenAI({
+        prompt,
+        beforeCode,
+        beforeImageUrl,
+        renderSpec,
+      });
     } else if (chosen === 'gemini') {
-      afterHtml = await callGemini({ prompt, beforeCode, beforeImageUrl });
+      afterHtml = await callGemini({
+        prompt,
+        beforeCode,
+        beforeImageUrl,
+        renderSpec,
+      });
     } else if (chosen === 'claude' || chosen === 'anthropic') {
-      afterHtml = await callClaude({ prompt, beforeCode, beforeImageUrl });
+      afterHtml = await callClaude({
+        prompt,
+        beforeCode,
+        beforeImageUrl,
+        renderSpec,
+      });
     } else {
       return sendJson(res, 400, { error: `Unknown provider: ${chosen}` });
     }
