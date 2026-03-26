@@ -4,6 +4,9 @@ export default function ReviewSection({
   changes,
   currentChange,
   currentResult,
+  issueDraft,
+  issueDirty,
+  issueDraftError,
   providersForChange,
   activeProvider,
   scopedSuccess,
@@ -28,6 +31,8 @@ export default function ReviewSection({
   setSuccessById,
   setNotSuccessById,
   updateRanking,
+  onIssueDraftChange,
+  onApplyIssueUpdate,
 }) {
   const provider = activeProvider;
   const providerResult = provider ? currentResult?.[provider.id] : null;
@@ -37,6 +42,14 @@ export default function ReviewSection({
   const code = result?.afterHtml || result?.afterCode || '';
   const successCountForProvider = scopedSuccess.length;
   const failureCountForProvider = scopedFailure.length;
+  const rankingCurrent = rankingById[currentChange.id] || {};
+  const getAssignedRank = (providerId) => {
+    if (rankingCurrent[providerId]) return rankingCurrent[providerId];
+    const legacyRankKey = Object.keys(rankingCurrent).find(
+      (rank) => rankingCurrent[rank] === providerId,
+    );
+    return legacyRankKey || '';
+  };
 
   return (
     <section className='study__section'>
@@ -51,10 +64,28 @@ export default function ReviewSection({
       <div className='study__change study__change--summary'>
         <div className='study__change-header'>
           <span className='study__change-label'>Provided issue</span>
+          <button
+            type='button'
+            className='study__chip-btn'
+            onClick={onApplyIssueUpdate}
+            disabled={!issueDirty}
+            title='Apply updated issue and reset generated outputs for this change'
+          >
+            Apply update
+          </button>
         </div>
-        <p className='study__meta-body study__meta-body--single'>
-          {currentChange.problem || <em>(No issue provided)</em>}
+        <textarea
+          className={`study__textarea${issueDraftError ? ' study__textarea--error' : ''}`}
+          value={issueDraft}
+          onChange={(e) => onIssueDraftChange(e.target.value)}
+          rows={3}
+          placeholder='Describe the issue to fix'
+        />
+        <p className='study__hint' style={{ margin: 0 }}>
+          When you apply an update, old model outputs for this change are cleared
+          and re-generation will use the new issue text.
         </p>
+        {issueDraftError && <p className='study__error-text'>{issueDraftError}</p>}
       </div>
 
       <form onSubmit={onSubmit} className='study__form'>
@@ -104,7 +135,7 @@ export default function ReviewSection({
                   <button
                     type='button'
                     className='study__chip-btn'
-                    disabled={Boolean(panelLoading)}
+                    disabled={Boolean(panelLoading) || !currentChange?.problem?.trim()}
                     onClick={() =>
                       triggerProviderGeneration(panelProvider.id, { force: true })
                     }
@@ -358,22 +389,30 @@ export default function ReviewSection({
 
         <div className='study__llm-divider' aria-hidden='true' />
         <fieldset className='study__fieldset'>
-          <legend className='study__label'>Rank the model outputs (1 = best)</legend>
+          <legend className='study__label'>
+            Rank each model (1 = best, ties allowed, use consecutive ranks)
+          </legend>
+          <p className='study__hint' style={{ margin: '0 0 0.5rem 0' }}>
+            Example: 1,1,2 is valid. 1,1,3 is not.
+          </p>
           <div className='study__rank-grid'>
-            {Array.from({ length: Math.max(ranksToShow, 1) }, (_, idx) => idx + 1).map((rank) => (
-              <label key={rank} className='study__rank-row'>
-                <span>Rank {rank}</span>
+            {providersForChange.map((rankProvider) => (
+              <label key={rankProvider.id} className='study__rank-row'>
+                <span>{rankProvider.label}</span>
                 <select
                   className='study__select'
-                  value={rankingById[currentChange.id]?.[rank] || ''}
+                  value={getAssignedRank(rankProvider.id)}
                   onChange={(e) =>
-                    updateRanking(currentChange.id, rank, e.target.value)
+                    updateRanking(currentChange.id, rankProvider.id, e.target.value)
                   }
                 >
-                  <option value=''>Select a model</option>
-                  {providersForChange.map((p) => (
-                    <option key={p.id} value={p.id}>
-                      {p.label}
+                  <option value=''>Select rank</option>
+                  {Array.from(
+                    { length: Math.max(ranksToShow, 1) },
+                    (_, idx) => idx + 1,
+                  ).map((rank) => (
+                    <option key={rank} value={String(rank)}>
+                      Rank {rank}
                     </option>
                   ))}
                 </select>

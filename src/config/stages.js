@@ -1,8 +1,16 @@
 export const STAGES = [
   {
+    id: 0,
+    slug: '0',
+    title: 'Stage 0: Pre-Study User Survey',
+    description:
+      'Collect participant background, tooling, and workflow context before or during study participation.',
+    path: '/stages/0',
+  },
+  {
     id: 1,
     slug: '1',
-    title: 'Stage 1: Existing Human Study',
+    title: 'Stage 1: Human Evaluation',
     description:
       'Manual human evaluation with per-model approvals, success/failure feedback, and rankings.',
     path: '/stages/1',

@@ -1,0 +1,380 @@
+{
+  "participants": {
+    "0adf2968-7cc9-4aba-a2f5-c825a7fe5f5a": {
+      "id": "0adf2968-7cc9-4aba-a2f5-c825a7fe5f5a",
+      "email": "anmolgupta23@ucla.edu",
+      "metadata": {},
+      "createdAt": "2026-03-19T19:54:52.553Z",
+      "updatedAt": "2026-03-19T21:27:26.412Z"
+    }
+  },
+  "profiles": {
+    "0adf2968-7cc9-4aba-a2f5-c825a7fe5f5a": {
+      "name": "Anmol Gupta",
+      "currentProfession": "CS student",
+      "pastWork": "interned at msft",
+      "participantId": "0adf2968-7cc9-4aba-a2f5-c825a7fe5f5a",
+      "updatedAt": "2026-03-19T19:55:09.534Z"
+    }
+  },
+  "sessions": {
+    "sess_0945966d-48ad-443a-98ec-1db72929ff2b": {
+      "id": "sess_0945966d-48ad-443a-98ec-1db72929ff2b",
+      "participantId": "0adf2968-7cc9-4aba-a2f5-c825a7fe5f5a",
+      "stageId": 1,
+      "taskId": 1,
+      "status": "completed",
+      "snapshot": {
+        "phase": "done",
+        "changes": [
+          {
+            "id": 1,
+            "problem": "it seems to be missing asterisks for the mandatory input fields"
+          }
+        ],
+        "currentIndex": 0,
+        "validationById": {},
+        "resultsById": {
+          "1": {
+            "openai": {
+              "loading": false,
+              "error": null,
+              "requestId": "1773950316448-290bedfb06898",
+              "startedAt": 1773950316453,
+              "done": true,
+              "result": {
+                "afterHtml": "<!DOCTYPE html>\n\n<html class=\"light\" lang=\"en\"><head>\n<meta charset=\"utf-8\"/>\n<meta content=\"width=device-width, initial-scale=1.0\" name=\"viewport\"/>\n<title>NGO Contact Us</title>\n<script src=\"https://cdn.tailwindcss.com?plugins=forms,container-queries\"></script>\n<link href=\"https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap\" rel=\"stylesheet\"/>\n<link href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap\" rel=\"stylesheet\"/>\n<link href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap\" rel=\"stylesheet\"/>\n<script id=\"tailwind-config\">\n        tailwind.config = {\n            darkMode: \"class\",\n            theme: {\n                extend: {\n                    colors: {\n                        \"primary\": \"#13b6ec\",\n                        \"background-light\": \"#f6f8f8\",\n                        \"background-dark\": \"#101d22\",\n                    },\n                    fontFamily: {\n                        \"display\": [\"Public Sans\"]\n                    },\n                    borderRadius: {\"DEFAULT\": \"0.25rem\", \"lg\": \"0.5rem\", \"xl\": \"0.75rem\", \"full\": \"9999px\"},\n                },\n            },\n        }\n    </script>\n<style>\n        body {\n            font-family: 'Public Sans', sans-serif;\n        }\n        .material-symbols-outlined {\n            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;\n        }\n        .required-asterisk {\n            color: #dc2626; /* Tailwind red-600 */\n            margin-left: 0.125rem; /* 0.5px for subtle spacing */\n        }\n    </style>\n<style>\n    body {\n      min-height: max(884px, 100dvh);\n    }\n  </style>\n  </head>\n<body class=\"bg-background-light dark:bg-background-dark text-[#0d181b] dark:text-white\">\n<div class=\"relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden max-w-md mx-auto shadow-xl\">\n<!-- Top Navigation Bar -->\n<header class=\"flex items-center bg-background-light dark:bg-background-dark p-4 sticky top-0 z-10 border-b border-gray-200 dark:border-gray-800\">\n<div class=\"text-[#0d181b] dark:text-white flex size-12 shrink-0 items-center justify-start\">\n<span class=\"material-symbols-outlined text-2xl\">arrow_back_ios</span>\n</div>\n<h1 class=\"text-[#0d181b] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12\">Contact Us</h1>\n</header>\n<!-- Hero Section -->\n<div class=\"@container\">\n<div class=\"px-0\">\n<div class=\"bg-cover bg-center flex flex-col justify-end overflow-hidden min-h-64 relative\" data-alt=\"Group of diverse volunteers smiling and working together outdoors\" style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 60%), url(\"https://lh3.googleusercontent.com/aida-public/AB6AXuA7nx8dIKsHFQsggsfo5IK5teeLqO2E6In-VmN3qf2_5RodRWTsR4VOJcL7oDGuScQHOe9DNpteN-EVI3Vl33jUM1wIhYU9fORp88nN_osg2V70Dmb9ch0dpgaWigVNy7EUCZFcX1UAI9q-JNiKKh8_Ek5AJAU9tYFlFH4_I6OEs2Dj3-Q40hALgBfCV4pBwjdJAQJmBi6nKQ2xf4jfF8M-YL5fDR1OKKhsfgZIbOlCtTDw1KIgBo5MclaLPVMeG0ehHXlkCgIyEKV9\");'>\n<div class=\"flex p-6\">\n<p class=\"text-white tracking-tight text-[28px] font-bold leading-tight\">Join our mission to create lasting change</p>\n</div>\n</div>\n</div>\n</div>\n<!-- Call to Action Sections -->\n<section class=\"p-4 space-y-4\">\n<h2 class=\"text-[#0d181b] dark:text-white text-xl font-bold px-1 pt-2\">How can we help?</h2>\n<!-- Volunteer Card -->\n<div class=\"flex items-center justify-between gap-4 rounded-xl bg-white dark:bg-gray-800 p-4 shadow-sm border border-gray-100 dark:border-gray-700\">\n<div class=\"flex flex-col gap-3 flex-1\">\n<div class=\"flex items-center gap-2\">\n<span class=\"material-symbols-outlined text-primary text-2xl\">volunteer_activism</span>\n<p class=\"text-[#0d181b] dark:text-white text-base font-bold\">Become a Volunteer</p>\n</div>\n<p class=\"text-gray-500 dark:text-gray-400 text-sm font-normal\">Join our global community of dedicated changemakers.</p>\n<button class=\"flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-9 px-4 bg-primary/10 text-primary text-sm font-bold hover:bg-primary/20 transition-colors w-fit\">\n<span>Sign Up</span>\n</button>\n</div>\n<div class=\"w-24 h-24 bg-center bg-no-repeat bg-cover rounded-lg\" data-alt=\"Close up of hands joined together in teamwork\" style='background-image: url(\"https://lh3.googleusercontent.com/aida-public/AB6AXuAthrEW3hUqgUPJhFl_BSYTF4Xg5oA41PRWCp6zqwtc8-A9iMQtRmwc3gesXQlfJJP8iQkOuR0VuOJoL2qUSEP_A4JdOWl1Nwq5wSOWvjvM1V2cucL6EW4Jx4RncyD4pDKGDyywh6bg3wq9ZvaaIIfSABeAdg-NzVom-XG__ZuW4oT7OVmZ-PQImku80-_20Tt-I-HQhvssfxB_ArDtg_tzskK4wWuuJdbhTX7iiat4pouThzw89MJ_f3YipTTF7V1uv2Anx5qZyZlR\");'></div>\n</div>\n<!-- Donation Card -->\n<div class=\"flex items-center justify-between gap-4 rounded-xl bg-white dark:bg-gray-800 p-4 shadow-sm border border-gray-100 dark:border-gray-700\">\n<div class=\"flex flex-col gap-3 flex-1\">\n<div class=\"flex items-center gap-2\">\n<span class=\"material-symbols-outlined text-primary text-2xl\">redeem</span>\n<p class=\"text-[#0d181b] dark:text-white text-base font-bold\">Inquire about Donations</p>\n</div>\n<p class=\"text-gray-500 dark:text-gray-400 text-sm font-normal\">Learn how your contributions create a meaningful impact.</p>\n<button class=\"flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-9 px-4 bg-primary/10 text-primary text-sm font-bold hover:bg-primary/20 transition-colors w-fit\">\n<span>Learn More</span>\n</button>\n</div>\n<div class=\"w-24 h-24 bg-center bg-no-repeat bg-cover rounded-lg\" data-alt=\"A small plant growing out of a handful of coins\" style='background-image: url(\"https://lh3.googleusercontent.com/aida-public/AB6AXuDwxYX_6mheh9vw_gJ6WKifWvmmUWCcZYQB78LceLwSllQOpOX0bmX1KVcyZ2WPaQAmnGBBCF0VSpDGzUgGXdSv-pQC8kibwea7D-AApTl_EV4UIe2VetBk3IgMnkIwHoo_Gv-2aTtGGphAdd6sZIB_nRsq6f0vqtjFnPsnXTFX_vi3DbYZCGqsR5YaYHmelsx3NI6l9jYxV10ef_LUKK-f7MxThy7S0hByuVtNViYtigs3L2UKnwqDHSHntN__jFV-PmgFXiIEnNuh\");'></div>\n</div>\n<!-- General Inquiry Card -->\n<div class=\"flex items-center justify-between gap-4 rounded-xl bg-white dark:bg-gray-800 p-4 shadow-sm border border-gray-100 dark:border-gray-700\">\n<div class=\"flex flex-col gap-3 flex-1\">\n<div class=\"flex items-center gap-2\">\n<span class=\"material-symbols-outlined text-primary text-2xl\">forum</span>\n<p class=\"text-[#0d181b] dark:text-white text-base font-bold\">General Inquiry</p>\n</div>\n<p class=\"text-gray-500 dark:text-gray-400 text-sm font-normal\">Have a question? We're here to help you get answers.</p>\n<button class=\"flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-9 px-4 bg-primary/10 text-primary text-sm font-bold hover:bg-primary/20 transition-colors w-fit\">\n<span>Email Us</span>\n</button>\n</div>\n<div class=\"w-24 h-24 bg-center bg-no-repeat bg-cover rounded-lg\" data-alt=\"Person writing a letter or note at a desk\" style='background-image: url(\"https://lh3.googleusercontent.com/aida-public/AB6AXuCJABTS41dE-_c_B6TGbKFynTuW1oFk6JsMTfpHNyN1Mjwooh3T0DRLJhFfsfI5ElhH47U_bRC6qUTOc8AQKMoKmCtOD14xzpWGWDLs2N4iXKp1YPUB7kUd418OLCo6AOetPcuJxoXbsar_X_SG2eX0rbFpEOYB-hYg2YIhxOw59Hc-TbIhniKBSY15FIcXqv9X6GzfoHuKVpFAIc9bPYwjT2ISvwtegkTr1FwbfR4Wga5cY5MKF1iRz8PsWDIedZyRHLfvumTnBumf\");'></div>\n</div>\n</section>\n<!-- Contact Form Section -->\n<section class=\"p-6 bg-white dark:bg-gray-900 rounded-t-3xl mt-4 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] border-t dark:border-gray-800\">\n<h3 class=\"text-[#0d181b] dark:text-white text-xl font-bold mb-6\">Send us a message</h3>\n<form class=\"space-y-4\">\n<div>\n<label class=\"block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1\">Full Name<span class=\"required-asterisk\">*</span></label>\n<input class=\"w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all\" placeholder=\"Enter your name\" type=\"text\" required/>\n</div>\n<div>\n<label class=\"block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1\">Email Address<span class=\"required-asterisk\">*</span></label>\n<input class=\"w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all\" placeholder=\"email@example.com\" type=\"email\" required/>\n</div>\n<div>\n<label class=\"block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1\">Interest Area<span class=\"required-asterisk\">*</span></label>\n<select class=\"w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all\" required>\n<option>General Support</option>\n<option>Volunteering Opportunities</option>\n<option>Corporate Partnership</option>\n<option>Donation Inquiry</option>\n<option>Media/Press</option>\n</select>\n</div>\n<div>\n<label class=\"block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1\">Message</label>\n<textarea class=\"w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all\" placeholder=\"How can we help you?\" rows=\"4\"></textarea>\n</div>\n<button class=\"w-full bg-primary text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/30 active:scale-[0.98] transition-transform\" type=\"submit\">\n                    Send Message\n                </button>\n</form>\n<!-- Map/Location Shortcut -->\n<div class=\"mt-8 pt-8 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between\">\n<div class=\"flex items-center gap-3\">\n<div class=\"p-2 bg-gray-100 dark:bg-gray-800 rounded-full\">\n<span class=\"material-symbols-outlined text-gray-600 dark:text-gray-400\">location_on</span>\n</div>\n<div>\n<p class=\"text-xs text-gray-500 dark:text-gray-400\">Headquarters</p>\n<p class=\"text-sm font-medium\">New York City, NY</p>\n</div>\n</div>\n<button class=\"text-primary text-sm font-bold flex items-center gap-1\">\n                    See Map\n                    <span class=\"material-symbols-outlined text-sm\">open_in_new</span>\n</button>\n</div>\n<!-- Social Icons -->\n<div class=\"flex justify-center gap-6 py-8\">\n<span class=\"material-symbols-outlined text-gray-400 hover:text-primary cursor-pointer\">public</span>\n<span class=\"material-symbols-outlined text-gray-400 hover:text-primary cursor-pointer\">groups</span>\n<span class=\"material-symbols-outlined text-gray-400 hover:text-primary cursor-pointer\">alternate_email</span>\n</div>\n</section>\n<!-- Spacer for iOS tab bars/bottom navigation -->\n<div class=\"h-8 bg-white dark:bg-gray-900\"></div>\n</div>\n</body></html>"
+              }
+            },
+            "gemini": {
+              "loading": false,
+              "error": null,
+              "requestId": "1773950246372-879ac052904978",
+              "startedAt": 1773950246388,
+              "done": true,
+              "result": {
+                "afterHtml": "<!DOCTYPE html>\n\n<html class=\"light\" lang=\"en\"><head>\n<meta charset=\"utf-8\"/>\n<meta content=\"width=device-width, initial-scale=1.0\" name=\"viewport\"/>\n<title>NGO Contact Us</title>\n<script src=\"https://cdn.tailwindcss.com?plugins=forms,container-queries\"></script>\n<link href=\"https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap\" rel=\"stylesheet\"/>\n<link href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap\" rel=\"stylesheet\"/>\n<link href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap\" rel=\"stylesheet\"/>\n<script id=\"tailwind-config\">\n        tailwind.config = {\n            darkMode: \"class\",\n            theme: {\n                extend: {\n                    colors: {\n                        \"primary\": \"#13b6ec\",\n                        \"background-light\": \"#f6f8f8\",\n                        \"background-dark\": \"#101d22\",\n                    },\n                    fontFamily: {\n                        \"display\": [\"Public Sans\"]\n                    },\n                    borderRadius: {\"DEFAULT\": \"0.25rem\", \"lg\": \"0.5rem\", \"xl\": \"0.75rem\", \"full\": \"9999px\"},\n                },\n            },\n        }\n    </script>\n<style>\n        body {\n            font-family: 'Public Sans', sans-serif;\n        }\n        .material-symbols-outlined {\n            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;\n        }\n    </style>\n<style>\n    body {\n      min-height: max(884px, 100dvh);\n    }\n  </style>\n  </head>\n<body class=\"bg-background-light dark:bg-background-dark text-[#0d181b] dark:text-white\">\n<div class=\"relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden max-w-md mx-auto shadow-xl\">\n<!-- Top Navigation Bar -->\n<header class=\"flex items-center bg-background-light dark:bg-background-dark p-4 sticky top-0 z-10 border-b border-gray-200 dark:border-gray-800\">\n<div class=\"text-[#0d181b] dark:text-white flex size-12 shrink-0 items-center justify-start\">\n<span class=\"material-symbols-outlined text-2xl\">arrow_back_ios</span>\n</div>\n<h1 class=\"text-[#0d181b] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12\">Contact Us</h1>\n</header>\n<!-- Hero Section -->\n<div class=\"@container\">\n<div class=\"px-0\">\n<div class=\"bg-cover bg-center flex flex-col justify-end overflow-hidden min-h-64 relative\" data-alt=\"Group of diverse volunteers smiling and working together outdoors\" style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 60%), url(\"https://lh3.googleusercontent.com/aida-public/AB6AXuA7nx8dIKsHFQsggsfo5IK5teeLqO2E6In-VmN3qf2_5RodRWTsR4VOJcL7oDGuScQHOe9DNpteN-EVI3Vl33jUM1wIhYU9fORp88nN_osg2V70Dmb9ch0dpgaWigVNy7EUCZFcX1UAI9q-JNiKKh8_Ek5AJAU9tYFlFH4_I6OEs2Dj3-Q40hALgBfCV4pBwjdJAQJmBi6nKQ2xf4jfF8M-YL5fDR1OKKhsfgZIbOlCtTDw1KIgBo5MclaLPVMeG0ehHXlkCgIyEKV9\");'>\n<div class=\"flex p-6\">\n<p class=\"text-white tracking-tight text-[28px] font-bold leading-tight\">Join our mission to create lasting change</p>\n</div>\n</div>\n</div>\n</div>\n<!-- Call to Action Sections -->\n<section class=\"p-4 space-y-4\">\n<h2 class=\"text-[#0d181b] dark:text-white text-xl font-bold px-1 pt-2\">How can we help?</h2>\n<!-- Volunteer Card -->\n<div class=\"flex items-center justify-between gap-4 rounded-xl bg-white dark:bg-gray-800 p-4 shadow-sm border border-gray-100 dark:border-gray-700\">\n<div class=\"flex flex-col gap-3 flex-1\">\n<div class=\"flex items-center gap-2\">\n<span class=\"material-symbols-outlined text-primary text-2xl\">volunteer_activism</span>\n<p class=\"text-[#0d181b] dark:text-white text-base font-bold\">Become a Volunteer</p>\n</div>\n<p class=\"text-gray-500 dark:text-gray-400 text-sm font-normal\">Join our global community of dedicated changemakers.</p>\n<button class=\"flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-9 px-4 bg-primary/10 text-primary text-sm font-bold hover:bg-primary/20 transition-colors w-fit\">\n<span>Sign Up</span>\n</button>\n</div>\n<div class=\"w-24 h-24 bg-center bg-no-repeat bg-cover rounded-lg\" data-alt=\"Close up of hands joined together in teamwork\" style='background-image: url(\"https://lh3.googleusercontent.com/aida-public/AB6AXuAthrEW3hUqgUPJhFl_BSYTF4Xg5oA41PRWCp6zqwtc8-A9iMQtRmwc3gesXQlfJJP8iQkOuR0VuOJoL2qUSEP_A4JdOWl1Nwq5wSOWvjvM1V2cucL6EW4Jx4RncyD4pDKGDyywh6bg3wq9ZvaaIIfSABeAdg-NzVom-XG__ZuW4oT7OVmZ-PQImku80-_20Tt-I-HQhvssfxB_ArDtg_tzskK4wWuuJdbhTX7iiat4pouThzw89MJ_f3YipTTF7V1uv2Anx5qZyZlR\");'></div>\n</div>\n<!-- Donation Card -->\n<div class=\"flex items-center justify-between gap-4 rounded-xl bg-white dark:bg-gray-800 p-4 shadow-sm border border-gray-100 dark:border-gray-700\">\n<div class=\"flex flex-col gap-3 flex-1\">\n<div class=\"flex items-center gap-2\">\n<span class=\"material-symbols-outlined text-primary text-2xl\">redeem</span>\n<p class=\"text-[#0d181b] dark:text-white text-base font-bold\">Inquire about Donations</p>\n</div>\n<p class=\"text-gray-500 dark:text-gray-400 text-sm font-normal\">Learn how your contributions create a meaningful impact.</p>\n<button class=\"flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-9 px-4 bg-primary/10 text-primary text-sm font-bold hover:bg-primary/20 transition-colors w-fit\">\n<span>Learn More</span>\n</button>\n</div>\n<div class=\"w-24 h-24 bg-center bg-no-repeat bg-cover rounded-lg\" data-alt=\"A small plant growing out of a handful of coins\" style='background-image: url(\"https://lh3.googleusercontent.com/aida-public/AB6AXuDwxYX_6mheh9vw_gJ6WKifWvmmUWCcZYQB78LceLwSllQOpOX0bmX1KVcyZ2WPaQAmnGBBCF0VSpDGzUgGXdSv-pQC8kibwea7D-AApTl_EV4UIe2VetBk3IgMnkIwHoo_Gv-2aTtGGphAdd6sZIB_nRsq6f0vqtjFnPsnXTFX_vi3DbYZCGqsR5YaYHmelsx3NI6l9jYxV10ef_LUKK-f7MxThy7S0hByuVtNViYtigs3L3UKnwqDHSHntN__jFV-PmgFXiIEnNuh\");'></div>\n</div>\n<!-- General Inquiry Card -->\n<div class=\"flex items-center justify-between gap-4 rounded-xl bg-white dark:bg-gray-800 p-4 shadow-sm border border-gray-100 dark:border-gray-700\">\n<div class=\"flex flex-col gap-3 flex-1\">\n<div class=\"flex items-center gap-2\">\n<span class=\"material-symbols-outlined text-primary text-2xl\">forum</span>\n<p class=\"text-[#0d181b] dark:text-white text-base font-bold\">General Inquiry</p>\n</div>\n<p class=\"text-gray-500 dark:text-gray-400 text-sm font-normal\">Have a question? We're here to help you get answers.</p>\n<button class=\"flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-9 px-4 bg-primary/10 text-primary text-sm font-bold hover:bg-primary/20 transition-colors w-fit\">\n<span>Email Us</span>\n</button>\n</div>\n<div class=\"w-24 h-24 bg-center bg-no-repeat bg-cover rounded-lg\" data-alt=\"Person writing a letter or note at a desk\" style='background-image: url(\"https://lh3.googleusercontent.com/aida-public/AB6AXuCJABTS41dE-_c_B6TGbKFynTuW1oFk6JsMTfpHNyN1Mjwooh3T0DRLJhFfsfI5ElhH47U_bRC6qUTOc8AQKMoKmCtOD14xzpWGWDLs2N4iXKp1YPUB7kUd418OLCo6AOetPcuJxoXbsar_X_SG2eX0rbFpEOYB-hYg2YIhxOw59Hc-TbIhniKBSY15FIcXqv9X6GzfoHuKVpFAIc9bPYwjT2ISvwtegkTr1FwbfR4Wga5cY5MKF1iRz8PsWDIedZyRHLfvumTnBumf\");'></div>\n</div>\n</section>\n<!-- Contact Form Section -->\n<section class=\"p-6 bg-white dark:bg-gray-900 rounded-t-3xl mt-4 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] border-t dark:border-gray-800\">\n<h3 class=\"text-[#0d181b] dark:text-white text-xl font-bold mb-6\">Send us a message</h3>\n<form class=\"space-y-4\">\n<div>\n<label class=\"block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1\">Full Name <span class=\"text-red-500\">*</span></label>\n<input class=\"w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all\" placeholder=\"Enter your name\" type=\"text\"/>\n</div>\n<div>\n<label class=\"block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1\">Email Address <span class=\"text-red-500\">*</span></label>\n<input class=\"w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all\" placeholder=\"email@example.com\" type=\"email\"/>\n</div>\n<div>\n<label class=\"block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1\">Interest Area <span class=\"text-red-500\">*</span></label>\n<select class=\"w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all\">\n<option>General Support</option>\n<option>Volunteering Opportunities</option>\n<option>Corporate Partnership</option>\n<option>Donation Inquiry</option>\n<option>Media/Press</option>\n</select>\n</div>\n<div>\n<label class=\"block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1\">Message <span class=\"text-red-500\">*</span></label>\n<textarea class=\"w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all\" placeholder=\"How can we help you?\" rows=\"4\"></textarea>\n</div>\n<button class=\"w-full bg-primary text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/30 active:scale-[0.98] transition-transform\" type=\"submit\">\n                    Send Message\n                </button>\n</form>\n<!-- Map/Location Shortcut -->\n<div class=\"mt-8 pt-8 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between\">\n<div class=\"flex items-center gap-3\">\n<div class=\"p-2 bg-gray-100 dark:bg-gray-800 rounded-full\">\n<span class=\"material-symbols-outlined text-gray-600 dark:text-gray-400\">location_on</span>\n</div>\n<div>\n<p class=\"text-xs text-gray-500 dark:text-gray-400\">Headquarters</p>\n<p class=\"text-sm font-medium\">New York City, NY</p>\n</div>\n</div>\n<button class=\"text-primary text-sm font-bold flex items-center gap-1\">\n                    See Map\n                    <span class=\"material-symbols-outlined text-sm\">open_in_new</span>\n</button>\n</div>\n<!-- Social Icons -->\n<div class=\"flex justify-center gap-6 py-8\">\n<span class=\"material-symbols-outlined text-gray-400 hover:text-primary cursor-pointer\">public</span>\n<span class=\"material-symbols-outlined text-gray-400 hover:text-primary cursor-pointer\">groups</span>\n<span class=\"material-symbols-outlined text-gray-400 hover:text-primary cursor-pointer\">alternate_email</span>\n</div>\n</section>\n<!-- Spacer for iOS tab bars/bottom navigation -->\n<div class=\"h-8 bg-white dark:bg-gray-900\"></div>\n</div>\n</body></html>"
+              }
+            },
+            "claude": {
+              "loading": false,
+              "error": null,
+              "requestId": "1773950266963-b619e5c1666ee8",
+              "startedAt": 1773950267080,
+              "done": true,
+              "result": {
+                "afterHtml": "<!DOCTYPE html>\n\n<html class=\"light\" lang=\"en\"><head>\n<meta charset=\"utf-8\"/>\n<meta content=\"width=device-width, initial-scale=1.0\" name=\"viewport\"/>\n<title>NGO Contact Us</title>\n<script src=\"https://cdn.tailwindcss.com?plugins=forms,container-queries\"></script>\n<link href=\"https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap\" rel=\"stylesheet\"/>\n<link href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap\" rel=\"stylesheet\"/>\n<link href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap\" rel=\"stylesheet\"/>\n<script id=\"tailwind-config\">\n        tailwind.config = {\n            darkMode: \"class\",\n            theme: {\n                extend: {\n                    colors: {\n                        \"primary\": \"#13b6ec\",\n                        \"background-light\": \"#f6f8f8\",\n                        \"background-dark\": \"#101d22\",\n                    },\n                    fontFamily: {\n                        \"display\": [\"Public Sans\"]\n                    },\n                    borderRadius: {\"DEFAULT\": \"0.25rem\", \"lg\": \"0.5rem\", \"xl\": \"0.75rem\", \"full\": \"9999px\"},\n                },\n            },\n        }\n    </script>\n<style>\n        body {\n            font-family: 'Public Sans', sans-serif;\n        }\n        .material-symbols-outlined {\n            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;\n        }\n    </style>\n<style>\n    body {\n      min-height: max(884px, 100dvh);\n    }\n  </style>\n  </head>\n<body class=\"bg-background-light dark:bg-background-dark text-[#0d181b] dark:text-white\">\n<div class=\"relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden max-w-md mx-auto shadow-xl\">\n<!-- Top Navigation Bar -->\n<header class=\"flex items-center bg-background-light dark:bg-background-dark p-4 sticky top-0 z-10 border-b border-gray-200 dark:border-gray-800\">\n<div class=\"text-[#0d181b] dark:text-white flex size-12 shrink-0 items-center justify-start\">\n<span class=\"material-symbols-outlined text-2xl\">arrow_back_ios</span>\n</div>\n<h1 class=\"text-[#0d181b] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12\">Contact Us</h1>\n</header>\n<!-- Hero Section -->\n<div class=\"@container\">\n<div class=\"px-0\">\n<div class=\"bg-cover bg-center flex flex-col justify-end overflow-hidden min-h-64 relative\" data-alt=\"Group of diverse volunteers smiling and working together outdoors\" style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 60%), url(\"https://lh3.googleusercontent.com/aida-public/AB6AXuA7nx8dIKsHFQsggsfo5IK5teeLqO2E6In-VmN3qf2_5RodRWTsR4VOJcL7oDGuScQHOe9DNpteN-EVI3Vl33jUM1wIhYU9fORp88nN_osg2V70Dmb9ch0dpgaWigVNy7EUCZFcX1UAI9q-JNiKKh8_Ek5AJAU9tYFlFH4_I6OEs2Dj3-Q40hALgBfCV4pBwjdJAQJmBi6nKQ2xf4jfF8M-YL5fDR1OKKhsfgZIbOlCtTDw1KIgBo5MclaLPVMeG0ehHXlkCgIyEKV9\");'>\n<div class=\"flex p-6\">\n<p class=\"text-white tracking-tight text-[28px] font-bold leading-tight\">Join our mission to create lasting change</p>\n</div>\n</div>\n</div>\n</div>\n<!-- Call to Action Sections -->\n<section class=\"p-4 space-y-4\">\n<h2 class=\"text-[#0d181b] dark:text-white text-xl font-bold px-1 pt-2\">How can we help?</h2>\n<!-- Volunteer Card -->\n<div class=\"flex items-center justify-between gap-4 rounded-xl bg-white dark:bg-gray-800 p-4 shadow-sm border border-gray-100 dark:border-gray-700\">\n<div class=\"flex flex-col gap-3 flex-1\">\n<div class=\"flex items-center gap-2\">\n<span class=\"material-symbols-outlined text-primary text-2xl\">volunteer_activism</span>\n<p class=\"text-[#0d181b] dark:text-white text-base font-bold\">Become a Volunteer</p>\n</div>\n<p class=\"text-gray-500 dark:text-gray-400 text-sm font-normal\">Join our global community of dedicated changemakers.</p>\n<button class=\"flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-9 px-4 bg-primary/10 text-primary text-sm font-bold hover:bg-primary/20 transition-colors w-fit\">\n<span>Sign Up</span>\n</button>\n</div>\n<div class=\"w-24 h-24 bg-center bg-no-repeat bg-cover rounded-lg\" data-alt=\"Close up of hands joined together in teamwork\" style='background-image: url(\"https://lh3.googleusercontent.com/aida-public/AB6AXuAthrEW3hUqgUPJhFl_BSYTF4Xg5oA41PRWCp6zqwtc8-A9iMQtRmwc3gesXQlfJJP8iQkOuR0VuOJoL2qUSEP_A4JdOWl1Nwq5wSOWvjvM1V2cucL6EW4Jx4RncyD4pDKGDyywh6bg3wq9ZvaaIIfSABeAdg-NzVom-XG__ZuW4oT7OVmZ-PQImku80-_20Tt-I-HQhvssfxB_ArDtg_tzskK4wWuuJdbhTX7iiat4pouThzw89MJ_f3YipTTF7V1uv2Anx5qZyZlR\");'></div>\n</div>\n<!-- Donation Card -->\n<div class=\"flex items-center justify-between gap-4 rounded-xl bg-white dark:bg-gray-800 p-4 shadow-sm border border-gray-100 dark:border-gray-700\">\n<div class=\"flex flex-col gap-3 flex-1\">\n<div class=\"flex items-center gap-2\">\n<span class=\"material-symbols-outlined text-primary text-2xl\">redeem</span>\n<p class=\"text-[#0d181b] dark:text-white text-base font-bold\">Inquire about Donations</p>\n</div>\n<p class=\"text-gray-500 dark:text-gray-400 text-sm font-normal\">Learn how your contributions create a meaningful impact.</p>\n<button class=\"flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-9 px-4 bg-primary/10 text-primary text-sm font-bold hover:bg-primary/20 transition-colors w-fit\">\n<span>Learn More</span>\n</button>\n</div>\n<div class=\"w-24 h-24 bg-center bg-no-repeat bg-cover rounded-lg\" data-alt=\"A small plant growing out of a handful of coins\" style='background-image: url(\"https://lh3.googleusercontent.com/aida-public/AB6AXuDwxYX_6mheh9vw_gJ6WKifWvmmUWCcZYQB78LceLwSllQOpOX0bmX1KVcyZ2WPaQAmnGBBCF0VSpDGzUgGXdSv-pQC8kibwea7D-AApTl_EV4UIe2VetBk3IgMnkIwHoo_Gv-2aTtGGphAdd6sZIB_nRsq6f0vqtjFnPsnXTFX_vi3DbYZCGqsR5YaYHmelsx3NI6l9jYxV10ef_LUKK-f7MxThy7S0hByuVtNViYtigs3L2UKnwqDHSHntN__jFV-PmgFXiIEnNuh\");'></div>\n</div>\n<!-- General Inquiry Card -->\n<div class=\"flex items-center justify-between gap-4 rounded-xl bg-white dark:bg-gray-800 p-4 shadow-sm border border-gray-100 dark:border-gray-700\">\n<div class=\"flex flex-col gap-3 flex-1\">\n<div class=\"flex items-center gap-2\">\n<span class=\"material-symbols-outlined text-primary text-2xl\">forum</span>\n<p class=\"text-[#0d181b] dark:text-white text-base font-bold\">General Inquiry</p>\n</div>\n<p class=\"text-gray-500 dark:text-gray-400 text-sm font-normal\">Have a question? We're here to help you get answers.</p>\n<button class=\"flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-9 px-4 bg-primary/10 text-primary text-sm font-bold hover:bg-primary/20 transition-colors w-fit\">\n<span>Email Us</span>\n</button>\n</div>\n<div class=\"w-24 h-24 bg-center bg-no-repeat bg-cover rounded-lg\" data-alt=\"Person writing a letter or note at a desk\" style='background-image: url(\"https://lh3.googleusercontent.com/aida-public/AB6AXuCJABTS41dE-_c_B6TGbKFynTuW1oFk6JsMTfpHNyN1Mjwooh3T0DRLJhFfsfI5ElhH47U_bRC6qUTOc8AQKMoKmCtOD14xzpWGWDLs2N4iXKp1YPUB7kUd418OLCo6AOetPcuJxoXbsar_X_SG2eX0rbFpEOYB-hYg2YIhxOw59Hc-TbIhniKBSY15FIcXqv9X6GzfoHuKVpFAIc9bPYwjT2ISvwtegkTr1FwbfR4Wga5cY5MKF1iRz8PsWDIedZyRHLfvumTnBumf\");'></div>\n</div>\n</section>\n<!-- Contact Form Section -->\n<section class=\"p-6 bg-white dark:bg-gray-900 rounded-t-3xl mt-4 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] border-t dark:border-gray-800\">\n<h3 class=\"text-[#0d181b] dark:text-white text-xl font-bold mb-6\">Send us a message</h3>\n<form class=\"space-y-4\">\n<div>\n<label class=\"block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1\">Full Name <span class=\"text-red-500\">*</span></label>\n<input class=\"w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all\" placeholder=\"Enter your name\" type=\"text\"/>\n</div>\n<div>\n<label class=\"block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1\">Email Address <span class=\"text-red-500\">*</span></label>\n<input class=\"w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all\" placeholder=\"email@example.com\" type=\"email\"/>\n</div>\n<div>\n<label class=\"block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1\">Interest Area <span class=\"text-red-500\">*</span></label>\n<select class=\"w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all\">\n<option>General Support</option>\n<option>Volunteering Opportunities</option>\n<option>Corporate Partnership</option>\n<option>Donation Inquiry</option>\n<option>Media/Press</option>\n</select>\n</div>\n<div>\n<label class=\"block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1\">Message <span class=\"text-red-500\">*</span></label>\n<textarea class=\"w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all\" placeholder=\"How can we help you?\" rows=\"4\"></textarea>\n</div>\n<button class=\"w-full bg-primary text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/30 active:scale-[0.98] transition-transform\" type=\"submit\">\n                    Send Message\n                </button>\n</form>\n<!-- Map/Location Shortcut -->\n<div class=\"mt-8 pt-8 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between\">\n<div class=\"flex items-center gap-3\">\n<div class=\"p-2 bg-gray-100 dark:bg-gray-800 rounded-full\">\n<span class=\"material-symbols-outlined text-gray-600 dark:text-gray-400\">location_on</span>\n</div>\n<div>\n<p class=\"text-xs text-gray-500 dark:text-gray-400\">Headquarters</p>\n<p class=\"text-sm font-medium\">New York City, NY</p>\n</div>\n</div>\n<button class=\"text-primary text-sm font-bold flex items-center gap-1\">\n                    See Map\n                    <span class=\"material-symbols-outlined text-sm\">open_in_new</span>\n</button>\n</div>\n<!-- Social Icons -->\n<div class=\"flex justify-center gap-6 py-8\">\n<span class=\"material-symbols-outlined text-gray-400 hover:text-primary cursor-pointer\">public</span>\n<span class=\"material-symbols-outlined text-gray-400 hover:text-primary cursor-pointer\">groups</span>\n<span class=\"material-symbols-outlined text-gray-400 hover:text-primary cursor-pointer\">alternate_email</span>\n</div>\n</section>\n<!-- Spacer for iOS tab bars/bottom navigation -->\n<div class=\"h-8 bg-white dark:bg-gray-900\"></div>\n</div>\n</body></html>"
+              }
+            }
+          }
+        },
+        "successById": {
+          "1": [
+            {
+              "text": "it added asterisks to most of the fields and kept everything else the same",
+              "providerId": "openai"
+            },
+            {
+              "text": "",
+              "providerId": "openai"
+            },
+            {
+              "text": "",
+              "providerId": "openai"
+            },
+            {
+              "text": "it added correct astersisk and kept things same",
+              "providerId": "gemini"
+            },
+            {
+              "text": "",
+              "providerId": "gemini"
+            },
+            {
+              "text": "",
+              "providerId": "gemini"
+            },
+            {
+              "text": "it added correct astersisk and kept things same",
+              "providerId": "claude"
+            },
+            {
+              "text": "",
+              "providerId": "claude"
+            },
+            {
+              "text": "",
+              "providerId": "claude"
+            }
+          ]
+        },
+        "notSuccessById": {
+          "1": [
+            {
+              "text": "it didn't add for the message but we do want it there",
+              "providerId": "openai"
+            },
+            {
+              "text": "",
+              "providerId": "openai"
+            },
+            {
+              "text": "",
+              "providerId": "openai"
+            },
+            {
+              "text": "n/a",
+              "providerId": "gemini"
+            },
+            {
+              "text": "",
+              "providerId": "gemini"
+            },
+            {
+              "text": "",
+              "providerId": "gemini"
+            },
+            {
+              "text": "n/a",
+              "providerId": "claude"
+            },
+            {
+              "text": "",
+              "providerId": "claude"
+            },
+            {
+              "text": "",
+              "providerId": "claude"
+            }
+          ]
+        },
+        "approvalsByProvider": {
+          "1": {
+            "openai": false,
+            "gemini": true,
+            "claude": true
+          }
+        },
+        "rankingById": {
+          "1": {
+            "1": "gemini",
+            "2": "claude",
+            "3": "openai"
+          }
+        },
+        "activeProviderId": "gemini"
+      },
+      "startedAt": "2026-03-19T19:55:10.297Z",
+      "createdAt": "2026-03-19T19:55:10.297Z",
+      "updatedAt": "2026-03-19T20:01:34.308Z",
+      "completedAt": "2026-03-19T20:01:34.308Z"
+    },
+    "sess_9d419e66-94bd-4b19-a02a-37947a33bb7d": {
+      "id": "sess_9d419e66-94bd-4b19-a02a-37947a33bb7d",
+      "participantId": "0adf2968-7cc9-4aba-a2f5-c825a7fe5f5a",
+      "stageId": 1,
+      "taskId": 2,
+      "status": "completed",
+      "snapshot": {
+        "phase": "done",
+        "changes": [
+          {
+            "id": 1,
+            "problem": "we dont need a button to connect with every platform. just keep one button continue"
+          }
+        ],
+        "currentIndex": 0,
+        "validationById": {},
+        "resultsById": {
+          "1": {
+            "openai": {
+              "loading": false,
+              "error": null,
+              "requestId": "1773953153768-22aa9d8bf44bf",
+              "startedAt": 1773953153769,
+              "done": true,
+              "result": {
+                "afterHtml": "<!DOCTYPE html>\n\n<html class=\"dark\" lang=\"en\"><head>\n<meta charset=\"utf-8\"/>\n<meta content=\"width=device-width, initial-scale=1.0\" name=\"viewport\"/>\n<title>ConnectHub Onboarding</title>\n<script src=\"https://cdn.tailwindcss.com?plugins=forms,container-queries\"></script>\n<link href=\"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap\" rel=\"stylesheet\"/>\n<link href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap\" rel=\"stylesheet\"/>\n<link href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap\" rel=\"stylesheet\"/>\n<script id=\"tailwind-config\">\n        tailwind.config = {\n            darkMode: \"class\",\n            theme: {\n                extend: {\n                    colors: {\n                        \"primary\": \"#256af4\",\n                        \"background-light\": \"#f5f6f8\",\n                        \"background-dark\": \"#101622\",\n                    },\n                    fontFamily: {\n                        \"display\": [\"Plus Jakarta Sans\"]\n                    },\n                    borderRadius: {\"DEFAULT\": \"0.25rem\", \"lg\": \"0.5rem\", \"xl\": \"0.75rem\", \"full\": \"9999px\"},\n                },\n            },\n        }\n    </script>\n<style>\n    body {\n      min-height: max(884px, 100dvh);\n    }\n  </style>\n  </head>\n<body class=\"bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased\">\n<div class=\"relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden\">\n<!-- TopAppBar with misplaced Get Started -->\n<div class=\"flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800\">\n<h2 class=\"text-slate-900 dark:text-slate-100 text-2xl font-extrabold leading-tight tracking-[-0.015em] flex-1\">ConnectHub</h2>\n<div class=\"flex items-center justify-end\">\n<button class=\"bg-primary text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg shadow-primary/40 hover:scale-105 transition-transform\">\n                Get Started\n            </button>\n</div>\n</div>\n<!-- Hero Section -->\n<div class=\"@container\">\n<div class=\"@[480px]:px-4 @[480px]:py-3\">\n<div class=\"w-full bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden bg-slate-200 dark:bg-slate-800 @[480px]:rounded-xl min-h-[400px] relative\" data-alt=\"High contrast crowd of people networking in city\" style='background-image: url(\"https://lh3.googleusercontent.com/aida-public/AB6AXuC43QvIJ70zw7eXr56imp-eG-HU8k4z7UPKi-IguXTmks_qaIlCWsFu2m1fmG1SYWFuGfqSMlv9e3K5Kbc3Zk4EpJR2NsVlS0USDtGbF9AjEf1iWZfSFlKhtM4w53LiM_6-sXu8uy6rjLOpLJi711Vi9m-piIcJLFbiXR1P1mjeOfczqvJaCYbJ-TaEP9XVk5PncpnJ1Y57d8QhuQX87DMsh55GMVMVtktj7Q73SAyup2d5W7aT5ln4ISRRPcwH2LMwUNXTpUwgk03W\");'>\n<div class=\"absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent opacity-80\"></div>\n<div class=\"relative p-6\">\n<h1 class=\"text-white tracking-tight text-5xl font-black leading-none mb-2\">EVERYONE. EVERYTHING. EVERYWHERE.</h1>\n<p class=\"text-slate-300 text-lg max-w-md\">The most overwhelming social experience ever built for the modern attention span.</p>\n</div>\n</div>\n</div>\n</div>\n<div class=\"px-4 py-6\">\n<h2 class=\"text-slate-900 dark:text-slate-100 text-3xl font-bold leading-tight tracking-tight mb-6\">Why You'll Be Hooked</h2>\n<!-- Busy Grid of Cards -->\n<div class=\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4\">\n<div class=\"flex flex-col gap-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm\">\n<div class=\"text-primary\">\n<span class=\"material-symbols-outlined text-4xl\">notifications_active</span>\n</div>\n<div class=\"flex flex-col gap-1\">\n<h3 class=\"text-slate-900 dark:text-slate-100 text-2xl font-extrabold\">Endless Noise</h3>\n<p class=\"text-slate-500 dark:text-slate-400 text-base leading-snug\">Never have a quiet moment again with our persistent, unmutable notifications that sync across all devices.</p>\n</div>\n</div>\n<div class=\"flex flex-col gap-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-primary/10 dark:bg-primary/5 p-6 shadow-sm scale-105 border-primary/50\">\n<div class=\"text-primary\">\n<span class=\"material-symbols-outlined text-4xl\">sync_alt</span>\n</div>\n<div class=\"flex flex-col gap-1\">\n<h3 class=\"text-slate-900 dark:text-slate-100 text-lg font-bold\">Infinite Scrolls</h3>\n<p class=\"text-slate-500 dark:text-slate-400 text-xs leading-normal\">Keep scrolling forever through content algorithms think you want, even when you know you don't. We never stop loading.</p>\n</div>\n</div>\n<div class=\"flex flex-col gap-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm\">\n<div class=\"text-primary\">\n<span class=\"material-symbols-outlined text-4xl\">group_add</span>\n</div>\n<div class=\"flex flex-col gap-1\">\n<h3 class=\"text-slate-900 dark:text-slate-100 text-3xl font-black italic uppercase\">Hyper-Link</h3>\n<p class=\"text-slate-500 dark:text-slate-400 text-sm leading-normal\">Connect with everyone you've ever met in one giant messy list that updates every single second.</p>\n</div>\n</div>\n<div class=\"flex flex-col gap-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm border-dashed\">\n<div class=\"text-primary\">\n<span class=\"material-symbols-outlined text-4xl\">query_stats</span>\n</div>\n<div class=\"flex flex-col gap-1\">\n<h3 class=\"text-slate-900 dark:text-slate-100 text-base font-semibold\">Data Overload</h3>\n<p class=\"text-slate-500 dark:text-slate-400 text-[10px] leading-tight\">We provide more analytics about your social life than you can handle. 1,400 metrics per post, 24/7 monitoring, and emotional heatmaps.</p>\n</div>\n</div>\n</div>\n</div>\n<!-- Oversized Social Logins -->\n<div class=\"px-4 py-8 flex flex-col gap-4\">\n<h3 class=\"text-center text-slate-500 uppercase tracking-widest text-xs font-bold mb-2\">Connect Your Digital Life</h3>\n<button class=\"w-full h-20 flex items-center justify-center gap-4 bg-primary text-white rounded-xl font-bold text-xl hover:opacity-90\">\n<span class=\"material-symbols-outlined text-3xl\">social_leaderboard</span>\n            Continue\n        </button>\n</div>\n<!-- Hard to read skip link -->\n<div class=\"p-8 text-center bg-slate-100 dark:bg-slate-950 mt-10\">\n<a class=\"text-slate-300 dark:text-slate-800 text-[8px] hover:text-primary transition-colors cursor-default\" href=\"#\">\n            I don't want to connect right now, maybe I will skip this part for a later time when I feel more ready to join the network.\n        </a>\n</div>\n<div class=\"h-10 bg-background-light dark:bg-background-dark\"></div>\n</div>\n</body></html>"
+              }
+            },
+            "gemini": {
+              "loading": false,
+              "error": null,
+              "requestId": "1773953464734-e593aa53e8edd8",
+              "startedAt": 1773953464735,
+              "done": true,
+              "result": {
+                "afterHtml": "<!DOCTYPE html>\n\n<html class=\"dark\" lang=\"en\"><head>\n<meta charset=\"utf-8\"/>\n<meta content=\"width=device-width, initial-scale=1.0\" name=\"viewport\"/>\n<title>ConnectHub Onboarding</title>\n<script src=\"https://cdn.tailwindcss.com?plugins=forms,container-queries\"></script>\n<link href=\"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap\" rel=\"stylesheet\"/>\n<link href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap\" rel=\"stylesheet\"/>\n<link href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap\" rel=\"stylesheet\"/>\n<script id=\"tailwind-config\">\n        tailwind.config = {\n            darkMode: \"class\",\n            theme: {\n                extend: {\n                    colors: {\n                        \"primary\": \"#256af4\",\n                        \"background-light\": \"#f5f6f8\",\n                        \"background-dark\": \"#101622\",\n                    },\n                    fontFamily: {\n                        \"display\": [\"Plus Jakarta Sans\"]\n                    },\n                    borderRadius: {\"DEFAULT\": \"0.25rem\", \"lg\": \"0.5rem\", \"xl\": \"0.75rem\", \"full\": \"9999px\"},\n                },\n            },\n        }\n    </script>\n<style>\n    body {\n      min-height: max(884px, 100dvh);\n    }\n  </style>\n  </head>\n<body class=\"bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased\">\n<div class=\"relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden\">\n<!-- TopAppBar with misplaced Get Started -->\n<div class=\"flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800\">\n<h2 class=\"text-slate-900 dark:text-slate-100 text-2xl font-extrabold leading-tight tracking-[-0.015em] flex-1\">ConnectHub</h2>\n<div class=\"flex items-center justify-end\">\n<button class=\"bg-primary text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg shadow-primary/40 hover:scale-105 transition-transform\">\n                Get Started\n            </button>\n</div>\n</div>\n<!-- Hero Section -->\n<div class=\"@container\">\n<div class=\"@[480px]:px-4 @[480px]:py-3\">\n<div class=\"w-full bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden bg-slate-200 dark:bg-slate-800 @[480px]:rounded-xl min-h-[400px] relative\" data-alt=\"High contrast crowd of people networking in city\" style='background-image: url(\"https://lh3.googleusercontent.com/aida-public/AB6AXuC43QvIJ70zw7eXr56imp-eG-HU8k4z7UPKi-IguXTmks_qaIlCWsFu2m1fmG1SYWFuGfqSMlv9e3K5Kbc3Zk4EpJR2NsVlS0USDtGbF9AjEf1iWZfSFlKhtM4w53LiM_6-sXu8uy6rjLOpLJi711Vi9m-piIcJLFbiXR1P1mjeOfczqvJaCYbJ-TaEP9XVk5PncpnJ1Y57d8QhuQX87DMsh55GMVMVtktj7Q73SAyup2d5W7aT5ln4ISRRPcwH2LMwUNXTpUwgk03W\");'>\n<div class=\"absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent opacity-80\"></div>\n<div class=\"relative p-6\">\n<h1 class=\"text-white tracking-tight text-5xl font-black leading-none mb-2\">EVERYONE. EVERYTHING. EVERYWHERE.</h1>\n<p class=\"text-slate-300 text-lg max-w-md\">The most overwhelming social experience ever built for the modern attention span.</p>\n</div>\n</div>\n</div>\n</div>\n<div class=\"px-4 py-6\">\n<h2 class=\"text-slate-900 dark:text-slate-100 text-3xl font-bold leading-tight tracking-tight mb-6\">Why You'll Be Hooked</h2>\n<!-- Busy Grid of Cards -->\n<div class=\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4\">\n<div class=\"flex flex-col gap-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm\">\n<div class=\"text-primary\">\n<span class=\"material-symbols-outlined text-4xl\">notifications_active</span>\n</div>\n<div class=\"flex flex-col gap-1\">\n<h3 class=\"text-slate-900 dark:text-slate-100 text-2xl font-extrabold\">Endless Noise</h3>\n<p class=\"text-slate-500 dark:text-slate-400 text-base leading-snug\">Never have a quiet moment again with our persistent, unmutable notifications that sync across all devices.</p>\n</div>\n</div>\n<div class=\"flex flex-col gap-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-primary/10 dark:bg-primary/5 p-6 shadow-sm scale-105 border-primary/50\">\n<div class=\"text-primary\">\n<span class=\"material-symbols-outlined text-4xl\">sync_alt</span>\n</div>\n<div class=\"flex flex-col gap-1\">\n<h3 class=\"text-slate-900 dark:text-slate-100 text-lg font-bold\">Infinite Scrolls</h3>\n<p class=\"text-slate-500 dark:text-slate-400 text-xs leading-normal\">Keep scrolling forever through content algorithms think you want, even when you know you don't. We never stop loading.</p>\n</div>\n</div>\n<div class=\"flex flex-col gap-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm\">\n<div class=\"text-primary\">\n<span class=\"material-symbols-outlined text-4xl\">group_add</span>\n</div>\n<div class=\"flex flex-col gap-1\">\n<h3 class=\"text-slate-900 dark:text-slate-100 text-3xl font-black italic uppercase\">Hyper-Link</h3>\n<p class=\"text-slate-500 dark:text-slate-400 text-sm leading-normal\">Connect with everyone you've ever met in one giant messy list that updates every single second.</p>\n</div>\n</div>\n<div class=\"flex flex-col gap-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm border-dashed\">\n<div class=\"text-primary\">\n<span class=\"material-symbols-outlined text-4xl\">query_stats</span>\n</div>\n<div class=\"flex flex-col gap-1\">\n<h3 class=\"text-slate-900 dark:text-slate-100 text-base font-semibold\">Data Overload</h3>\n<p class=\"text-slate-500 dark:text-slate-400 text-[10px] leading-tight\">We provide more analytics about your social life than you can handle. 1,400 metrics per post, 24/7 monitoring, and emotional heatmaps.</p>\n</div>\n</div>\n</div>\n</div>\n<!-- Oversized Social Logins -->\n<div class=\"px-4 py-8 flex flex-col gap-4\">\n<h3 class=\"text-center text-slate-500 uppercase tracking-widest text-xs font-bold mb-2\">Connect Your Digital Life</h3>\n<button class=\"w-full h-20 flex items-center justify-center gap-4 bg-primary text-white rounded-xl font-bold text-xl hover:opacity-90\">\n            Continue\n        </button>\n</div>\n<!-- Hard to read skip link -->\n<div class=\"p-8 text-center bg-slate-100 dark:bg-slate-950 mt-10\">\n<a class=\"text-slate-300 dark:text-slate-800 text-[8px] hover:text-primary transition-colors cursor-default\" href=\"#\">\n            I don't want to connect right now, maybe I will skip this part for a later time when I feel more ready to join the network.\n        </a>\n</div>\n<div class=\"h-10 bg-background-light dark:bg-background-dark\"></div>\n</div>\n</body></html>"
+              }
+            },
+            "claude": {
+              "loading": false,
+              "error": null,
+              "requestId": "1773953611280-f064815cf849a8",
+              "startedAt": 1773953611280,
+              "done": true,
+              "result": {
+                "afterHtml": "<!DOCTYPE html>\n\n<html class=\"dark\" lang=\"en\"><head>\n<meta charset=\"utf-8\"/>\n<meta content=\"width=device-width, initial-scale=1.0\" name=\"viewport\"/>\n<title>ConnectHub Onboarding</title>\n<script src=\"https://cdn.tailwindcss.com?plugins=forms,container-queries\"></script>\n<link href=\"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap\" rel=\"stylesheet\"/>\n<link href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap\" rel=\"stylesheet\"/>\n<link href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap\" rel=\"stylesheet\"/>\n<script id=\"tailwind-config\">\n        tailwind.config = {\n            darkMode: \"class\",\n            theme: {\n                extend: {\n                    colors: {\n                        \"primary\": \"#256af4\",\n                        \"background-light\": \"#f5f6f8\",\n                        \"background-dark\": \"#101622\",\n                    },\n                    fontFamily: {\n                        \"display\": [\"Plus Jakarta Sans\"]\n                    },\n                    borderRadius: {\"DEFAULT\": \"0.25rem\", \"lg\": \"0.5rem\", \"xl\": \"0.75rem\", \"full\": \"9999px\"},\n                },\n            },\n        }\n    </script>\n<style>\n    body {\n      min-height: max(884px, 100dvh);\n    }\n  </style>\n  </head>\n<body class=\"bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased\">\n<div class=\"relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden\">\n<!-- TopAppBar with misplaced Get Started -->\n<div class=\"flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800\">\n<h2 class=\"text-slate-900 dark:text-slate-100 text-2xl font-extrabold leading-tight tracking-[-0.015em] flex-1\">ConnectHub</h2>\n<div class=\"flex items-center justify-end\">\n<button class=\"bg-primary text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg shadow-primary/40 hover:scale-105 transition-transform\">\n                Get Started\n            </button>\n</div>\n</div>\n<!-- Hero Section -->\n<div class=\"@container\">\n<div class=\"@[480px]:px-4 @[480px]:py-3\">\n<div class=\"w-full bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden bg-slate-200 dark:bg-slate-800 @[480px]:rounded-xl min-h-[400px] relative\" data-alt=\"High contrast crowd of people networking in city\" style='background-image: url(\"https://lh3.googleusercontent.com/aida-public/AB6AXuC43QvIJ70zw7eXr56imp-eG-HU8k4z7UPKi-IguXTmks_qaIlCWsFu2m1fmG1SYWFuGfqSMlv9e3K5Kbc3Zk4EpJR2NsVlS0USDtGbF9AjEf1iWZfSFlKhtM4w53LiM_6-sXu8uy6rjLOpLJi711Vi9m-piIcJLFbiXR1P1mjeOfczqvJaCYbJ-TaEP9XVk5PncpnJ1Y57d8QhuQX87DMsh55GMVMVtktj7Q73SAyup2d5W7aT5ln4ISRRPcwH2LMwUNXTpUwgk03W\");'>\n<div class=\"absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent opacity-80\"></div>\n<div class=\"relative p-6\">\n<h1 class=\"text-white tracking-tight text-5xl font-black leading-none mb-2\">EVERYONE. EVERYTHING. EVERYWHERE.</h1>\n<p class=\"text-slate-300 text-lg max-w-md\">The most overwhelming social experience ever built for the modern attention span.</p>\n</div>\n</div>\n</div>\n</div>\n<div class=\"px-4 py-6\">\n<h2 class=\"text-slate-900 dark:text-slate-100 text-3xl font-bold leading-tight tracking-tight mb-6\">Why You'll Be Hooked</h2>\n<!-- Busy Grid of Cards -->\n<div class=\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4\">\n<div class=\"flex flex-col gap-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm\">\n<div class=\"text-primary\">\n<span class=\"material-symbols-outlined text-4xl\">notifications_active</span>\n</div>\n<div class=\"flex flex-col gap-1\">\n<h3 class=\"text-slate-900 dark:text-slate-100 text-2xl font-extrabold\">Endless Noise</h3>\n<p class=\"text-slate-500 dark:text-slate-400 text-base leading-snug\">Never have a quiet moment again with our persistent, unmutable notifications that sync across all devices.</p>\n</div>\n</div>\n<div class=\"flex flex-col gap-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-primary/10 dark:bg-primary/5 p-6 shadow-sm scale-105 border-primary/50\">\n<div class=\"text-primary\">\n<span class=\"material-symbols-outlined text-4xl\">sync_alt</span>\n</div>\n<div class=\"flex flex-col gap-1\">\n<h3 class=\"text-slate-900 dark:text-slate-100 text-lg font-bold\">Infinite Scrolls</h3>\n<p class=\"text-slate-500 dark:text-slate-400 text-xs leading-normal\">Keep scrolling forever through content algorithms think you want, even when you know you don't. We never stop loading.</p>\n</div>\n</div>\n<div class=\"flex flex-col gap-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm\">\n<div class=\"text-primary\">\n<span class=\"material-symbols-outlined text-4xl\">group_add</span>\n</div>\n<div class=\"flex flex-col gap-1\">\n<h3 class=\"text-slate-900 dark:text-slate-100 text-3xl font-black italic uppercase\">Hyper-Link</h3>\n<p class=\"text-slate-500 dark:text-slate-400 text-sm leading-normal\">Connect with everyone you've ever met in one giant messy list that updates every single second.</p>\n</div>\n</div>\n<div class=\"flex flex-col gap-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm border-dashed\">\n<div class=\"text-primary\">\n<span class=\"material-symbols-outlined text-4xl\">query_stats</span>\n</div>\n<div class=\"flex flex-col gap-1\">\n<h3 class=\"text-slate-900 dark:text-slate-100 text-base font-semibold\">Data Overload</h3>\n<p class=\"text-slate-500 dark:text-slate-400 text-[10px] leading-tight\">We provide more analytics about your social life than you can handle. 1,400 metrics per post, 24/7 monitoring, and emotional heatmaps.</p>\n</div>\n</div>\n</div>\n</div>\n<!-- Single Continue Button -->\n<div class=\"px-4 py-8 flex flex-col gap-4\">\n<h3 class=\"text-center text-slate-500 uppercase tracking-widest text-xs font-bold mb-2\">Connect Your Digital Life</h3>\n<button class=\"w-full h-20 flex items-center justify-center gap-4 bg-primary text-white rounded-xl font-bold text-xl hover:opacity-90\">\n<span class=\"material-symbols-outlined text-3xl\">login</span>\n            Continue\n        </button>\n</div>\n<!-- Hard to read skip link -->\n<div class=\"p-8 text-center bg-slate-100 dark:bg-slate-950 mt-10\">\n<a class=\"text-slate-300 dark:text-slate-800 text-[8px] hover:text-primary transition-colors cursor-default\" href=\"#\">\n            I don't want to connect right now, maybe I will skip this part for a later time when I feel more ready to join the network.\n        </a>\n</div>\n<div class=\"h-10 bg-background-light dark:bg-background-dark\"></div>\n</div>\n</body></html>"
+              }
+            }
+          }
+        },
+        "successById": {
+          "1": [
+            {
+              "text": "doesnt make any changes",
+              "providerId": "openai"
+            },
+            {
+              "text": "continue button looks correct",
+              "providerId": "openai"
+            },
+            {
+              "text": "",
+              "providerId": "openai"
+            },
+            {
+              "text": "doesnt make any changes",
+              "providerId": "gemini"
+            },
+            {
+              "text": "continue button looks correct",
+              "providerId": "gemini"
+            },
+            {
+              "text": "",
+              "providerId": "gemini"
+            },
+            {
+              "text": "doesnt make any changes",
+              "providerId": "claude"
+            },
+            {
+              "text": "continue button looks correct",
+              "providerId": "claude"
+            },
+            {
+              "text": "",
+              "providerId": "claude"
+            }
+          ]
+        },
+        "notSuccessById": {
+          "1": [
+            {
+              "text": "could use a different icon to be clearer",
+              "providerId": "openai"
+            },
+            {
+              "text": "",
+              "providerId": "openai"
+            },
+            {
+              "text": "",
+              "providerId": "openai"
+            },
+            {
+              "text": "could include an icon to be clearer",
+              "providerId": "gemini"
+            },
+            {
+              "text": "",
+              "providerId": "gemini"
+            },
+            {
+              "text": "",
+              "providerId": "gemini"
+            },
+            {
+              "text": "n/a",
+              "providerId": "claude"
+            },
+            {
+              "text": "",
+              "providerId": "claude"
+            },
+            {
+              "text": "",
+              "providerId": "claude"
+            }
+          ]
+        },
+        "approvalsByProvider": {
+          "1": {
+            "openai": true,
+            "gemini": true,
+            "claude": true
+          }
+        },
+        "rankingById": {
+          "1": {
+            "1": "claude",
+            "2": "openai",
+            "3": "gemini"
+          }
+        },
+        "activeProviderId": "claude"
+      },
+      "startedAt": "2026-03-19T20:01:37.924Z",
+      "createdAt": "2026-03-19T20:01:37.924Z",
+      "updatedAt": "2026-03-19T20:55:21.895Z",
+      "completedAt": "2026-03-19T20:55:21.895Z"
+    },
+    "sess_93217f23-7da4-47e2-9e15-c6216babfa71": {
+      "id": "sess_93217f23-7da4-47e2-9e15-c6216babfa71",
+      "participantId": "0adf2968-7cc9-4aba-a2f5-c825a7fe5f5a",
+      "stageId": 1,
+      "taskId": 3,
+      "status": "in_progress",
+      "snapshot": {
+        "phase": "collect",
+        "changes": [
+          {
+            "id": 1,
+            "problem": ""
+          }
+        ],
+        "currentIndex": 0,
+        "validationById": {},
+        "resultsById": {},
+        "successById": {},
+        "notSuccessById": {},
+        "approvalsByProvider": {},
+        "rankingById": {},
+        "activeProviderId": "openai"
+      },
+      "startedAt": "2026-03-19T20:55:30.140Z",
+      "createdAt": "2026-03-19T20:55:30.140Z",
+      "updatedAt": "2026-03-19T20:55:30.958Z",
+      "completedAt": null
+    },
+    "sess_fe36c1b7-8e54-4bd1-91ac-992a8e68ebda": {
+      "id": "sess_fe36c1b7-8e54-4bd1-91ac-992a8e68ebda",
+      "participantId": "0adf2968-7cc9-4aba-a2f5-c825a7fe5f5a",
+      "stageId": 1,
+      "taskId": 4,
+      "status": "in_progress",
+      "snapshot": {
+        "phase": "collect",
+        "changes": [
+          {
+            "id": 1,
+            "problem": ""
+          }
+        ],
+        "currentIndex": 0,
+        "validationById": {},
+        "resultsById": {},
+        "successById": {},
+        "notSuccessById": {},
+        "approvalsByProvider": {},
+        "rankingById": {},
+        "activeProviderId": "openai"
+      },
+      "startedAt": "2026-03-19T20:59:30.993Z",
+      "createdAt": "2026-03-19T20:59:30.993Z",
+      "updatedAt": "2026-03-19T20:59:31.807Z",
+      "completedAt": null
+    }
+  }
+}

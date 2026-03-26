@@ -1,14 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import JSZip from 'jszip';
 import { useCaseStudyAssets } from '../hooks/useCaseStudyAssets';
 import { useProviderCatalog } from '../hooks/useProviderCatalog';
 import { useStudyGeneration } from '../hooks/useStudyGeneration';
 import { useStudyEvaluation } from '../hooks/useStudyEvaluation';
+import {
+  completeStudySession,
+  loadStudySession,
+  saveStudySession,
+  startStudySession,
+} from '../services/sessionApi';
+import { getCurrentParticipant } from '../services/participantSession';
 import CollectChangesSection from '../components/study/CollectChangesSection';
 import ReviewSection from '../components/study/ReviewSection';
 
-export default function Study({ listPath = '/user-study' }) {
+export default function Study({ listPath = '/user-study', stageId = 1 }) {
   const { taskId } = useParams();
   const navigate = useNavigate();
   const id = parseInt(taskId, 10) || 1;
@@ -23,6 +30,11 @@ export default function Study({ listPath = '/user-study' }) {
   const [phase, setPhase] = useState('collect'); // 'collect' | 'review' | 'done'
   const [currentIndex, setCurrentIndex] = useState(0);
   const [validationById, setValidationById] = useState({});
+  const [issueDraft, setIssueDraft] = useState('');
+  const [issueDraftError, setIssueDraftError] = useState('');
+  const [participantId, setParticipantId] = useState('');
+  const [sessionId, setSessionId] = useState('');
+  const [hydrationStatus, setHydrationStatus] = useState('idle'); // 'idle' | 'loading' | 'ready'
 
   function handleChangeField(index, field, value) {
     setChanges((prev) => {
@@ -89,13 +101,19 @@ export default function Study({ listPath = '/user-study' }) {
   const { providerStatus, availableProviders, missingProviders } =
     useProviderCatalog();
 
-  const { resultsById, triggerProviderGeneration, handleIframeLoad } =
+  const {
+    resultsById,
+    setResultsById,
+    triggerProviderGeneration,
+    handleIframeLoad,
+  } =
     useStudyGeneration({
       taskId: id,
       changes,
       currentIndex,
       beforeImageUrl,
       beforeCode,
+      initialResultsById: {},
     });
 
   function buildDownloadHref(code) {
@@ -172,7 +190,7 @@ export default function Study({ listPath = '/user-study' }) {
     setTimeout(() => URL.revokeObjectURL(url), 2000);
   }
 
-  function handleNextChange() {
+  async function handleNextChange() {
     if (currentIndex < changes.length - 1) {
       setCurrentIndex((i) => i + 1);
     } else {
@@ -186,31 +204,20 @@ export default function Study({ listPath = '/user-study' }) {
         approvalsByProvider: evaluation.approvalsByProvider,
         rankingById: evaluation.rankingById,
       });
+      if (sessionId) {
+        await completeStudySession({
+          sessionId,
+          snapshot: {
+            ...sessionSnapshot,
+            phase: 'done',
+          },
+        }).catch((err) => {
+          // eslint-disable-next-line no-console
+          console.error('Failed to complete study session', err);
+        });
+      }
       navigate(listPath, { replace: true });
     }
-  }
-
-  if (phase === 'done') {
-    return (
-      <div className='study study--centered'>
-        <div className='study__done'>
-          <h2>Thank you</h2>
-          <p>
-            Your small changes, evaluations, and rankings have been captured for
-            this case study. You can start another case study or close this
-            page.
-          </p>
-          <button
-            type='button'
-            className='study__btn study__btn--primary'
-            onClick={() => navigate(listPath)}
-          >
-            Back to case studies
-          </button>
-        </div>
-        <style>{studyStyles}</style>
-      </div>
-    );
   }
 
   const isCollect = phase === 'collect';
@@ -224,7 +231,200 @@ export default function Study({ listPath = '/user-study' }) {
     changes,
     currentIndex,
     availableProviders,
+    initialSuccessById: {},
+    initialNotSuccessById: {},
+    initialApprovalsByProvider: {},
+    initialRankingById: {},
+    initialActiveProviderId: '',
   });
+
+  useEffect(() => {
+    setIssueDraft(currentChange?.problem || '');
+    setIssueDraftError('');
+  }, [currentChange?.id, currentChange?.problem]);
+
+  function handleApplyIssueUpdate() {
+    const changeId = currentChange?.id;
+    if (!changeId) return;
+    const trimmed = issueDraft.trim();
+    if (!trimmed) {
+      setIssueDraftError('Issue text cannot be empty.');
+      return;
+    }
+    if ((currentChange?.problem || '').trim() === trimmed) {
+      setIssueDraftError('');
+      return;
+    }
+
+    setChanges((prev) =>
+      prev.map((change) =>
+        change.id === changeId ? { ...change, problem: trimmed } : change,
+      ),
+    );
+    setValidationById((prev) => {
+      if (!prev[changeId]) return prev;
+      const next = { ...prev };
+      const current = { ...(next[changeId] || {}) };
+      delete current.problem;
+      if (Object.keys(current).length === 0) delete next[changeId];
+      else next[changeId] = current;
+      return next;
+    });
+
+    // Updated issue means prior outputs/evaluations for this change are stale.
+    setResultsById((prev) => ({ ...prev, [changeId]: {} }));
+    evaluation.setSuccessById((prev) => {
+      const next = { ...prev };
+      delete next[changeId];
+      return next;
+    });
+    evaluation.setNotSuccessById((prev) => {
+      const next = { ...prev };
+      delete next[changeId];
+      return next;
+    });
+    evaluation.setApprovalsByProvider((prev) => {
+      const next = { ...prev };
+      delete next[changeId];
+      return next;
+    });
+    evaluation.setRankingById((prev) => {
+      const next = { ...prev };
+      delete next[changeId];
+      return next;
+    });
+    setIssueDraft(trimmed);
+    setIssueDraftError('');
+  }
+
+  const sessionSnapshot = useMemo(
+    () => ({
+      phase,
+      changes,
+      currentIndex,
+      validationById,
+      resultsById,
+      successById: evaluation.successById,
+      notSuccessById: evaluation.notSuccessById,
+      approvalsByProvider: evaluation.approvalsByProvider,
+      rankingById: evaluation.rankingById,
+      activeProviderId: evaluation.activeProvider?.id || '',
+    }),
+    [
+      phase,
+      changes,
+      currentIndex,
+      validationById,
+      resultsById,
+      evaluation.successById,
+      evaluation.notSuccessById,
+      evaluation.approvalsByProvider,
+      evaluation.rankingById,
+      evaluation.activeProvider,
+    ],
+  );
+
+  useEffect(() => {
+    let cancelled = false;
+    getCurrentParticipant()
+      .then((participant) => {
+        if (cancelled) return;
+        setParticipantId(participant?.participantId || '');
+      })
+      .catch(() => {
+        if (cancelled) return;
+        setParticipantId('');
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!participantId) return;
+    let cancelled = false;
+
+    async function hydrateSession() {
+      setHydrationStatus('loading');
+      const nextParticipantId = participantId;
+
+      const loaded = await loadStudySession({
+        participantId: nextParticipantId,
+        stageId,
+        taskId: id,
+      });
+
+      if (cancelled) return;
+
+      if (loaded?.session) {
+        const snapshot = loaded.session.snapshot || {};
+        setSessionId(loaded.session.id);
+        setChanges(snapshot.changes || [{ id: 1, problem: '' }]);
+        setPhase(snapshot.phase || 'collect');
+        setCurrentIndex(snapshot.currentIndex || 0);
+        setValidationById(snapshot.validationById || {});
+        setResultsById(snapshot.resultsById || {});
+        evaluation.setSuccessById(snapshot.successById || {});
+        evaluation.setNotSuccessById(snapshot.notSuccessById || {});
+        evaluation.setApprovalsByProvider(snapshot.approvalsByProvider || {});
+        evaluation.setRankingById(snapshot.rankingById || {});
+        if (snapshot.activeProviderId) {
+          evaluation.setActiveProviderId(snapshot.activeProviderId);
+        }
+      } else {
+        const started = await startStudySession({
+          participantId: nextParticipantId,
+          stageId,
+          taskId: id,
+          snapshot: {
+            phase: 'collect',
+            changes: [{ id: 1, problem: '' }],
+            currentIndex: 0,
+            validationById: {},
+            resultsById: {},
+            successById: {},
+            notSuccessById: {},
+            approvalsByProvider: {},
+            rankingById: {},
+            activeProviderId: '',
+          },
+        });
+        if (cancelled) return;
+        setSessionId(started?.session?.id || '');
+      }
+
+      setHydrationStatus('ready');
+    }
+
+    hydrateSession().catch((err) => {
+      // eslint-disable-next-line no-console
+      console.error('Failed to hydrate study session', err);
+      if (!cancelled) setHydrationStatus('ready');
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [id, stageId, participantId]);
+
+  useEffect(() => {
+    if (hydrationStatus !== 'ready' || !sessionId || !participantId)
+      return;
+    if (phase === 'done') return;
+
+    const timeoutId = setTimeout(() => {
+      saveStudySession({
+        sessionId,
+        status: 'in_progress',
+        snapshot: sessionSnapshot,
+      }).catch((err) => {
+        // eslint-disable-next-line no-console
+        console.error('Failed to autosave study session', err);
+      });
+    }, 800);
+
+    return () => clearTimeout(timeoutId);
+  }, [hydrationStatus, sessionId, participantId, phase, sessionSnapshot]);
 
   function scrollToBottom() {
     window.scrollTo({
@@ -239,8 +439,7 @@ export default function Study({ listPath = '/user-study' }) {
     hasMissingRequired ||
     !evaluation.approvalsComplete ||
     !evaluation.rankingComplete ||
-    !evaluation.successComplete ||
-    !evaluation.failureComplete;
+    !evaluation.feedbackComplete;
 
   const beforeScreen = (
     <div className='study__screen-wrap study__screen-wrap--before'>
@@ -272,6 +471,53 @@ export default function Study({ listPath = '/user-study' }) {
       )}
     </div>
   );
+
+  if (!participantId) {
+    return (
+      <div className='study study--centered'>
+        <div className='study__done'>
+          <h2>Preparing session…</h2>
+          <p>Checking your participant access.</p>
+        </div>
+        <style>{studyStyles}</style>
+      </div>
+    );
+  }
+
+  if (hydrationStatus === 'loading') {
+    return (
+      <div className='study study--centered'>
+        <div className='study__done'>
+          <h2>Loading your session…</h2>
+          <p>Please wait while we restore your progress.</p>
+        </div>
+        <style>{studyStyles}</style>
+      </div>
+    );
+  }
+
+  if (phase === 'done') {
+    return (
+      <div className='study study--centered'>
+        <div className='study__done'>
+          <h2>Thank you</h2>
+          <p>
+            Your small changes, evaluations, and rankings have been captured for
+            this case study. You can start another case study or close this
+            page.
+          </p>
+          <button
+            type='button'
+            className='study__btn study__btn--primary'
+            onClick={() => navigate(listPath)}
+          >
+            Back to case studies
+          </button>
+        </div>
+        <style>{studyStyles}</style>
+      </div>
+    );
+  }
 
   return (
     <div className={`study${isCollect ? ' study--collect' : ' study--review'}`}>
@@ -314,6 +560,9 @@ export default function Study({ listPath = '/user-study' }) {
           changes={changes}
           currentChange={currentChange}
           currentResult={currentResult}
+          issueDraft={issueDraft}
+          issueDirty={(currentChange?.problem || '').trim() !== issueDraft.trim()}
+          issueDraftError={issueDraftError}
           providersForChange={providersForChange}
           activeProvider={evaluation.activeProvider}
           scopedSuccess={evaluation.scopedSuccess}
@@ -326,7 +575,7 @@ export default function Study({ listPath = '/user-study' }) {
           finishDisabled={finishDisabled}
           onSubmit={(e) => {
             e.preventDefault();
-            handleNextChange();
+            void handleNextChange();
           }}
           setActiveProviderId={evaluation.setActiveProviderId}
           buildDownloadHref={buildDownloadHref}
@@ -341,6 +590,11 @@ export default function Study({ listPath = '/user-study' }) {
           setSuccessById={evaluation.setSuccessById}
           setNotSuccessById={evaluation.setNotSuccessById}
           updateRanking={evaluation.updateRanking}
+          onIssueDraftChange={(value) => {
+            setIssueDraft(value);
+            if (issueDraftError) setIssueDraftError('');
+          }}
+          onApplyIssueUpdate={handleApplyIssueUpdate}
         />
       )}
 

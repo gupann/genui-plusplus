@@ -1,4 +1,4 @@
-# GenUI Research – User Study
+# GenreUI Research – User Study
 
 A small React app for running research user studies. Participants see a single “before” screen for each case study and list **multiple small, incremental changes** they would make, along with the **AI prompt** they’d use for each change.
 
@@ -20,12 +20,12 @@ A small React app for running research user studies. Participants see a single �
      - They click **“Next change”** until they finish all N changes.
   4. **Thank-you screen**: Summarizes that their changes and evaluations were captured.
 
-Right now, the app logs data to the browser console when:
+The app now supports persistent study sessions and participant profiles:
 
-- The list of small changes is saved (`Save changes and start evaluation`).
-- The per-change evaluations are completed (`Finish case study`).
-
-You can hook these points up to a backend or analytics tool if you want to persist the data.
+- Magic-link sign-in (Supabase Auth)
+- Required participant profile onboarding (`name`, `current profession`, `past work`)
+- Autosave + resume for each participant/stage/task
+- Final completion persistence on `Finish case study`
 
 ## Before screens (images + optional HTML)
 
@@ -37,17 +37,35 @@ Put one “before” screenshot (and optional “before” HTML) per case study 
 
 If a file is missing, the app shows a placeholder and tells you the expected path.
 
-## Capturing results
+## Data persistence setup (Supabase)
 
-When a participant clicks **“Finish study”** on `/study/:taskId`, the app:
+1. Create a Supabase project.
+2. In Supabase SQL editor, run [supabase/schema.sql](supabase/schema.sql).
+3. Configure environment variables:
 
-- Keeps the list of `{ id, problem }` objects in memory.
-- Logs them via `console.log('Submitted changes for task', taskId, changes)`.
+   Local `.env`:
+   ```bash
+   # Frontend
+   VITE_SUPABASE_URL=https://YOUR_PROJECT.supabase.co
+   VITE_SUPABASE_PUBLISHABLE_KEY=YOUR_PUBLISHABLE_KEY
 
-If you want to persist results, you can:
+   # UI generation API
+   VITE_UI_GENERATION_API_URL=/api/generate
 
-- Add a small API call in `Study.jsx` inside `handleSubmit` to POST the `changes` array to your backend.
-- Or integrate with any analytics/telemetry SDK you use.
+   # Backend (server + Vercel functions)
+   SUPABASE_URL=https://YOUR_PROJECT.supabase.co
+   SUPABASE_SERVICE_ROLE_KEY=YOUR_SECRET_KEY
+   ```
+
+4. Run both servers locally:
+   ```bash
+   npm run dev:server
+   npm run dev
+   ```
+
+Notes:
+- Vite proxies `/api/*` to `http://localhost:8787` in dev.
+- If Supabase server env is missing, the app falls back to local file storage (`.data/study-sessions.json`).
 
 
 ## Connect your UI generation tool (Figma/Claude/Stitch/backend)
@@ -60,7 +78,7 @@ The study flow already calls `generateAfterScreen()` for each user prompt during
 2. Set your generation endpoint in a `.env` file:
 
    ```bash
-   VITE_UI_GENERATION_API_URL=https://your-api.example.com/generate-ui
+   VITE_UI_GENERATION_API_URL=/api/generate
    ```
 
 3. Your endpoint should accept:
@@ -74,7 +92,7 @@ The study flow already calls `generateAfterScreen()` for each user prompt during
    - `{ "afterHtml": "<html>...</html>" }`
    - `{ "afterCode": "..." }`
 
-If no endpoint is set, the app uses a mock generated result so the study can still run locally.
+For local development, `/api/generate` is proxied to the local generation server.
 
 ## How to run
 
@@ -91,7 +109,9 @@ If no endpoint is set, the app uses a mock generated result so the study can sti
    ```
 
 3. Open the URL Vite prints (usually `http://localhost:5173`).  
-   - Click a case study → view the screen → add as many (problem, AI prompt) pairs as you like → click “Finish study”.
+   - Sign in with magic link (if Supabase frontend env is configured).
+   - Complete profile onboarding once.
+   - Start study and continue/resume progress across reloads.
 
 **Build for production:**
 
@@ -106,4 +126,4 @@ Built files go into `dist/`; you can deploy that folder to any static host.
 
 - **React 18** + **Vite**
 - **React Router** for `/` (home) and `/study/:taskId`
-- No database: feedback is only sent to `submitFeedback()` in `api.js` (currently a `console.log`). Add your own backend or analytics there if you want to store responses.
+- Supabase (Auth + Postgres) for participant profiles and persisted study sessions

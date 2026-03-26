@@ -9,8 +9,9 @@ export function useStudyGeneration({
   currentIndex,
   beforeImageUrl,
   beforeCode,
+  initialResultsById = {},
 }) {
-  const [resultsById, setResultsById] = useState({});
+  const [resultsById, setResultsById] = useState(initialResultsById);
   const [iframeHeightsById, setIframeHeightsById] = useState({});
 
   function triggerProviderGeneration(providerId, { force = false } = {}) {
@@ -127,6 +128,7 @@ export function useStudyGeneration({
 
   return {
     resultsById,
+    setResultsById,
     triggerProviderGeneration,
     getIframeHeight,
     handleIframeLoad,

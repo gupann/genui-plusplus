@@ -9,6 +9,8 @@ import StagesOverview from './pages/StagesOverview';
 import Stage1HumanStudy from './pages/stages/Stage1HumanStudy';
 import Stage4Hybrid from './pages/stages/Stage4Hybrid';
 import Stage5AutoEval from './pages/stages/Stage5AutoEval';
+import Stage0PreStudySurvey from './pages/stages/Stage0PreStudySurvey';
+import StageAuthGate from './components/auth/StageAuthGate';
 
 const NAV_ITEMS = [
   { label: 'Home', to: '/' },
@@ -21,6 +23,10 @@ const NAV_ITEMS = [
 function LegacyStudyRedirect() {
   const { taskId } = useParams();
   return <Navigate to={`/stages/1/study/${taskId || 1}`} replace />;
+}
+
+function StageProtected({ children }) {
+  return <StageAuthGate>{children}</StageAuthGate>;
 }
 
 export default function App() {
@@ -49,13 +55,46 @@ export default function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/stages' element={<StagesOverview />} />
-          <Route path='/stages/1' element={<Stage1HumanStudy />} />
+          <Route
+            path='/stages/0'
+            element={
+              <StageProtected>
+                <Stage0PreStudySurvey />
+              </StageProtected>
+            }
+          />
+          <Route
+            path='/stages/1'
+            element={
+              <StageProtected>
+                <Stage1HumanStudy />
+              </StageProtected>
+            }
+          />
           <Route
             path='/stages/1/study/:taskId'
-            element={<Study listPath='/stages/1' />}
+            element={
+              <StageProtected>
+                <Study listPath='/stages/1' />
+              </StageProtected>
+            }
           />
-          <Route path='/stages/2' element={<Stage4Hybrid />} />
-          <Route path='/stages/3' element={<Stage5AutoEval />} />
+          <Route
+            path='/stages/2'
+            element={
+              <StageProtected>
+                <Stage4Hybrid />
+              </StageProtected>
+            }
+          />
+          <Route
+            path='/stages/3'
+            element={
+              <StageProtected>
+                <Stage5AutoEval />
+              </StageProtected>
+            }
+          />
           <Route path='/stages/4' element={<Navigate to='/stages/2' replace />} />
           <Route path='/stages/5' element={<Navigate to='/stages/3' replace />} />
           <Route

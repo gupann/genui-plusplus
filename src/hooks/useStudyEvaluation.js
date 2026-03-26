@@ -5,12 +5,21 @@ export function useStudyEvaluation({
   changes,
   currentIndex,
   availableProviders,
+  initialSuccessById = {},
+  initialNotSuccessById = {},
+  initialApprovalsByProvider = {},
+  initialRankingById = {},
+  initialActiveProviderId = '',
 }) {
-  const [successById, setSuccessById] = useState({});
-  const [notSuccessById, setNotSuccessById] = useState({});
-  const [approvalsByProvider, setApprovalsByProvider] = useState({});
-  const [rankingById, setRankingById] = useState({});
-  const [activeProviderId, setActiveProviderId] = useState('');
+  const [successById, setSuccessById] = useState(initialSuccessById);
+  const [notSuccessById, setNotSuccessById] = useState(initialNotSuccessById);
+  const [approvalsByProvider, setApprovalsByProvider] = useState(
+    initialApprovalsByProvider,
+  );
+  const [rankingById, setRankingById] = useState(initialRankingById);
+  const [activeProviderId, setActiveProviderId] = useState(
+    initialActiveProviderId,
+  );
 
   const currentChange = changes[currentIndex];
   const currentChangeId = currentChange?.id;
@@ -111,10 +120,10 @@ export function useStudyEvaluation({
     }));
   }
 
-  function updateRanking(changeId, slot, providerId) {
+  function updateRanking(changeId, providerId, rank) {
     setRankingById((prev) => ({
       ...prev,
-      [changeId]: { ...(prev[changeId] || {}), [slot]: providerId },
+      [changeId]: { ...(prev[changeId] || {}), [providerId]: rank },
     }));
   }
 
@@ -127,11 +136,39 @@ export function useStudyEvaluation({
     );
 
   const rankingCurrent = rankingById[currentChangeId] || {};
-  const rankingValues = Array.from({ length: ranksToShow }, (_, i) => rankingCurrent[i + 1]).filter(Boolean);
-  const uniqueRankCount = new Set(rankingValues).size;
+  const providerIds = providersForChange.map((p) => p.id);
+  const getAssignedRank = (providerId) => {
+    if (rankingCurrent[providerId]) return rankingCurrent[providerId];
+    // Legacy shape support (rank -> providerId)
+    const legacyRankKey = Object.keys(rankingCurrent).find(
+      (rank) => rankingCurrent[rank] === providerId,
+    );
+    return legacyRankKey || '';
+  };
+  const assignedRanks = providerIds
+    .map((providerId) => Number(getAssignedRank(providerId)))
+    .filter((value) => Number.isFinite(value) && value > 0);
+  const uniqueSortedRanks = Array.from(new Set(assignedRanks)).sort(
+    (a, b) => a - b,
+  );
+  const denseRankShapeValid = uniqueSortedRanks.every(
+    (rank, index) => rank === index + 1,
+  );
   const rankingComplete =
     ranksToShow === 0 ||
-    (rankingValues.length === ranksToShow && uniqueRankCount === ranksToShow);
+    (providerIds.length > 0 &&
+      providerIds.every((providerId) => Boolean(getAssignedRank(providerId))) &&
+      denseRankShapeValid);
+
+  // Old strict no-ties validation (kept here for easy rollback):
+  // const rankingValues = Array.from(
+  //   { length: ranksToShow },
+  //   (_, i) => rankingCurrent[i + 1],
+  // ).filter(Boolean);
+  // const uniqueRankCount = new Set(rankingValues).size;
+  // const rankingComplete =
+  //   ranksToShow === 0 ||
+  //   (rankingValues.length === ranksToShow && uniqueRankCount === ranksToShow);
 
   const hasTextForProvider = (map, changeId, providerId) => {
     const entries = Array.isArray(map?.[changeId]) ? map[changeId] : [];
@@ -150,6 +187,17 @@ export function useStudyEvaluation({
     providersForChange.every((p) =>
       hasTextForProvider(notSuccessById, currentChangeId, p.id),
     );
+  const feedbackComplete =
+    providersForChange.length > 0 &&
+    providersForChange.every((p) => {
+      const hasSuccess = hasTextForProvider(successById, currentChangeId, p.id);
+      const hasFailure = hasTextForProvider(
+        notSuccessById,
+        currentChangeId,
+        p.id,
+      );
+      return hasSuccess || hasFailure;
+    });
 
   const activeProvider =
     providersForChange.find((p) => p.id === activeProviderId) ||
@@ -175,10 +223,13 @@ export function useStudyEvaluation({
     scopedFailure,
     approvalsComplete,
     rankingComplete,
+    feedbackComplete,
     successComplete,
     failureComplete,
     setSuccessById,
     setNotSuccessById,
+    setApprovalsByProvider,
+    setRankingById,
     setActiveProviderId,
     addEntryForProvider,
     removeEntryForProvider,

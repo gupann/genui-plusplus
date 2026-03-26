@@ -2,6 +2,15 @@ import http from 'http';
 import { readFile } from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import {
+  completeSession,
+  createSession,
+  findSession,
+  getParticipantProfile,
+  saveSession,
+  upsertParticipant,
+  upsertParticipantProfile,
+} from './sessionStore.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -59,7 +68,7 @@ function sendJson(res, status, payload) {
   res.writeHead(status, {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
   });
   if (status === 204) {
@@ -87,6 +96,15 @@ function readBody(req) {
       }
     });
   });
+}
+
+function getPathAndQuery(reqUrl) {
+  try {
+    const parsed = new URL(reqUrl || '/', 'http://localhost');
+    return { path: parsed.pathname, query: parsed.searchParams };
+  } catch {
+    return { path: reqUrl || '/', query: new URLSearchParams() };
+  }
 }
 
 function extractTextFromOpenAI(payload) {
@@ -410,31 +428,7 @@ function getProviderAvailability() {
   };
 }
 
-const server = http.createServer(async (req, res) => {
-  if (req.method === 'OPTIONS') {
-    return sendJson(res, 204, {});
-  }
-
-  if (req.url === '/' && req.method === 'GET') {
-    res.writeHead(200, {
-      'Content-Type': 'text/plain',
-      'Access-Control-Allow-Origin': '*',
-    });
-    res.end('UI generation server running.');
-    return;
-  }
-
-  if (req.url === '/status' && req.method === 'GET') {
-    return sendJson(res, 200, {
-      mode: 'live',
-      providers: getProviderAvailability(),
-    });
-  }
-
-  if (req.url !== '/generate' || req.method !== 'POST') {
-    return sendJson(res, 404, { error: 'Not found' });
-  }
-
+async function handleGenerateRequest(req, res) {
   try {
     const startedAt = Date.now();
     const body = await readBody(req);
@@ -496,6 +490,148 @@ const server = http.createServer(async (req, res) => {
     }
     return sendJson(res, 500, { error: err?.message || 'Server error' });
   }
+}
+
+const server = http.createServer(async (req, res) => {
+  if (req.method === 'OPTIONS') {
+    return sendJson(res, 204, {});
+  }
+
+  const { path: routePath, query } = getPathAndQuery(req.url);
+  const method = req.method || 'GET';
+
+  if (routePath === '/' && method === 'GET') {
+    res.writeHead(200, {
+      'Content-Type': 'text/plain',
+      'Access-Control-Allow-Origin': '*',
+    });
+    res.end('UI generation server running.');
+    return;
+  }
+
+  if (
+    (routePath === '/status' || routePath === '/api/status') &&
+    method === 'GET'
+  ) {
+    return sendJson(res, 200, {
+      mode: 'live',
+      providers: getProviderAvailability(),
+    });
+  }
+
+  if (
+    (routePath === '/generate' || routePath === '/api/generate') &&
+    method === 'POST'
+  ) {
+    return handleGenerateRequest(req, res);
+  }
+
+  if (routePath === '/api/session/load' && method === 'GET') {
+    try {
+      const participantId = query.get('participantId');
+      const stageId = query.get('stageId');
+      const taskId = query.get('taskId');
+      if (!participantId || !stageId || !taskId) {
+        return sendJson(res, 400, {
+          error: 'participantId, stageId, and taskId are required',
+        });
+      }
+      const session = await findSession({ participantId, stageId, taskId });
+      return sendJson(res, 200, { session: session || null });
+    } catch (err) {
+      return sendJson(res, 500, { error: err?.message || 'Server error' });
+    }
+  }
+
+  if (routePath === '/api/session/start' && method === 'POST') {
+    try {
+      const { participantId, stageId, taskId, snapshot } = await readBody(req);
+      if (!participantId || !stageId || !taskId) {
+        return sendJson(res, 400, {
+          error: 'participantId, stageId, and taskId are required',
+        });
+      }
+
+      await upsertParticipant({ participantId });
+      const existing = await findSession({ participantId, stageId, taskId });
+      if (existing && existing.status !== 'completed') {
+        return sendJson(res, 200, { session: existing, resumed: true });
+      }
+      const session = await createSession({
+        participantId,
+        stageId,
+        taskId,
+        snapshot,
+        status: 'in_progress',
+      });
+      return sendJson(res, 200, { session, resumed: false });
+    } catch (err) {
+      return sendJson(res, 500, { error: err?.message || 'Server error' });
+    }
+  }
+
+  if (routePath === '/api/session/save' && method === 'POST') {
+    try {
+      const { sessionId, snapshot, status } = await readBody(req);
+      if (!sessionId) {
+        return sendJson(res, 400, { error: 'sessionId is required' });
+      }
+      const session = await saveSession({ sessionId, snapshot, status });
+      return sendJson(res, 200, { session });
+    } catch (err) {
+      return sendJson(res, 500, { error: err?.message || 'Server error' });
+    }
+  }
+
+  if (routePath === '/api/session/complete' && method === 'POST') {
+    try {
+      const { sessionId, snapshot } = await readBody(req);
+      if (!sessionId) {
+        return sendJson(res, 400, { error: 'sessionId is required' });
+      }
+      const session = await completeSession({ sessionId, snapshot });
+      return sendJson(res, 200, { session });
+    } catch (err) {
+      return sendJson(res, 500, { error: err?.message || 'Server error' });
+    }
+  }
+
+  if (routePath === '/api/participant/profile' && method === 'GET') {
+    try {
+      const participantId = query.get('participantId');
+      const email = query.get('email') || '';
+      if (!participantId) {
+        return sendJson(res, 400, { error: 'participantId is required' });
+      }
+      await upsertParticipant({ participantId, email });
+      const profile = await getParticipantProfile({ participantId });
+      return sendJson(res, 200, { profile });
+    } catch (err) {
+      return sendJson(res, 500, { error: err?.message || 'Server error' });
+    }
+  }
+
+  if (routePath === '/api/participant/upsert' && method === 'POST') {
+    try {
+      const { participantId, email, profile } = await readBody(req);
+      if (!participantId) {
+        return sendJson(res, 400, { error: 'participantId is required' });
+      }
+      const participant = await upsertParticipant({ participantId, email });
+      const nextProfile =
+        profile && typeof profile === 'object' && Object.keys(profile).length
+          ? await upsertParticipantProfile({ participantId, profile })
+          : await getParticipantProfile({ participantId });
+      return sendJson(res, 200, {
+        participant,
+        profile: nextProfile,
+      });
+    } catch (err) {
+      return sendJson(res, 500, { error: err?.message || 'Server error' });
+    }
+  }
+
+  return sendJson(res, 404, { error: 'Not found' });
 });
 
 server.listen(PORT, () => {
