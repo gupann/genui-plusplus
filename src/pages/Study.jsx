@@ -15,7 +15,7 @@ import { getCurrentParticipant } from '../services/participantSession';
 import CollectChangesSection from '../components/study/CollectChangesSection';
 import ReviewSection from '../components/study/ReviewSection';
 
-export default function Study({ listPath = '/user-study', stageId = 1 }) {
+export default function Study({ listPath = '/iterations/1', iterationId = 1 }) {
   const { taskId } = useParams();
   const navigate = useNavigate();
   const id = parseInt(taskId, 10) || 1;
@@ -231,6 +231,7 @@ export default function Study({ listPath = '/user-study', stageId = 1 }) {
     changes,
     currentIndex,
     availableProviders,
+    currentResult,
     initialSuccessById: {},
     initialNotSuccessById: {},
     initialApprovalsByProvider: {},
@@ -350,7 +351,7 @@ export default function Study({ listPath = '/user-study', stageId = 1 }) {
 
       const loaded = await loadStudySession({
         participantId: nextParticipantId,
-        stageId,
+        iterationId,
         taskId: id,
       });
 
@@ -374,7 +375,7 @@ export default function Study({ listPath = '/user-study', stageId = 1 }) {
       } else {
         const started = await startStudySession({
           participantId: nextParticipantId,
-          stageId,
+          iterationId,
           taskId: id,
           snapshot: {
             phase: 'collect',
@@ -405,7 +406,7 @@ export default function Study({ listPath = '/user-study', stageId = 1 }) {
     return () => {
       cancelled = true;
     };
-  }, [id, stageId, participantId]);
+  }, [id, iterationId, participantId]);
 
   useEffect(() => {
     if (hydrationStatus !== 'ready' || !sessionId || !participantId)
@@ -435,6 +436,7 @@ export default function Study({ listPath = '/user-study', stageId = 1 }) {
 
   const hasMissingRequired = changes.some((c) => !c.problem.trim());
   const providersForChange = evaluation.providersForChange;
+  const requiredProvidersForChange = evaluation.requiredProvidersForChange;
   const finishDisabled =
     hasMissingRequired ||
     !evaluation.approvalsComplete ||
@@ -564,6 +566,7 @@ export default function Study({ listPath = '/user-study', stageId = 1 }) {
           issueDirty={(currentChange?.problem || '').trim() !== issueDraft.trim()}
           issueDraftError={issueDraftError}
           providersForChange={providersForChange}
+          requiredProvidersForChange={requiredProvidersForChange}
           activeProvider={evaluation.activeProvider}
           scopedSuccess={evaluation.scopedSuccess}
           scopedFailure={evaluation.scopedFailure}

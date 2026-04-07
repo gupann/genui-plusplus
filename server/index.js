@@ -529,14 +529,14 @@ const server = http.createServer(async (req, res) => {
   if (routePath === '/api/session/load' && method === 'GET') {
     try {
       const participantId = query.get('participantId');
-      const stageId = query.get('stageId');
+      const iterationId = query.get('iterationId') || query.get('stageId');
       const taskId = query.get('taskId');
-      if (!participantId || !stageId || !taskId) {
+      if (!participantId || !iterationId || !taskId) {
         return sendJson(res, 400, {
-          error: 'participantId, stageId, and taskId are required',
+          error: 'participantId, iterationId, and taskId are required',
         });
       }
-      const session = await findSession({ participantId, stageId, taskId });
+      const session = await findSession({ participantId, iterationId, taskId });
       return sendJson(res, 200, { session: session || null });
     } catch (err) {
       return sendJson(res, 500, { error: err?.message || 'Server error' });
@@ -545,21 +545,25 @@ const server = http.createServer(async (req, res) => {
 
   if (routePath === '/api/session/start' && method === 'POST') {
     try {
-      const { participantId, stageId, taskId, snapshot } = await readBody(req);
-      if (!participantId || !stageId || !taskId) {
+      const body = await readBody(req);
+      const participantId = body.participantId;
+      const iterationId = body.iterationId || body.stageId;
+      const taskId = body.taskId;
+      const snapshot = body.snapshot;
+      if (!participantId || !iterationId || !taskId) {
         return sendJson(res, 400, {
-          error: 'participantId, stageId, and taskId are required',
+          error: 'participantId, iterationId, and taskId are required',
         });
       }
 
       await upsertParticipant({ participantId });
-      const existing = await findSession({ participantId, stageId, taskId });
+      const existing = await findSession({ participantId, iterationId, taskId });
       if (existing && existing.status !== 'completed') {
         return sendJson(res, 200, { session: existing, resumed: true });
       }
       const session = await createSession({
         participantId,
-        stageId,
+        iterationId,
         taskId,
         snapshot,
         status: 'in_progress',

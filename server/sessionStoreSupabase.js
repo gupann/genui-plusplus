@@ -2,10 +2,13 @@ import { getSupabaseAdminClient } from './supabaseAdmin.js';
 
 function mapSession(row, snapshot) {
   if (!row) return null;
+  const normalizedIterationId = row.iteration_id ?? row.stage_id;
   return {
     id: row.id,
     participantId: row.participant_id,
-    stageId: row.stage_id,
+    iterationId: normalizedIterationId,
+    // Backward compatibility with older frontend readers.
+    stageId: normalizedIterationId,
     taskId: row.task_id,
     status: row.status,
     snapshot: snapshot || {},
@@ -101,13 +104,14 @@ export async function getParticipantProfile({ participantId }) {
   };
 }
 
-export async function findSession({ participantId, stageId, taskId }) {
+export async function findSession({ participantId, iterationId, stageId, taskId }) {
+  const normalizedIterationId = Number(iterationId ?? stageId);
   const supabase = getSupabaseAdminClient();
   const { data, error } = await supabase
     .from('study_sessions')
     .select('*')
     .eq('participant_id', participantId)
-    .eq('stage_id', Number(stageId))
+    .eq('stage_id', normalizedIterationId)
     .eq('task_id', Number(taskId))
     .order('updated_at', { ascending: false })
     .limit(1)
@@ -121,17 +125,19 @@ export async function findSession({ participantId, stageId, taskId }) {
 
 export async function createSession({
   participantId,
+  iterationId,
   stageId,
   taskId,
   snapshot,
   status = 'in_progress',
 }) {
+  const normalizedIterationId = Number(iterationId ?? stageId);
   const supabase = getSupabaseAdminClient();
   const { data, error } = await supabase
     .from('study_sessions')
     .insert({
       participant_id: participantId,
-      stage_id: Number(stageId),
+      stage_id: normalizedIterationId,
       task_id: Number(taskId),
       status,
       started_at: new Date().toISOString(),

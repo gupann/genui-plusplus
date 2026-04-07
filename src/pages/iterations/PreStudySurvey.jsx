@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import StageShell from './StageShell';
+import IterationShell from './IterationShell';
 import {
   loadParticipantProfile,
   upsertParticipantProfile,
@@ -150,7 +150,7 @@ function toPayload(form) {
   };
 }
 
-export default function Stage0PreStudySurvey() {
+export default function PreStudySurvey() {
   const [loading, setLoading] = useState(true);
   const [participant, setParticipant] = useState(null);
   const [form, setForm] = useState(toForm({}));
@@ -210,11 +210,11 @@ export default function Stage0PreStudySurvey() {
   }
 
   return (
-    <StageShell
-      title='Stage 0: Pre-Study User Survey'
+    <IterationShell
+      title='Pre-study User Survey'
       description='Complete this once before or during your study. You can return later to edit your responses.'
     >
-      <div className='stage-card'>
+      <div className='iteration-card'>
         {loading ? (
           <p>Loading survey...</p>
         ) : (
@@ -742,6 +742,6 @@ export default function Stage0PreStudySurvey() {
           }
         }
       `}</style>
-    </StageShell>
+    </IterationShell>
   );
 }

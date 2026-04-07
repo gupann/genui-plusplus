@@ -1,26 +1,27 @@
 import { useNavigate } from 'react-router-dom'
-import { STAGES } from '../config/stages'
+import { ITERATIONS } from '../config/iterations'
 
-export default function StagesOverview() {
+export default function IterationsOverview() {
   const navigate = useNavigate()
 
   return (
     <div className='user-study'>
       <header className='user-study__header'>
-        <h1>Project Stages</h1>
+        <h1>Project Iterations</h1>
         <p className='user-study__subtitle'>
-          Follow the progression from manual human study to full auto-evaluation.
+          Follow the three-study-iteration progression from screen generation to auto-evaluation.
         </p>
       </header>
-      <nav className='user-study__nav' aria-label='Project stages'>
-        {STAGES.map((stage) => (
+      <nav className='user-study__nav' aria-label='Project iterations'>
+        {ITERATIONS.map((iteration) => (
           <button
-            key={stage.id}
+            key={iteration.id}
             type='button'
             className='user-study__card'
-            onClick={() => navigate(stage.path)}
+            onClick={() => navigate(iteration.path)}
           >
-            <span className='user-study__card-label'>{stage.title}</span>
+            <span className='user-study__card-label'>{iteration.title}</span>
+            <span className='user-study__card-desc'>{iteration.description}</span>
           </button>
         ))}
       </nav>
@@ -50,8 +51,10 @@ export default function StagesOverview() {
         }
         .user-study__card {
           display: flex;
-          align-items: center;
-          justify-content: flex-start;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+          gap: 0.45rem;
           padding: 1.25rem 1.5rem;
           background: var(--surface);
           border: 1px solid var(--border);
@@ -67,6 +70,11 @@ export default function StagesOverview() {
         }
         .user-study__card-label {
           font-weight: 600;
+        }
+        .user-study__card-desc {
+          color: var(--muted);
+          font-size: 0.95rem;
+          line-height: 1.45;
         }
       `}</style>
     </div>

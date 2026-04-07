@@ -8,8 +8,9 @@ import {
 } from '../../services/participantSession';
 
 const IS_DEV = import.meta.env.DEV;
+const RESEND_COOLDOWN_SECONDS = 60;
 
-export default function StageAuthGate({ children }) {
+export default function IterationAuthGate({ children }) {
   const [loading, setLoading] = useState(true);
   const [participant, setParticipant] = useState(null);
   const [email, setEmail] = useState('');
@@ -17,6 +18,7 @@ export default function StageAuthGate({ children }) {
   const [waiting, setWaiting] = useState(false);
   const [error, setError] = useState('');
   const [dismissed, setDismissed] = useState(false);
+  const [cooldownSeconds, setCooldownSeconds] = useState(0);
 
   useEffect(() => {
     let cancelled = false;
@@ -48,6 +50,14 @@ export default function StageAuthGate({ children }) {
     };
   }, []);
 
+  useEffect(() => {
+    if (cooldownSeconds <= 0) return undefined;
+    const intervalId = window.setInterval(() => {
+      setCooldownSeconds((prev) => (prev > 0 ? prev - 1 : 0));
+    }, 1000);
+    return () => window.clearInterval(intervalId);
+  }, [cooldownSeconds]);
+
   async function handleSendLink(event) {
     event.preventDefault();
     const targetEmail = email.trim();
@@ -60,6 +70,7 @@ export default function StageAuthGate({ children }) {
     try {
       await sendMagicLink(targetEmail, window.location.href);
       setWaiting(true);
+      setCooldownSeconds(RESEND_COOLDOWN_SECONDS);
     } catch (err) {
       const message = err?.message || 'Failed to send magic link.';
       if (message.toLowerCase().includes('rate limit')) {
@@ -79,6 +90,7 @@ export default function StageAuthGate({ children }) {
   }
 
   const authenticated = Boolean(participant?.participantId);
+  const sendDisabled = sending || cooldownSeconds > 0;
 
   return (
     <>
@@ -102,7 +114,7 @@ export default function StageAuthGate({ children }) {
             <h2>Sign in to continue</h2>
             <p>
               Enter your email to receive a magic link. Your progress across
-              stages will be saved to your session.
+              iterations will be saved to your session.
             </p>
             <form onSubmit={handleSendLink} className='stage-auth-form'>
               <input
@@ -116,14 +128,24 @@ export default function StageAuthGate({ children }) {
               <button
                 type='submit'
                 className='stage-auth-btn'
-                disabled={sending}
+                disabled={sendDisabled}
               >
-                {sending ? 'Sending...' : 'Send Magic Link'}
+                {sending
+                  ? 'Sending...'
+                  : cooldownSeconds > 0
+                    ? `Resend in ${cooldownSeconds}s`
+                    : 'Send Magic Link'}
               </button>
             </form>
             {waiting && (
               <p className='stage-auth-note'>
                 Check your inbox, then click the link to continue.
+              </p>
+            )}
+            {cooldownSeconds > 0 && (
+              <p className='stage-auth-note'>
+                To reduce rate-limit failures, wait for the timer before sending
+                another link.
               </p>
             )}
             {error && <p className='stage-auth-error'>{error}</p>}
@@ -149,7 +171,7 @@ export default function StageAuthGate({ children }) {
           className='stage-auth-reopen'
           onClick={() => setDismissed(false)}
         >
-          Sign in for study
+          Sign in for iterations
         </button>
       )}
       <style>{`

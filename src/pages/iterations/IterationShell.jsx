@@ -1,33 +1,33 @@
 import { useNavigate } from 'react-router-dom'
 
-export default function StageShell({ title, description, children }) {
+export default function IterationShell({ title, description, children }) {
   const navigate = useNavigate()
 
   return (
-    <div className='stage'>
-      <div className='stage__top'>
-        <button type='button' className='stage__back' onClick={() => navigate('/stages')}>
-          ← Back to stages
+    <div className='iteration'>
+      <div className='iteration__top'>
+        <button type='button' className='iteration__back' onClick={() => navigate('/iterations')}>
+          ← Back to iterations
         </button>
         <h1>{title}</h1>
         <p>{description}</p>
       </div>
       {children}
       <style>{`
-        .stage {
+        .iteration {
           display: grid;
           gap: 1.25rem;
         }
-        .stage__top h1 {
+        .iteration__top h1 {
           margin: 0 0 0.5rem 0;
           font-size: 1.5rem;
           letter-spacing: -0.02em;
         }
-        .stage__top p {
+        .iteration__top p {
           margin: 0;
           color: var(--muted);
         }
-        .stage__back {
+        .iteration__back {
           margin: 0 0 0.8rem 0;
           border: none;
           background: transparent;
@@ -36,20 +36,20 @@ export default function StageShell({ title, description, children }) {
           cursor: pointer;
           font-size: 0.9rem;
         }
-        .stage__back:hover {
+        .iteration__back:hover {
           color: var(--accent);
         }
-        .stage-card {
+        .iteration-card {
           border: 1px solid var(--border);
           border-radius: var(--radius);
           background: var(--surface);
           padding: 1.1rem 1.2rem;
         }
-        .stage-card h2 {
+        .iteration-card h2 {
           margin: 0 0 0.5rem 0;
           font-size: 1.05rem;
         }
-        .stage-card p {
+        .iteration-card p {
           margin: 0;
           color: var(--muted);
         }

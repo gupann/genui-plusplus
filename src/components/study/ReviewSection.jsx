@@ -8,6 +8,7 @@ export default function ReviewSection({
   issueDirty,
   issueDraftError,
   providersForChange,
+  requiredProvidersForChange,
   activeProvider,
   scopedSuccess,
   scopedFailure,
@@ -390,13 +391,13 @@ export default function ReviewSection({
         <div className='study__llm-divider' aria-hidden='true' />
         <fieldset className='study__fieldset'>
           <legend className='study__label'>
-            Rank each model (1 = best, ties allowed, use consecutive ranks)
+            Rank each model with output (1 = best, ties allowed, use consecutive ranks)
           </legend>
           <p className='study__hint' style={{ margin: '0 0 0.5rem 0' }}>
-            Example: 1,1,2 is valid. 1,1,3 is not.
+            Only models that successfully generated output are required. Example: 1,1,2 is valid. 1,1,3 is not.
           </p>
           <div className='study__rank-grid'>
-            {providersForChange.map((rankProvider) => (
+            {requiredProvidersForChange.map((rankProvider) => (
               <label key={rankProvider.id} className='study__rank-row'>
                 <span>{rankProvider.label}</span>
                 <select
@@ -418,6 +419,11 @@ export default function ReviewSection({
                 </select>
               </label>
             ))}
+            {requiredProvidersForChange.length === 0 && (
+              <p className='study__hint' style={{ margin: 0 }}>
+                No generated outputs to rank yet.
+              </p>
+            )}
           </div>
         </fieldset>
 

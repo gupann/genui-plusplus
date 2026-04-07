@@ -5,6 +5,7 @@ export function useStudyEvaluation({
   changes,
   currentIndex,
   availableProviders,
+  currentResult = {},
   initialSuccessById = {},
   initialNotSuccessById = {},
   initialApprovalsByProvider = {},
@@ -24,7 +25,18 @@ export function useStudyEvaluation({
   const currentChange = changes[currentIndex];
   const currentChangeId = currentChange?.id;
   const providersForChange = availableProviders;
-  const ranksToShow = providersForChange.length || 0;
+  const hasRenderableOutput = (providerId) => {
+    const providerState = currentResult?.[providerId];
+    if (!providerState || providerState.error) return false;
+    const result = providerState.result;
+    if (!result) return false;
+    return Boolean(result.afterImageUrl || result.afterHtml || result.afterCode);
+  };
+
+  const requiredProvidersForChange = providersForChange.filter((provider) =>
+    hasRenderableOutput(provider.id),
+  );
+  const ranksToShow = requiredProvidersForChange.length || 0;
 
   useEffect(() => {
     if (!activeProviderId && availableProviders.length) {
@@ -128,15 +140,15 @@ export function useStudyEvaluation({
   }
 
   const approvalsComplete =
-    providersForChange.length > 0 &&
-    providersForChange.every(
+    requiredProvidersForChange.length === 0 ||
+    requiredProvidersForChange.every(
       (p) =>
         approvalsByProvider[currentChangeId]?.[p.id] === true ||
         approvalsByProvider[currentChangeId]?.[p.id] === false,
     );
 
   const rankingCurrent = rankingById[currentChangeId] || {};
-  const providerIds = providersForChange.map((p) => p.id);
+  const providerIds = requiredProvidersForChange.map((p) => p.id);
   const getAssignedRank = (providerId) => {
     if (rankingCurrent[providerId]) return rankingCurrent[providerId];
     // Legacy shape support (rank -> providerId)
@@ -178,18 +190,18 @@ export function useStudyEvaluation({
   };
 
   const successComplete =
-    providersForChange.length > 0 &&
-    providersForChange.every((p) =>
+    requiredProvidersForChange.length > 0 &&
+    requiredProvidersForChange.every((p) =>
       hasTextForProvider(successById, currentChangeId, p.id),
     );
   const failureComplete =
-    providersForChange.length > 0 &&
-    providersForChange.every((p) =>
+    requiredProvidersForChange.length > 0 &&
+    requiredProvidersForChange.every((p) =>
       hasTextForProvider(notSuccessById, currentChangeId, p.id),
     );
   const feedbackComplete =
-    providersForChange.length > 0 &&
-    providersForChange.every((p) => {
+    requiredProvidersForChange.length === 0 ||
+    requiredProvidersForChange.every((p) => {
       const hasSuccess = hasTextForProvider(successById, currentChangeId, p.id);
       const hasFailure = hasTextForProvider(
         notSuccessById,
@@ -218,6 +230,7 @@ export function useStudyEvaluation({
     rankingById,
     activeProvider,
     providersForChange,
+    requiredProvidersForChange,
     ranksToShow,
     scopedSuccess,
     scopedFailure,
