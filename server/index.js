@@ -222,6 +222,73 @@ function buildPrompt({ prompt, beforeCode, renderSpec }) {
   return `${sections.join('\n')}\n\n${body.join('\n')}`;
 }
 
+// function buildPrompt({ prompt, beforeCode, renderSpec }) {
+//   const cssWidth = renderSpec?.cssWidth || 375;
+//   const cssHeight = renderSpec?.cssHeight || 812;
+//   const exportWidth = renderSpec?.exportWidth || 750;
+//   const exportHeight = renderSpec?.exportHeight || 1624;
+
+//   const sections = [
+//     'You are a senior UI engineer.',
+
+//     'Task:',
+//     'You will be given a designer-provided issue.',
+//     'First, rewrite it into a precise and concrete UI revision instruction.',
+//     'Then apply that revision to the given UI and return the updated full HTML only.',
+
+//     'Core Principles (in priority order):',
+//     '1. Fully satisfy the requested change.',
+//     '2. Preserve the existing UI’s visual style, user flow, and component hierarchy.',
+//     '3. Modify only what is necessary to implement the change.',
+//     '4. Avoid any unrelated changes.',
+
+//     'Rewrite the issue into a concrete instruction that clearly specifies:',
+//     '- Target element or screen region',
+//     '- Exact placement of the change',
+//     '- Component type (button, dropdown, modal, etc.)',
+//     '- Interaction behavior (tap, scroll, expand, etc.)',
+//     '- Default state (selected, collapsed, placeholder, etc.)',
+//     '- Any relevant edge states (empty, loading, error) if applicable',
+//     '- Visual/design consistency with surrounding UI',
+//     '- Mobile responsiveness expectations',
+
+//     'If details are missing:',
+//     '- Infer the most reasonable solution based on the existing UI.',
+//     '- Follow patterns already present in the screen.',
+//     '- Prefer extending existing components instead of creating new structures.',
+
+//     'Editing Rules:',
+//     '- Preserve ALL existing content, layout, and structure unless the change explicitly requires modification.',
+//     '- Do NOT redesign the entire screen.',
+//     '- Do NOT reorganize unrelated sections.',
+//     '- Do NOT change text, spacing, or styles outside the scope of the request.',
+//     '- Keep unchanged areas identical.',
+
+//     'Implementation Expectations:',
+//     '- Ensure the new feature/change is fully functional and clearly visible.',
+//     '- Maintain alignment, spacing, and consistency with existing components.',
+//     '- Match existing styling (colors, typography, spacing, component patterns).',
+//     '- Ensure the result remains mobile-first.',
+
+//     `- Target phone viewport: ${cssWidth}x${cssHeight} CSS px.`,
+//     `- If rendering image outputs, use ${exportWidth}x${exportHeight} px export resolution.`,
+
+//     'Output Rules:',
+//     '- Return ONLY HTML starting with <!DOCTYPE html>.',
+//     '- No Markdown, no explanations, no comments.',
+//   ];
+
+//   const body = `
+// Designer Issue:
+// ${prompt}
+
+// Current UI Code:
+// ${beforeCode}
+// `;
+
+//   return sections.join('\n') + '\n\n' + body;
+// }
+
 async function callOpenAI({ prompt, beforeCode, beforeImageUrl, renderSpec }) {
   if (!OPENAI_API_KEY) throw new Error('Missing OPENAI_API_KEY');
   // const imageDataUrl = await loadImageAsDataUrl(beforeImageUrl);
@@ -557,7 +624,11 @@ const server = http.createServer(async (req, res) => {
       }
 
       await upsertParticipant({ participantId });
-      const existing = await findSession({ participantId, iterationId, taskId });
+      const existing = await findSession({
+        participantId,
+        iterationId,
+        taskId,
+      });
       if (existing && existing.status !== 'completed') {
         return sendJson(res, 200, { session: existing, resumed: true });
       }
