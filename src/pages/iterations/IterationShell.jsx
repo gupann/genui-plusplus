@@ -6,8 +6,8 @@ export default function IterationShell({ title, description, children }) {
   return (
     <div className='iteration'>
       <div className='iteration__top'>
-        <button type='button' className='iteration__back' onClick={() => navigate('/iterations')}>
-          ← Back to iterations
+        <button type='button' className='iteration__back' onClick={() => navigate('/')}>
+          ← Back to home
         </button>
         <h1>{title}</h1>
         <p>{description}</p>

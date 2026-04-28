@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JR Pass Search</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    background: #f0f0f0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+  }
+
+  .phone-container {
+    position: relative;
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    background: #f5f5f5;
+    overflow-x: hidden;
+    max-width: 430px;
+    margin: 0 auto;
+    border-left: 1px solid #d1d5db;
+    border-right: 1px solid #d1d5db;
+  }
+
+  /* Top nav bar */
+  .nav-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .nav-back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #374151;
+    font-size: 22px;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .nav-search {
+    flex: 1;
+    background: #f3f4f6;
+    border: none;
+    border-radius: 10px;
+    padding: 9px 14px;
+    font-size: 15px;
+    color: #9ca3af;
+    font-family: inherit;
+    outline: none;
+  }
+
+  .nav-map-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #fff;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 7px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #e07b30;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: inherit;
+  }
+
+  .nav-map-btn svg {
+    flex-shrink: 0;
+  }
+
+  /* Filter row */
+  .filter-row {
+    display: flex;
+    gap: 10px;
+    padding: 12px 16px;
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #fff;
+    border: 1.5px solid #d1d5db;
+    border-radius: 8px;
+    padding: 7px 12px;
+    font-size: 14px;
+    color: #374151;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 400;
+  }
+
+  /* Results section */
+  .results-section {
+    padding: 14px 16px 6px;
+    font-size: 14px;
+    color: #6b7280;
+    font-weight: 400;
+  }
+
+  /* Scrollable content */
+  .scroll-content {
+    padding: 6px 12px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Pass card */
+  .pass-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+  }
+
+  .card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .card-info {
+    flex: 1;
+  }
+
+  .card-region {
+    font-size: 13px;
+    font-weight: 600;
+    color: #c85c1a;
+    margin-bottom: 4px;
+    letter-spacing: 0.01em;
+  }
+
+  .card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .card-rating {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #374151;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+
+  .star {
+    color: #f59e0b;
+    font-size: 15px;
+  }
+
+  .rating-dot {
+    color: #d1d5db;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .badge-green {
+    background: #ecfdf5;
+    color: #059669;
+    border: 1px solid #a7f3d0;
+  }
+
+  .badge-blue {
+    background: #eff6ff;
+    color: #2563eb;
+    border: 1px solid #bfdbfe;
+  }
+
+  .card-tagline {
+    display: inline-block;
+    background: #f3f4f6;
+    color: #374151;
+    font-size: 13px;
+    border-radius: 7px;
+    padding: 5px 11px;
+  }
+
+  .card-map-thumb {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #dbeafe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card-map-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .card-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid #f3f4f6;
+  }
+
+  .card-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+  }
+
+  .card-days {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #6b7280;
+  }
+
+  .day-pill {
+    background: #f3f4f6;
+    color: #374151;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  .card-delivery {
+    font-size: 12px;
+    color: #9ca3af;
+  }
+
+  .card-more {
+    color: #9ca3af;
+    font-size: 18px;
+    cursor: pointer;
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+<div class="phone-container">
+
+  <!-- Nav Bar -->
+  <div class="nav-bar">
+    <div class="nav-back">
+      <svg width="10" height="18" viewBox="0 0 10 18" fill="none"><path d="M9 1L1 9L9 17" stroke="#374151" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <input class="nav-search" type="text" placeholder="Where to?" readonly>
+    <button class="nav-map-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e07b30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+      Open map
+    </button>
+  </div>
+
+  <!-- Filters -->
+  <div class="filter-row">
+    <button class="filter-btn">
+      Number of Days
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <button class="filter-btn">
+      Collection method
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+  </div>
+
+  <!-- Results label -->
+  <div class="results-section">28 JR Pass found</div>
+
+  <!-- Cards -->
+  <div class="scroll-content">
+
+    <!-- Whole Japan Rail Pass -->
+    <div class="pass-card">
+      <div class="card-top">
+        <div class="card-info">
+          <div class="card-region">Whole Japan</div>
+          <div class="card-title">Whole Japan Rail Pass</div>
+          <div class="card-rating">
+            <span class="star">★</span>
+            <span><strong>4.8</strong> (18k+ reviews)</span>
+            <span class="rating-dot">|</span>
+            <span>422k+ booked</span>
+          </div>
+          <span class="badge badge-green">Green Car</span><br>
+          <span class="card-tagline">Explore whole Japan with one Pass</span>
+        </div>
+        <div class="card-map-thumb">
+          <img
+            src="https://images.unsplash.com/photo-1624253321171-1be53e12f5f4?w=160&h=160&fit=crop&crop=center&auto=format"
+            alt="Japan map"
+            onerror="this.onerror=null;this.src='';this.parentElement.innerHTML='<svg viewBox=\'0 0 80 80\' xmlns=\'http://www.w3.org/2000/svg\'><rect width=\'80\' height=\'80\' fill=\'#dbeafe\'/><text x=\'40\' y=\'45\' text-anchor=\'middle\' font-size=\'30\' fill=\'#2563eb\'>🗾</text></svg>'"
+          >
+        </div>
+      </div>
+      <div class="card-bottom">
+        <div class="card-price">US$205.49</div>
+        <div class="card-days">
+          <span style="color:#9ca3af;font-size:13px;">Days</span>
+          <span class="day-pill">7</span>
+          <span class="day-pill">14</span>
+          <span class="day-pill">21</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="card-delivery">11 mail delivery locations</span>
+        <span class="card-more">···</span>
+      </div>
+    </div>
+
+    <!-- Kyushu Pass -->
+    <div class="pass-card">
+      <div class="card-top">
+        <div class="card-info">
+          <div class="card-region">JR Kyushu</div>
+          <div class="card-title">Kyushu Pass</div>
+          <div class="card-rating">
+            <span class="star">★</span>
+            <span><strong>4.8</strong> (11k+ reviews)</span>
+            <span class="rating-dot">|</span>
+            <span>179k+ booked</span>
+          </div>
+          <span class="badge badge-blue">E-Ticket</span><br>
+          <span class="card-tagline">Explore "The Land of Fire" with one pass</span>
+        </div>
+        <div class="card-map-thumb">
+          <img
+            src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=160&h=160&fit=crop&crop=center&auto=format"
+            alt="Kyushu Japan"
+            onerror="this.onerror=null;this.src='';this.parentElement.innerHTML='<svg viewBox=\'0 0 80 80\' xmlns=\'http://www.w3.org/2000/svg\'><rect width=\'80\' height=\'80\' fill=\'#dbeafe\'/><text x=\'40\' y=\'45\' text-anchor=\'middle\' font-size=\'30\' fill=\'#e07b30\'>🌋</text></svg>'"
+          >
+        </div>
+      </div>
+      <div class="card-bottom">
+        <div class="card-price">US$55.45</div>
+        <div class="card-days">
+          <span style="color:#9ca3af;font-size:13px;">Days</span>
+          <span class="day-pill">3</span>
+          <span class="day-pill">5</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="card-delivery">E-ticket (no physical Exchange Order)</span>
+        <span class="card-more">···</span>
+      </div>
+    </div>
+
+    <!-- JR West (partially visible teaser) -->
+    <div class="pass-card" style="opacity: 0.85;">
+      <div class="card-top">
+        <div class="card-info">
+          <div class="card-region">JR West</div>
+          <div class="card-title">Kansai WIDE Area Pass</div>
+          <div class="card-rating">
+            <span class="star">★</span>
+            <span><strong>4.7</strong> (9k+ reviews)</span>
+            <span class="rating-dot">|</span>
+            <span>210k+ booked</span>
+          </div>
+          <span class="badge badge-blue">E-Ticket</span><br>
+          <span class="card-tagline">Kansai, Hiroshima &amp; beyond</span>
+        </div>
+        <div class="card-map-thumb">
+          <img
+            src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=160&h=160&fit=crop&crop=center&auto=format"
+            alt="Kansai Japan"
+            onerror="this.onerror=null;this.src='';this.parentElement.innerHTML='<svg viewBox=\'0 0 80 80\' xmlns=\'http://www.w3.org/2000/svg\'><rect width=\'80\' height=\'80\' fill=\'#dbeafe\'/><text x=\'40\' y=\'45\' text-anchor=\'middle\' font-size=\'30\' fill=\'#2563eb\'>🏯</text></svg>'"
+          >
+        </div>
+      </div>
+      <div class="card-bottom">
+        <div class="card-price">US$76.20</div>
+        <div class="card-days">
+          <span style="color:#9ca3af;font-size:13px;">Days</span>
+          <span class="day-pill">5</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="card-delivery">E-ticket (no physical Exchange Order)</span>
+        <span class="card-more">···</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
