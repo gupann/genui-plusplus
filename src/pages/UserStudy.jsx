@@ -8,6 +8,10 @@ const CASE_STUDIES = [
   { id: 5, label: 'Case Study 5' },
   { id: 6, label: 'Case Study 6' },
   { id: 7, label: 'Case Study 7' },
+  { id: 8, label: 'Case Study 8' },
+  { id: 9, label: 'Case Study 9' },
+  { id: 10, label: 'Case Study 10' },
+  { id: 11, label: 'Case Study 11' },
 ];
 
 export default function UserStudy({

@@ -10,7 +10,12 @@ import {
 const IS_DEV = import.meta.env.DEV;
 const RESEND_COOLDOWN_SECONDS = 60;
 
-export default function IterationAuthGate({ children }) {
+export default function IterationAuthGate({
+  children,
+  hideChildrenUntilAuthenticated = false,
+  dismissible = true,
+  variant = 'overlay',
+}) {
   const [loading, setLoading] = useState(true);
   const [participant, setParticipant] = useState(null);
   const [email, setEmail] = useState('');
@@ -92,25 +97,34 @@ export default function IterationAuthGate({ children }) {
   const authenticated = Boolean(participant?.participantId);
   const sendDisabled = sending || cooldownSeconds > 0;
 
+  const showAuthPrompt = !loading && !authenticated;
+  const shouldRenderChildren =
+    !showAuthPrompt || !hideChildrenUntilAuthenticated || !hasSupabaseClientConfig();
+  const inlinePrompt = variant === 'inline';
+
   return (
     <>
-      {children}
-      {!loading && !authenticated && !dismissed && (
+      {shouldRenderChildren && children}
+      {showAuthPrompt && (!dismissed || !dismissible) && (
         <div
-          className='stage-auth-overlay'
-          role='dialog'
-          aria-modal='true'
-          onClick={() => setDismissed(true)}
+          className={inlinePrompt ? 'stage-auth-inline' : 'stage-auth-overlay'}
+          role={inlinePrompt ? undefined : 'dialog'}
+          aria-modal={inlinePrompt ? undefined : 'true'}
+          onClick={() => {
+            if (!inlinePrompt && dismissible) setDismissed(true);
+          }}
         >
           <div className='stage-auth-card' onClick={(e) => e.stopPropagation()}>
-            <button
-              type='button'
-              className='stage-auth-close'
-              onClick={() => setDismissed(true)}
-              aria-label='Close sign in popup'
-            >
-              ×
-            </button>
+            {dismissible && (
+              <button
+                type='button'
+                className='stage-auth-close'
+                onClick={() => setDismissed(true)}
+                aria-label='Close sign in popup'
+              >
+                ×
+              </button>
+            )}
             <h2>Sign in to continue</h2>
             <p>
               Enter your email to receive a magic link. Your progress across
@@ -165,7 +179,7 @@ export default function IterationAuthGate({ children }) {
           </div>
         </div>
       )}
-      {!loading && !authenticated && dismissed && (
+      {showAuthPrompt && dismissed && dismissible && (
         <button
           type='button'
           className='stage-auth-reopen'
@@ -175,6 +189,9 @@ export default function IterationAuthGate({ children }) {
         </button>
       )}
       <style>{`
+        .stage-auth-inline {
+          display: block;
+        }
         .stage-auth-overlay {
           position: fixed;
           inset: 0;
@@ -194,6 +211,11 @@ export default function IterationAuthGate({ children }) {
           border-radius: 14px;
           padding: 1.3rem;
           box-shadow: 0 20px 56px rgba(0, 0, 0, 0.35);
+        }
+        .stage-auth-inline .stage-auth-card {
+          width: 100%;
+          max-width: 720px;
+          box-shadow: none;
         }
         .stage-auth-close {
           position: absolute;

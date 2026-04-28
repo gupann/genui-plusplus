@@ -716,7 +716,7 @@ const studyStyles = `
     font-size: 1rem;
     font-weight: 600;
     color: var(--text);
-    width: min(100%, 320px);
+    width: min(100%, 390px);
   }
   .study__compare-actions {
     display: flex;
@@ -724,11 +724,11 @@ const studyStyles = `
     align-items: center;
     margin: 0 0 0.75rem 0;
     min-height: 32px;
-    width: min(100%, 320px);
+    width: min(100%, 390px);
   }
   .study__compare-phone-slot {
-    width: min(100%, 320px);
-    aspect-ratio: 375 / 812;
+    width: min(100%, 390px);
+    aspect-ratio: 390 / 844;
   }
   .study__compare-phone-slot > .study__screen-wrap,
   .study__compare-phone .study__screen-wrap {
@@ -769,9 +769,9 @@ const studyStyles = `
     margin: 0 0 1rem 0;
   }
   .study__screen-wrap {
-    width: min(100%, 320px);
+    width: min(100%, 390px);
     max-width: 100%;
-    aspect-ratio: 375 / 812;
+    aspect-ratio: 390 / 844;
     margin: 0 auto 1.5rem;
     background: var(--surface);
     border: 1px solid var(--border);
@@ -959,14 +959,6 @@ const studyStyles = `
     .study__compare-col:first-child {
       border-top: none;
       padding-top: 0;
-    }
-  }
-  @media (max-width: 1200px) {
-    .study__screen-wrap,
-    .study__compare-phone-slot,
-    .study__compare-label,
-    .study__compare-actions {
-      width: min(100%, 280px);
     }
   }
   @media (max-width: 900px) {

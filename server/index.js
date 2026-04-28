@@ -1,5 +1,5 @@
 import http from 'http';
-import { readFile } from 'fs/promises';
+import { mkdir, readFile, writeFile } from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import {
@@ -63,6 +63,40 @@ console.log(
 );
 
 const DEBUG_WRITE_PATH = '/tmp/latest-after';
+
+function getCaseStudyDir(taskId) {
+  return path.join(projectRoot, 'public', `case-study-${taskId}`);
+}
+
+async function persistGenerationArtifacts({
+  taskId,
+  changeId,
+  provider,
+  prompt,
+  afterHtml,
+}) {
+  if (!taskId) return;
+
+  const taskIdSafe = String(taskId).replace(/[^\w-]/g, '');
+  const changeIdSafe = String(changeId || 1).replace(/[^\w-]/g, '');
+  const providerSafe = String(provider || 'unknown').toLowerCase().replace(/[^\w-]/g, '');
+  const caseStudyDir = getCaseStudyDir(taskIdSafe);
+
+  await mkdir(caseStudyDir, { recursive: true });
+
+  await Promise.all([
+    writeFile(
+      path.join(caseStudyDir, `task${taskIdSafe}-after-${providerSafe}.html`),
+      afterHtml || '',
+      'utf8',
+    ),
+    writeFile(
+      path.join(caseStudyDir, `task${taskIdSafe}-revision-task-${changeIdSafe}.txt`),
+      prompt || '',
+      'utf8',
+    ),
+  ]);
+}
 
 function sendJson(res, status, payload) {
   res.writeHead(status, {
@@ -499,7 +533,7 @@ async function handleGenerateRequest(req, res) {
   try {
     const startedAt = Date.now();
     const body = await readBody(req);
-    const { prompt, beforeImageUrl, beforeCode, provider, renderSpec } =
+    const { taskId, changeId, prompt, beforeImageUrl, beforeCode, provider, renderSpec } =
       body || {};
     const chosen = (provider || PROVIDER_DEFAULT).toLowerCase();
     console.log(
@@ -547,6 +581,18 @@ async function handleGenerateRequest(req, res) {
     } catch (err) {
       // eslint-disable-next-line no-console
       console.warn('Failed to write debug html', err);
+    }
+    try {
+      await persistGenerationArtifacts({
+        taskId,
+        changeId,
+        provider: chosen,
+        prompt,
+        afterHtml,
+      });
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.warn('Failed to persist generation artifacts', err);
     }
     return sendJson(res, 200, { afterHtml });
   } catch (err) {
