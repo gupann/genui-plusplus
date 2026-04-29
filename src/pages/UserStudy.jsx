@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { PILOT_STUDY_CASES } from '../config/pilotStudyCases';
 import { getCurrentParticipant } from '../services/participantSession';
 import { listStudySessions } from '../services/sessionApi';
@@ -24,6 +24,7 @@ export default function UserStudy({
   subtitle = 'Pick a case study to start.',
 }) {
   const navigate = useNavigate();
+  const location = useLocation();
   const [completedCaseIds, setCompletedCaseIds] = useState(new Set());
 
   useEffect(() => {
@@ -32,7 +33,10 @@ export default function UserStudy({
     async function loadCompletedSessions() {
       try {
         const participant = await getCurrentParticipant();
-        if (!participant?.participantId) return;
+        if (!participant?.participantId) {
+          if (!cancelled) setCompletedCaseIds(new Set());
+          return;
+        }
         const payload = await listStudySessions({
           participantId: participant.participantId,
           iterationId: 2,
@@ -50,12 +54,27 @@ export default function UserStudy({
       }
     }
 
-    loadCompletedSessions();
+    void loadCompletedSessions();
+
+    function handleWindowFocus() {
+      void loadCompletedSessions();
+    }
+
+    function handleVisibilityChange() {
+      if (document.visibilityState === 'visible') {
+        void loadCompletedSessions();
+      }
+    }
+
+    window.addEventListener('focus', handleWindowFocus);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
 
     return () => {
       cancelled = true;
+      window.removeEventListener('focus', handleWindowFocus);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
-  }, []);
+  }, [location.pathname]);
 
   return (
     <div className='user-study'>
