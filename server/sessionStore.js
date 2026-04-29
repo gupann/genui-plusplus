@@ -29,6 +29,14 @@ export async function findSession(args) {
   return store.findSession(args);
 }
 
+export async function listSessions(args) {
+  const store = getStore();
+  if (typeof store.listSessions === 'function') {
+    return store.listSessions(args);
+  }
+  return [];
+}
+
 export async function createSession(args) {
   const store = getStore();
   return store.createSession(args);

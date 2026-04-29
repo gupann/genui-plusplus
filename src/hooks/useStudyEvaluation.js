@@ -1,5 +1,15 @@
 import { useEffect, useState } from 'react';
 
+function isRecordedOutcome(value) {
+  return (
+    value === true ||
+    value === false ||
+    value === 'passed' ||
+    value === 'partially_passed' ||
+    value === 'failed'
+  );
+}
+
 export function useStudyEvaluation({
   phase,
   changes,
@@ -141,10 +151,8 @@ export function useStudyEvaluation({
 
   const approvalsComplete =
     requiredProvidersForChange.length === 0 ||
-    requiredProvidersForChange.every(
-      (p) =>
-        approvalsByProvider[currentChangeId]?.[p.id] === true ||
-        approvalsByProvider[currentChangeId]?.[p.id] === false,
+    requiredProvidersForChange.every((p) =>
+      isRecordedOutcome(approvalsByProvider[currentChangeId]?.[p.id]),
     );
 
   const rankingCurrent = rankingById[currentChangeId] || {};

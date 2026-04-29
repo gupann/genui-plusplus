@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Upgrade to VIP</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #111; margin: 0; }
+
+  /* ── Back button ── */
+  .back-btn {
+    position: absolute;
+    top: 16px; left: 14px;
+    z-index: 20;
+    background: none; border: none; cursor: pointer;
+    padding: 8px; color: #fff;
+  }
+
+  /* ── Title ── */
+  .vip-title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 800;
+    color: #fff;
+    padding: 56px 20px 18px;
+    line-height: 1.15;
+    background: #000;
+  }
+
+  /* ── Before/After slider container ── */
+  .slider-outer {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    background: #222;
+    cursor: ew-resize;
+    flex-shrink: 0;
+  }
+
+  /* AFTER image (full width, right side — colour photo) */
+  .img-after {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  /* BEFORE image (left side — dark/desaturated) */
+  .img-before-clip {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    overflow: hidden;
+  }
+  .img-before {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(100%) brightness(0.45);
+  }
+
+  /* SVG text overlay on before side */
+  .before-text-overlay {
+    position: absolute;
+    top: 20px; left: 14px;
+    font-family: 'Inter', cursive;
+    font-style: italic;
+    font-size: 18px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.5;
+    pointer-events: none;
+    z-index: 4;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  }
+
+  /* divider line */
+  .slider-line {
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 2px;
+    background: #fff;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    pointer-events: none;
+  }
+  /* handle circle */
+  .slider-handle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 6;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    pointer-events: none;
+  }
+
+  /* before / after labels */
+  .ba-label {
+    position: absolute;
+    bottom: 16px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    z-index: 7;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+  }
+  .ba-label.before { left: 18px; }
+  .ba-label.after  { right: 18px; }
+
+  /* ── Dot pager ── */
+  .dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 0 10px;
+    background: #000;
+  }
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #555;
+  }
+  .dot.active { background: #fff; }
+
+  /* ── Feature checklist ── */
+  .features {
+    background: #000;
+    padding: 10px 28px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .feature-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 17px;
+    color: #fff;
+    font-weight: 500;
+  }
+  .feature-check {
+    color: #fff;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .feature-highlight { color: #f5a623; font-weight: 700; }
+
+  /* ── Purchase buttons ── */
+  .purchase-area {
+    background: #000;
+    padding: 10px 18px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Lifetime — outlined with SAVE badge */
+  .btn-lifetime-wrap {
+    position: relative;
+  }
+  .save-badge {
+    position: absolute;
+    top: -12px; right: 0;
+    background: #e8302a;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 800;
+    border-radius: 12px;
+    padding: 5px 12px;
+    line-height: 1.2;
+    text-align: center;
+    z-index: 2;
+  }
+  .btn-lifetime {
+    width: 100%;
+    padding: 18px 0 14px;
+    background: transparent;
+    border: 1.5px solid #666;
+    border-radius: 36px;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    transition: border-color 0.15s;
+  }
+  .btn-lifetime:hover { border-color: #aaa; }
+  .btn-lifetime .btn-main { font-size: 18px; font-weight: 800; display: block; }
+  .btn-lifetime .btn-sub  { font-size: 15px; font-weight: 700; color: #f5a623; display: block; margin-top: 2px; }
+
+  /* Yearly — filled dark */
+  .btn-yearly {
+    width: 100%;
+    padding: 18px 0 14px;
+    background: #1a1a1a;
+    border: 1.5px solid #444;
+    border-radius: 36px;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.15s;
+  }
+  .btn-yearly:hover { background: #222; }
+  .btn-yearly .btn-main { font-size: 20px; font-weight: 700; display: block; }
+  .btn-yearly .btn-sub  { font-size: 14px; color: #ccc; display: block; margin-top: 2px; }
+
+  /* Free Trial — white pill */
+  .btn-trial {
+    width: 100%;
+    padding: 18px 0 14px;
+    background: #fff;
+    border: none;
+    border-radius: 36px;
+    cursor: pointer;
+    text-align: center;
+    transition: opacity 0.15s;
+  }
+  .btn-trial:hover { opacity: 0.9; }
+  .btn-trial .btn-main { font-size: 22px; font-weight: 800; color: #f0385a; display: block; }
+  .btn-trial .btn-sub  { font-size: 14px; color: #555; display: block; margin-top: 2px; }
+
+  /* ── Fine print ── */
+  .fine-print {
+    background: #000;
+    padding: 4px 20px 24px;
+    font-size: 11px;
+    color: #666;
+    line-height: 1.55;
+  }
+</style>
+</head>
+<body>
+
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto border-x border-slate-200"
+     style="background:#000;">
+
+  <!-- ── Back button ── -->
+  <button class="back-btn" aria-label="Go back">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+         stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="15 18 9 12 15 6"/>
+    </svg>
+  </button>
+
+  <!-- ── Title ── -->
+  <div class="vip-title">Upgrade to VIP</div>
+
+  <!-- ── Before / After slider ── -->
+  <div class="slider-outer" id="sliderOuter">
+
+    <!-- AFTER: vibrant waterfall couple photo -->
+    <img class="img-after"
+         src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=560&fit=crop&crop=center"
+         alt="Couple at waterfall — after filter"
+         onerror="this.style.background='#1a4a3a';this.removeAttribute('src');" />
+
+    <!-- BEFORE: same image but dark/desaturated, clipped to left half -->
+    <div class="img-before-clip" id="beforeClip" style="clip-path: inset(0 50% 0 0);">
+      <img class="img-before"
+           src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=560&fit=crop&crop=center"
+           alt="Couple at waterfall — before filter"
+           onerror="this.style.background='#111';this.removeAttribute('src');" />
+      <!-- Inspirational text overlay (visible on before/dark side) -->
+      <div class="before-text-overlay">
+        just your<br/>Adrenalin..!<br/>Light on<br/>your Spirit.
+      </div>
+    </div>
+
+    <!-- Divider line + handle -->
+    <div class="slider-line" id="sliderLine"></div>
+    <div class="slider-handle" id="sliderHandle">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+           stroke="#555" stroke-width="2.5" stroke-linecap="round">
+        <polyline points="10 18 4 12 10 6"/>
+        <polyline points="14 6 20 12 14 18"/>
+      </svg>
+    </div>
+
+    <!-- Labels -->
+    <span class="ba-label before">Before</span>
+    <span class="ba-label after">After</span>
+  </div>
+
+  <!-- ── Dot pager ── -->
+  <div class="dots">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+
+  <!-- ── Feature list ── -->
+  <div class="features">
+    <div class="feature-row">
+      <span class="feature-check">✓</span>
+      <span><span class="feature-highlight">1000+</span> Presets for Lr</span>
+    </div>
+    <div class="feature-row">
+      <span class="feature-check">✓</span>
+      <span><span class="feature-highlight">200+</span> Overlay Effects</span>
+    </div>
+    <div class="feature-row">
+      <span class="feature-check">✓</span>
+      <span><span class="feature-highlight">DNG</span> Lr Presets PRO</span>
+    </div>
+  </div>
+
+  <!-- ── Purchase options ── -->
+  <div class="purchase-area">
+
+    <!-- Lifetime with SAVE badge -->
+    <div class="btn-lifetime-wrap">
+      <div class="save-badge">SAVE<br/>96%</div>
+      <button class="btn-lifetime">
+        <span class="btn-main">Life-time Purchase</span>
+        <span class="btn-sub">$11.99</span>
+      </button>
+    </div>
+
+    <!-- Yearly -->
+    <button class="btn-yearly">
+      <span class="btn-main">Yearly Subscribe</span>
+      <span class="btn-sub">$9.99, only $0.83/month</span>
+    </button>
+
+    <!-- Free Trial -->
+    <button class="btn-trial">
+      <span class="btn-main">3 Days FREE TRIAL</span>
+      <span class="btn-sub">$2.99/month</span>
+    </button>
+
+  </div>
+
+  <!-- ── Fine print ── -->
+  <div class="fine-print">
+    Subscription automatically renews unless auto-renew is turned off at least
+    24 hours before the end of the current period. If a user cancels a subscription
+    purchased on Google Play, the user will not receive a refund for the current
+    billing period but will continue to receive their subscription content for the
+    remainder of the current billing period.
+  </div>
+
+</div>
+
+<script>
+  // Interactive before/after drag slider
+  const outer   = document.getElementById('sliderOuter');
+  const clip    = document.getElementById('beforeClip');
+  const line    = document.getElementById('sliderLine');
+  const handle  = document.getElementById('sliderHandle');
+
+  let dragging = false;
+
+  function setPos(clientX) {
+    const rect = outer.getBoundingClientRect();
+    let pct = ((clientX - rect.left) / rect.width) * 100;
+    pct = Math.max(5, Math.min(95, pct));
+    const pctRight = 100 - pct;
+    clip.style.clipPath   = `inset(0 ${pctRight}% 0 0)`;
+    line.style.left       = pct + '%';
+    handle.style.left     = pct + '%';
+  }
+
+  outer.addEventListener('mousedown',  e => { dragging = true; setPos(e.clientX); });
+  window.addEventListener('mousemove', e => { if (dragging) setPos(e.clientX); });
+  window.addEventListener('mouseup',   () => { dragging = false; });
+
+  outer.addEventListener('touchstart',  e => { dragging = true; setPos(e.touches[0].clientX); }, { passive: true });
+  window.addEventListener('touchmove',  e => { if (dragging) setPos(e.touches[0].clientX); }, { passive: true });
+  window.addEventListener('touchend',   () => { dragging = false; });
+</script>
+</body>
+</html>

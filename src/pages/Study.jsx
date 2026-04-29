@@ -768,6 +768,51 @@ const studyStyles = `
     font-size: 0.95rem;
     margin: 0 0 1rem 0;
   }
+  .study__hint--compact {
+    margin: -0.15rem 0 0.25rem 0;
+    font-size: 0.9rem;
+  }
+  .study__rubric-box {
+    display: grid;
+    gap: 0.55rem;
+    padding: 0.9rem 1rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: rgba(148, 163, 184, 0.06);
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  .study__rubric-box--compact {
+    margin-top: 0.35rem;
+  }
+  .study__rubric-title,
+  .study__rubric-subtitle,
+  .study__rubric-copy {
+    margin: 0;
+  }
+  .study__rubric-copy strong {
+    color: var(--text);
+  }
+  .study__rubric-title,
+  .study__rubric-subtitle {
+    color: var(--text);
+    font-weight: 600;
+    font-size: 0.92rem;
+  }
+  .study__rubric-examples {
+    display: grid;
+    gap: 0.9rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .study__rubric-list {
+    margin: 0;
+    padding-left: 1.1rem;
+    display: grid;
+    gap: 0.28rem;
+  }
+  .study__rubric-list--ordered {
+    padding-left: 1.2rem;
+  }
   .study__screen-wrap {
     width: min(100%, 390px);
     max-width: 100%;
@@ -983,6 +1028,9 @@ const studyStyles = `
     .study__feedback-grid {
       grid-template-columns: 1fr;
       gap: 1rem;
+    }
+    .study__rubric-examples {
+      grid-template-columns: 1fr;
     }
     .study__feedback-col--failure {
       border-left: none;
@@ -1214,6 +1262,11 @@ const studyStyles = `
     background: rgba(34, 197, 94, 0.15);
     color: #16a34a;
     border: 1px solid rgba(22, 163, 74, 0.35);
+  }
+  .study__chip-btn--partial.is-active {
+    background: rgba(234, 179, 8, 0.15);
+    color: #facc15;
+    border: 1px solid rgba(250, 204, 21, 0.35);
   }
   .study__chip-btn--reject.is-active {
     background: rgba(239, 68, 68, 0.15);

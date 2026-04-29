@@ -89,6 +89,7 @@ export async function generateAfterScreen({
     afterImageUrl: payload.afterImageUrl,
     afterHtml: payload.afterHtml,
     afterCode: payload.afterCode,
+    finalPrompt: payload.finalPrompt,
   };
 }
 
