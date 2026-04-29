@@ -33,6 +33,7 @@ export default function Study({ listPath = '/iterations/1', iterationId = 1 }) {
   const [issueDraft, setIssueDraft] = useState('');
   const [issueDraftError, setIssueDraftError] = useState('');
   const [participantId, setParticipantId] = useState('');
+  const [participantEmail, setParticipantEmail] = useState('');
   const [sessionId, setSessionId] = useState('');
   const [hydrationStatus, setHydrationStatus] = useState('idle'); // 'idle' | 'loading' | 'ready'
 
@@ -331,10 +332,12 @@ export default function Study({ listPath = '/iterations/1', iterationId = 1 }) {
       .then((participant) => {
         if (cancelled) return;
         setParticipantId(participant?.participantId || '');
+        setParticipantEmail(participant?.email || '');
       })
       .catch(() => {
         if (cancelled) return;
         setParticipantId('');
+        setParticipantEmail('');
       });
     return () => {
       cancelled = true;
@@ -351,6 +354,7 @@ export default function Study({ listPath = '/iterations/1', iterationId = 1 }) {
 
       const loaded = await loadStudySession({
         participantId: nextParticipantId,
+        email: participantEmail,
         iterationId,
         taskId: id,
       });
@@ -375,6 +379,7 @@ export default function Study({ listPath = '/iterations/1', iterationId = 1 }) {
       } else {
         const started = await startStudySession({
           participantId: nextParticipantId,
+          email: participantEmail,
           iterationId,
           taskId: id,
           snapshot: {
@@ -406,7 +411,7 @@ export default function Study({ listPath = '/iterations/1', iterationId = 1 }) {
     return () => {
       cancelled = true;
     };
-  }, [id, iterationId, participantId]);
+  }, [id, iterationId, participantId, participantEmail]);
 
   useEffect(() => {
     if (hydrationStatus !== 'ready' || !sessionId || !participantId)
