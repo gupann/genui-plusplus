@@ -670,6 +670,7 @@ const server = http.createServer(async (req, res) => {
   if (routePath === '/api/session/load' && method === 'GET') {
     try {
       const participantId = query.get('participantId');
+      const email = query.get('email') || '';
       const iterationId = query.get('iterationId') || query.get('stageId');
       const taskId = query.get('taskId');
       if (!participantId || !iterationId || !taskId) {
@@ -677,6 +678,7 @@ const server = http.createServer(async (req, res) => {
           error: 'participantId, iterationId, and taskId are required',
         });
       }
+      await upsertParticipant({ participantId, email });
       const session = await findSession({ participantId, iterationId, taskId });
       return sendJson(res, 200, { session: session || null });
     } catch (err) {
@@ -704,6 +706,7 @@ const server = http.createServer(async (req, res) => {
     try {
       const body = await readBody(req);
       const participantId = body.participantId;
+      const email = body.email || '';
       const iterationId = body.iterationId || body.stageId;
       const taskId = body.taskId;
       const snapshot = body.snapshot;
@@ -713,7 +716,7 @@ const server = http.createServer(async (req, res) => {
         });
       }
 
-      await upsertParticipant({ participantId });
+      await upsertParticipant({ participantId, email });
       const existing = await findSession({
         participantId,
         iterationId,

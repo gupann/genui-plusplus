@@ -18,6 +18,7 @@ async function parseJson(response) {
 
 export async function loadStudySession({
   participantId,
+  email,
   iterationId,
   stageId,
   taskId,
@@ -25,6 +26,7 @@ export async function loadStudySession({
   const normalizedIterationId = iterationId ?? stageId;
   const query = toQuery({
     participantId,
+    email,
     iterationId: normalizedIterationId,
     // Backward compatibility with older backend/query readers.
     stageId: normalizedIterationId,
@@ -51,6 +53,7 @@ export async function listStudySessions({
 
 export async function startStudySession({
   participantId,
+  email,
   iterationId,
   stageId,
   taskId,
@@ -62,6 +65,7 @@ export async function startStudySession({
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       participantId,
+      email,
       iterationId: normalizedIterationId,
       // Backward compatibility with older backend readers.
       stageId: normalizedIterationId,
