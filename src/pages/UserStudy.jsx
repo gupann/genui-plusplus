@@ -133,25 +133,27 @@ export default function UserStudy({
         }
         .user-study__nav {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
           gap: 1rem;
           align-items: stretch;
-          width: min(100%, 1120px);
+          width: min(100%, 1180px);
           margin: 0 auto;
         }
         .user-study__card {
           display: grid;
-          gap: 0.85rem;
+          gap: 0.9rem;
           width: 100%;
           min-height: 152px;
-          padding: 1.1rem 1.1rem 1rem 1.1rem;
+          padding: 1.2rem 1.1rem 1rem 1.1rem;
           background: var(--surface);
           border: 1px solid var(--border);
           border-radius: var(--radius);
           position: relative;
           color: var(--text);
           font-size: 1rem;
-          text-align: left;
+          text-align: center;
+          justify-items: center;
+          align-content: center;
           transition: border-color 0.2s, background 0.2s;
         }
         .user-study__card:hover {
@@ -182,13 +184,16 @@ export default function UserStudy({
           display: grid;
           gap: 0.6rem;
           min-width: 0;
-          padding-left: 2.2rem;
           align-content: start;
+          justify-items: center;
+          width: 100%;
+          padding-top: 0.4rem;
         }
         .user-study__card-tags {
           display: flex;
           flex-wrap: wrap;
           gap: 0.5rem;
+          justify-content: center;
         }
         .user-study__tag {
           display: inline-flex;
@@ -205,11 +210,11 @@ export default function UserStudy({
         .user-study__card-hint {
           color: var(--muted);
           font-size: 0.88rem;
-          margin-top: auto;
+          align-self: center;
         }
         @media (max-width: 900px) {
           .user-study__nav {
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
           }
         }
         @media (max-width: 640px) {
