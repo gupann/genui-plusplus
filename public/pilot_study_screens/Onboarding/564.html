@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jio Multi Recharge - Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: #e5e7eb;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    .wave-header {
+      background: #1ab3cc;
+      position: relative;
+      height: 220px;
+      flex-shrink: 0;
+    }
+
+    /* SVG wave cutout at bottom of teal header */
+    .wave-header::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: white;
+      clip-path: ellipse(60% 100% at 50% 100%);
+    }
+
+    .logo-circle {
+      position: absolute;
+      bottom: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: white;
+      border: 4px solid #1ab3cc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    }
+
+    .input-group {
+      display: flex;
+      align-items: center;
+      border: 1.5px solid #ccc;
+      border-radius: 8px;
+      overflow: hidden;
+      background: white;
+    }
+    .input-icon {
+      padding: 0 14px;
+      color: #555;
+      border-right: 1.5px solid #ccc;
+      display: flex;
+      align-items: center;
+      height: 52px;
+    }
+    .input-group input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 14px 14px;
+      font-size: 1rem;
+      color: #333;
+      background: transparent;
+    }
+    .input-group input::placeholder { color: #bbb; }
+
+    .login-btn {
+      background: #1ab3cc;
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.12em;
+      border: none;
+      border-radius: 8px;
+      padding: 16px;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .checkbox-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 12px 0 20px 0;
+    }
+    .checkbox-box {
+      width: 20px;
+      height: 20px;
+      border: 1.5px solid #aaa;
+      border-radius: 3px;
+      flex-shrink: 0;
+      background: white;
+    }
+
+    .toast-bar {
+      background: #333;
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 16px;
+      font-size: 0.95rem;
+    }
+    .toast-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto border-x border-slate-200" style="background:white;">
+
+  <!-- Teal wave header -->
+  <div class="wave-header">
+    <!-- Logo circle sitting on wave edge -->
+    <div class="logo-circle">
+      <!-- Jio-style "i" logo with arc -->
+      <svg width="56" height="56" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+        <!-- Outer arc (red) -->
+        <path d="M14 28 A14 14 0 0 1 42 28" fill="none" stroke="#e31837" stroke-width="3.5" stroke-linecap="round"/>
+        <!-- Inner arc (blue) -->
+        <path d="M19 28 A9 9 0 0 1 37 28" fill="none" stroke="#1a3fa0" stroke-width="3" stroke-linecap="round"/>
+        <!-- Dot at top center -->
+        <circle cx="28" cy="12" r="3.5" fill="#e31837"/>
+        <!-- Vertical stem -->
+        <rect x="26" y="26" width="4" height="16" rx="2" fill="#1a3fa0"/>
+      </svg>
+      <span class="text-xs font-semibold mt-1" style="color:#e31837; line-height:1.2; text-align:center;">Jio Multi Recharge</span>
+    </div>
+  </div>
+
+  <!-- Content below header -->
+  <div class="flex flex-col px-6 pt-20 pb-6 flex-1">
+
+    <!-- Welcome text -->
+    <h2 class="text-center text-2xl font-normal mb-7" style="color:#1ab3cc;">Welcome User!</h2>
+
+    <!-- Mobile input -->
+    <div class="input-group mb-4">
+      <div class="input-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="#555">
+          <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+        </svg>
+      </div>
+      <input type="tel" placeholder="Mobile" />
+    </div>
+
+    <!-- Password input -->
+    <div class="input-group mb-2">
+      <div class="input-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="#555">
+          <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+        </svg>
+      </div>
+      <input type="password" placeholder="Password" />
+    </div>
+
+    <!-- Remember Me -->
+    <div class="checkbox-row">
+      <div class="checkbox-box"></div>
+      <span class="text-gray-700 text-base">Remember Me</span>
+    </div>
+
+    <!-- Login button -->
+    <button class="login-btn mb-5">LOGIN</button>
+
+    <!-- Forgot password -->
+    <p class="text-center text-gray-700 text-base">Forgot Password ?</p>
+
+  </div>
+
+  <!-- Spacer -->
+  <div class="flex-1"></div>
+
+  <!-- Toast / info bar at bottom -->
+  <div class="toast-bar">
+    <div class="toast-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="#333">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+      </svg>
+    </div>
+    <span>Please enter Mobile number.</span>
+  </div>
+
+</div>
+
+</body>
+</html>

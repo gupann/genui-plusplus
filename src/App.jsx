@@ -87,7 +87,7 @@ export default function App() {
             path='/iterations/2'
             element={
               <Iteration1HumanEvaluation
-                title='Iteration #2: Human Evaluation'
+                title='Iteration #2'
                 studyBasePath='/iterations/2/study'
                 subtitle='Pick a case study to start Iteration #2.'
                 requireAuthBeforeStudy

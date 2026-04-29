@@ -7,6 +7,7 @@ import {
   createSession,
   findSession,
   getParticipantProfile,
+  listSessions,
   saveSession,
   upsertParticipant,
   upsertParticipantProfile,
@@ -323,7 +324,13 @@ function buildPrompt({ prompt, beforeCode, renderSpec }) {
 //   return sections.join('\n') + '\n\n' + body;
 // }
 
-async function callOpenAI({ prompt, beforeCode, beforeImageUrl, renderSpec }) {
+async function callOpenAI({
+  prompt,
+  beforeCode,
+  beforeImageUrl,
+  renderSpec,
+  finalPrompt,
+}) {
   if (!OPENAI_API_KEY) throw new Error('Missing OPENAI_API_KEY');
   // const imageDataUrl = await loadImageAsDataUrl(beforeImageUrl);
   const input = [
@@ -341,7 +348,7 @@ async function callOpenAI({ prompt, beforeCode, beforeImageUrl, renderSpec }) {
       content: [
         {
           type: 'input_text',
-          text: buildPrompt({ prompt, beforeCode, renderSpec }),
+          text: finalPrompt || buildPrompt({ prompt, beforeCode, renderSpec }),
         },
         // TEMP: Disable before-image conditioning for OpenAI to compare results.
         // ...(imageDataUrl
@@ -395,10 +402,18 @@ async function callOpenAI({ prompt, beforeCode, beforeImageUrl, renderSpec }) {
   return html;
 }
 
-async function callGemini({ prompt, beforeCode, beforeImageUrl, renderSpec }) {
+async function callGemini({
+  prompt,
+  beforeCode,
+  beforeImageUrl,
+  renderSpec,
+  finalPrompt,
+}) {
   if (!GEMINI_API_KEY) throw new Error('Missing GEMINI_API_KEY');
   // const imageDataUrl = await loadImageAsDataUrl(beforeImageUrl);
-  const parts = [{ text: buildPrompt({ prompt, beforeCode, renderSpec }) }];
+  const parts = [
+    { text: finalPrompt || buildPrompt({ prompt, beforeCode, renderSpec }) },
+  ];
 
   // TEMP: Disable before-image conditioning for Gemini to compare results.
   // if (imageDataUrl) {
@@ -452,11 +467,20 @@ async function callGemini({ prompt, beforeCode, beforeImageUrl, renderSpec }) {
   return html;
 }
 
-async function callClaude({ prompt, beforeCode, beforeImageUrl, renderSpec }) {
+async function callClaude({
+  prompt,
+  beforeCode,
+  beforeImageUrl,
+  renderSpec,
+  finalPrompt,
+}) {
   if (!ANTHROPIC_API_KEY) throw new Error('Missing ANTHROPIC_API_KEY');
   // const imageDataUrl = await loadImageAsDataUrl(beforeImageUrl);
   const content = [
-    { type: 'text', text: buildPrompt({ prompt, beforeCode, renderSpec }) },
+    {
+      type: 'text',
+      text: finalPrompt || buildPrompt({ prompt, beforeCode, renderSpec }),
+    },
   ];
   // TEMP: Disable before-image conditioning for Claude to compare results.
   // if (imageDataUrl) {
@@ -536,6 +560,7 @@ async function handleGenerateRequest(req, res) {
     const { taskId, changeId, prompt, beforeImageUrl, beforeCode, provider, renderSpec } =
       body || {};
     const chosen = (provider || PROVIDER_DEFAULT).toLowerCase();
+    const finalPrompt = buildPrompt({ prompt, beforeCode, renderSpec });
     console.log(
       `[generate] provider=${chosen} promptLen=${(prompt || '').length}`,
     );
@@ -547,6 +572,7 @@ async function handleGenerateRequest(req, res) {
         beforeCode,
         beforeImageUrl,
         renderSpec,
+        finalPrompt,
       });
     } else if (chosen === 'gemini') {
       afterHtml = await callGemini({
@@ -554,6 +580,7 @@ async function handleGenerateRequest(req, res) {
         beforeCode,
         beforeImageUrl,
         renderSpec,
+        finalPrompt,
       });
     } else if (chosen === 'claude' || chosen === 'anthropic') {
       afterHtml = await callClaude({
@@ -561,6 +588,7 @@ async function handleGenerateRequest(req, res) {
         beforeCode,
         beforeImageUrl,
         renderSpec,
+        finalPrompt,
       });
     } else {
       return sendJson(res, 400, { error: `Unknown provider: ${chosen}` });
@@ -594,7 +622,7 @@ async function handleGenerateRequest(req, res) {
       // eslint-disable-next-line no-console
       console.warn('Failed to persist generation artifacts', err);
     }
-    return sendJson(res, 200, { afterHtml });
+    return sendJson(res, 200, { afterHtml, finalPrompt });
   } catch (err) {
     if (err?.name === 'AbortError') {
       return sendJson(res, 504, {
@@ -651,6 +679,22 @@ const server = http.createServer(async (req, res) => {
       }
       const session = await findSession({ participantId, iterationId, taskId });
       return sendJson(res, 200, { session: session || null });
+    } catch (err) {
+      return sendJson(res, 500, { error: err?.message || 'Server error' });
+    }
+  }
+
+  if (routePath === '/api/session/list' && method === 'GET') {
+    try {
+      const participantId = query.get('participantId');
+      const iterationId = query.get('iterationId') || query.get('stageId');
+      if (!participantId) {
+        return sendJson(res, 400, {
+          error: 'participantId is required',
+        });
+      }
+      const sessions = await listSessions({ participantId, iterationId });
+      return sendJson(res, 200, { sessions });
     } catch (err) {
       return sendJson(res, 500, { error: err?.message || 'Server error' });
     }

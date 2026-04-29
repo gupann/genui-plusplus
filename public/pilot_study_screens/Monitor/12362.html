@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Order</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: #e5e7eb;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto border-x border-slate-200" style="background:#f0f0f0;">
+
+  <!-- Header -->
+  <div class="flex items-center gap-4 px-4 py-4" style="background:#d94f1e;">
+    <button>
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2.2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+      </svg>
+    </button>
+    <span class="text-white text-xl font-normal">My Order</span>
+  </div>
+
+  <!-- Empty state: centered sad cart -->
+  <div class="flex-1 flex flex-col items-center justify-center pb-20">
+
+    <!-- Sad shopping cart SVG -->
+    <svg width="200" height="190" viewBox="0 0 200 190" xmlns="http://www.w3.org/2000/svg">
+      <!-- Cart handle bar (top left horizontal) -->
+      <rect x="28" y="52" width="72" height="18" rx="9" fill="#808080"/>
+      <!-- Cart body (trapezoid-ish rectangle) -->
+      <rect x="55" y="60" width="110" height="85" rx="6" fill="#808080"/>
+      <!-- Sad face eyes -->
+      <circle cx="94" cy="95" r="5" fill="white"/>
+      <circle cx="116" cy="95" r="5" fill="white"/>
+      <!-- Sad mouth (frown arc) -->
+      <path d="M88 115 Q105 105 122 115" fill="none" stroke="white" stroke-width="4" stroke-linecap="round"/>
+      <!-- Cart bottom bar -->
+      <rect x="50" y="142" width="120" height="14" rx="7" fill="#808080"/>
+      <!-- Left wheel -->
+      <circle cx="78" cy="170" r="16" fill="#808080"/>
+      <circle cx="78" cy="170" r="7" fill="#f0f0f0"/>
+      <!-- Right wheel -->
+      <circle cx="132" cy="170" r="16" fill="#808080"/>
+      <circle cx="132" cy="170" r="7" fill="#f0f0f0"/>
+      <!-- Cart stem connecting handle to body -->
+      <rect x="95" y="52" width="18" height="22" rx="4" fill="#808080"/>
+    </svg>
+
+    <!-- Message -->
+    <p class="text-gray-400 text-xl mt-4 font-light">You didn't add any food</p>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,10 +1,19 @@
 import { useEffect, useState } from 'react';
+import { getPilotStudyCase } from '../config/pilotStudyCases';
 
 function getBeforeImageUrl(taskId) {
+  const pilotStudyCase = getPilotStudyCase(taskId);
+  if (pilotStudyCase) {
+    return `/pilot_study_screens/${encodeURIComponent(pilotStudyCase.assetFolder)}/${pilotStudyCase.screenId}.png`;
+  }
   return `/case-study-${taskId}/task${taskId}-before.png`;
 }
 
 function getBeforeCodeUrl(taskId) {
+  const pilotStudyCase = getPilotStudyCase(taskId);
+  if (pilotStudyCase) {
+    return `/pilot_study_screens/${encodeURIComponent(pilotStudyCase.assetFolder)}/${pilotStudyCase.screenId}.html`;
+  }
   return `/case-study-${taskId}/task${taskId}-before.html`;
 }
 

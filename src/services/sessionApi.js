@@ -34,6 +34,21 @@ export async function loadStudySession({
   return parseJson(response);
 }
 
+export async function listStudySessions({
+  participantId,
+  iterationId,
+  stageId,
+}) {
+  const normalizedIterationId = iterationId ?? stageId;
+  const query = toQuery({
+    participantId,
+    iterationId: normalizedIterationId,
+    stageId: normalizedIterationId,
+  });
+  const response = await fetch(`/api/session/list${query}`);
+  return parseJson(response);
+}
+
 export async function startStudySession({
   participantId,
   iterationId,

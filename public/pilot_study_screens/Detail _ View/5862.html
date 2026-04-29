@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guided Meditation: Abundance</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: #e5e7eb;
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+    .tab-active {
+      border-bottom: 3px solid #222;
+      color: #111;
+    }
+    .tab-inactive {
+      background: #eef0f8;
+      color: #444;
+      border-bottom: 3px solid transparent;
+    }
+  </style>
+</head>
+<body>
+
+<div class="relative flex min-h-screen w-full flex-col bg-white overflow-x-hidden max-w-md mx-auto border-x border-slate-200">
+
+  <!-- Back arrow row -->
+  <div class="px-4 pt-4 pb-2">
+    <button>
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="#7b2d8b" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Teal progress bar -->
+  <div class="w-full h-1" style="background:#e0e0e0;">
+    <div class="h-1" style="width:65%; background:#00b8b0;"></div>
+  </div>
+
+  <!-- Gold/amber banner with social icons -->
+  <div class="flex items-center justify-end px-5 py-3" style="background:#f0c96a;">
+    <!-- Facebook icon -->
+    <button class="mr-4">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="#333">
+        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+      </svg>
+    </button>
+    <!-- Instagram icon -->
+    <button>
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="1.8">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="#333" stroke="none"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Nav icon row: basket, user, menu -->
+  <div class="flex items-center justify-end px-5 py-3 gap-4">
+    <!-- Basket -->
+    <button>
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="#555" stroke-width="1.8">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+      </svg>
+    </button>
+    <!-- User avatar circle -->
+    <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="#777">
+        <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+      </svg>
+    </div>
+    <!-- Hamburger menu -->
+    <button>
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="#333" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Main content -->
+  <div class="px-6 pt-6 pb-4 text-center">
+
+    <!-- Title -->
+    <h1 class="text-4xl font-normal text-gray-800 leading-tight mb-8" style="font-family: Georgia, serif;">
+      Guided Meditation:<br>Abundance
+    </h1>
+
+    <!-- Teacher -->
+    <div class="mb-6">
+      <p class="text-gray-500 text-sm font-semibold mb-1" style="font-family: sans-serif;">Teacher</p>
+      <p class="text-gray-800 font-bold text-base" style="font-family: sans-serif;">Sebastian Orth</p>
+    </div>
+
+    <!-- Category with image -->
+    <div class="flex items-center justify-center gap-4 mb-8">
+      <!-- Semantically similar image: meditation/mindfulness lotus from Unsplash -->
+      <img
+        src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=60&h=60&fit=crop&q=80"
+        alt="Meditation category"
+        class="w-12 h-12 rounded object-cover"
+      />
+      <div class="text-left">
+        <p class="text-gray-500 text-sm font-semibold" style="font-family: sans-serif;">Category:</p>
+        <p class="text-gray-800 font-bold text-base" style="font-family: sans-serif;">Meditation &amp; Mindfulness</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Description / Curriculum tabs -->
+  <div class="flex w-full border-t border-gray-200 mt-2">
+    <button class="flex-1 py-4 text-sm font-bold text-center tab-active" style="font-family: sans-serif;">
+      Description
+    </button>
+    <button class="flex-1 py-4 text-sm font-bold text-center tab-inactive" style="font-family: sans-serif;">
+      Curriculum
+    </button>
+  </div>
+
+  <!-- Tab content area (empty in screenshot) -->
+  <div class="flex-1 bg-white px-6 py-4">
+    <!-- Content area is empty in the original screenshot -->
+  </div>
+
+</div>
+
+</body>
+</html>
