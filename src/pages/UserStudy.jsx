@@ -132,18 +132,19 @@ export default function UserStudy({
           font-size: 1rem;
         }
         .user-study__nav {
-          display: flex;
-          flex-direction: column;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
           gap: 1rem;
-          align-items: center;
+          align-items: stretch;
+          width: min(100%, 1120px);
+          margin: 0 auto;
         }
         .user-study__card {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 1rem;
-          width: min(100%, 960px);
-          padding: 1.25rem 1.5rem;
+          display: grid;
+          gap: 0.85rem;
+          width: 100%;
+          min-height: 152px;
+          padding: 1.1rem 1.1rem 1rem 1.1rem;
           background: var(--surface);
           border: 1px solid var(--border);
           border-radius: var(--radius);
@@ -159,13 +160,14 @@ export default function UserStudy({
         }
         .user-study__card-label {
           font-weight: 500;
+          font-size: 1.02rem;
         }
         .user-study__completed-badge {
           position: absolute;
-          top: 0.9rem;
-          left: 0.9rem;
-          width: 1.8rem;
-          height: 1.8rem;
+          top: 0.8rem;
+          left: 0.8rem;
+          width: 1.65rem;
+          height: 1.65rem;
           display: inline-flex;
           align-items: center;
           justify-content: center;
@@ -180,7 +182,8 @@ export default function UserStudy({
           display: grid;
           gap: 0.6rem;
           min-width: 0;
-          padding-left: 2.5rem;
+          padding-left: 2.2rem;
+          align-content: start;
         }
         .user-study__card-tags {
           display: flex;
@@ -201,8 +204,21 @@ export default function UserStudy({
         }
         .user-study__card-hint {
           color: var(--muted);
-          font-size: 0.9rem;
-          flex-shrink: 0;
+          font-size: 0.88rem;
+          margin-top: auto;
+        }
+        @media (max-width: 900px) {
+          .user-study__nav {
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+          }
+        }
+        @media (max-width: 640px) {
+          .user-study__nav {
+            grid-template-columns: 1fr;
+          }
+          .user-study__card {
+            min-height: 0;
+          }
         }
       `}</style>
     </div>
