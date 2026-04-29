@@ -80,6 +80,30 @@ export function isCompleteHtml(html) {
   return h.includes('</body>') && h.includes('</html>');
 }
 
+const BLOCK_RE = /<<<FIND>>>\r?\n([\s\S]*?)\r?\n<<<REPLACE>>>\r?\n([\s\S]*?)\r?\n<<<END>>>/g;
+
+export function parseEditBlocks(raw) {
+  const blocks = [];
+  BLOCK_RE.lastIndex = 0;
+  let match;
+  while ((match = BLOCK_RE.exec(raw)) !== null) {
+    blocks.push({ find: match[1], replace: match[2] });
+  }
+  return blocks;
+}
+
+export function applyEdits(html, blocks) {
+  let result = html;
+  for (const { find, replace } of blocks) {
+    if (result.includes(find)) {
+      result = result.replace(find, () => replace);
+    } else {
+      console.warn(`[applyEdits] no match for: "${find.slice(0, 80).replace(/\n/g, '↵')}"`);
+    }
+  }
+  return result;
+}
+
 export async function loadImageAsDataUrl(beforeImageUrl) {
   if (!beforeImageUrl) return null;
 
@@ -123,28 +147,32 @@ export async function loadImageAsDataUrl(beforeImageUrl) {
 export function buildPrompt({ prompt, beforeCode, renderSpec }) {
   const cssWidth = renderSpec?.cssWidth || 375;
   const cssHeight = renderSpec?.cssHeight || 812;
-  const exportWidth = renderSpec?.exportWidth || 750;
-  const exportHeight = renderSpec?.exportHeight || 1624;
 
-  const sections = [
-    'You are a senior UI engineer.',
-    'Task: You will be given a designer-provided issue. First rewrite it into a concrete, actionable UI revision instruction, then apply it to the given UI and return the updated full HTML only.',
-    'Rules:',
-    '- Return only HTML starting with <!DOCTYPE html>. No Markdown, no explanations.',
-    '- Preserve ALL existing content and structure; do not remove sections. Only modify what the change requires.',
-    '- Keep the layout mobile-first and consistent with the original.',
-    `- Target phone viewport: ${cssWidth}x${cssHeight} CSS px.`,
-    `- If rendering image outputs, use ${exportWidth}x${exportHeight} px export resolution.`,
-  ];
+  return `You are a senior UI engineer applying a targeted fix to a mobile HTML UI.
 
-  const body = [
-    `Designer-provided issue:\n${prompt || '(no issue provided)'}`,
-    beforeCode
-      ? `\nBefore HTML:\n${beforeCode}`
-      : '\nBefore HTML: (not provided)',
-  ];
+Your task: implement the designer-reported issue below as a minimal, surgical set of edits.
 
-  return `${sections.join('\n')}\n\n${body.join('\n')}`;
+Designer issue:
+${prompt || '(no issue provided)'}
+
+Rules:
+- Output ONLY edit blocks in the exact format shown below. No prose, no full HTML, nothing else.
+- Each block contains the verbatim substring to find and what to replace it with.
+- Copy ALL attribute values (src, href, class, style, etc.) character-for-character from the original — never retype or paraphrase them.
+- Make as few blocks as needed. Do not reformat or restructure code outside the changed region.
+- The FIND text must appear verbatim in the Before HTML or the edit will silently fail.
+- If you need to change multiple disjoint regions, emit one block per region.
+- Target phone viewport: ${cssWidth}x${cssHeight} CSS px.
+
+Block format:
+<<<FIND>>>
+exact original text (may be multiline)
+<<<REPLACE>>>
+replacement text
+<<<END>>>
+
+Before HTML:
+${beforeCode || '(not provided)'}`;
 }
 
 export async function callOpenAI({
@@ -201,13 +229,14 @@ export async function callOpenAI({
   }
 
   const payload = await response.json();
-  let html = extractHtml(extractTextFromOpenAI(payload));
-
-  if (!isCompleteHtml(html)) {
-    html = html.trim();
+  const text = extractTextFromOpenAI(payload);
+  const blocks = parseEditBlocks(text);
+  if (blocks.length > 0) {
+    console.log(`[generate/openai] applying ${blocks.length} edit block(s)`);
+    return applyEdits(beforeCode || '', blocks);
   }
-
-  return html;
+  console.warn('[generate/openai] no edit blocks found, falling back to full-HTML extraction');
+  return extractHtml(text);
 }
 
 export async function callGemini({
@@ -247,13 +276,14 @@ export async function callGemini({
   }
 
   const payload = await response.json();
-  let html = extractHtml(extractTextFromGemini(payload));
-
-  if (!isCompleteHtml(html)) {
-    html = html.trim();
+  const text = extractTextFromGemini(payload);
+  const blocks = parseEditBlocks(text);
+  if (blocks.length > 0) {
+    console.log(`[generate/gemini] applying ${blocks.length} edit block(s)`);
+    return applyEdits(beforeCode || '', blocks);
   }
-
-  return html;
+  console.warn('[generate/gemini] no edit blocks found, falling back to full-HTML extraction');
+  return extractHtml(text);
 }
 
 export async function callClaude({
@@ -294,13 +324,14 @@ export async function callClaude({
   }
 
   const payload = await response.json();
-  let html = extractHtml(extractTextFromClaude(payload));
-
-  if (!isCompleteHtml(html)) {
-    html = html.trim();
+  const text = extractTextFromClaude(payload);
+  const blocks = parseEditBlocks(text);
+  if (blocks.length > 0) {
+    console.log(`[generate/claude] applying ${blocks.length} edit block(s)`);
+    return applyEdits(beforeCode || '', blocks);
   }
-
-  return html;
+  console.warn('[generate/claude] no edit blocks found, falling back to full-HTML extraction');
+  return extractHtml(text);
 }
 
 export function getProviderAvailability() {
