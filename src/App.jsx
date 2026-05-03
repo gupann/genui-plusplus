@@ -103,7 +103,7 @@ export default function App() {
               <Iteration1HumanEvaluation
                 title='Iteration #2'
                 studyBasePath='/iterations/2/study'
-                subtitle='Pick a case study to start Iteration #2. If any LLM-generated screen fails to generate even after 2-3 attempts, let us know the case study number and LLM model as soon as possible.'
+                subtitle='Pick a case study to start Iteration #2. Please complete at least 11-12 case studies per session, or more if you can. If any LLM-generated screen fails to generate even after 2-3 attempts, let us know the case study number and LLM model as soon as possible.'
                 requireAuthBeforeStudy
                 disabledCaseStudyIds={TEMPORARILY_DISABLED_CASE_STUDIES}
               />
