@@ -272,6 +272,8 @@ export async function callOpenAI({
   return extractHtml(text);
 }
 
+const GEMINI_FALLBACK_MODEL = 'gemini-3-flash-preview';
+
 export async function callGemini({
   prompt,
   beforeCode,
@@ -281,27 +283,29 @@ export async function callGemini({
   if (!GEMINI_API_KEY) throw new Error('Missing GEMINI_API_KEY');
 
   const parts = [{ text: buildPrompt({ prompt, beforeCode, renderSpec }) }];
+  const reqBody = JSON.stringify({
+    contents: [{ role: 'user', parts }],
+    generationConfig: { maxOutputTokens: MAX_TOKENS },
+  });
+  const reqHeaders = { 'Content-Type': 'application/json', 'x-goog-api-key': GEMINI_API_KEY };
 
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), PROVIDER_TIMEOUT_MS);
+  async function fetchModel(model) {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), PROVIDER_TIMEOUT_MS);
+    const res = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
+      { method: 'POST', headers: reqHeaders, signal: controller.signal, body: reqBody },
+    );
+    clearTimeout(timeoutId);
+    return res;
+  }
 
-  const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`,
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-goog-api-key': GEMINI_API_KEY,
-      },
-      signal: controller.signal,
-      body: JSON.stringify({
-        contents: [{ role: 'user', parts }],
-        generationConfig: { maxOutputTokens: MAX_TOKENS },
-      }),
-    },
-  );
+  let response = await fetchModel(GEMINI_MODEL);
 
-  clearTimeout(timeoutId);
+  if (response.status === 503) {
+    console.warn(`[generate/gemini] ${GEMINI_MODEL} returned 503, retrying with ${GEMINI_FALLBACK_MODEL}`);
+    response = await fetchModel(GEMINI_FALLBACK_MODEL);
+  }
 
   if (!response.ok) {
     const text = await response.text().catch(() => '');
