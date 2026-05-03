@@ -170,13 +170,40 @@ function parseEditBlocks(raw) {
   return blocks;
 }
 
+function reindentFind(find, html) {
+  const lines = find.split('\n');
+  if (lines.length < 2) return null;
+
+  const firstNonEmpty = lines.find((l) => l.trim());
+  if (!firstNonEmpty) return null;
+
+  const idx = html.indexOf(firstNonEmpty.trim());
+  if (idx === -1) return null;
+
+  let lineStart = idx;
+  while (lineStart > 0 && html[lineStart - 1] !== '\n') lineStart--;
+  const indent = html.slice(lineStart, idx).match(/^[\t ]*/)?.[0] ?? '';
+  if (!indent) return null;
+
+  const reindented = lines
+    .map((l) => (l.trim() ? indent + l.trimStart() : l))
+    .join('\n');
+  return reindented === find ? null : reindented;
+}
+
 function applyEdits(html, blocks) {
   let result = html;
   for (const { find, replace } of blocks) {
     if (result.includes(find)) {
       result = result.replace(find, () => replace);
     } else {
-      console.warn(`[applyEdits] no match for: "${find.slice(0, 80).replace(/\n/g, '↵')}"`);
+      const reindented = reindentFind(find, result);
+      if (reindented && result.includes(reindented)) {
+        console.warn(`[applyEdits] matched after re-indent: "${find.slice(0, 60).replace(/\n/g, '↵')}"`);
+        result = result.replace(reindented, () => replace);
+      } else {
+        console.warn(`[applyEdits] no match for: "${find.slice(0, 80).replace(/\n/g, '↵')}"`);
+      }
     }
   }
   return result;

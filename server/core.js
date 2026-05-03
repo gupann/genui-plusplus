@@ -92,13 +92,46 @@ export function parseEditBlocks(raw) {
   return blocks;
 }
 
+// If the model stripped leading indentation from every line of the find string,
+// re-indent it to match what's actually in the source before giving up.
+function reindentFind(find, html) {
+  const lines = find.split('\n');
+  if (lines.length < 2) return null;
+
+  // Find the first non-empty line of the find string and locate it in the HTML.
+  const firstNonEmpty = lines.find((l) => l.trim());
+  if (!firstNonEmpty) return null;
+
+  const idx = html.indexOf(firstNonEmpty.trim());
+  if (idx === -1) return null;
+
+  // Count how many spaces/tabs precede that match in the HTML.
+  let lineStart = idx;
+  while (lineStart > 0 && html[lineStart - 1] !== '\n') lineStart--;
+  const indent = html.slice(lineStart, idx).match(/^[\t ]*/)?.[0] ?? '';
+  if (!indent) return null;
+
+  // Prepend that indent to every non-empty line.
+  const reindented = lines
+    .map((l) => (l.trim() ? indent + l.trimStart() : l))
+    .join('\n');
+  return reindented === find ? null : reindented;
+}
+
 export function applyEdits(html, blocks) {
   let result = html;
   for (const { find, replace } of blocks) {
     if (result.includes(find)) {
       result = result.replace(find, () => replace);
     } else {
-      console.warn(`[applyEdits] no match for: "${find.slice(0, 80).replace(/\n/g, '↵')}"`);
+      // Fallback: try re-indenting the find string to match the source indentation.
+      const reindented = reindentFind(find, result);
+      if (reindented && result.includes(reindented)) {
+        console.warn(`[applyEdits] matched after re-indent: "${find.slice(0, 60).replace(/\n/g, '↵')}"`);
+        result = result.replace(reindented, () => replace);
+      } else {
+        console.warn(`[applyEdits] no match for: "${find.slice(0, 80).replace(/\n/g, '↵')}"`);
+      }
     }
   }
   return result;
