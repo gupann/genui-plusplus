@@ -205,13 +205,40 @@ function parseEditBlocks(raw) {
   return blocks;
 }
 
+function reindentFind(find, html) {
+  const lines = find.split('\n');
+  if (lines.length < 2) return null;
+
+  const firstNonEmpty = lines.find((l) => l.trim());
+  if (!firstNonEmpty) return null;
+
+  const idx = html.indexOf(firstNonEmpty.trim());
+  if (idx === -1) return null;
+
+  let lineStart = idx;
+  while (lineStart > 0 && html[lineStart - 1] !== '\n') lineStart--;
+  const indent = html.slice(lineStart, idx).match(/^[\t ]*/)?.[0] ?? '';
+  if (!indent) return null;
+
+  const reindented = lines
+    .map((l) => (l.trim() ? indent + l.trimStart() : l))
+    .join('\n');
+  return reindented === find ? null : reindented;
+}
+
 function applyEdits(html, blocks) {
   let result = html;
   for (const { find, replace } of blocks) {
     if (result.includes(find)) {
       result = result.replace(find, () => replace);
     } else {
-      console.warn(`[applyEdits] no match for: "${find.slice(0, 80).replace(/\n/g, '↵')}"`);
+      const reindented = reindentFind(find, result);
+      if (reindented && result.includes(reindented)) {
+        console.warn(`[applyEdits] matched after re-indent: "${find.slice(0, 60).replace(/\n/g, '↵')}"`);
+        result = result.replace(reindented, () => replace);
+      } else {
+        console.warn(`[applyEdits] no match for: "${find.slice(0, 80).replace(/\n/g, '↵')}"`);
+      }
     }
   }
   return result;
@@ -422,6 +449,8 @@ async function callOpenAI({
   return extractHtml(text);
 }
 
+const GEMINI_FALLBACK_MODEL = 'gemini-3-flash-preview';
+
 async function callGemini({
   prompt,
   beforeCode,
@@ -442,24 +471,29 @@ async function callGemini({
   //   parts.push({ inline_data: { mime_type: mime, data } });
   // }
 
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), PROVIDER_TIMEOUT_MS);
-  const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`,
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-goog-api-key': GEMINI_API_KEY,
-      },
-      signal: controller.signal,
-      body: JSON.stringify({
-        contents: [{ role: 'user', parts }],
-        generationConfig: { maxOutputTokens: MAX_TOKENS },
-      }),
-    },
-  );
-  clearTimeout(timeoutId);
+  const reqBody = JSON.stringify({
+    contents: [{ role: 'user', parts }],
+    generationConfig: { maxOutputTokens: MAX_TOKENS },
+  });
+  const reqHeaders = { 'Content-Type': 'application/json', 'x-goog-api-key': GEMINI_API_KEY };
+
+  async function fetchModel(model) {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), PROVIDER_TIMEOUT_MS);
+    const res = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
+      { method: 'POST', headers: reqHeaders, signal: controller.signal, body: reqBody },
+    );
+    clearTimeout(timeoutId);
+    return res;
+  }
+
+  let response = await fetchModel(GEMINI_MODEL);
+
+  if (response.status === 503) {
+    console.warn(`[generate/gemini] ${GEMINI_MODEL} returned 503, retrying with ${GEMINI_FALLBACK_MODEL}`);
+    response = await fetchModel(GEMINI_FALLBACK_MODEL);
+  }
 
   if (!response.ok) {
     const text = await response.text().catch(() => '');

@@ -92,13 +92,46 @@ export function parseEditBlocks(raw) {
   return blocks;
 }
 
+// If the model stripped leading indentation from every line of the find string,
+// re-indent it to match what's actually in the source before giving up.
+function reindentFind(find, html) {
+  const lines = find.split('\n');
+  if (lines.length < 2) return null;
+
+  // Find the first non-empty line of the find string and locate it in the HTML.
+  const firstNonEmpty = lines.find((l) => l.trim());
+  if (!firstNonEmpty) return null;
+
+  const idx = html.indexOf(firstNonEmpty.trim());
+  if (idx === -1) return null;
+
+  // Count how many spaces/tabs precede that match in the HTML.
+  let lineStart = idx;
+  while (lineStart > 0 && html[lineStart - 1] !== '\n') lineStart--;
+  const indent = html.slice(lineStart, idx).match(/^[\t ]*/)?.[0] ?? '';
+  if (!indent) return null;
+
+  // Prepend that indent to every non-empty line.
+  const reindented = lines
+    .map((l) => (l.trim() ? indent + l.trimStart() : l))
+    .join('\n');
+  return reindented === find ? null : reindented;
+}
+
 export function applyEdits(html, blocks) {
   let result = html;
   for (const { find, replace } of blocks) {
     if (result.includes(find)) {
       result = result.replace(find, () => replace);
     } else {
-      console.warn(`[applyEdits] no match for: "${find.slice(0, 80).replace(/\n/g, '↵')}"`);
+      // Fallback: try re-indenting the find string to match the source indentation.
+      const reindented = reindentFind(find, result);
+      if (reindented && result.includes(reindented)) {
+        console.warn(`[applyEdits] matched after re-indent: "${find.slice(0, 60).replace(/\n/g, '↵')}"`);
+        result = result.replace(reindented, () => replace);
+      } else {
+        console.warn(`[applyEdits] no match for: "${find.slice(0, 80).replace(/\n/g, '↵')}"`);
+      }
     }
   }
   return result;
@@ -239,6 +272,8 @@ export async function callOpenAI({
   return extractHtml(text);
 }
 
+const GEMINI_FALLBACK_MODEL = 'gemini-3-flash-preview';
+
 export async function callGemini({
   prompt,
   beforeCode,
@@ -248,27 +283,29 @@ export async function callGemini({
   if (!GEMINI_API_KEY) throw new Error('Missing GEMINI_API_KEY');
 
   const parts = [{ text: buildPrompt({ prompt, beforeCode, renderSpec }) }];
+  const reqBody = JSON.stringify({
+    contents: [{ role: 'user', parts }],
+    generationConfig: { maxOutputTokens: MAX_TOKENS },
+  });
+  const reqHeaders = { 'Content-Type': 'application/json', 'x-goog-api-key': GEMINI_API_KEY };
 
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), PROVIDER_TIMEOUT_MS);
+  async function fetchModel(model) {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), PROVIDER_TIMEOUT_MS);
+    const res = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
+      { method: 'POST', headers: reqHeaders, signal: controller.signal, body: reqBody },
+    );
+    clearTimeout(timeoutId);
+    return res;
+  }
 
-  const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`,
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-goog-api-key': GEMINI_API_KEY,
-      },
-      signal: controller.signal,
-      body: JSON.stringify({
-        contents: [{ role: 'user', parts }],
-        generationConfig: { maxOutputTokens: MAX_TOKENS },
-      }),
-    },
-  );
+  let response = await fetchModel(GEMINI_MODEL);
 
-  clearTimeout(timeoutId);
+  if (response.status === 503) {
+    console.warn(`[generate/gemini] ${GEMINI_MODEL} returned 503, retrying with ${GEMINI_FALLBACK_MODEL}`);
+    response = await fetchModel(GEMINI_FALLBACK_MODEL);
+  }
 
   if (!response.ok) {
     const text = await response.text().catch(() => '');
