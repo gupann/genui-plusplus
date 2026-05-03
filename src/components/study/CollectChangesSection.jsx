@@ -11,15 +11,45 @@ export default function CollectChangesSection({
     <section className='study__section'>
       <h2>Small changes</h2>
       <p className='study__hint'>
-        Add as many small changes as you like. Each row is one small,
-        incremental change (e.g. move a button, adjust copy, tweak spacing,
-        etc.).
+        Add small, specific UI issues, one per row.
       </p>
-      <p className='study__hint'>What is the small change or issue?</p>
       <p className='study__hint'>
-        We&apos;ll convert each issue into a concrete UI revision prompt
-        internally.
+        Each issue should describe what is wrong, where it is on the screen,
+        and what exact change should be made. Focus on small revisions, not
+        full redesigns.
       </p>
+      <div className='study__rubric-box'>
+        <p className='study__rubric-title'>Good revision issues are:</p>
+        <ul className='study__rubric-list'>
+          <li>specific: mention the exact UI element</li>
+          <li>localized: describe a small change, not a full redesign</li>
+          <li>justified: explain why the change matters</li>
+          <li>minimal: avoid changing unrelated parts of the UI</li>
+        </ul>
+        <div className='study__rubric-examples'>
+          <div>
+            <p className='study__rubric-subtitle'>Good</p>
+            <ul className='study__rubric-list'>
+              <li>
+                The upvote button is hard to see in the action bar. Increase
+                contrast and keep it aligned with the other action icons.
+              </li>
+              <li>
+                The post metadata is visually crowded under the title. Add
+                spacing between subreddit, author, and timestamp.
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p className='study__rubric-subtitle'>Bad</p>
+            <ul className='study__rubric-list'>
+              <li>Make it better</li>
+              <li>Fix the layout</li>
+              <li>Make it cleaner</li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
       <form onSubmit={onStartReview} className='study__form'>
         {changes.map((change, index) => (
@@ -42,8 +72,8 @@ export default function CollectChangesSection({
                 className={`study__textarea${validationById[change.id]?.problem ? ' study__textarea--error' : ''}`}
                 value={change.problem}
                 onChange={(e) => onChangeField(index, 'problem', e.target.value)}
-                rows={2}
-                placeholder='e.g. The primary button is too low in the hierarchy; move it closer to the form.'
+                rows={4}
+                placeholder={`Problem: …\nLocation: …\nChange: …`}
               />
               {validationById[change.id]?.problem && (
                 <span className='study__error-text'>

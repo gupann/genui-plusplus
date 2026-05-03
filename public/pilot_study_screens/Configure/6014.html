@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Where do you start your trips?</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #e8e8e8;
+    margin: 0;
+  }
+
+  /* ── top nav ── */
+  .top-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px 8px;
+    background: #fff;
+  }
+  .nav-back {
+    background: none; border: none; cursor: pointer;
+    padding: 4px; display: flex; align-items: center; color: #222;
+  }
+  .nav-skip {
+    background: none; border: none; cursor: pointer;
+    font-size: 16px; font-weight: 600; color: #1aab8a;
+    padding: 4px 0;
+  }
+
+  /* ── illustration area ── */
+  .illustration-wrap {
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px 16px;
+  }
+
+  /* ── body content ── */
+  .content {
+    background: #fff;
+    flex: 1;
+    padding: 28px 22px 24px;
+  }
+  .headline {
+    font-size: 24px;
+    font-weight: 800;
+    color: #111;
+    line-height: 1.25;
+    margin: 0 0 12px;
+  }
+  .subheadline {
+    font-size: 15px;
+    color: #444;
+    line-height: 1.5;
+    margin: 0 0 32px;
+  }
+  .field-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 10px;
+  }
+  .dropdown {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f0f2f5;
+    border-radius: 10px;
+    padding: 16px 18px;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+  }
+  .dropdown-placeholder {
+    font-size: 15px;
+    color: #9aa0ab;
+  }
+  .dropdown-chevron {
+    color: #555;
+    flex-shrink: 0;
+  }
+
+  /* ── spacer that pushes Continue to bottom ── */
+  .spacer { flex: 1; background: #fff; }
+
+  /* ── bottom section ── */
+  .bottom-section {
+    background: #fff;
+    padding: 16px 20px 20px;
+  }
+  .continue-btn {
+    background: #1aab8a;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+    border: none;
+    border-radius: 12px;
+    width: 100%;
+    padding: 18px 0;
+    cursor: pointer;
+    letter-spacing: 0.01em;
+    transition: background 0.15s;
+  }
+  .continue-btn:hover { background: #158f73; }
+
+  /* ── progress bar ── */
+  .progress-bar-track {
+    height: 4px;
+    background: #e0e0e0;
+    border-radius: 2px;
+    margin-top: 14px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    width: 30%;
+    background: #1aab8a;
+    border-radius: 2px;
+  }
+</style>
+</head>
+<body>
+
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto border-x border-slate-200 bg-white">
+
+  <!-- Top nav -->
+  <div class="top-nav">
+    <button class="nav-back" aria-label="Navigate up">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+    </button>
+    <button class="nav-skip">Skip</button>
+  </div>
+
+  <!-- Illustration -->
+  <div class="illustration-wrap">
+    <!--
+      Self-contained SVG: airport terminal building, control tower,
+      parked plane (teal accent), flying plane, clouds, two satellite dishes.
+      All colours are muted greys / teals matching the screenshot palette.
+    -->
+    <svg width="320" height="220" viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- ── Sky background (very light) ── -->
+      <rect width="320" height="220" fill="#f4f6f8" rx="12"/>
+
+      <!-- ── Clouds ── -->
+      <!-- Cloud left -->
+      <ellipse cx="72"  cy="72"  rx="38" ry="22" fill="#e2e6ea"/>
+      <ellipse cx="48"  cy="82"  rx="26" ry="16" fill="#e2e6ea"/>
+      <ellipse cx="98"  cy="80"  rx="28" ry="16" fill="#e2e6ea"/>
+      <!-- Cloud right large -->
+      <ellipse cx="232" cy="60"  rx="52" ry="28" fill="#e2e6ea"/>
+      <ellipse cx="200" cy="72"  rx="30" ry="18" fill="#e2e6ea"/>
+      <ellipse cx="264" cy="70"  rx="34" ry="20" fill="#e2e6ea"/>
+      <!-- Cloud right small -->
+      <ellipse cx="280" cy="108" rx="28" ry="16" fill="#eaedf0"/>
+      <ellipse cx="262" cy="116" rx="20" ry="12" fill="#eaedf0"/>
+      <ellipse cx="298" cy="116" rx="18" ry="11" fill="#eaedf0"/>
+
+      <!-- ── Flying plane (top right) ── -->
+      <!-- fuselage -->
+      <ellipse cx="258" cy="42" rx="24" ry="7" fill="#d0d5dc" transform="rotate(-18 258 42)"/>
+      <!-- wings -->
+      <polygon points="252,42 270,36 274,44 256,48" fill="#bcc3cc"/>
+      <!-- tail -->
+      <polygon points="234,50 242,38 244,46" fill="#bcc3cc"/>
+      <!-- window strip -->
+      <ellipse cx="260" cy="40" rx="12" ry="3" fill="#e8ebee" transform="rotate(-18 260 40)"/>
+
+      <!-- ── Terminal building ── -->
+      <!-- main block -->
+      <rect x="60" y="108" width="170" height="86" rx="3" fill="#dde2e8"/>
+      <!-- glass grid facade -->
+      <g stroke="#c8cfd8" stroke-width="1" fill="none">
+        <!-- verticals -->
+        <line x1="82"  y1="108" x2="82"  y2="194"/>
+        <line x1="104" y1="108" x2="104" y2="194"/>
+        <line x1="126" y1="108" x2="126" y2="194"/>
+        <line x1="148" y1="108" x2="148" y2="194"/>
+        <line x1="170" y1="108" x2="170" y2="194"/>
+        <line x1="192" y1="108" x2="192" y2="194"/>
+        <line x1="214" y1="108" x2="214" y2="194"/>
+        <!-- horizontals -->
+        <line x1="60"  y1="127" x2="230" y2="127"/>
+        <line x1="60"  y1="146" x2="230" y2="146"/>
+        <line x1="60"  y1="165" x2="230" y2="165"/>
+        <line x1="60"  y1="184" x2="230" y2="184"/>
+      </g>
+      <!-- terminal roof highlight -->
+      <rect x="60" y="105" width="170" height="6" rx="2" fill="#c8d0d9"/>
+      <!-- terminal entrance canopy -->
+      <rect x="100" y="180" width="90"  height="14" rx="2" fill="#c8d0d9"/>
+
+      <!-- ── Control tower ── -->
+      <!-- shaft -->
+      <rect x="144" y="54" width="14" height="58" rx="2" fill="#d0d5dc"/>
+      <!-- cab -->
+      <rect x="136" y="46" width="30" height="18" rx="3" fill="#c0c8d2"/>
+      <!-- cab windows -->
+      <rect x="139" y="49" width="8"  height="9" rx="1" fill="#a8b8c8" opacity="0.7"/>
+      <rect x="153" y="49" width="8"  height="9" rx="1" fill="#a8b8c8" opacity="0.7"/>
+      <!-- antenna -->
+      <line x1="151" y1="46" x2="151" y2="36" stroke="#b0bac4" stroke-width="2"/>
+      <circle cx="151" cy="35" r="2.5" fill="#b0bac4"/>
+
+      <!-- ── Ground / tarmac ── -->
+      <rect x="40" y="194" width="240" height="10" rx="2" fill="#cbd2da"/>
+      <!-- runway stripe markings -->
+      <line x1="120" y1="197" x2="140" y2="197" stroke="#fff" stroke-width="2" stroke-dasharray="6,4" opacity="0.6"/>
+      <line x1="155" y1="197" x2="175" y2="197" stroke="#fff" stroke-width="2" stroke-dasharray="6,4" opacity="0.6"/>
+
+      <!-- ── Parked plane (teal) ── -->
+      <!-- fuselage -->
+      <ellipse cx="112" cy="190" rx="56" ry="11" fill="#e8ecf0"/>
+      <!-- nose cone -->
+      <ellipse cx="64"  cy="190" rx="10" ry="8"  fill="#d8dde4"/>
+      <!-- tail fin -->
+      <polygon points="166,184 180,168 180,190" fill="#17a382"/>
+      <!-- horizontal stabiliser -->
+      <polygon points="166,191 178,196 178,190" fill="#d0d5dc"/>
+      <!-- main wing -->
+      <polygon points="100,188 88,164 84,188" fill="#17a382"/>
+      <!-- engine under wing -->
+      <ellipse cx="90" cy="192" rx="10" ry="5" fill="#c8cfd8"/>
+      <!-- windows strip -->
+      <ellipse cx="108" cy="187" rx="28" ry="4" fill="#d0d8e0" opacity="0.6"/>
+      <!-- window dots -->
+      <circle cx="88"  cy="187" r="2.2" fill="#a8b8c8" opacity="0.8"/>
+      <circle cx="96"  cy="187" r="2.2" fill="#a8b8c8" opacity="0.8"/>
+      <circle cx="104" cy="187" r="2.2" fill="#a8b8c8" opacity="0.8"/>
+      <circle cx="112" cy="187" r="2.2" fill="#a8b8c8" opacity="0.8"/>
+      <circle cx="120" cy="187" r="2.2" fill="#a8b8c8" opacity="0.8"/>
+      <!-- nose windows -->
+      <circle cx="72"  cy="187" r="2"   fill="#a8b8c8" opacity="0.7"/>
+      <!-- wheel legs -->
+      <line x1="86"  y1="196" x2="86"  y2="204" stroke="#b0bac4" stroke-width="2.5"/>
+      <line x1="110" y1="198" x2="110" y2="204" stroke="#b0bac4" stroke-width="2.5"/>
+      <ellipse cx="86"  cy="205" rx="6" ry="3" fill="#a0a8b4"/>
+      <ellipse cx="110" cy="205" rx="6" ry="3" fill="#a0a8b4"/>
+
+      <!-- ── Large satellite dish ── -->
+      <!-- pole -->
+      <rect x="233" y="164" width="6" height="40" rx="2" fill="#b8c0cc"/>
+      <!-- pivot arm -->
+      <line x1="236" y1="168" x2="250" y2="158" stroke="#b8c0cc" stroke-width="3"/>
+      <!-- dish bowl -->
+      <path d="M242,140 Q268,128 284,154 Q268,164 242,160 Z" fill="#c8d0da"/>
+      <path d="M244,142 Q266,132 280,154 Q266,162 244,158 Z" fill="#d8dfe8" opacity="0.7"/>
+      <!-- dish centre receiver -->
+      <circle cx="263" cy="146" r="4" fill="#b0bac6"/>
+      <line x1="263" y1="146" x2="263" y2="136" stroke="#b0bac6" stroke-width="2"/>
+
+      <!-- ── Small satellite dish ── -->
+      <rect x="284" y="178" width="5" height="26" rx="2" fill="#b8c0cc"/>
+      <line x1="286" y1="182" x2="296" y2="176" stroke="#b8c0cc" stroke-width="2.5"/>
+      <path d="M291,162 Q304,156 312,170 Q304,176 291,173 Z" fill="#c8d0da"/>
+      <path d="M293,163 Q303,158 310,170 Q303,175 293,172 Z" fill="#d8dfe8" opacity="0.7"/>
+      <circle cx="301" cy="164" r="3" fill="#b0bac6"/>
+      <line x1="301" cy="164" x2="301" y2="156" stroke="#b0bac6" stroke-width="1.5"/>
+
+    </svg>
+  </div>
+
+  <!-- Text content -->
+  <div class="content">
+    <h1 class="headline">Where do you start your trips?</h1>
+    <p class="subheadline">Select your home departure point to receive personalized deals.</p>
+
+    <div class="field-label">Preferred departure</div>
+    <button class="dropdown" aria-label="Pick a city, airport, or station">
+      <span class="dropdown-placeholder">Pick a city, airport, or station.</span>
+      <svg class="dropdown-chevron" width="20" height="20" viewBox="0 0 24 24"
+           fill="none" stroke="currentColor" stroke-width="2.2"
+           stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Flexible spacer -->
+  <div class="spacer"></div>
+
+  <!-- Bottom: Continue + progress -->
+  <div class="bottom-section">
+    <button class="continue-btn">Continue</button>
+    <div class="progress-bar-track">
+      <div class="progress-bar-fill"></div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

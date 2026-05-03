@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Repost</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: #e5e7eb;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+<div class="relative flex min-h-screen w-full flex-col bg-white overflow-x-hidden max-w-md mx-auto border-x border-slate-200">
+
+  <!-- App Header -->
+  <div class="flex items-center justify-between px-4 py-3 bg-gray-100 border-b border-gray-200">
+    <span class="text-xl font-bold text-black">Repost</span>
+    <!-- Instagram camera icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="1.8">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="black" fill="none" stroke-width="1.8"/>
+      <circle cx="12" cy="12" r="4" stroke="black" fill="none" stroke-width="1.8"/>
+      <circle cx="17.5" cy="6.5" r="1" fill="black"/>
+    </svg>
+  </div>
+
+  <!-- Content -->
+  <div class="px-5 pt-6 pb-4 flex-1">
+
+    <!-- Section title -->
+    <p class="text-gray-400 text-base mb-3">How to Repost</p>
+
+    <!-- Step 1 -->
+    <div class="flex items-start mb-1">
+      <span class="text-gray-400 text-base w-6">1.</span>
+      <span class="text-blue-500 text-base font-medium">Open Instagram</span>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="flex items-center mb-4">
+      <span class="text-gray-400 text-base w-6">2.</span>
+      <span class="text-gray-400 text-base mr-1">Tap</span>
+      <!-- three-dot icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mx-1" viewBox="0 0 24 24" fill="#555">
+        <circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/>
+      </svg>
+      <span class="text-gray-400 text-base mx-1">or</span>
+      <!-- paper plane / send icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mx-1" fill="none" viewBox="0 0 24 24" stroke="#555" stroke-width="1.8">
+        <line x1="22" y1="2" x2="11" y2="13"/>
+        <polygon points="22 2 15 22 11 13 2 9 22 2" stroke="#555" fill="none" stroke-width="1.8"/>
+      </svg>
+      <span class="text-gray-400 text-base ml-1">button</span>
+    </div>
+
+    <!-- Simulated Instagram Post Card -->
+    <div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm mb-5">
+      <!-- Post header -->
+      <div class="flex items-center px-3 py-2">
+        <!-- Avatar: gradient circle like "justgradients" -->
+        <div class="w-9 h-9 rounded-full mr-2 flex-shrink-0" style="background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);"></div>
+        <span class="font-semibold text-sm text-black flex-1">justgradients</span>
+        <!-- three dots -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-700" viewBox="0 0 24 24" fill="#333">
+          <circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/>
+        </svg>
+      </div>
+
+      <!-- Post image: gradient with hand annotation overlay -->
+      <div class="relative w-full" style="height: 220px; background: linear-gradient(135deg, #e52d27 0%, #f5813b 60%, #f7b733 100%);">
+        <!-- Unsplash free image to represent gradient/abstract content -->
+        <img
+          src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=500&q=80"
+          alt="Colorful gradient background"
+          class="w-full h-full object-cover opacity-80"
+        />
+        <!-- "or" badge overlay -->
+        <div class="absolute inset-0 flex items-center justify-center">
+          <!-- Hand tap annotation (SVG drawn) -->
+          <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+            <!-- Left hand pointing right -->
+            <path d="M60 180 Q80 140 120 120 Q140 110 160 130 Q170 140 155 160 Q145 175 130 185 Q110 200 80 210 Q65 215 60 200 Z"
+              fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M120 120 Q130 90 150 75 Q165 65 170 80 Q172 95 160 110"
+              fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M150 75 Q160 45 175 40 Q188 36 190 55 Q191 70 175 85"
+              fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M175 40 Q183 15 195 12 Q207 10 208 30 Q208 48 195 60"
+              fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M208 30 Q216 12 226 12 Q237 13 236 32 Q235 50 220 62"
+              fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Right hand tapping down -->
+            <path d="M310 30 Q330 60 340 100 Q345 130 330 155 Q318 175 305 185 Q290 195 280 180 Q272 165 285 145 Q295 130 300 110 Q306 85 295 55 Z"
+              fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          <!-- "or" badge -->
+          <div class="absolute w-10 h-10 rounded-full bg-black flex items-center justify-center" style="left: 52%; top: 50%; transform: translate(-50%,-50%);">
+            <span class="text-white text-xs font-semibold">or</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post actions -->
+      <div class="flex items-center px-3 py-2 bg-white">
+        <!-- Heart -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="1.8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+        </svg>
+        <!-- Comment bubble -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="1.8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+        </svg>
+        <!-- Paper plane send -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="1.8">
+          <line x1="22" y1="2" x2="11" y2="13"/>
+          <polygon points="22 2 15 22 11 13 2 9 22 2" stroke="black" fill="none" stroke-width="1.8"/>
+        </svg>
+        <!-- Bookmark right-aligned -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 ml-auto" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="1.8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="flex items-start mb-1">
+      <span class="text-gray-400 text-base w-6">3.</span>
+      <p class="text-base">
+        <span class="text-gray-400">Choose </span><span class="text-black font-semibold">Copy Link</span>
+      </p>
+    </div>
+
+    <!-- Step 4 (emoji) -->
+    <div class="flex items-start mb-8 ml-6">
+      <span class="text-base mr-1">🎉</span>
+      <span class="text-gray-400 text-base">Open Repost</span>
+    </div>
+
+    <!-- Clipboard toast pill -->
+    <div class="flex justify-center">
+      <div class="bg-gray-200 rounded-full px-6 py-3">
+        <span class="text-gray-700 text-sm">Repost pasted from your clipboard</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Error bar at bottom -->
+  <div class="bg-gray-800 px-4 py-3">
+    <span class="text-white text-sm">Failed to initialize the in app billing manager</span>
+  </div>
+
+</div>
+
+</body>
+</html>

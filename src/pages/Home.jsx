@@ -5,7 +5,6 @@ export default function Home() {
         GenreUI: A Dataset for Understanding, Generating, and Evaluating
         Incremental UI Design
       </h1>
-      <p>blah</p>
     </div>
   );
 }

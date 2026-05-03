@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Medisys Diagnostics Lab</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #c0c0c0; margin: 0; }
+
+  /* ── Toolbar ── */
+  .toolbar {
+    background: #b83010;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    height: 56px;
+    flex-shrink: 0;
+  }
+  .toolbar-title {
+    font-size: 19px;
+    font-weight: 500;
+    color: #f8c8b0;
+    letter-spacing: 0.01em;
+  }
+  .toolbar-more {
+    background: none; border: none; cursor: pointer;
+    padding: 6px; color: #f8c8b0;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* ── Scrollable content (dimmed behind dialog) ── */
+  .page-content {
+    flex: 1;
+    overflow-y: auto;
+    position: relative;
+  }
+  .dimmed {
+    filter: brightness(0.55);
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* ── Banner card ── */
+  .banner-card {
+    margin: 12px 12px 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    position: relative;
+  }
+  .banner-inner {
+    display: flex;
+    align-items: stretch;
+    min-height: 130px;
+  }
+  .banner-left {
+    flex: 1;
+    padding: 14px 12px 12px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .banner-logo {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 2px;
+  }
+  .banner-logo-icon {
+    width: 28px; height: 28px;
+    background: #d12020;
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .banner-logo-text {
+    font-size: 11px;
+    font-weight: 700;
+    color: #222;
+    line-height: 1.2;
+  }
+  .banner-logo-tagline {
+    font-size: 8px;
+    color: #888;
+    font-style: italic;
+  }
+  .download-label {
+    font-size: 10px;
+    font-weight: 800;
+    color: #222;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .store-badges {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .store-badge {
+    background: #111;
+    border-radius: 4px;
+    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+  }
+  .store-badge-text { font-size: 9px; color: #fff; line-height: 1.3; }
+  .store-badge-label { font-size: 11px; color: #fff; font-weight: 700; }
+
+  /* right side: checklist + doctor photo */
+  .banner-right {
+    width: 200px;
+    background: #1a6eb4;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+  .banner-checks {
+    padding: 10px 10px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    z-index: 2;
+    flex: 1;
+  }
+  .banner-check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 10px;
+    color: #fff;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  .check-circle {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: #27ae60;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 1px;
+  }
+
+  /* doctor photo in the bottom-right of banner */
+  .doctor-photo {
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 80px; height: 110px;
+    object-fit: cover;
+    object-position: top center;
+    z-index: 1;
+  }
+  .doctor-photo-svg {
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 82px; height: 112px;
+    z-index: 1;
+  }
+
+  /* ── Content sections ── */
+  .section-card {
+    background: #fff;
+    margin: 0 12px 10px;
+    border-radius: 10px;
+    padding: 20px 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  .section-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.25;
+    margin-bottom: 6px;
+  }
+  .required-note {
+    font-size: 13px;
+    color: #c0392b;
+    margin-top: 10px;
+  }
+
+  /* ── Form fields ── */
+  .form-card {
+    background: #fff;
+    margin: 0 12px 10px;
+    border-radius: 10px;
+    padding: 18px 16px 20px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  .field-label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 12px;
+  }
+  .field-label .req { color: #c0392b; }
+  .field-input {
+    width: 100%;
+    border: none;
+    border-bottom: 1.5px solid #ccc;
+    font-size: 14px;
+    color: #aaa;
+    padding: 6px 0;
+    background: transparent;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* ── FAB ── */
+  .fab-btn {
+    position: fixed;
+    bottom: 24px;
+    right: calc(50% - 200px + 16px); /* right side within the max-w-md container */
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: #c0392b;
+    border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 5;
+    color: #fff;
+  }
+
+  /* ── Dialog overlay ── */
+  .dialog-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 30;
+    pointer-events: none;
+  }
+  .dialog-box {
+    background: #2a2a2a;
+    border-radius: 22px;
+    padding: 28px 24px 18px;
+    width: calc(100% - 40px);
+    max-width: 360px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    pointer-events: all;
+  }
+  .dialog-title {
+    font-size: 19px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  .dialog-subtitle {
+    font-size: 17px;
+    font-weight: 400;
+    color: #ddd;
+    margin-bottom: 28px;
+    line-height: 1.4;
+  }
+  .dialog-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .dialog-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    letter-spacing: 0.01em;
+    transition: background 0.15s;
+  }
+  .dialog-btn:hover { background: rgba(255,255,255,0.1); }
+  .dialog-btn.exit { color: #ccc; }
+  .dialog-actions-right { display: flex; gap: 4px; }
+</style>
+</head>
+<body>
+
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto border-x border-slate-200"
+     style="background:#f0f0f0; position: relative;">
+
+  <!-- ── Toolbar ── -->
+  <div class="toolbar">
+    <span class="toolbar-title">Medisys Diagnostics Lab</span>
+    <button class="toolbar-more" aria-label="More options">
+      <svg width="5" height="22" viewBox="0 0 5 24" fill="#f8c8b0">
+        <circle cx="2.5" cy="3"  r="2.2"/>
+        <circle cx="2.5" cy="12" r="2.2"/>
+        <circle cx="2.5" cy="21" r="2.2"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- ── Page content (dimmed by overlay) ── -->
+  <div class="page-content">
+    <div class="dimmed">
+
+      <!-- ── Banner card ── -->
+      <div class="banner-card">
+        <div class="banner-inner">
+
+          <!-- Left: logo + download badges -->
+          <div class="banner-left">
+            <div class="banner-logo">
+              <div class="banner-logo-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+                </svg>
+              </div>
+              <div>
+                <div class="banner-logo-text">Medisys Diagnostics</div>
+                <div class="banner-logo-tagline">Leveraging technology for better health</div>
+              </div>
+            </div>
+            <div class="download-label">Download our mobile app</div>
+            <div class="store-badges">
+              <div class="store-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#4caf50"><path d="M3 20.5v-17l18 8.5L3 20.5z"/></svg>
+                <div>
+                  <div class="store-badge-text">GET IT ON</div>
+                  <div class="store-badge-label">Google Play</div>
+                </div>
+              </div>
+              <div class="store-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#fff"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83"/></svg>
+                <div>
+                  <div class="store-badge-text">Download on the</div>
+                  <div class="store-badge-label">App Store</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: features + doctor -->
+          <div class="banner-right">
+            <div class="banner-checks">
+              <div class="banner-check-item">
+                <div class="check-circle">
+                  <svg width="8" height="8" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><polyline points="1,5 4,8 9,2"/></svg>
+                </div>
+                <span>Greater Noida's first fully automated world class advanced lab</span>
+              </div>
+              <div class="banner-check-item">
+                <div class="check-circle">
+                  <svg width="8" height="8" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><polyline points="1,5 4,8 9,2"/></svg>
+                </div>
+                <span>Accurate reporting</span>
+              </div>
+              <div class="banner-check-item">
+                <div class="check-circle">
+                  <svg width="8" height="8" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><polyline points="1,5 4,8 9,2"/></svg>
+                </div>
+                <span>Affordable pricing</span>
+              </div>
+            </div>
+
+            <!-- Doctor SVG illustration replacing photo -->
+            <svg class="doctor-photo-svg" viewBox="0 0 82 112" xmlns="http://www.w3.org/2000/svg">
+              <!-- lab coat body -->
+              <rect x="16" y="52" width="50" height="60" rx="4" fill="#fff"/>
+              <!-- coat lapels -->
+              <polygon points="41,52 28,52 22,72 41,65" fill="#e8eef8"/>
+              <polygon points="41,52 54,52 60,72 41,65" fill="#e8eef8"/>
+              <!-- shirt / scrubs underneath -->
+              <rect x="30" y="52" width="22" height="20" fill="#4a90d9"/>
+              <!-- stethoscope -->
+              <path d="M28 58 Q24 70 30 74 Q36 78 38 72" stroke="#555" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <circle cx="38" cy="72" r="3" fill="#777"/>
+              <!-- neck -->
+              <rect x="35" y="38" width="12" height="16" rx="4" fill="#d4a882"/>
+              <!-- head -->
+              <ellipse cx="41" cy="30" rx="18" ry="20" fill="#d4a882"/>
+              <!-- hair — dark, neat -->
+              <ellipse cx="41" cy="14" rx="18" ry="10" fill="#2a1a10"/>
+              <path d="M23 24 Q21 14 25 10 Q33 4 41 4 Q49 4 57 10 Q61 14 59 24" fill="#2a1a10"/>
+              <!-- ear left -->
+              <ellipse cx="23" cy="30" rx="4" ry="5" fill="#c49870"/>
+              <!-- ear right -->
+              <ellipse cx="59" cy="30" rx="4" ry="5" fill="#c49870"/>
+              <!-- eyes -->
+              <ellipse cx="34" cy="28" rx="3.5" ry="4" fill="#fff"/>
+              <ellipse cx="34" cy="29" rx="2" ry="2.5" fill="#2a1a10"/>
+              <ellipse cx="48" cy="28" rx="3.5" ry="4" fill="#fff"/>
+              <ellipse cx="48" cy="29" rx="2" ry="2.5" fill="#2a1a10"/>
+              <!-- nose -->
+              <path d="M39 35 Q41 38 43 35" stroke="#b08060" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <!-- mouth — slight smile -->
+              <path d="M36 40 Q41 44 46 40" stroke="#a06848" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+              <!-- arm holding vial -->
+              <path d="M60 70 Q68 60 66 50" stroke="#d4a882" stroke-width="8" stroke-linecap="round" fill="none"/>
+              <!-- test tube -->
+              <rect x="62" y="36" width="8" height="20" rx="4" fill="#e8f4e8" stroke="#aaa" stroke-width="1.5"/>
+              <rect x="63" y="36" width="6" height="8" rx="0" fill="#c8e8c8"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Page heading card ── -->
+      <div class="section-card">
+        <div class="section-title">Medisys Free Home Collection</div>
+        <p class="required-note">* Indicates required question</p>
+      </div>
+
+      <!-- ── Patient Name field ── -->
+      <div class="form-card">
+        <div class="field-label">Patient Name <span class="req">*</span></div>
+        <input class="field-input" type="text" placeholder="Your answer" />
+      </div>
+
+      <!-- ── Phone field (partially visible) ── -->
+      <div class="form-card" style="padding-bottom: 10px;">
+        <div class="field-label">Phone <span class="req">*</span></div>
+      </div>
+
+    </div><!-- /dimmed -->
+
+    <!-- ── FAB (forms menu) ── -->
+    <button class="fab-btn" aria-label="Form options" style="position:absolute;bottom:24px;right:16px;z-index:5;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round">
+        <line x1="3" y1="6"  x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+
+    <!-- ── Exit dialog overlay ── -->
+    <div class="dialog-overlay">
+      <div class="dialog-box" role="dialog" aria-modal="true" aria-labelledby="dlg-title">
+        <div class="dialog-title" id="dlg-title">Are you sure you want to exit?</div>
+        <div class="dialog-subtitle">We would love to hear from you!</div>
+        <div class="dialog-actions">
+          <button class="dialog-btn exit">Exit</button>
+          <div class="dialog-actions-right">
+            <button class="dialog-btn">Cancel</button>
+            <button class="dialog-btn">Rate Us</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /page-content -->
+
+</div>
+</body>
+</html>

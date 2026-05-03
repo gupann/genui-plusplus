@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Josephina Profile</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: #e5e7eb;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    .tab-active {
+      color: #111;
+      font-weight: 700;
+      border-bottom: 3px solid #e0302a;
+    }
+    .tab-inactive {
+      color: #999;
+      font-weight: 400;
+      border-bottom: 3px solid transparent;
+    }
+    .avatar-ring {
+      background: conic-gradient(#00d4e8, #a78bfa, #f472b6, #fbbf24, #00d4e8);
+      padding: 3px;
+      border-radius: 9999px;
+    }
+    .badge-blue {
+      background: #3b82f6;
+      border-radius: 999px;
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+    .badge-teal {
+      background: #0ea5e9;
+      border-radius: 999px;
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+    .badge-purple {
+      background: #7c3aed;
+      border-radius: 999px;
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="relative flex min-h-screen w-full flex-col bg-white overflow-x-hidden max-w-md mx-auto border-x border-slate-200">
+
+  <!-- Hero / Cover image area -->
+  <div class="relative w-full" style="height: 420px; overflow: hidden;">
+    <!-- Background cover photo: blonde woman, semantically similar to original -->
+    <img
+      src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=500&q=80"
+      alt="Profile cover"
+      class="w-full h-full object-cover object-top"
+    />
+    <!-- Dark overlay for readability -->
+    <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.45) 100%);"></div>
+
+    <!-- Top nav: back + more -->
+    <div class="absolute top-0 left-0 right-0 flex items-center justify-between px-4 pt-4">
+      <button>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+        </svg>
+      </button>
+      <button>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="white">
+          <circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Profile info overlaid at bottom of hero -->
+    <div class="absolute bottom-0 left-0 right-0 px-4 pb-4">
+
+      <!-- Avatar with decorative ring -->
+      <div class="mb-3">
+        <div class="avatar-ring inline-block" style="width:88px; height:88px;">
+          <div class="w-full h-full rounded-full overflow-hidden border-2 border-white" style="width:82px; height:82px;">
+            <img
+              src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=200&h=200&fit=crop&crop=face&q=80"
+              alt="Josephina avatar"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+        <!-- Decorative emoji sticker -->
+        <span class="text-xl absolute" style="margin-left:-18px; margin-top:-10px;">🎂</span>
+      </div>
+
+      <!-- Name row -->
+      <div class="flex items-center gap-1 flex-wrap mb-1">
+        <span class="text-lg">🎬⭐</span>
+        <span class="text-white font-extrabold text-lg tracking-wide">JOSEPHINA</span>
+        <span class="text-lg">🔥💜</span>
+      </div>
+
+      <!-- ID -->
+      <p class="text-white text-xs opacity-80 mb-2">ID: 13385224550</p>
+
+      <!-- Badges -->
+      <div class="flex items-center gap-2 flex-wrap mb-2">
+        <span class="badge-blue">💎 40</span>
+        <span class="badge-teal">🛡 11</span>
+        <span class="badge-purple">👥 Reach</span>
+      </div>
+
+      <!-- Roles -->
+      <div class="flex flex-col gap-1">
+        <div class="flex items-center gap-2">
+          <span class="text-sm">⭐</span>
+          <span class="text-white text-xs font-medium">Talent Singer</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-sm">🔷</span>
+          <span class="text-white text-xs font-medium">Party Guru of Room 237369</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats row -->
+  <div class="grid grid-cols-4 divide-x divide-gray-200 border-b border-gray-200 py-4">
+    <div class="flex flex-col items-center">
+      <span class="font-bold text-lg text-gray-900">2.7K</span>
+      <span class="text-xs text-gray-500 mt-0.5">Followers</span>
+    </div>
+    <div class="flex flex-col items-center">
+      <span class="font-bold text-lg text-gray-900">314</span>
+      <span class="text-xs text-gray-500 mt-0.5">Following</span>
+    </div>
+    <div class="flex flex-col items-center">
+      <span class="font-bold text-lg text-gray-900">143</span>
+      <span class="text-xs text-gray-500 mt-0.5">Rank</span>
+    </div>
+    <div class="flex flex-col items-center">
+      <span class="font-bold text-lg text-gray-900">4.2K</span>
+      <span class="text-xs text-gray-500 mt-0.5">Gifts</span>
+    </div>
+  </div>
+
+  <!-- Group / Room card -->
+  <div class="mx-3 my-3 rounded-xl border border-pink-100 flex items-center gap-3 px-3 py-3" style="background:#fff5f5;">
+    <!-- Group image: mountain haven scene -->
+    <div class="relative flex-shrink-0">
+      <img
+        src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=80&h=80&fit=crop&q=80"
+        alt="The Haven group"
+        class="w-16 h-16 rounded-xl object-cover"
+      />
+      <!-- Member count badge -->
+      <span class="absolute -top-1 -right-1 bg-gray-700 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">6</span>
+    </div>
+    <div class="flex-1">
+      <p class="font-bold text-gray-900 text-sm">T̈hë HÅVËÑ</p>
+      <p class="text-gray-500 text-xs">17 Members</p>
+    </div>
+    <button class="bg-red-600 text-white font-bold text-sm rounded-full px-5 py-2">
+      JOIN
+    </button>
+  </div>
+
+  <!-- Navigation tabs (scrollable) -->
+  <div class="flex border-b border-gray-200 px-3 gap-5 overflow-x-auto" style="scrollbar-width:none;">
+    <button class="tab-active pb-2 pt-1 text-sm whitespace-nowrap">Homepage</button>
+    <button class="tab-inactive pb-2 pt-1 text-sm whitespace-nowrap">Moment</button>
+    <button class="tab-inactive pb-2 pt-1 text-sm whitespace-nowrap">Playlist</button>
+    <button class="tab-inactive pb-2 pt-1 text-sm whitespace-nowrap">Covers</button>
+    <button class="tab-inactive pb-2 pt-1 text-sm whitespace-nowrap">Duet</button>
+    <button class="tab-inactive pb-2 pt-1 text-sm whitespace-nowrap">Short V</button>
+  </div>
+
+  <!-- Personal info row -->
+  <div class="flex items-center justify-between px-4 py-4 border-b border-gray-100">
+    <span class="font-bold text-gray-900 text-base">Personal info</span>
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="#bbb" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+    </svg>
+  </div>
+
+  <!-- Spacer -->
+  <div class="flex-1"></div>
+
+  <!-- Bottom action bar: Follow + Chat -->
+  <div class="flex items-center border-t border-gray-200 bg-white">
+    <button class="flex-1 flex items-center justify-center gap-2 py-4 text-red-600 font-bold text-base border-r border-gray-200">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="#e0302a">
+        <path d="M19 11h-6V5a1 1 0 00-2 0v6H5a1 1 0 000 2h6v6a1 1 0 002 0v-6h6a1 1 0 000-2z"/>
+      </svg>
+      Follow
+    </button>
+    <button class="flex-1 flex items-center justify-center gap-2 py-4 text-red-600 font-bold text-base">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#e0302a" stroke-width="2">
+        <line x1="22" y1="2" x2="11" y2="13"/>
+        <polygon points="22 2 15 22 11 13 2 9 22 2" fill="#e0302a" stroke="none"/>
+      </svg>
+      Chat
+    </button>
+  </div>
+
+</div>
+
+</body>
+</html>

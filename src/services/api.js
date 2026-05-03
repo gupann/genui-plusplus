@@ -33,6 +33,7 @@ function getGenerateUrl() {
 
 export async function generateAfterScreen({
   taskId,
+  changeId,
   prompt,
   beforeImageUrl,
   beforeCode,
@@ -55,6 +56,7 @@ export async function generateAfterScreen({
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         taskId,
+        changeId,
         prompt,
         beforeImageUrl,
         beforeCode,
@@ -87,6 +89,7 @@ export async function generateAfterScreen({
     afterImageUrl: payload.afterImageUrl,
     afterHtml: payload.afterHtml,
     afterCode: payload.afterCode,
+    finalPrompt: payload.finalPrompt,
   };
 }
 

@@ -65,6 +65,7 @@ export function useStudyGeneration({
       try {
         const result = await generateAfterScreen({
           taskId,
+          changeId,
           prompt: current.problem,
           beforeImageUrl,
           beforeCode,

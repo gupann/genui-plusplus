@@ -2,10 +2,13 @@ import { getSupabaseAdminClient } from './supabaseAdmin.js';
 
 function mapSession(row, snapshot) {
   if (!row) return null;
+  const normalizedIterationId = row.iteration_id ?? row.stage_id;
   return {
     id: row.id,
     participantId: row.participant_id,
-    stageId: row.stage_id,
+    iterationId: normalizedIterationId,
+    // Backward compatibility with older frontend readers.
+    stageId: normalizedIterationId,
     taskId: row.task_id,
     status: row.status,
     snapshot: snapshot || {},
@@ -24,6 +27,152 @@ async function getSnapshotBySessionId(supabase, sessionId) {
     .maybeSingle();
   if (error) throw new Error(error.message);
   return data?.snapshot || {};
+}
+
+function normalizeOutcome(value) {
+  if (value === true || value === 'passed') return 'passed';
+  if (value === false || value === 'failed') return 'failed';
+  if (value === 'partially_passed') return 'partially_passed';
+  return null;
+}
+
+function normalizeRank(value) {
+  const parsed = Number(value);
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : null;
+}
+
+function getFeedbackNotes(map, changeId, providerId) {
+  const entries = Array.isArray(map?.[changeId]) ? map[changeId] : [];
+  return entries
+    .filter((entry) => entry?.providerId === providerId)
+    .map((entry) => String(entry?.text || '').trim())
+    .filter(Boolean);
+}
+
+async function materializeSessionArtifacts({ supabase, sessionRow, snapshot }) {
+  if (!sessionRow?.id) return;
+
+  const sessionId = sessionRow.id;
+  const participantId = sessionRow.participant_id;
+  const stageId = Number(sessionRow.iteration_id ?? sessionRow.stage_id);
+  const taskId = Number(sessionRow.task_id);
+  const changes = Array.isArray(snapshot?.changes) ? snapshot.changes : [];
+  const resultsById = snapshot?.resultsById || {};
+  const approvalsByProvider = snapshot?.approvalsByProvider || {};
+  const rankingById = snapshot?.rankingById || {};
+  const successById = snapshot?.successById || {};
+  const notSuccessById = snapshot?.notSuccessById || {};
+  const now = new Date().toISOString();
+
+  const changeRows = changes.map((change, index) => ({
+    session_id: sessionId,
+    participant_id: participantId,
+    stage_id: stageId,
+    task_id: taskId,
+    change_id: Number(change?.id),
+    change_order: index + 1,
+    issue_text: String(change?.problem || ''),
+    updated_at: now,
+  }));
+
+  const outputRows = [];
+  const evaluationRows = [];
+
+  for (const change of changes) {
+    const changeId = Number(change?.id);
+    const providerStates = resultsById?.[changeId] || {};
+    const evaluationProviderIds = new Set([
+      ...Object.keys(approvalsByProvider?.[changeId] || {}),
+      ...Object.keys(rankingById?.[changeId] || {}),
+      ...((Array.isArray(successById?.[changeId]) ? successById[changeId] : [])
+        .map((entry) => entry?.providerId)
+        .filter(Boolean)),
+      ...((Array.isArray(notSuccessById?.[changeId])
+        ? notSuccessById[changeId]
+        : [])
+        .map((entry) => entry?.providerId)
+        .filter(Boolean)),
+    ]);
+
+    for (const [providerId, providerState] of Object.entries(providerStates)) {
+      const result = providerState?.result || {};
+      outputRows.push({
+        session_id: sessionId,
+        participant_id: participantId,
+        stage_id: stageId,
+        task_id: taskId,
+        change_id: changeId,
+        provider_id: providerId,
+        input_issue_text: String(change?.problem || ''),
+        revision_prompt: String(result?.finalPrompt || ''),
+        after_html: String(result?.afterHtml || result?.afterCode || ''),
+        after_image_url: result?.afterImageUrl || null,
+        output_status: providerState?.error
+          ? 'error'
+          : providerState?.loading
+            ? 'loading'
+            : result?.afterHtml || result?.afterCode || result?.afterImageUrl
+              ? 'generated'
+              : providerState?.done
+                ? 'empty'
+                : 'pending',
+        error_text: providerState?.error || null,
+        updated_at: now,
+      });
+    }
+
+    for (const providerId of evaluationProviderIds) {
+      evaluationRows.push({
+        session_id: sessionId,
+        participant_id: participantId,
+        stage_id: stageId,
+        task_id: taskId,
+        change_id: changeId,
+        provider_id: providerId,
+        outcome: normalizeOutcome(approvalsByProvider?.[changeId]?.[providerId]),
+        rank: normalizeRank(rankingById?.[changeId]?.[providerId]),
+        success_notes: getFeedbackNotes(successById, changeId, providerId),
+        failure_notes: getFeedbackNotes(notSuccessById, changeId, providerId),
+        updated_at: now,
+      });
+    }
+  }
+
+  const deletions = [
+    supabase.from('study_change_requests').delete().eq('session_id', sessionId),
+    supabase
+      .from('study_generation_outputs')
+      .delete()
+      .eq('session_id', sessionId),
+    supabase
+      .from('study_provider_evaluations')
+      .delete()
+      .eq('session_id', sessionId),
+  ];
+
+  for (const deletion of deletions) {
+    const { error } = await deletion;
+    if (error) throw new Error(error.message);
+  }
+
+  if (changeRows.length) {
+    const { error } = await supabase.from('study_change_requests').insert(changeRows);
+    if (error) throw new Error(error.message);
+  }
+
+  if (outputRows.length) {
+    const { error } = await supabase
+      .from('study_generation_outputs')
+      .insert(outputRows);
+    if (error) throw new Error(error.message);
+  }
+
+  if (evaluationRows.length) {
+    const { error } = await supabase
+      .from('study_provider_evaluations')
+      .insert(evaluationRows);
+    if (error) throw new Error(error.message);
+  }
 }
 
 export async function upsertParticipant({
@@ -101,13 +250,14 @@ export async function getParticipantProfile({ participantId }) {
   };
 }
 
-export async function findSession({ participantId, stageId, taskId }) {
+export async function findSession({ participantId, iterationId, stageId, taskId }) {
+  const normalizedIterationId = Number(iterationId ?? stageId);
   const supabase = getSupabaseAdminClient();
   const { data, error } = await supabase
     .from('study_sessions')
     .select('*')
     .eq('participant_id', participantId)
-    .eq('stage_id', Number(stageId))
+    .eq('stage_id', normalizedIterationId)
     .eq('task_id', Number(taskId))
     .order('updated_at', { ascending: false })
     .limit(1)
@@ -119,19 +269,51 @@ export async function findSession({ participantId, stageId, taskId }) {
   return mapSession(data, snapshot);
 }
 
+export async function listSessions({ participantId, iterationId, stageId }) {
+  if (!participantId) throw new Error('participantId is required');
+  const normalizedIterationId =
+    iterationId !== undefined || stageId !== undefined
+      ? Number(iterationId ?? stageId)
+      : null;
+  const supabase = getSupabaseAdminClient();
+  let query = supabase
+    .from('study_sessions')
+    .select('*')
+    .eq('participant_id', participantId)
+    .order('updated_at', { ascending: false });
+
+  if (normalizedIterationId !== null) {
+    query = query.eq('stage_id', normalizedIterationId);
+  }
+
+  const { data, error } = await query;
+  if (error) throw new Error(error.message);
+  if (!data?.length) return [];
+
+  const sessions = await Promise.all(
+    data.map(async (row) => {
+      const snapshot = await getSnapshotBySessionId(supabase, row.id);
+      return mapSession(row, snapshot);
+    }),
+  );
+  return sessions;
+}
+
 export async function createSession({
   participantId,
+  iterationId,
   stageId,
   taskId,
   snapshot,
   status = 'in_progress',
 }) {
+  const normalizedIterationId = Number(iterationId ?? stageId);
   const supabase = getSupabaseAdminClient();
   const { data, error } = await supabase
     .from('study_sessions')
     .insert({
       participant_id: participantId,
-      stage_id: Number(stageId),
+      stage_id: normalizedIterationId,
       task_id: Number(taskId),
       status,
       started_at: new Date().toISOString(),
@@ -148,6 +330,12 @@ export async function createSession({
       updated_at: new Date().toISOString(),
     });
   if (snapshotError) throw new Error(snapshotError.message);
+
+  await materializeSessionArtifacts({
+    supabase,
+    sessionRow: data,
+    snapshot: snapshot || {},
+  });
 
   return mapSession(data, snapshot || {});
 }
@@ -172,6 +360,12 @@ export async function saveSession({ sessionId, snapshot, status }) {
       updated_at: new Date().toISOString(),
     });
   if (snapshotError) throw new Error(snapshotError.message);
+
+  await materializeSessionArtifacts({
+    supabase,
+    sessionRow: data,
+    snapshot: snapshot || {},
+  });
 
   return mapSession(data, snapshot || {});
 }
@@ -199,6 +393,12 @@ export async function completeSession({ sessionId, snapshot }) {
       updated_at: completedAt,
     });
   if (snapshotError) throw new Error(snapshotError.message);
+
+  await materializeSessionArtifacts({
+    supabase,
+    sessionRow: data,
+    snapshot: snapshot || {},
+  });
 
   return mapSession(data, snapshot || {});
 }

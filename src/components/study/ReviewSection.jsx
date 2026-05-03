@@ -8,6 +8,7 @@ export default function ReviewSection({
   issueDirty,
   issueDraftError,
   providersForChange,
+  requiredProvidersForChange,
   activeProvider,
   scopedSuccess,
   scopedFailure,
@@ -43,6 +44,13 @@ export default function ReviewSection({
   const successCountForProvider = scopedSuccess.length;
   const failureCountForProvider = scopedFailure.length;
   const rankingCurrent = rankingById[currentChange.id] || {};
+  const approvalValue = approvalsByProvider[currentChange.id]?.[provider?.id];
+  const normalizedOutcome =
+    approvalValue === true
+      ? 'passed'
+      : approvalValue === false
+        ? 'failed'
+        : approvalValue || '';
   const getAssignedRank = (providerId) => {
     if (rankingCurrent[providerId]) return rankingCurrent[providerId];
     const legacyRankKey = Object.keys(rankingCurrent).find(
@@ -57,8 +65,8 @@ export default function ReviewSection({
       <p className='study__hint'>
         Let&apos;s use your issue description for this small change to generate
         an updated screen. Tell us what is successful, what is not, and whether
-        you would approve this result as a designer. Each success or failure
-        should be one thing to keep the feedback itemized.
+        this result passed, partially passed, or failed as a designer. Each
+        success or failure should be one thing to keep the feedback itemized.
       </p>
 
       <div className='study__change study__change--summary'>
@@ -78,8 +86,8 @@ export default function ReviewSection({
           className={`study__textarea${issueDraftError ? ' study__textarea--error' : ''}`}
           value={issueDraft}
           onChange={(e) => onIssueDraftChange(e.target.value)}
-          rows={3}
-          placeholder='Describe the issue to fix'
+          rows={4}
+          placeholder={`Problem: …\nLocation: …\nChange: …`}
         />
         <p className='study__hint' style={{ margin: 0 }}>
           When you apply an update, old model outputs for this change are cleared
@@ -219,41 +227,75 @@ export default function ReviewSection({
             <div className='study__label study__provider-approve'>
               <div className='study__label-row'>
                 <span>
-                  Let us know whether you&apos;d approve this output by{' '}
-                  {provider.label}:
+                  Rate the outcome for {provider.label}&apos;s output:
                 </span>
                 <div className='study__provider-approve-actions'>
                   <button
                     type='button'
-                    className={`study__chip-btn study__chip-btn--approve study__chip-btn--decision${approvalsByProvider[currentChange.id]?.[provider.id] === true ? ' is-active' : ''}`}
+                    className={`study__chip-btn study__chip-btn--approve study__chip-btn--decision${normalizedOutcome === 'passed' ? ' is-active' : ''}`}
                     disabled={!result || isLoading || error}
                     onClick={() =>
                       result &&
-                      setProviderApproval(currentChange.id, provider.id, true)
+                      setProviderApproval(
+                        currentChange.id,
+                        provider.id,
+                        'passed',
+                      )
                     }
                   >
-                    ✅ Approve
+                    ✅ Passed
                   </button>
                   <button
                     type='button'
-                    className={`study__chip-btn study__chip-btn--reject study__chip-btn--decision${approvalsByProvider[currentChange.id]?.[provider.id] === false ? ' is-active' : ''}`}
+                    className={`study__chip-btn study__chip-btn--partial study__chip-btn--decision${normalizedOutcome === 'partially_passed' ? ' is-active' : ''}`}
                     disabled={!result || isLoading || error}
                     onClick={() =>
                       result &&
-                      setProviderApproval(currentChange.id, provider.id, false)
+                      setProviderApproval(
+                        currentChange.id,
+                        provider.id,
+                        'partially_passed',
+                      )
                     }
                   >
-                    ❌ Disapprove
+                    🟡 Partially passed
+                  </button>
+                  <button
+                    type='button'
+                    className={`study__chip-btn study__chip-btn--reject study__chip-btn--decision${normalizedOutcome === 'failed' ? ' is-active' : ''}`}
+                    disabled={!result || isLoading || error}
+                    onClick={() =>
+                      result &&
+                      setProviderApproval(
+                        currentChange.id,
+                        provider.id,
+                        'failed',
+                      )
+                    }
+                  >
+                    ❌ Failed
                   </button>
                 </div>
+              </div>
+              <div className='study__rubric-box study__rubric-box--compact'>
+                <p className='study__rubric-copy'>
+                  <strong>PASSED</strong>: solves the requested change,
+                  preserves unrelated UI, no meaningful issues.
+                </p>
+                <p className='study__rubric-copy'>
+                  <strong>PARTIALLY PASSED</strong>: addresses the main request
+                  but has minor issues, omissions, or small unrelated changes.
+                </p>
+                <p className='study__rubric-copy'>
+                  <strong>FAILED</strong>: misses the request, breaks
+                  layout/behavior, or makes substantial unrelated changes.
+                </p>
               </div>
             </div>
             <div className='study__feedback-grid'>
               <div className='study__label'>
                 <div className='study__label-row'>
-                  <span>
-                    What is successful about {provider.label}&apos;s output?
-                  </span>
+                  <span>What did {provider.label} do well? Be specific.</span>
                   <button
                     type='button'
                     className='study__add-btn'
@@ -270,6 +312,10 @@ export default function ReviewSection({
                     +
                   </button>
                 </div>
+                <p className='study__hint study__hint--compact'>
+                  Good feedback mentions specific elements, layout choices,
+                  behavior, or constraints the model handled correctly.
+                </p>
                 {scopedSuccess.map(({ entry, index }, scopedIndex) => (
                   <div
                     key={`success-${currentChange.id}-${provider.id}-${scopedIndex}`}
@@ -310,7 +356,7 @@ export default function ReviewSection({
                         )
                       }
                       rows={3}
-                      placeholder='e.g. The new button position makes it easier to find.'
+                      placeholder={`e.g. Preserved the existing layout while changing only the relevant element.\nAdded the requested control without moving unrelated components.\nMatched the existing spacing, typography, and visual style.`}
                     />
                   </div>
                 ))}
@@ -319,8 +365,8 @@ export default function ReviewSection({
               <div className='study__label study__feedback-col--failure'>
                 <div className='study__label-row'>
                   <span>
-                    What is not successful about {provider.label}
-                    &apos;s output?
+                    What problems did {provider.label} introduce or fail to
+                    fix?
                   </span>
                   <button
                     type='button'
@@ -338,6 +384,11 @@ export default function ReviewSection({
                     +
                   </button>
                 </div>
+                <p className='study__hint study__hint--compact'>
+                  Look for unrelated changes, broken alignment, missing
+                  behavior, ignored instructions, or inconsistency with the
+                  existing design.
+                </p>
                 {scopedFailure.map(({ entry, index }, scopedIndex) => (
                   <div
                     key={`not-success-${currentChange.id}-${provider.id}-${scopedIndex}`}
@@ -378,7 +429,7 @@ export default function ReviewSection({
                         )
                       }
                       rows={3}
-                      placeholder='e.g. Other unrelated elements moved.'
+                      placeholder={`e.g. Moved unrelated elements that should have stayed the same.\nAdded the control, but did not define or show the interaction behavior.\nChanged the visual style in a way that no longer matches the original UI.`}
                     />
                   </div>
                 ))}
@@ -390,13 +441,27 @@ export default function ReviewSection({
         <div className='study__llm-divider' aria-hidden='true' />
         <fieldset className='study__fieldset'>
           <legend className='study__label'>
-            Rank each model (1 = best, ties allowed, use consecutive ranks)
+            Rank each model with output (1 = best, ties allowed, use consecutive ranks)
           </legend>
+          <div className='study__rubric-box study__rubric-box--compact'>
+            <p className='study__rubric-title'>Rank outputs based on:</p>
+            <ol className='study__rubric-list study__rubric-list--ordered'>
+              <li>correctness: did it satisfy the requested change?</li>
+              <li>minimality: did it avoid unnecessary edits?</li>
+              <li>consistency: does it match the existing UI?</li>
+              <li>completeness: are placement and behavior clear?</li>
+            </ol>
+            <p className='study__rubric-copy'>
+              Do not rank based only on which output looks coolest or most
+              redesigned.
+            </p>
+          </div>
           <p className='study__hint' style={{ margin: '0 0 0.5rem 0' }}>
+            Only models that successfully generated output are required.
             Example: 1,1,2 is valid. 1,1,3 is not.
           </p>
           <div className='study__rank-grid'>
-            {providersForChange.map((rankProvider) => (
+            {requiredProvidersForChange.map((rankProvider) => (
               <label key={rankProvider.id} className='study__rank-row'>
                 <span>{rankProvider.label}</span>
                 <select
@@ -418,6 +483,11 @@ export default function ReviewSection({
                 </select>
               </label>
             ))}
+            {requiredProvidersForChange.length === 0 && (
+              <p className='study__hint' style={{ margin: 0 }}>
+                No generated outputs to rank yet.
+              </p>
+            )}
           </div>
         </fieldset>
 

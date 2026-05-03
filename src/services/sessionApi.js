@@ -16,22 +16,62 @@ async function parseJson(response) {
   return payload;
 }
 
-export async function loadStudySession({ participantId, stageId, taskId }) {
-  const query = toQuery({ participantId, stageId, taskId });
+export async function loadStudySession({
+  participantId,
+  email,
+  iterationId,
+  stageId,
+  taskId,
+}) {
+  const normalizedIterationId = iterationId ?? stageId;
+  const query = toQuery({
+    participantId,
+    email,
+    iterationId: normalizedIterationId,
+    // Backward compatibility with older backend/query readers.
+    stageId: normalizedIterationId,
+    taskId,
+  });
   const response = await fetch(`/api/session/load${query}`);
+  return parseJson(response);
+}
+
+export async function listStudySessions({
+  participantId,
+  iterationId,
+  stageId,
+}) {
+  const normalizedIterationId = iterationId ?? stageId;
+  const query = toQuery({
+    participantId,
+    iterationId: normalizedIterationId,
+    stageId: normalizedIterationId,
+  });
+  const response = await fetch(`/api/session/list${query}`);
   return parseJson(response);
 }
 
 export async function startStudySession({
   participantId,
+  email,
+  iterationId,
   stageId,
   taskId,
   snapshot,
 }) {
+  const normalizedIterationId = iterationId ?? stageId;
   const response = await fetch('/api/session/start', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ participantId, stageId, taskId, snapshot }),
+    body: JSON.stringify({
+      participantId,
+      email,
+      iterationId: normalizedIterationId,
+      // Backward compatibility with older backend readers.
+      stageId: normalizedIterationId,
+      taskId,
+      snapshot,
+    }),
   });
   return parseJson(response);
 }

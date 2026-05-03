@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search for location</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: #e5e7eb;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    .google-logo span { font-weight: 700; }
+    .g-blue   { color: #4285F4; }
+    .g-red    { color: #EA4335; }
+    .g-yellow { color: #FBBC05; }
+    .g-green  { color: #34A853; }
+
+    /* Teardrop map pin */
+    .pin-red {
+      width: 28px; height: 36px;
+      background: #e8191a;
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      position: relative;
+    }
+    .pin-red::after {
+      content: '';
+      width: 12px; height: 12px;
+      background: white;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .pin-gray {
+      width: 22px; height: 28px;
+      background: #6d7a8a;
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+    }
+    .pin-green {
+      width: 22px; height: 28px;
+      background: #1a8a3a;
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+    }
+    .pin-teal {
+      width: 22px; height: 28px;
+      background: #00acc1;
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+    }
+  </style>
+</head>
+<body>
+
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto border-x border-slate-200">
+
+  <!-- Blue header bar -->
+  <div class="flex items-center gap-3 px-4 py-3" style="background:#3f51b5;">
+    <!-- Hamburger -->
+    <button class="flex flex-col gap-1.5 flex-shrink-0">
+      <span class="block w-5 h-0.5 bg-white opacity-90"></span>
+      <span class="block w-5 h-0.5 bg-white opacity-90"></span>
+      <span class="block w-5 h-0.5 bg-white opacity-90"></span>
+    </button>
+    <!-- Search icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="rgba(255,255,255,0.8)" stroke-width="2">
+      <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>
+    <!-- Search placeholder text -->
+    <span class="text-white opacity-70 text-lg font-light flex-1">Search for location...</span>
+  </div>
+
+  <!-- Map area -->
+  <div class="relative flex-1" style="min-height:520px; overflow:hidden;">
+
+    <!-- Aerial city roads map image -->
+    <img
+      src="https://images.pexels.com/photos/1637080/pexels-photo-1637080.jpeg?auto=compress&cs=tinysrgb&w=480&h=560&fit=crop"
+      alt="Aerial view of city roads and buildings"
+      class="absolute inset-0 w-full h-full object-cover"
+      onerror="this.onerror=null;this.src='https://placehold.co/480x560/e8f0e8/666?text=Map';"
+    />
+
+    <!-- Semi-transparent light overlay to give map-like look -->
+    <div class="absolute inset-0" style="background:rgba(220,235,220,0.25);"></div>
+
+    <!-- Map label overlays -->
+    <!-- Top area labels -->
+    <div class="absolute top-5 right-12 text-xs font-medium" style="color:#1a6b3a;">
+      <div class="text-center leading-tight">City of<br>mountain view</div>
+      <div class="text-center">Dog Park</div>
+    </div>
+    <div class="absolute top-16 left-24 text-xs font-medium" style="color:#1a6b3a;">Shoreline Amphitheatre</div>
+    <div class="absolute top-32 left-2 text-xs" style="color:#1a6b3a;">Google Athletic<br>ion Field Park...</div>
+    <div class="absolute top-36 left-28 text-xs font-medium" style="color:#1a6b3a;">Permanente Creek Trail</div>
+    <div class="absolute top-32 right-4 text-xs font-semibold" style="color:#7c4dff;">Parking Lot C</div>
+    <div class="absolute" style="top:42%; left:18%; font-size:11px; color:#555;">Google 2000</div>
+    <div class="absolute" style="top:44%; left:34%; font-size:12px; color:#555;">Googleplex</div>
+    <div class="absolute" style="top:46%; left:52%; font-size:11px; color:#555;">Google B43</div>
+    <div class="absolute" style="top:56%; left:1%; font-size:10px; color:#888;">Landings Dr</div>
+    <div class="absolute" style="top:60%; left:28%; font-size:11px; color:#555;">Charleston Campus</div>
+    <div class="absolute" style="top:72%; left:22%; font-size:11px; color:#555;">Google PLYM1625</div>
+    <div class="absolute" style="top:72%; right:6%; font-size:11px; color:#e87d00; font-weight:600;">Zareen's Moun</div>
+    <div class="absolute" style="top:80%; left:2%; font-size:10px; color:#555;">Plymouth St</div>
+    <div class="absolute" style="top:86%; left:2%; font-size:10px; color:#555;">Colony St</div>
+    <div class="absolute" style="top:84%; left:2%; font-size:10px; color:#555;">Ceramics</div>
+    <div class="absolute" style="top:82%; right:8%; font-size:11px; color:#1a6b3a;">Computer<br>History Museum</div>
+    <!-- Bayshore Fwy diagonal label -->
+    <div class="absolute" style="top:60%; left:14%; font-size:10px; color:#b08030; transform:rotate(-40deg); white-space:nowrap;">Bayshore Fwy</div>
+    <!-- 101 badge -->
+    <div class="absolute rounded border border-gray-500 px-1" style="top:54%; left:3%; font-size:9px; font-weight:700; color:#555; background:white;">101</div>
+    <!-- Stierlin Ct -->
+    <div class="absolute" style="top:44%; right:3%; font-size:10px; color:#777;">Stierlin Ct</div>
+    <!-- N Shoreline Blvd (rotated) -->
+    <div class="absolute" style="top:52%; right:1%; font-size:9px; color:#777; transform:rotate(90deg); white-space:nowrap;">N Shoreline Blvd</div>
+    <!-- Joaquin Rd (rotated) -->
+    <div class="absolute" style="top:62%; left:62%; font-size:9px; color:#777; transform:rotate(90deg); white-space:nowrap;">Joaquin Rd</div>
+    <!-- Inigo Way (rotated) -->
+    <div class="absolute" style="top:80%; right:1%; font-size:9px; color:#777; transform:rotate(90deg); white-space:nowrap;">Inigo Way</div>
+
+    <!-- Map pins -->
+    <!-- Green pin: Dog Park top-right -->
+    <div class="absolute" style="top:4%; right:15%;">
+      <div class="pin-green"></div>
+    </div>
+    <!-- Teal pin: Shoreline Amphitheatre -->
+    <div class="absolute" style="top:14%; left:44%;">
+      <div class="pin-teal"></div>
+    </div>
+    <!-- Green pin: Athletic Field Park -->
+    <div class="absolute" style="top:32%; left:24%;">
+      <div class="pin-green"></div>
+    </div>
+    <!-- Purple P: Parking Lot C -->
+    <div class="absolute rounded flex items-center justify-center w-7 h-7" style="top:29%; right:5%; background:#7c4dff;">
+      <span class="text-white font-bold text-sm">P</span>
+    </div>
+    <!-- Gray pin: Google 2000 -->
+    <div class="absolute" style="top:43%; left:22%;">
+      <div class="pin-gray"></div>
+    </div>
+    <!-- RED main pin: Googleplex -->
+    <div class="absolute" style="top:42%; left:45%;">
+      <div class="pin-red"></div>
+    </div>
+    <!-- Gray pin: Google B43 -->
+    <div class="absolute" style="top:46%; left:57%;">
+      <div class="pin-gray"></div>
+    </div>
+    <!-- Gray pin: Charleston Campus -->
+    <div class="absolute" style="top:60%; left:60%;">
+      <div class="pin-gray"></div>
+    </div>
+    <!-- Gray pin: Google PLYM1625 -->
+    <div class="absolute" style="top:72%; left:52%;">
+      <div class="pin-gray"></div>
+    </div>
+    <!-- Orange food pin: Zareen's -->
+    <div class="absolute w-7 h-7 rounded-full flex items-center justify-center" style="top:72%; right:17%; background:#f57c00;">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="white">
+        <path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/>
+      </svg>
+    </div>
+    <!-- Gray pin: Ceramics -->
+    <div class="absolute" style="top:86%; left:18%;">
+      <div class="pin-gray"></div>
+    </div>
+
+    <!-- Google logo watermark -->
+    <div class="absolute" style="bottom:12px; left:10px; font-size:13px;">
+      <span class="g-blue font-bold">G</span><span class="g-red font-bold">o</span><span class="g-yellow font-bold">o</span><span class="g-blue font-bold">g</span><span class="g-green font-bold">l</span><span class="g-red font-bold">e</span>
+    </div>
+
+    <!-- Pink play/video FAB button bottom-right -->
+    <div class="absolute rounded-full flex items-center justify-center shadow-lg"
+      style="bottom:16px; right:16px; width:64px; height:64px; background:#e91e8c;">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="white">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+    </div>
+
+  </div>
+
+  <!-- Dark "Touch on map" instruction bar -->
+  <div class="px-4 py-4" style="background:#2a2a2a;">
+    <p class="text-white text-base">Touch on map for new location.</p>
+  </div>
+
+  <!-- Blue "More Just4Fun" footer -->
+  <div class="flex items-center justify-center px-4 py-5" style="background:#3f51b5;">
+    <p class="text-white text-base font-light">More Just4Fun for you</p>
+  </div>
+
+</div>
+
+</body>
+</html>

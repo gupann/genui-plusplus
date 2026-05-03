@@ -1,20 +1,20 @@
 import { NavLink, Navigate, Routes, Route, useParams } from 'react-router-dom';
 import Home from './pages/Home';
-import UserStudy from './pages/UserStudy';
 import Results from './pages/Results';
 import Paper from './pages/Paper';
 import Dataset from './pages/Dataset';
 import Study from './pages/Study';
-import StagesOverview from './pages/StagesOverview';
-import Stage1HumanStudy from './pages/stages/Stage1HumanStudy';
-import Stage4Hybrid from './pages/stages/Stage4Hybrid';
-import Stage5AutoEval from './pages/stages/Stage5AutoEval';
-import Stage0PreStudySurvey from './pages/stages/Stage0PreStudySurvey';
-import StageAuthGate from './components/auth/StageAuthGate';
+import Iteration1Overview from './pages/iterations/Iteration1Overview';
+import Iteration1HumanEvaluation from './pages/iterations/Iteration1HumanEvaluation';
+import Iteration3FullAutoEval from './pages/iterations/Iteration3FullAutoEval';
+import PreStudySurvey from './pages/iterations/PreStudySurvey';
+import IterationAuthGate from './components/auth/IterationAuthGate';
 
 const NAV_ITEMS = [
   { label: 'Home', to: '/' },
-  { label: 'Study Stages', to: '/stages' },
+  { label: 'Iteration #1', to: '/iterations/1' },
+  { label: 'Iteration #2', to: '/iterations/2' },
+  { label: 'Iteration #3', to: '/iterations/3' },
   { label: 'Results', to: '/results' },
   { label: 'Paper', to: '/paper' },
   { label: 'Dataset', to: '/dataset' },
@@ -22,11 +22,23 @@ const NAV_ITEMS = [
 
 function LegacyStudyRedirect() {
   const { taskId } = useParams();
-  return <Navigate to={`/stages/1/study/${taskId || 1}`} replace />;
+  return <Navigate to={`/iterations/2/study/${taskId || 1}`} replace />;
 }
 
-function StageProtected({ children }) {
-  return <StageAuthGate>{children}</StageAuthGate>;
+function IterationProtected({ children }) {
+  return <IterationAuthGate>{children}</IterationAuthGate>;
+}
+
+function IterationAuthRequired({ children }) {
+  return (
+    <IterationAuthGate
+      hideChildrenUntilAuthenticated
+      dismissible={false}
+      variant='inline'
+    >
+      {children}
+    </IterationAuthGate>
+  );
 }
 
 export default function App() {
@@ -44,7 +56,19 @@ export default function App() {
                   `site-nav__link${isActive ? ' site-nav__link--active' : ''}`
                 }
               >
-                {item.label}
+                {item.to === '/' ? (
+                  <>
+                    <img
+                      src='/logo.png'
+                      alt=''
+                      aria-hidden='true'
+                      className='site-nav__logo'
+                    />
+                    <span>{item.label}</span>
+                  </>
+                ) : (
+                  item.label
+                )}
               </NavLink>
             ))}
           </nav>
@@ -54,52 +78,61 @@ export default function App() {
       <main className='site-shell site-main'>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/stages' element={<StagesOverview />} />
+          <Route path='/iterations' element={<Navigate to='/iterations/1' replace />} />
           <Route
-            path='/stages/0'
+            path='/iterations/0'
             element={
-              <StageProtected>
-                <Stage0PreStudySurvey />
-              </StageProtected>
+              <IterationProtected>
+                <PreStudySurvey />
+              </IterationProtected>
             }
           />
           <Route
-            path='/stages/1'
+            path='/iterations/1'
+            element={<Iteration1Overview />}
+          />
+          <Route
+            path='/iterations/1/study/:taskId'
+            element={<LegacyStudyRedirect />}
+          />
+          <Route
+            path='/iterations/2'
             element={
-              <StageProtected>
-                <Stage1HumanStudy />
-              </StageProtected>
+              <Iteration1HumanEvaluation
+                title='Iteration #2'
+                studyBasePath='/iterations/2/study'
+                subtitle='Pick a case study to start Iteration #2. If any LLM-generated screen fails to generate even after 2-3 attempts, let us know the case study number and LLM model as soon as possible.'
+                requireAuthBeforeStudy
+              />
             }
           />
           <Route
-            path='/stages/1/study/:taskId'
+            path='/iterations/2/study/:taskId'
             element={
-              <StageProtected>
-                <Study listPath='/stages/1' />
-              </StageProtected>
+              <IterationAuthRequired>
+                <Study listPath='/iterations/2' iterationId={2} />
+              </IterationAuthRequired>
             }
           />
           <Route
-            path='/stages/2'
+            path='/iterations/3'
             element={
-              <StageProtected>
-                <Stage4Hybrid />
-              </StageProtected>
+              <IterationProtected>
+                <Iteration3FullAutoEval />
+              </IterationProtected>
             }
           />
-          <Route
-            path='/stages/3'
-            element={
-              <StageProtected>
-                <Stage5AutoEval />
-              </StageProtected>
-            }
-          />
-          <Route path='/stages/4' element={<Navigate to='/stages/2' replace />} />
-          <Route path='/stages/5' element={<Navigate to='/stages/3' replace />} />
+          <Route path='/stages' element={<Navigate to='/iterations/1' replace />} />
+          <Route path='/stages/0' element={<Navigate to='/iterations/0' replace />} />
+          <Route path='/stages/1' element={<Navigate to='/iterations/2' replace />} />
+          <Route path='/stages/1/study/:taskId' element={<LegacyStudyRedirect />} />
+          <Route path='/stages/2' element={<Navigate to='/iterations/2' replace />} />
+          <Route path='/stages/3' element={<Navigate to='/iterations/3' replace />} />
+          <Route path='/stages/4' element={<Navigate to='/iterations/2' replace />} />
+          <Route path='/stages/5' element={<Navigate to='/iterations/3' replace />} />
           <Route
             path='/user-study'
-            element={<Navigate to='/stages/1' replace />}
+            element={<Navigate to='/iterations/2' replace />}
           />
           <Route path='/study/:taskId' element={<LegacyStudyRedirect />} />
           <Route path='/results' element={<Results />} />

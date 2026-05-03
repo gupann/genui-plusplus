@@ -15,7 +15,7 @@ import { getCurrentParticipant } from '../services/participantSession';
 import CollectChangesSection from '../components/study/CollectChangesSection';
 import ReviewSection from '../components/study/ReviewSection';
 
-export default function Study({ listPath = '/user-study', stageId = 1 }) {
+export default function Study({ listPath = '/iterations/1', iterationId = 1 }) {
   const { taskId } = useParams();
   const navigate = useNavigate();
   const id = parseInt(taskId, 10) || 1;
@@ -33,6 +33,7 @@ export default function Study({ listPath = '/user-study', stageId = 1 }) {
   const [issueDraft, setIssueDraft] = useState('');
   const [issueDraftError, setIssueDraftError] = useState('');
   const [participantId, setParticipantId] = useState('');
+  const [participantEmail, setParticipantEmail] = useState('');
   const [sessionId, setSessionId] = useState('');
   const [hydrationStatus, setHydrationStatus] = useState('idle'); // 'idle' | 'loading' | 'ready'
 
@@ -231,6 +232,7 @@ export default function Study({ listPath = '/user-study', stageId = 1 }) {
     changes,
     currentIndex,
     availableProviders,
+    currentResult,
     initialSuccessById: {},
     initialNotSuccessById: {},
     initialApprovalsByProvider: {},
@@ -330,10 +332,12 @@ export default function Study({ listPath = '/user-study', stageId = 1 }) {
       .then((participant) => {
         if (cancelled) return;
         setParticipantId(participant?.participantId || '');
+        setParticipantEmail(participant?.email || '');
       })
       .catch(() => {
         if (cancelled) return;
         setParticipantId('');
+        setParticipantEmail('');
       });
     return () => {
       cancelled = true;
@@ -350,7 +354,8 @@ export default function Study({ listPath = '/user-study', stageId = 1 }) {
 
       const loaded = await loadStudySession({
         participantId: nextParticipantId,
-        stageId,
+        email: participantEmail,
+        iterationId,
         taskId: id,
       });
 
@@ -374,7 +379,8 @@ export default function Study({ listPath = '/user-study', stageId = 1 }) {
       } else {
         const started = await startStudySession({
           participantId: nextParticipantId,
-          stageId,
+          email: participantEmail,
+          iterationId,
           taskId: id,
           snapshot: {
             phase: 'collect',
@@ -405,7 +411,7 @@ export default function Study({ listPath = '/user-study', stageId = 1 }) {
     return () => {
       cancelled = true;
     };
-  }, [id, stageId, participantId]);
+  }, [id, iterationId, participantId, participantEmail]);
 
   useEffect(() => {
     if (hydrationStatus !== 'ready' || !sessionId || !participantId)
@@ -435,6 +441,7 @@ export default function Study({ listPath = '/user-study', stageId = 1 }) {
 
   const hasMissingRequired = changes.some((c) => !c.problem.trim());
   const providersForChange = evaluation.providersForChange;
+  const requiredProvidersForChange = evaluation.requiredProvidersForChange;
   const finishDisabled =
     hasMissingRequired ||
     !evaluation.approvalsComplete ||
@@ -564,6 +571,7 @@ export default function Study({ listPath = '/user-study', stageId = 1 }) {
           issueDirty={(currentChange?.problem || '').trim() !== issueDraft.trim()}
           issueDraftError={issueDraftError}
           providersForChange={providersForChange}
+          requiredProvidersForChange={requiredProvidersForChange}
           activeProvider={evaluation.activeProvider}
           scopedSuccess={evaluation.scopedSuccess}
           scopedFailure={evaluation.scopedFailure}
@@ -713,7 +721,7 @@ const studyStyles = `
     font-size: 1rem;
     font-weight: 600;
     color: var(--text);
-    width: min(100%, 320px);
+    width: min(100%, 390px);
   }
   .study__compare-actions {
     display: flex;
@@ -721,11 +729,11 @@ const studyStyles = `
     align-items: center;
     margin: 0 0 0.75rem 0;
     min-height: 32px;
-    width: min(100%, 320px);
+    width: min(100%, 390px);
   }
   .study__compare-phone-slot {
-    width: min(100%, 320px);
-    aspect-ratio: 375 / 812;
+    width: min(100%, 390px);
+    aspect-ratio: 390 / 844;
   }
   .study__compare-phone-slot > .study__screen-wrap,
   .study__compare-phone .study__screen-wrap {
@@ -765,10 +773,55 @@ const studyStyles = `
     font-size: 0.95rem;
     margin: 0 0 1rem 0;
   }
+  .study__hint--compact {
+    margin: -0.15rem 0 0.25rem 0;
+    font-size: 0.9rem;
+  }
+  .study__rubric-box {
+    display: grid;
+    gap: 0.55rem;
+    padding: 0.9rem 1rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: rgba(148, 163, 184, 0.06);
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  .study__rubric-box--compact {
+    margin-top: 0.35rem;
+  }
+  .study__rubric-title,
+  .study__rubric-subtitle,
+  .study__rubric-copy {
+    margin: 0;
+  }
+  .study__rubric-copy strong {
+    color: var(--text);
+  }
+  .study__rubric-title,
+  .study__rubric-subtitle {
+    color: var(--text);
+    font-weight: 600;
+    font-size: 0.92rem;
+  }
+  .study__rubric-examples {
+    display: grid;
+    gap: 0.9rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .study__rubric-list {
+    margin: 0;
+    padding-left: 1.1rem;
+    display: grid;
+    gap: 0.28rem;
+  }
+  .study__rubric-list--ordered {
+    padding-left: 1.2rem;
+  }
   .study__screen-wrap {
-    width: min(100%, 320px);
+    width: min(100%, 390px);
     max-width: 100%;
-    aspect-ratio: 375 / 812;
+    aspect-ratio: 390 / 844;
     margin: 0 auto 1.5rem;
     background: var(--surface);
     border: 1px solid var(--border);
@@ -958,14 +1011,6 @@ const studyStyles = `
       padding-top: 0;
     }
   }
-  @media (max-width: 1200px) {
-    .study__screen-wrap,
-    .study__compare-phone-slot,
-    .study__compare-label,
-    .study__compare-actions {
-      width: min(100%, 280px);
-    }
-  }
   @media (max-width: 900px) {
     .study__collect-layout {
       grid-template-columns: 1fr;
@@ -988,6 +1033,9 @@ const studyStyles = `
     .study__feedback-grid {
       grid-template-columns: 1fr;
       gap: 1rem;
+    }
+    .study__rubric-examples {
+      grid-template-columns: 1fr;
     }
     .study__feedback-col--failure {
       border-left: none;
@@ -1219,6 +1267,11 @@ const studyStyles = `
     background: rgba(34, 197, 94, 0.15);
     color: #16a34a;
     border: 1px solid rgba(22, 163, 74, 0.35);
+  }
+  .study__chip-btn--partial.is-active {
+    background: rgba(234, 179, 8, 0.15);
+    color: #facc15;
+    border: 1px solid rgba(250, 204, 21, 0.35);
   }
   .study__chip-btn--reject.is-active {
     background: rgba(239, 68, 68, 0.15);

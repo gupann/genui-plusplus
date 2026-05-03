@@ -60,6 +60,7 @@ async function writeDb(db) {
 function buildSessionRecord({
   id,
   participantId,
+  iterationId,
   stageId,
   taskId,
   status,
@@ -70,7 +71,9 @@ function buildSessionRecord({
   return {
     id,
     participantId,
-    stageId,
+    iterationId: Number(iterationId ?? stageId),
+    // Backward compatibility with older snapshots/readers.
+    stageId: Number(iterationId ?? stageId),
     taskId,
     status: status || 'in_progress',
     snapshot: snapshot || {},
@@ -133,12 +136,16 @@ export async function getParticipantProfile({ participantId }) {
   return clone(profile);
 }
 
-export async function findSession({ participantId, stageId, taskId }) {
+export async function findSession({ participantId, iterationId, stageId, taskId }) {
+  const normalizedIterationId = Number(iterationId ?? stageId);
   const db = await readDb();
   const sessions = Object.values(db.sessions || {}).filter((session) => {
+    const storedIterationId = Number(
+      session.iterationId !== undefined ? session.iterationId : session.stageId,
+    );
     return (
       session.participantId === participantId &&
-      Number(session.stageId) === Number(stageId) &&
+      storedIterationId === normalizedIterationId &&
       Number(session.taskId) === Number(taskId)
     );
   });
@@ -151,8 +158,34 @@ export async function findSession({ participantId, stageId, taskId }) {
   return clone(sessions[0]);
 }
 
+export async function listSessions({ participantId, iterationId, stageId }) {
+  if (!participantId) throw new Error('participantId is required');
+  const normalizedIterationId =
+    iterationId !== undefined || stageId !== undefined
+      ? Number(iterationId ?? stageId)
+      : null;
+  const db = await readDb();
+  const sessions = Object.values(db.sessions || {}).filter((session) => {
+    const storedIterationId = Number(
+      session.iterationId !== undefined ? session.iterationId : session.stageId,
+    );
+    return (
+      session.participantId === participantId &&
+      (normalizedIterationId === null ||
+        storedIterationId === normalizedIterationId)
+    );
+  });
+  sessions.sort((a, b) => {
+    const aTime = new Date(a.updatedAt || a.createdAt || 0).getTime();
+    const bTime = new Date(b.updatedAt || b.createdAt || 0).getTime();
+    return bTime - aTime;
+  });
+  return clone(sessions);
+}
+
 export async function createSession({
   participantId,
+  iterationId,
   stageId,
   taskId,
   snapshot,
@@ -164,6 +197,7 @@ export async function createSession({
   const session = buildSessionRecord({
     id: sessionId,
     participantId,
+    iterationId,
     stageId,
     taskId,
     status,

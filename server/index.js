@@ -1,5 +1,5 @@
 import http from 'http';
-import { readFile } from 'fs/promises';
+import { mkdir, readFile, writeFile } from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import {
@@ -7,6 +7,7 @@ import {
   createSession,
   findSession,
   getParticipantProfile,
+  listSessions,
   saveSession,
   upsertParticipant,
   upsertParticipantProfile,
@@ -63,6 +64,40 @@ console.log(
 );
 
 const DEBUG_WRITE_PATH = '/tmp/latest-after';
+
+function getCaseStudyDir(taskId) {
+  return path.join(projectRoot, 'public', `case-study-${taskId}`);
+}
+
+async function persistGenerationArtifacts({
+  taskId,
+  changeId,
+  provider,
+  prompt,
+  afterHtml,
+}) {
+  if (!taskId) return;
+
+  const taskIdSafe = String(taskId).replace(/[^\w-]/g, '');
+  const changeIdSafe = String(changeId || 1).replace(/[^\w-]/g, '');
+  const providerSafe = String(provider || 'unknown').toLowerCase().replace(/[^\w-]/g, '');
+  const caseStudyDir = getCaseStudyDir(taskIdSafe);
+
+  await mkdir(caseStudyDir, { recursive: true });
+
+  await Promise.all([
+    writeFile(
+      path.join(caseStudyDir, `task${taskIdSafe}-after-${providerSafe}.html`),
+      afterHtml || '',
+      'utf8',
+    ),
+    writeFile(
+      path.join(caseStudyDir, `task${taskIdSafe}-revision-task-${changeIdSafe}.txt`),
+      prompt || '',
+      'utf8',
+    ),
+  ]);
+}
 
 function sendJson(res, status, payload) {
   res.writeHead(status, {
@@ -280,7 +315,80 @@ Before HTML:
 ${beforeCode || '(not provided)'}`;
 }
 
-async function callOpenAI({ prompt, beforeCode, beforeImageUrl, renderSpec }) {
+// function buildPrompt({ prompt, beforeCode, renderSpec }) {
+//   const cssWidth = renderSpec?.cssWidth || 375;
+//   const cssHeight = renderSpec?.cssHeight || 812;
+//   const exportWidth = renderSpec?.exportWidth || 750;
+//   const exportHeight = renderSpec?.exportHeight || 1624;
+
+//   const sections = [
+//     'You are a senior UI engineer.',
+
+//     'Task:',
+//     'You will be given a designer-provided issue.',
+//     'First, rewrite it into a precise and concrete UI revision instruction.',
+//     'Then apply that revision to the given UI and return the updated full HTML only.',
+
+//     'Core Principles (in priority order):',
+//     '1. Fully satisfy the requested change.',
+//     '2. Preserve the existing UI’s visual style, user flow, and component hierarchy.',
+//     '3. Modify only what is necessary to implement the change.',
+//     '4. Avoid any unrelated changes.',
+
+//     'Rewrite the issue into a concrete instruction that clearly specifies:',
+//     '- Target element or screen region',
+//     '- Exact placement of the change',
+//     '- Component type (button, dropdown, modal, etc.)',
+//     '- Interaction behavior (tap, scroll, expand, etc.)',
+//     '- Default state (selected, collapsed, placeholder, etc.)',
+//     '- Any relevant edge states (empty, loading, error) if applicable',
+//     '- Visual/design consistency with surrounding UI',
+//     '- Mobile responsiveness expectations',
+
+//     'If details are missing:',
+//     '- Infer the most reasonable solution based on the existing UI.',
+//     '- Follow patterns already present in the screen.',
+//     '- Prefer extending existing components instead of creating new structures.',
+
+//     'Editing Rules:',
+//     '- Preserve ALL existing content, layout, and structure unless the change explicitly requires modification.',
+//     '- Do NOT redesign the entire screen.',
+//     '- Do NOT reorganize unrelated sections.',
+//     '- Do NOT change text, spacing, or styles outside the scope of the request.',
+//     '- Keep unchanged areas identical.',
+
+//     'Implementation Expectations:',
+//     '- Ensure the new feature/change is fully functional and clearly visible.',
+//     '- Maintain alignment, spacing, and consistency with existing components.',
+//     '- Match existing styling (colors, typography, spacing, component patterns).',
+//     '- Ensure the result remains mobile-first.',
+
+//     `- Target phone viewport: ${cssWidth}x${cssHeight} CSS px.`,
+//     `- If rendering image outputs, use ${exportWidth}x${exportHeight} px export resolution.`,
+
+//     'Output Rules:',
+//     '- Return ONLY HTML starting with <!DOCTYPE html>.',
+//     '- No Markdown, no explanations, no comments.',
+//   ];
+
+//   const body = `
+// Designer Issue:
+// ${prompt}
+
+// Current UI Code:
+// ${beforeCode}
+// `;
+
+//   return sections.join('\n') + '\n\n' + body;
+// }
+
+async function callOpenAI({
+  prompt,
+  beforeCode,
+  beforeImageUrl,
+  renderSpec,
+  finalPrompt,
+}) {
   if (!OPENAI_API_KEY) throw new Error('Missing OPENAI_API_KEY');
   // const imageDataUrl = await loadImageAsDataUrl(beforeImageUrl);
   const input = [
@@ -298,7 +406,7 @@ async function callOpenAI({ prompt, beforeCode, beforeImageUrl, renderSpec }) {
       content: [
         {
           type: 'input_text',
-          text: buildPrompt({ prompt, beforeCode, renderSpec }),
+          text: finalPrompt || buildPrompt({ prompt, beforeCode, renderSpec }),
         },
         // TEMP: Disable before-image conditioning for OpenAI to compare results.
         // ...(imageDataUrl
@@ -341,10 +449,18 @@ async function callOpenAI({ prompt, beforeCode, beforeImageUrl, renderSpec }) {
   return extractHtml(text);
 }
 
-async function callGemini({ prompt, beforeCode, beforeImageUrl, renderSpec }) {
+async function callGemini({
+  prompt,
+  beforeCode,
+  beforeImageUrl,
+  renderSpec,
+  finalPrompt,
+}) {
   if (!GEMINI_API_KEY) throw new Error('Missing GEMINI_API_KEY');
   // const imageDataUrl = await loadImageAsDataUrl(beforeImageUrl);
-  const parts = [{ text: buildPrompt({ prompt, beforeCode, renderSpec }) }];
+  const parts = [
+    { text: finalPrompt || buildPrompt({ prompt, beforeCode, renderSpec }) },
+  ];
 
   // TEMP: Disable before-image conditioning for Gemini to compare results.
   // if (imageDataUrl) {
@@ -388,11 +504,20 @@ async function callGemini({ prompt, beforeCode, beforeImageUrl, renderSpec }) {
   return extractHtml(text);
 }
 
-async function callClaude({ prompt, beforeCode, beforeImageUrl, renderSpec }) {
+async function callClaude({
+  prompt,
+  beforeCode,
+  beforeImageUrl,
+  renderSpec,
+  finalPrompt,
+}) {
   if (!ANTHROPIC_API_KEY) throw new Error('Missing ANTHROPIC_API_KEY');
   // const imageDataUrl = await loadImageAsDataUrl(beforeImageUrl);
   const content = [
-    { type: 'text', text: buildPrompt({ prompt, beforeCode, renderSpec }) },
+    {
+      type: 'text',
+      text: finalPrompt || buildPrompt({ prompt, beforeCode, renderSpec }),
+    },
   ];
   // TEMP: Disable before-image conditioning for Claude to compare results.
   // if (imageDataUrl) {
@@ -459,9 +584,10 @@ async function handleGenerateRequest(req, res) {
   try {
     const startedAt = Date.now();
     const body = await readBody(req);
-    const { prompt, beforeImageUrl, beforeCode, provider, renderSpec } =
+    const { taskId, changeId, prompt, beforeImageUrl, beforeCode, provider, renderSpec } =
       body || {};
     const chosen = (provider || PROVIDER_DEFAULT).toLowerCase();
+    const finalPrompt = buildPrompt({ prompt, beforeCode, renderSpec });
     console.log(
       `[generate] provider=${chosen} promptLen=${(prompt || '').length}`,
     );
@@ -473,6 +599,7 @@ async function handleGenerateRequest(req, res) {
         beforeCode,
         beforeImageUrl,
         renderSpec,
+        finalPrompt,
       });
     } else if (chosen === 'gemini') {
       afterHtml = await callGemini({
@@ -480,6 +607,7 @@ async function handleGenerateRequest(req, res) {
         beforeCode,
         beforeImageUrl,
         renderSpec,
+        finalPrompt,
       });
     } else if (chosen === 'claude' || chosen === 'anthropic') {
       afterHtml = await callClaude({
@@ -487,6 +615,7 @@ async function handleGenerateRequest(req, res) {
         beforeCode,
         beforeImageUrl,
         renderSpec,
+        finalPrompt,
       });
     } else {
       return sendJson(res, 400, { error: `Unknown provider: ${chosen}` });
@@ -508,7 +637,19 @@ async function handleGenerateRequest(req, res) {
       // eslint-disable-next-line no-console
       console.warn('Failed to write debug html', err);
     }
-    return sendJson(res, 200, { afterHtml });
+    try {
+      await persistGenerationArtifacts({
+        taskId,
+        changeId,
+        provider: chosen,
+        prompt,
+        afterHtml,
+      });
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.warn('Failed to persist generation artifacts', err);
+    }
+    return sendJson(res, 200, { afterHtml, finalPrompt });
   } catch (err) {
     if (err?.name === 'AbortError') {
       return sendJson(res, 504, {
@@ -556,15 +697,33 @@ const server = http.createServer(async (req, res) => {
   if (routePath === '/api/session/load' && method === 'GET') {
     try {
       const participantId = query.get('participantId');
-      const stageId = query.get('stageId');
+      const email = query.get('email') || '';
+      const iterationId = query.get('iterationId') || query.get('stageId');
       const taskId = query.get('taskId');
-      if (!participantId || !stageId || !taskId) {
+      if (!participantId || !iterationId || !taskId) {
         return sendJson(res, 400, {
-          error: 'participantId, stageId, and taskId are required',
+          error: 'participantId, iterationId, and taskId are required',
         });
       }
-      const session = await findSession({ participantId, stageId, taskId });
+      await upsertParticipant({ participantId, email });
+      const session = await findSession({ participantId, iterationId, taskId });
       return sendJson(res, 200, { session: session || null });
+    } catch (err) {
+      return sendJson(res, 500, { error: err?.message || 'Server error' });
+    }
+  }
+
+  if (routePath === '/api/session/list' && method === 'GET') {
+    try {
+      const participantId = query.get('participantId');
+      const iterationId = query.get('iterationId') || query.get('stageId');
+      if (!participantId) {
+        return sendJson(res, 400, {
+          error: 'participantId is required',
+        });
+      }
+      const sessions = await listSessions({ participantId, iterationId });
+      return sendJson(res, 200, { sessions });
     } catch (err) {
       return sendJson(res, 500, { error: err?.message || 'Server error' });
     }
@@ -572,21 +731,30 @@ const server = http.createServer(async (req, res) => {
 
   if (routePath === '/api/session/start' && method === 'POST') {
     try {
-      const { participantId, stageId, taskId, snapshot } = await readBody(req);
-      if (!participantId || !stageId || !taskId) {
+      const body = await readBody(req);
+      const participantId = body.participantId;
+      const email = body.email || '';
+      const iterationId = body.iterationId || body.stageId;
+      const taskId = body.taskId;
+      const snapshot = body.snapshot;
+      if (!participantId || !iterationId || !taskId) {
         return sendJson(res, 400, {
-          error: 'participantId, stageId, and taskId are required',
+          error: 'participantId, iterationId, and taskId are required',
         });
       }
 
-      await upsertParticipant({ participantId });
-      const existing = await findSession({ participantId, stageId, taskId });
+      await upsertParticipant({ participantId, email });
+      const existing = await findSession({
+        participantId,
+        iterationId,
+        taskId,
+      });
       if (existing && existing.status !== 'completed') {
         return sendJson(res, 200, { session: existing, resumed: true });
       }
       const session = await createSession({
         participantId,
-        stageId,
+        iterationId,
         taskId,
         snapshot,
         status: 'in_progress',

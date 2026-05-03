@@ -1,0 +1,42 @@
+export const PILOT_STUDY_CASES = [
+  { caseStudyId: 1, screenId: 14304, appType: 'Travel / Booking', intent: 'Browse', assetFolder: 'Browse' },
+  { caseStudyId: 2, screenId: 15339, appType: 'Social Media', intent: 'Browse', assetFolder: 'Browse' },
+  { caseStudyId: 3, screenId: 7122, appType: 'Maps / Navigation', intent: 'Browse', assetFolder: 'Browse' },
+  { caseStudyId: 4, screenId: 4353, appType: 'Social Media', intent: 'Configure', assetFolder: 'Configure' },
+  { caseStudyId: 5, screenId: 6014, appType: 'Travel / Booking', intent: 'Configure', assetFolder: 'Configure' },
+  { caseStudyId: 6, screenId: 4038, appType: 'Health / Fitness', intent: 'Configure', assetFolder: 'Configure' },
+  { caseStudyId: 7, screenId: 4116, appType: 'Productivity', intent: 'Create', assetFolder: 'Create' },
+  { caseStudyId: 8, screenId: 15929, appType: 'Social Media', intent: 'Create', assetFolder: 'Create' },
+  { caseStudyId: 9, screenId: 14759, appType: 'Productivity', intent: 'Create', assetFolder: 'Create' },
+  { caseStudyId: 10, screenId: 16570, appType: 'Social Media', intent: 'Detail / View', assetFolder: 'Detail _ View' },
+  { caseStudyId: 11, screenId: 5332, appType: 'Travel / Booking', intent: 'Detail / View', assetFolder: 'Detail _ View' },
+  { caseStudyId: 12, screenId: 5862, appType: 'Health / Fitness', intent: 'Detail / View', assetFolder: 'Detail _ View' },
+  { caseStudyId: 13, screenId: 6423, appType: 'E-commerce', intent: 'Discover', assetFolder: 'Discover' },
+  { caseStudyId: 14, screenId: 5484, appType: 'E-commerce', intent: 'Discover', assetFolder: 'Discover' },
+  { caseStudyId: 15, screenId: 15397, appType: 'News / Publishing', intent: 'Discover', assetFolder: 'Discover' },
+  { caseStudyId: 16, screenId: 14016, appType: 'Finance / Banking', intent: 'Edit', assetFolder: 'Edit' },
+  { caseStudyId: 17, screenId: 13091, appType: 'Productivity', intent: 'Interact', assetFolder: 'Interact' },
+  { caseStudyId: 18, screenId: 8463, appType: 'Productivity', intent: 'Interact', assetFolder: 'Interact' },
+  { caseStudyId: 19, screenId: 11294, appType: 'Streaming Media', intent: 'Interact', assetFolder: 'Interact' },
+  { caseStudyId: 20, screenId: 14011, appType: 'Finance / Banking', intent: 'Monitor', assetFolder: 'Monitor' },
+  { caseStudyId: 21, screenId: 12362, appType: 'Food Delivery', intent: 'Monitor', assetFolder: 'Monitor' },
+  { caseStudyId: 22, screenId: 13610, appType: 'Maps / Navigation', intent: 'Monitor', assetFolder: 'Monitor' },
+  { caseStudyId: 23, screenId: 564, appType: 'Finance / Banking', intent: 'Onboarding', assetFolder: 'Onboarding' },
+  { caseStudyId: 24, screenId: 14813, appType: 'E-commerce', intent: 'Onboarding', assetFolder: 'Onboarding' },
+  { caseStudyId: 25, screenId: 13439, appType: 'Social Media', intent: 'Onboarding', assetFolder: 'Onboarding' },
+  { caseStudyId: 26, screenId: 12428, appType: 'Food Delivery', intent: 'Search', assetFolder: 'Search' },
+  { caseStudyId: 27, screenId: 6016, appType: 'Travel / Booking', intent: 'Search', assetFolder: 'Search' },
+  { caseStudyId: 28, screenId: 17040, appType: 'Maps / Navigation', intent: 'Search', assetFolder: 'Search' },
+  { caseStudyId: 29, screenId: 8830, appType: 'Health / Fitness', intent: 'System Feedback', assetFolder: 'System Feedback' },
+  { caseStudyId: 30, screenId: 3951, appType: 'E-commerce', intent: 'System Feedback', assetFolder: 'System Feedback' },
+  { caseStudyId: 31, screenId: 6956, appType: 'Health / Fitness', intent: 'System Feedback', assetFolder: 'System Feedback' },
+  { caseStudyId: 32, screenId: 12037, appType: 'Productivity', intent: 'Transact', assetFolder: 'Transact' },
+  { caseStudyId: 33, screenId: 4149, appType: 'Productivity', intent: 'Transact', assetFolder: 'Transact' },
+  { caseStudyId: 34, screenId: 7858, appType: 'Productivity', intent: 'Transact', assetFolder: 'Transact' },
+];
+
+export function getPilotStudyCase(caseStudyId) {
+  return PILOT_STUDY_CASES.find(
+    (entry) => entry.caseStudyId === Number(caseStudyId),
+  );
+}
