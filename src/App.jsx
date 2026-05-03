@@ -20,6 +20,8 @@ const NAV_ITEMS = [
   { label: 'Dataset', to: '/dataset' },
 ];
 
+const TEMPORARILY_DISABLED_CASE_STUDIES = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+
 function LegacyStudyRedirect() {
   const { taskId } = useParams();
   return <Navigate to={`/iterations/2/study/${taskId || 1}`} replace />;
@@ -103,6 +105,7 @@ export default function App() {
                 studyBasePath='/iterations/2/study'
                 subtitle='Pick a case study to start Iteration #2. If any LLM-generated screen fails to generate even after 2-3 attempts, let us know the case study number and LLM model as soon as possible.'
                 requireAuthBeforeStudy
+                disabledCaseStudyIds={TEMPORARILY_DISABLED_CASE_STUDIES}
               />
             }
           />
@@ -110,7 +113,11 @@ export default function App() {
             path='/iterations/2/study/:taskId'
             element={
               <IterationAuthRequired>
-                <Study listPath='/iterations/2' iterationId={2} />
+                <Study
+                  listPath='/iterations/2'
+                  iterationId={2}
+                  disabledCaseStudyIds={TEMPORARILY_DISABLED_CASE_STUDIES}
+                />
               </IterationAuthRequired>
             }
           />

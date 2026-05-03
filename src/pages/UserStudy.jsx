@@ -22,10 +22,12 @@ export default function UserStudy({
   studyBasePath = '/study',
   title = 'Phase 1: Data Collection',
   subtitle = 'Pick a case study to start.',
+  disabledCaseStudyIds = [],
 }) {
   const navigate = useNavigate();
   const location = useLocation();
   const [completedCaseIds, setCompletedCaseIds] = useState(new Set());
+  const disabledCaseStudyIdSet = new Set(disabledCaseStudyIds.map(Number));
 
   useEffect(() => {
     let cancelled = false;
@@ -83,34 +85,45 @@ export default function UserStudy({
         <p className='user-study__subtitle'>{subtitle}</p>
       </header>
       <nav className='user-study__nav' aria-label='Case studies'>
-        {PILOT_STUDY_CASES.map(({ caseStudyId, appType, intent }) => (
-          <button
-            key={caseStudyId}
-            type='button'
-            className='user-study__card'
-            onClick={() => navigate(`${studyBasePath}/${caseStudyId}`)}
-          >
-            {completedCaseIds.has(caseStudyId) && (
-              <span
-                className='user-study__completed-badge'
-                aria-label='Completed case study'
-                title='Completed'
-              >
-                ✓
-              </span>
-            )}
-            <div className='user-study__card-copy'>
-              <span className='user-study__card-label'>
-                {`Case Study #${caseStudyId}`}
-              </span>
-              <div className='user-study__card-tags'>
-                <span className='user-study__tag'>{appType}</span>
-                <span className='user-study__tag'>{intent}</span>
+        {PILOT_STUDY_CASES.map(({ caseStudyId, appType, intent }) => {
+          const isDisabled = disabledCaseStudyIdSet.has(caseStudyId);
+
+          return (
+            <button
+              key={caseStudyId}
+              type='button'
+              className={`user-study__card${isDisabled ? ' user-study__card--disabled' : ''}`}
+              onClick={() => {
+                if (!isDisabled) navigate(`${studyBasePath}/${caseStudyId}`);
+              }}
+              disabled={isDisabled}
+              aria-disabled={isDisabled}
+              title={isDisabled ? 'Temporarily unavailable' : undefined}
+            >
+              {!isDisabled && completedCaseIds.has(caseStudyId) && (
+                <span
+                  className='user-study__completed-badge'
+                  aria-label='Completed case study'
+                  title='Completed'
+                >
+                  ✓
+                </span>
+              )}
+              <div className='user-study__card-copy'>
+                <span className='user-study__card-label'>
+                  {`Case Study #${caseStudyId}`}
+                </span>
+                <div className='user-study__card-tags'>
+                  <span className='user-study__tag'>{appType}</span>
+                  <span className='user-study__tag'>{intent}</span>
+                </div>
               </div>
-            </div>
-            <span className='user-study__card-hint'>Start study →</span>
-          </button>
-        ))}
+              <span className='user-study__card-hint'>
+                {isDisabled ? 'Temporarily unavailable' : 'Start study →'}
+              </span>
+            </button>
+          );
+        })}
       </nav>
       <style>{`
         .user-study {
@@ -159,6 +172,13 @@ export default function UserStudy({
         .user-study__card:hover {
           border-color: var(--accent);
           background: rgba(99, 102, 241, 0.06);
+        }
+        .user-study__card--disabled,
+        .user-study__card--disabled:hover {
+          cursor: not-allowed;
+          opacity: 0.48;
+          border-color: var(--border);
+          background: rgba(148, 163, 184, 0.05);
         }
         .user-study__card-label {
           font-weight: 500;

@@ -15,10 +15,15 @@ import { getCurrentParticipant } from '../services/participantSession';
 import CollectChangesSection from '../components/study/CollectChangesSection';
 import ReviewSection from '../components/study/ReviewSection';
 
-export default function Study({ listPath = '/iterations/1', iterationId = 1 }) {
+export default function Study({
+  listPath = '/iterations/1',
+  iterationId = 1,
+  disabledCaseStudyIds = [],
+}) {
   const { taskId } = useParams();
   const navigate = useNavigate();
   const id = parseInt(taskId, 10) || 1;
+  const isDisabled = disabledCaseStudyIds.map(Number).includes(id);
 
   const {
     beforeCode,
@@ -327,6 +332,7 @@ export default function Study({ listPath = '/iterations/1', iterationId = 1 }) {
   );
 
   useEffect(() => {
+    if (isDisabled) return;
     let cancelled = false;
     getCurrentParticipant()
       .then((participant) => {
@@ -342,9 +348,10 @@ export default function Study({ listPath = '/iterations/1', iterationId = 1 }) {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [isDisabled]);
 
   useEffect(() => {
+    if (isDisabled) return;
     if (!participantId) return;
     let cancelled = false;
 
@@ -411,9 +418,10 @@ export default function Study({ listPath = '/iterations/1', iterationId = 1 }) {
     return () => {
       cancelled = true;
     };
-  }, [id, iterationId, participantId, participantEmail]);
+  }, [id, iterationId, participantId, participantEmail, isDisabled]);
 
   useEffect(() => {
+    if (isDisabled) return;
     if (hydrationStatus !== 'ready' || !sessionId || !participantId)
       return;
     if (phase === 'done') return;
@@ -430,7 +438,7 @@ export default function Study({ listPath = '/iterations/1', iterationId = 1 }) {
     }, 800);
 
     return () => clearTimeout(timeoutId);
-  }, [hydrationStatus, sessionId, participantId, phase, sessionSnapshot]);
+  }, [hydrationStatus, sessionId, participantId, phase, sessionSnapshot, isDisabled]);
 
   function scrollToBottom() {
     window.scrollTo({
@@ -447,6 +455,28 @@ export default function Study({ listPath = '/iterations/1', iterationId = 1 }) {
     !evaluation.approvalsComplete ||
     !evaluation.rankingComplete ||
     !evaluation.feedbackComplete;
+
+  if (isDisabled) {
+    return (
+      <div className='study study--centered'>
+        <div className='study__done'>
+          <h2>Case Study {id} is temporarily unavailable</h2>
+          <p>
+            This case study is disabled for now. Please choose another available
+            case study.
+          </p>
+          <button
+            type='button'
+            className='study__btn study__btn--primary'
+            onClick={() => navigate(listPath)}
+          >
+            Back to case studies
+          </button>
+        </div>
+        <style>{studyStyles}</style>
+      </div>
+    );
+  }
 
   const beforeScreen = (
     <div className='study__screen-wrap study__screen-wrap--before'>

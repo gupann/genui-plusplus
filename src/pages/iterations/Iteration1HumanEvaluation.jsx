@@ -8,12 +8,14 @@ export default function Iteration1HumanEvaluation({
   studyBasePath = '/iterations/1/study',
   subtitle = 'Pick a case study to start Iteration #1.',
   requireAuthBeforeStudy = false,
+  disabledCaseStudyIds = [],
 }) {
   const studySelection = (
     <UserStudy
       studyBasePath={studyBasePath}
       title='Case Study Selection'
       subtitle={subtitle}
+      disabledCaseStudyIds={disabledCaseStudyIds}
     />
   )
 
