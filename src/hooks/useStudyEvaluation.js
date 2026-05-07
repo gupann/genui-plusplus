@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+const DEFAULT_FEEDBACK_ENTRY_COUNT = 1;
+
 function isRecordedOutcome(value) {
   return (
     value === true ||
@@ -77,7 +79,7 @@ export function useStudyEvaluation({
           let countForProvider = nextEntries.filter(
             (e) => e?.providerId === providerId,
           ).length;
-          while (countForProvider < 3) {
+          while (countForProvider < DEFAULT_FEEDBACK_ENTRY_COUNT) {
             nextEntries.push({ text: '', providerId });
             countForProvider += 1;
           }

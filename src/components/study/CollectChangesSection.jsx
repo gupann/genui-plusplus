@@ -24,7 +24,7 @@ export default function CollectChangesSection({
           <li>specific: mention the exact UI element</li>
           <li>localized: describe a small change, not a full redesign</li>
           <li>justified: explain why the change matters</li>
-          <li>minimal: avoid changing unrelated parts of the UI</li>
+          {/* <li>minimal: avoid changing unrelated parts of the UI</li> */}
         </ul>
         <div className='study__rubric-examples'>
           <div>
@@ -55,7 +55,7 @@ export default function CollectChangesSection({
         {changes.map((change, index) => (
           <div key={change.id} className='study__entry'>
             <div className='study__entry-header'>
-              <span className='study__entry-label'>Issue {index + 1}</span>
+              <span className='study__entry-label'>Change {index + 1}</span>
               {changes.length > 1 && (
                 <button
                   type='button'

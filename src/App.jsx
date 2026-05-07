@@ -20,7 +20,7 @@ const NAV_ITEMS = [
   { label: 'Dataset', to: '/dataset' },
 ];
 
-const TEMPORARILY_DISABLED_CASE_STUDIES = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+const TEMPORARILY_DISABLED_CASE_STUDIES = [];
 
 function LegacyStudyRedirect() {
   const { taskId } = useParams();

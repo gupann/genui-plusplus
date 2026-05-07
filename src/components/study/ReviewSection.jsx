@@ -63,15 +63,15 @@ export default function ReviewSection({
     <section className='study__section'>
       <h2>Evaluate change {currentIndex + 1} of {changes.length}</h2>
       <p className='study__hint'>
-        Let&apos;s use your issue description for this small change to generate
-        an updated screen. Tell us what is successful, what is not, and whether
-        this result passed, partially passed, or failed as a designer. Each
-        success or failure should be one thing to keep the feedback itemized.
+        Let&apos;s use your provided change description to generate an updated
+        screen. Tell us what is successful, what is not, and whether this result
+        passed, partially passed, or failed as a designer. Each success or
+        failure should be one thing to keep the feedback itemized.
       </p>
 
       <div className='study__change study__change--summary'>
         <div className='study__change-header'>
-          <span className='study__change-label'>Provided issue</span>
+          <span className='study__change-label'>Provided Change Description</span>
           <button
             type='button'
             className='study__chip-btn'
@@ -91,7 +91,7 @@ export default function ReviewSection({
         />
         <p className='study__hint' style={{ margin: 0 }}>
           When you apply an update, old model outputs for this change are cleared
-          and re-generation will use the new issue text.
+          and re-generation will use the new change description.
         </p>
         {issueDraftError && <p className='study__error-text'>{issueDraftError}</p>}
       </div>
