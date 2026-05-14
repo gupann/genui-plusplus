@@ -9,6 +9,7 @@ export default function Iteration1HumanEvaluation({
   subtitle = 'Pick a case study to start Iteration #1.',
   requireAuthBeforeStudy = false,
   disabledCaseStudyIds = [],
+  guide = null,
 }) {
   const studySelection = (
     <UserStudy
@@ -16,6 +17,7 @@ export default function Iteration1HumanEvaluation({
       title='Case Study Selection'
       subtitle={subtitle}
       disabledCaseStudyIds={disabledCaseStudyIds}
+      guide={guide}
     />
   )
 

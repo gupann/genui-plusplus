@@ -21,6 +21,22 @@ const NAV_ITEMS = [
 ];
 
 const TEMPORARILY_DISABLED_CASE_STUDIES = [];
+const ITERATION_2_GUIDE = {
+  title: 'How to Complete Iteration #2',
+  intro:
+    'Use this flow to review each case study consistently and submit complete feedback for all three model outputs.',
+  videoUrl:
+    'https://drive.google.com/file/d/1V2gusAduzbl1NbHmgrsBcRzOVNOkv5fW/view?usp=sharing',
+  steps: [
+    'Go to the Iteration #2 tab.',
+    'Verify your email to receive the study link.',
+    'One session usually includes about 12 to 15 case studies.',
+    'For each case study, you will see one screen. As a UI/UX designer, identify issues and write 2 issue prompts for that screen.',
+    'For each prompt, generate output screens for all 3 LLMs one by one: OpenAI, Claude, and Gemini.',
+    'For each LLM output, write an evaluation describing what worked well and what did not.',
+    'Then move on to the next prompt or the next case study.',
+  ],
+};
 
 function LegacyStudyRedirect() {
   const { taskId } = useParams();
@@ -106,6 +122,7 @@ export default function App() {
                 subtitle='Pick a case study to start Iteration #2. Please complete at least 15 case studies per session, or more if you can. If any LLM-generated screen fails to generate even after 2-3 attempts, let us know the case study number and LLM model as soon as possible.'
                 requireAuthBeforeStudy
                 disabledCaseStudyIds={TEMPORARILY_DISABLED_CASE_STUDIES}
+                guide={ITERATION_2_GUIDE}
               />
             }
           />

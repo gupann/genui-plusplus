@@ -23,10 +23,12 @@ export default function UserStudy({
   title = 'Phase 1: Data Collection',
   subtitle = 'Pick a case study to start.',
   disabledCaseStudyIds = [],
+  guide = null,
 }) {
   const navigate = useNavigate();
   const location = useLocation();
   const [completedCaseIds, setCompletedCaseIds] = useState(new Set());
+  const [isGuideOpen, setIsGuideOpen] = useState(false);
   const disabledCaseStudyIdSet = new Set(disabledCaseStudyIds.map(Number));
 
   useEffect(() => {
@@ -81,9 +83,60 @@ export default function UserStudy({
   return (
     <div className='user-study'>
       <header className='user-study__header'>
-        <h1>{title}</h1>
+        <div className='user-study__header-row'>
+          <h1>{title}</h1>
+          {guide ? (
+            <button
+              type='button'
+              className='user-study__guide-btn'
+              onClick={() => setIsGuideOpen(true)}
+            >
+              How to Guide
+            </button>
+          ) : null}
+        </div>
         <p className='user-study__subtitle'>{subtitle}</p>
       </header>
+      {guide && isGuideOpen ? (
+        <div
+          className='user-study__guide-overlay'
+          role='dialog'
+          aria-modal='true'
+          aria-labelledby='user-study-guide-title'
+          onClick={() => setIsGuideOpen(false)}
+        >
+          <div
+            className='user-study__guide-modal'
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className='user-study__guide-head'>
+              <h2 id='user-study-guide-title'>{guide.title}</h2>
+              <button
+                type='button'
+                className='user-study__guide-close'
+                aria-label='Close guide'
+                onClick={() => setIsGuideOpen(false)}
+              >
+                ×
+              </button>
+            </div>
+            <p className='user-study__guide-copy'>{guide.intro}</p>
+            <a
+              className='user-study__guide-link'
+              href={guide.videoUrl}
+              target='_blank'
+              rel='noreferrer'
+            >
+              Watch the video tutorial
+            </a>
+            <ol className='user-study__guide-steps'>
+              {guide.steps.map((step) => (
+                <li key={step}>{step}</li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      ) : null}
       <nav className='user-study__nav' aria-label='Case studies'>
         {PILOT_STUDY_CASES.map(({ caseStudyId, appType, intent }) => {
           const isDisabled = disabledCaseStudyIdSet.has(caseStudyId);
@@ -133,16 +186,109 @@ export default function UserStudy({
         .user-study__header {
           margin-bottom: 2.5rem;
         }
+        .user-study__header-row {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 1rem;
+        }
         .user-study__header h1 {
           font-size: 1.75rem;
           font-weight: 600;
           margin: 0 0 0.5rem 0;
           letter-spacing: -0.02em;
         }
+        .user-study__guide-btn {
+          border: 1px solid var(--border);
+          background: var(--surface);
+          color: var(--text);
+          border-radius: 999px;
+          padding: 0.7rem 1rem;
+          font-size: 0.92rem;
+          font-weight: 500;
+          cursor: pointer;
+          transition: border-color 0.2s, background 0.2s, color 0.2s;
+          white-space: nowrap;
+        }
+        .user-study__guide-btn:hover {
+          border-color: var(--accent);
+          color: var(--accent);
+          background: rgba(99, 102, 241, 0.08);
+        }
         .user-study__subtitle {
           color: var(--muted);
           margin: 0;
           font-size: 1rem;
+        }
+        .user-study__guide-overlay {
+          position: fixed;
+          inset: 0;
+          z-index: 30;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 1.5rem;
+          background: rgba(8, 10, 20, 0.72);
+          backdrop-filter: blur(8px);
+        }
+        .user-study__guide-modal {
+          width: min(100%, 720px);
+          max-height: min(85vh, 760px);
+          overflow: auto;
+          padding: 1.5rem;
+          border-radius: 24px;
+          border: 1px solid var(--border);
+          background: #11131a;
+          box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+        }
+        .user-study__guide-head {
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          gap: 1rem;
+          margin-bottom: 0.75rem;
+        }
+        .user-study__guide-head h2 {
+          margin: 0;
+          font-size: 1.3rem;
+          letter-spacing: -0.02em;
+        }
+        .user-study__guide-close {
+          border: none;
+          background: transparent;
+          color: var(--muted);
+          cursor: pointer;
+          font-size: 1.8rem;
+          line-height: 1;
+          padding: 0;
+        }
+        .user-study__guide-close:hover {
+          color: var(--text);
+        }
+        .user-study__guide-copy {
+          margin: 0 0 1rem 0;
+          color: var(--muted);
+          line-height: 1.6;
+        }
+        .user-study__guide-link {
+          display: inline-flex;
+          align-items: center;
+          margin-bottom: 1.15rem;
+          color: var(--accent);
+          font-weight: 600;
+          text-decoration: none;
+        }
+        .user-study__guide-link:hover {
+          text-decoration: underline;
+        }
+        .user-study__guide-steps {
+          margin: 0;
+          padding-left: 1.25rem;
+          color: var(--text);
+          line-height: 1.7;
+        }
+        .user-study__guide-steps li + li {
+          margin-top: 0.6rem;
         }
         .user-study__nav {
           display: grid;
@@ -238,6 +384,14 @@ export default function UserStudy({
           }
         }
         @media (max-width: 640px) {
+          .user-study__header-row {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+          .user-study__guide-btn {
+            width: 100%;
+            justify-content: center;
+          }
           .user-study__nav {
             grid-template-columns: 1fr;
           }
