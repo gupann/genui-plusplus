@@ -142,19 +142,11 @@ export default function App() {
           />
           <Route
             path='/iterations/3'
-            element={
-              <IterationProtected>
-                <Iteration3FullAutoEval />
-              </IterationProtected>
-            }
+            element={<Iteration3FullAutoEval />}
           />
           <Route
             path='/iterations/3/study/:taskId'
-            element={
-              <IterationProtected>
-                <Iteration3Study />
-              </IterationProtected>
-            }
+            element={<Iteration3Study />}
           />
           <Route path='/stages' element={<Navigate to='/iterations/1' replace />} />
           <Route path='/stages/0' element={<Navigate to='/iterations/0' replace />} />

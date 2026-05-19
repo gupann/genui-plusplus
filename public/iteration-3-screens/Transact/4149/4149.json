@@ -1,0 +1,1820 @@
+{
+  "tag": "2023-07-08_191642",
+  "state_str": "7bf490d0eef6965290ebe08a531a9e49",
+  "state_str_content_free": "2b2721cb0cb50661f3eb06714fa3e8a0",
+  "foreground_activity": "com.cerdillac.persetforlightroom/com.lightcone.cerdillac.koloro.activity.BillingActivity",
+  "activity_stack": [
+    "com.cerdillac.persetforlightroom/com.lightcone.cerdillac.koloro.activity.BillingActivity",
+    "com.cerdillac.persetforlightroom/com.lightcone.cerdillac.koloro.activity.MainActivity"
+  ],
+  "background_services": [
+    "com.google.android.gms/.chimera.PersistentInternalBoundBrokerService",
+    "com.google.android.networkstack.tethering/com.android.networkstack.tethering.TetheringService",
+    "com.google.android.gms/.deviceconnection.service.DeviceConnectionWatcherService",
+    "com.android.systemui/.keyguard.KeyguardService",
+    "com.android.chrome/org.chromium.content.app.SandboxedProcessService0",
+    "com.google.android.gms/.measurement.service.MeasurementBrokerService",
+    "com.android.bluetooth/.btservice.AdapterService",
+    "com.google.android.gms/org.chromium.content.app.SandboxedProcessService0",
+    "com.android.systemui/.ImageWallpaper",
+    "com.google.android.gms/com.google.android.location.geocode.GeocodeService",
+    "com.google.android.gms/.auth.setup.devicesignals.LockScreenService",
+    "com.google.android.gms/.gcm.GcmService",
+    "com.google.android.gms/.auth.proximity.firstparty.SystemMemoryCacheService",
+    "com.google.android.gms/.clearcut.debug.ClearcutDebugDumpService",
+    "com.android.phone/com.android.internal.telephony.CellularNetworkService",
+    "com.google.android.gms/com.google.location.nearby.direct.service.NearbyDirectService",
+    "com.google.android.gms/.chimera.PersistentBoundBrokerService",
+    "com.android.bluetooth/.gatt.GattService",
+    "com.google.android.gms/.chimera.GmsBoundBrokerService",
+    "com.google.android.gms/.fido.fido2.pollux.CableAuthenticatorService",
+    "com.google.android.googlequicksearchbox/com.google.android.apps.gsa.nowoverlayservice.DrawerOverlayService",
+    "io.github.ylimit.droidbotapp/.DroidBotIME",
+    "com.android.bluetooth/.pbap.BluetoothPbapService",
+    "com.google.android.gms/.beacon.BleService",
+    "com.google.android.gms/com.google.android.location.fused.FusedLocationService",
+    "com.google.android.inputmethod.latin/com.google.android.libraries.micore.training.cache.service.TrainingCacheManagerService",
+    "com.google.android.gms/.gcm.nts.SchedulerService",
+    "com.google.android.ext.services/android.ext.services.autofill.InlineSuggestionRenderServiceImpl",
+    "com.android.bluetooth/.a2dp.A2dpService",
+    "com.google.android.providers.media.module/com.android.providers.media.fuse.ExternalStorageServiceImpl",
+    "io.github.ylimit.droidbotapp/io.github.privacystreams.accessibility.PSAccessibilityService",
+    "com.google.android.gms/com.google.android.location.geofencer.service.GeofenceProviderService",
+    "com.google.android.gms/.thunderbird.EmergencyPersistentService",
+    "com.google.android.apps.nexuslauncher/com.android.launcher3.notification.NotificationListener",
+    "com.android.systemui/.SystemUIService",
+    "com.android.chrome/org.chromium.content.app.PrivilegedProcessService0",
+    "android/.hardware.location.GeofenceHardwareService",
+    "com.android.se/.SecureElementService",
+    "com.google.android.googlequicksearchbox/com.google.android.ssb.service.SsbService",
+    "com.google.android.ims/.services.RcsService",
+    "com.google.android.gms/.chimera.PersistentDirectBootAwareApiService",
+    "com.android.bluetooth/.hid.HidDeviceService",
+    "com.google.android.ext.services/android.ext.services.notification.Assistant",
+    "com.google.android.gms/.location.persistent.LocationPersistentService",
+    "com.google.android.gms/.nearby.discovery.service.DiscoveryService",
+    "com.google.android.gms/com.google.android.location.internal.PendingIntentCallbackService",
+    "com.google.android.gms/.nearby.messages.service.NearbyMessagesService",
+    "com.android.server.telecom/.components.BluetoothPhoneService",
+    "com.google.android.gms/com.google.android.location.internal.server.GoogleLocationService",
+    "com.google.android.gms/com.google.android.contextmanager.service.ContextManagerService",
+    "com.android.systemui/.dump.SystemUIAuxiliaryDumpService",
+    "com.google.android.gms/com.google.android.location.network.NetworkLocationService",
+    "com.android.stk/.StkAppService",
+    "com.google.android.gms/com.google.android.location.internal.GoogleLocationManagerService",
+    "com.google.android.gms/.ads.cache.CacheBrokerService",
+    "com.android.phone/com.android.internal.telephony.dataconnection.CellularDataService",
+    "com.android.service.ims/.RcsService",
+    "com.android.server.telecom/.components.TelecomService",
+    "com.google.android.networkstack/com.android.server.NetworkStackService",
+    "com.android.bluetooth/.hfp.HeadsetService",
+    "com.google.android.googlequicksearchbox/com.google.android.voiceinteraction.GsaVoiceInteractionService",
+    "com.android.emulator.multidisplay/.MultiDisplayService",
+    "com.android.phone/.vvm.RemoteVvmTaskManager",
+    "com.android.ons/.OpportunisticNetworkService",
+    "com.google.android.apps.messaging/.shared.datamodel.action.execution.ActionExecutorImpl",
+    "com.google.android.gms/.common.stats.GmsCoreStatsService",
+    "com.google.android.gms/com.google.android.location.internal.server.HardwareArProviderService",
+    "com.cerdillac.persetforlightroom/org.chromium.content.app.SandboxedProcessService0",
+    "com.android.bluetooth/.map.BluetoothMapService",
+    "com.android.phone/com.android.services.telephony.sip.components.TelephonySipService",
+    "com.android.phone/.TelephonyDebugService",
+    "com.android.bluetooth/.hid.HidHostService",
+    "com.android.bluetooth/.opp.BluetoothOppService",
+    "com.android.bluetooth/.pan.PanService",
+    "com.android.bluetooth/.avrcp.AvrcpTargetService",
+    "com.google.android.apps.nexuslauncher/com.android.quickstep.TouchInteractionService",
+    "com.google.android.cellbroadcastservice/com.android.cellbroadcastservice.DefaultCellBroadcastService"
+  ],
+  "width": 1080,
+  "height": 1920,
+  "views": [
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        1,
+        44
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1080,
+          1920
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": -1,
+      "temp_id": 0,
+      "size": "1080*1920",
+      "signature": "[class]android.widget.FrameLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "b98e97f0d44216b8fc14a34b42f1bf7f",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]None"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        2
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1080,
+          1794
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 0,
+      "temp_id": 1,
+      "size": "1080*1794",
+      "signature": "[class]android.widget.LinearLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "8af62d2c9664aec323f4d43ce5308df0",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]None"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        3
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1080,
+          1794
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 1,
+      "temp_id": 2,
+      "size": "1080*1794",
+      "signature": "[class]android.widget.FrameLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "2369559e60edfc339c88c49991178ad0",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]None"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        4
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1080,
+          1794
+        ]
+      ],
+      "resource_id": "com.cerdillac.persetforlightroom:id/action_bar_root",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 2,
+      "temp_id": 3,
+      "size": "1080*1794",
+      "signature": "[class]android.widget.LinearLayout[resource_id]com.cerdillac.persetforlightroom:id/action_bar_root[text]None[enabled,,]",
+      "view_str": "159ac986da54304d0f4b8b138fbc59ef",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]com.cerdillac.persetforlightroom:id/action_bar_root"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        5
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1080,
+          1794
+        ]
+      ],
+      "resource_id": "android:id/content",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 3,
+      "temp_id": 4,
+      "size": "1080*1794",
+      "signature": "[class]android.widget.FrameLayout[resource_id]android:id/content[text]None[enabled,,]",
+      "view_str": "26de4b4ec8de3bd691bed1d3070603d6",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]android:id/content"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        6,
+        7
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1080,
+          1794
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 4,
+      "temp_id": 5,
+      "size": "1080*1794",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "3b355d7f0085fdc75ecea58cd18c65f4",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]None"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1080,
+          0
+        ]
+      ],
+      "resource_id": "com.cerdillac.persetforlightroom:id/notch_container",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 5,
+      "temp_id": 6,
+      "size": "1080*0",
+      "signature": "[class]android.widget.FrameLayout[resource_id]com.cerdillac.persetforlightroom:id/notch_container[text]None[enabled,,]",
+      "view_str": "2687f2fa630513a53075b753e71a5772",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]com.cerdillac.persetforlightroom:id/notch_container"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        8
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1080,
+          1794
+        ]
+      ],
+      "resource_id": "com.cerdillac.persetforlightroom:id/content_container",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 5,
+      "temp_id": 7,
+      "size": "1080*1794",
+      "signature": "[class]android.widget.FrameLayout[resource_id]com.cerdillac.persetforlightroom:id/content_container[text]None[enabled,,]",
+      "view_str": "387e660ee98b2752693d620aa9d5418a",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]com.cerdillac.persetforlightroom:id/content_container"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        9
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1080,
+          1794
+        ]
+      ],
+      "resource_id": "com.cerdillac.persetforlightroom:id/main_view",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ScrollView",
+      "scrollable": true,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 7,
+      "temp_id": 8,
+      "size": "1080*1794",
+      "signature": "[class]android.widget.ScrollView[resource_id]com.cerdillac.persetforlightroom:id/main_view[text]None[enabled,,]",
+      "view_str": "e222d4f4cd239fbe54e2ea52840a253c",
+      "content_free_signature": "[class]android.widget.ScrollView[resource_id]com.cerdillac.persetforlightroom:id/main_view"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 16,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        10,
+        11,
+        12,
+        22,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        39,
+        42
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1080,
+          1794
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 8,
+      "temp_id": 9,
+      "size": "1080*1794",
+      "signature": "[class]android.view.ViewGroup[resource_id]None[text]None[enabled,,]",
+      "view_str": "6bcc90d9b3676ef6759485453cb5db9e",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]None"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          13
+        ],
+        [
+          105,
+          118
+        ]
+      ],
+      "resource_id": "com.cerdillac.persetforlightroom:id/image_back",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 9,
+      "temp_id": 10,
+      "size": "105*105",
+      "signature": "[class]android.widget.ImageView[resource_id]com.cerdillac.persetforlightroom:id/image_back[text]None[enabled,,]",
+      "view_str": "3e30dd0774ac010e1b8503dba46d3b7b",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.cerdillac.persetforlightroom:id/image_back"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          191,
+          105
+        ],
+        [
+          890,
+          245
+        ]
+      ],
+      "resource_id": "com.cerdillac.persetforlightroom:id/tv_upgrade_to_vip",
+      "checked": false,
+      "text": "Upgrade to VIP",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 9,
+      "temp_id": 11,
+      "size": "699*140",
+      "signature": "[class]android.widget.TextView[resource_id]com.cerdillac.persetforlightroom:id/tv_upgrade_to_vip[text]Upgrade to VIP[enabled,,]",
+      "view_str": "7d5c0294300f03c12c8fbf99a1bdfafd",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.cerdillac.persetforlightroom:id/tv_upgrade_to_vip"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        13,
+        20,
+        21
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          261
+        ],
+        [
+          1080,
+          812
+        ]
+      ],
+      "resource_id": "com.cerdillac.persetforlightroom:id/billing_rl_banner",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 9,
+      "temp_id": 12,
+      "size": "1080*551",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]com.cerdillac.persetforlightroom:id/billing_rl_banner[text]None[enabled,,]",
+      "view_str": "70d855edb8882d2caedc3742369147e7",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]com.cerdillac.persetforlightroom:id/billing_rl_banner"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        14,
+        16,
+        18
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          261
+        ],
+        [
+          1080,
+          812
+        ]
+      ],
+      "resource_id": "com.cerdillac.persetforlightroom:id/banner_view_pager",
+      "checked": false,
+      "text": null,
+      "class": "b.y.a.b",
+      "scrollable": true,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 12,
+      "temp_id": 13,
+      "size": "1080*551",
+      "signature": "[class]b.y.a.b[resource_id]com.cerdillac.persetforlightroom:id/banner_view_pager[text]None[enabled,,]",
+      "view_str": "20390c4c279f66226d6ea32e2729a6ec",
+      "content_free_signature": "[class]b.y.a.b[resource_id]com.cerdillac.persetforlightroom:id/banner_view_pager"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": false,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        15
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          261
+        ],
+        [
+          0,
+          812
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 13,
+      "temp_id": 14,
+      "size": "0*551",
+      "signature": "[class]android.widget.FrameLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "c13279bad04af2c4b2b7b5affac9b741",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]None"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          261
+        ],
+        [
+          0,
+          812
+        ]
+      ],
+      "resource_id": "com.cerdillac.persetforlightroom:id/billing_banner_view",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 14,
+      "temp_id": 15,
+      "size": "0*551",
+      "signature": "[class]android.widget.ImageView[resource_id]com.cerdillac.persetforlightroom:id/billing_banner_view[text]None[enabled,,]",
+      "view_str": "83a8e8ca9d565cf3f85cff9ef086e1d2",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.cerdillac.persetforlightroom:id/billing_banner_view"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        17
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          261
+        ],
+        [
+          1080,
+          812
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 13,
+      "temp_id": 16,
+      "size": "1080*551",
+      "signature": "[class]android.widget.FrameLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "c13279bad04af2c4b2b7b5affac9b741",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]None"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          261
+        ],
+        [
+          1080,
+          812
+        ]
+      ],
+      "resource_id": "com.cerdillac.persetforlightroom:id/billing_banner_view",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 16,
+      "temp_id": 17,
+      "size": "1080*551",
+      "signature": "[class]android.widget.ImageView[resource_id]com.cerdillac.persetforlightroom:id/billing_banner_view[text]None[enabled,,]",
+      "view_str": "83a8e8ca9d565cf3f85cff9ef086e1d2",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.cerdillac.persetforlightroom:id/billing_banner_view"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": false,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        19
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          1080,
+          261
+        ],
+        [
+          1080,
+          812
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 13,
+      "temp_id": 18,
+      "size": "0*551",
+      "signature": "[class]android.widget.FrameLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "c13279bad04af2c4b2b7b5affac9b741",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]None"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1080,
+          261
+        ],
+        [
+          1080,
+          812
+        ]
+      ],
+      "resource_id": "com.cerdillac.persetforlightroom:id/billing_banner_view",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 18,
+      "temp_id": 19,
+      "size": "0*551",
+      "signature": "[class]android.widget.ImageView[resource_id]com.cerdillac.persetforlightroom:id/billing_banner_view[text]None[enabled,,]",
+      "view_str": "83a8e8ca9d565cf3f85cff9ef086e1d2",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.cerdillac.persetforlightroom:id/billing_banner_view"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          50,
+          717
+        ],
+        [
+          165,
+          770
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": "Before",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 12,
+      "temp_id": 20,
+      "size": "115*53",
+      "signature": "[class]android.widget.TextView[resource_id]None[text]Before[enabled,,]",
+      "view_str": "9f77631e550586279ac840bb152fb2f6",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]None"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          944,
+          717
+        ],
+        [
+          1030,
+          770
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": "After",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 12,
+      "temp_id": 21,
+      "size": "86*53",
+      "signature": "[class]android.widget.TextView[resource_id]None[text]After[enabled,,]",
+      "view_str": "c9fef4ab71983b4b6b6638b5a50caafe",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]None"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 4,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        23,
+        24,
+        25,
+        26
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          812
+        ],
+        [
+          1080,
+          904
+        ]
+      ],
+      "resource_id": "com.cerdillac.persetforlightroom:id/billing_ll_banner_pointer",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 9,
+      "temp_id": 22,
+      "size": "1080*92",
+      "signature": "[class]android.widget.LinearLayout[resource_id]com.cerdillac.persetforlightroom:id/billing_ll_banner_pointer[text]None[enabled,,]",
+      "view_str": "5a947bca0fff91d52841c6872695ef72",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]com.cerdillac.persetforlightroom:id/billing_ll_banner_pointer"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          425,
+          845
+        ],
+        [
+          451,
+          871
+        ]
+      ],
+      "resource_id": "com.cerdillac.persetforlightroom:id/billing_banner_point1",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 22,
+      "temp_id": 23,
+      "size": "26*26",
+      "signature": "[class]android.widget.ImageView[resource_id]com.cerdillac.persetforlightroom:id/billing_banner_point1[text]None[enabled,,]",
+      "view_str": "821bc49e2ef7e18fb2266f09a6158f35",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.cerdillac.persetforlightroom:id/billing_banner_point1"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          493,
+          845
+        ],
+        [
+          519,
+          871
+        ]
+      ],
+      "resource_id": "com.cerdillac.persetforlightroom:id/billing_banner_point2",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": true,
+      "long_clickable": false,
+      "parent": 22,
+      "temp_id": 24,
+      "size": "26*26",
+      "signature": "[class]android.widget.ImageView[resource_id]com.cerdillac.persetforlightroom:id/billing_banner_point2[text]None[enabled,,selected]",
+      "view_str": "41b731d4d78b673a4884df739545abf9",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.cerdillac.persetforlightroom:id/billing_banner_point2"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          561,
+          845
+        ],
+        [
+          587,
+          871
+        ]
+      ],
+      "resource_id": "com.cerdillac.persetforlightroom:id/billing_banner_point3",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 22,
+      "temp_id": 25,
+      "size": "26*26",
+      "signature": "[class]android.widget.ImageView[resource_id]com.cerdillac.persetforlightroom:id/billing_banner_point3[text]None[enabled,,]",
+      "view_str": "f6bcc9c3eb7885047de3b0cbaf391e4e",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.cerdillac.persetforlightroom:id/billing_banner_point3"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          629,
+          845
+        ],
+        [
+          655,
+          871
+        ]
+      ],
+      "resource_id": "com.cerdillac.persetforlightroom:id/billing_banner_point4",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 22,
+      "temp_id": 26,
+      "size": "26*26",
+      "signature": "[class]android.widget.ImageView[resource_id]com.cerdillac.persetforlightroom:id/billing_banner_point4[text]None[enabled,,]",
+      "view_str": "3afe7a4e45f4e45cd006bd2601426ffb",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.cerdillac.persetforlightroom:id/billing_banner_point4"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          255,
+          913
+        ],
+        [
+          300,
+          958
+        ]
+      ],
+      "resource_id": "com.cerdillac.persetforlightroom:id/billing_iv_privilege_point1",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 9,
+      "temp_id": 27,
+      "size": "45*45",
+      "signature": "[class]android.widget.ImageView[resource_id]com.cerdillac.persetforlightroom:id/billing_iv_privilege_point1[text]None[enabled,,]",
+      "view_str": "f609b055169a8daad4915f27c6a803f9",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.cerdillac.persetforlightroom:id/billing_iv_privilege_point1"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          300,
+          904
+        ],
+        [
+          825,
+          967
+        ]
+      ],
+      "resource_id": "com.cerdillac.persetforlightroom:id/billing_tv_privilege1",
+      "checked": false,
+      "text": "1000+ Presets for Lr",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 9,
+      "temp_id": 28,
+      "size": "525*63",
+      "signature": "[class]android.widget.TextView[resource_id]com.cerdillac.persetforlightroom:id/billing_tv_privilege1[text]1000+ Presets for Lr[enabled,,]",
+      "view_str": "23bb7b9989b923003914e4232b1bb279",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.cerdillac.persetforlightroom:id/billing_tv_privilege1"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          255,
+          1002
+        ],
+        [
+          300,
+          1047
+        ]
+      ],
+      "resource_id": "com.cerdillac.persetforlightroom:id/billing_iv_privilege_point2",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 9,
+      "temp_id": 29,
+      "size": "45*45",
+      "signature": "[class]android.widget.ImageView[resource_id]com.cerdillac.persetforlightroom:id/billing_iv_privilege_point2[text]None[enabled,,]",
+      "view_str": "b737cc873ee10e6129718da74bc7e72c",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.cerdillac.persetforlightroom:id/billing_iv_privilege_point2"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          300,
+          993
+        ],
+        [
+          825,
+          1056
+        ]
+      ],
+      "resource_id": "com.cerdillac.persetforlightroom:id/billing_tv_privilege2",
+      "checked": false,
+      "text": "200+ Overlay Effects",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 9,
+      "temp_id": 30,
+      "size": "525*63",
+      "signature": "[class]android.widget.TextView[resource_id]com.cerdillac.persetforlightroom:id/billing_tv_privilege2[text]200+ Overlay Effects[enabled,,]",
+      "view_str": "61bacb744a754961f0e419870b15eba3",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.cerdillac.persetforlightroom:id/billing_tv_privilege2"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          255,
+          1091
+        ],
+        [
+          300,
+          1136
+        ]
+      ],
+      "resource_id": "com.cerdillac.persetforlightroom:id/billing_iv_privilege_point3",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 9,
+      "temp_id": 31,
+      "size": "45*45",
+      "signature": "[class]android.widget.ImageView[resource_id]com.cerdillac.persetforlightroom:id/billing_iv_privilege_point3[text]None[enabled,,]",
+      "view_str": "b60937cf6b00778a8ac2d37ef3f7542e",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.cerdillac.persetforlightroom:id/billing_iv_privilege_point3"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          300,
+          1082
+        ],
+        [
+          825,
+          1145
+        ]
+      ],
+      "resource_id": "com.cerdillac.persetforlightroom:id/billing_tv_privilege3",
+      "checked": false,
+      "text": "DNG Lr Presets PRO",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 9,
+      "temp_id": 32,
+      "size": "525*63",
+      "signature": "[class]android.widget.TextView[resource_id]com.cerdillac.persetforlightroom:id/billing_tv_privilege3[text]DNG Lr Presets PRO[enabled,,]",
+      "view_str": "caf2467b93acfb2918af1db6d2408488",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.cerdillac.persetforlightroom:id/billing_tv_privilege3"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          104,
+          1135
+        ],
+        [
+          976,
+          1357
+        ]
+      ],
+      "resource_id": "com.cerdillac.persetforlightroom:id/lottie",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 9,
+      "temp_id": 33,
+      "size": "872*222",
+      "signature": "[class]android.widget.ImageView[resource_id]com.cerdillac.persetforlightroom:id/lottie[text]None[enabled,,]",
+      "view_str": "c224af026ab45ca232335e3702f62a44",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.cerdillac.persetforlightroom:id/lottie"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": false,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          146,
+          1192
+        ],
+        [
+          934,
+          1323
+        ]
+      ],
+      "resource_id": "com.cerdillac.persetforlightroom:id/rl_purchase",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 9,
+      "temp_id": 34,
+      "size": "788*131",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]com.cerdillac.persetforlightroom:id/rl_purchase[text]None[,,]",
+      "view_str": "a4ca339494e126e276661998a97ad1dd",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]com.cerdillac.persetforlightroom:id/rl_purchase"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          798,
+          1179
+        ],
+        [
+          929,
+          1258
+        ]
+      ],
+      "resource_id": "com.cerdillac.persetforlightroom:id/tv_bill_tag",
+      "checked": false,
+      "text": "SAVE \n 96%",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 9,
+      "temp_id": 35,
+      "size": "131*79",
+      "signature": "[class]android.widget.TextView[resource_id]com.cerdillac.persetforlightroom:id/tv_bill_tag[text]SAVE \n 96%[enabled,,]",
+      "view_str": "0ade2cb0c8f8a220a4e36dce1f51128d",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.cerdillac.persetforlightroom:id/tv_bill_tag"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        37,
+        38
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          146,
+          1370
+        ],
+        [
+          934,
+          1501
+        ]
+      ],
+      "resource_id": "com.cerdillac.persetforlightroom:id/rl_year",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 9,
+      "temp_id": 36,
+      "size": "788*131",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]com.cerdillac.persetforlightroom:id/rl_year[text]None[enabled,,]",
+      "view_str": "f79c842269a05431e4bbed054453b569",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]com.cerdillac.persetforlightroom:id/rl_year"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          344,
+          1381
+        ],
+        [
+          735,
+          1452
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": "Yearly Subscribe",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 36,
+      "temp_id": 37,
+      "size": "391*71",
+      "signature": "[class]android.widget.TextView[resource_id]None[text]Yearly Subscribe[enabled,,]",
+      "view_str": "53372e77b34470a5a22bc39d81330407",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]None"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          360,
+          1444
+        ],
+        [
+          719,
+          1490
+        ]
+      ],
+      "resource_id": "com.cerdillac.persetforlightroom:id/billing_tv_year_price",
+      "checked": false,
+      "text": "$9.99,only $0.83/month",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 36,
+      "temp_id": 38,
+      "size": "359*46",
+      "signature": "[class]android.widget.TextView[resource_id]com.cerdillac.persetforlightroom:id/billing_tv_year_price[text]$9.99,only $0.83/month[enabled,,]",
+      "view_str": "41291a9c3a008beee37ac791a2e90e15",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.cerdillac.persetforlightroom:id/billing_tv_year_price"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        40,
+        41
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          146,
+          1548
+        ],
+        [
+          934,
+          1679
+        ]
+      ],
+      "resource_id": "com.cerdillac.persetforlightroom:id/rl_month",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 9,
+      "temp_id": 39,
+      "size": "788*131",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]com.cerdillac.persetforlightroom:id/rl_month[text]None[enabled,,]",
+      "view_str": "3d41640baac253f9df569b7e092f7f78",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]com.cerdillac.persetforlightroom:id/rl_month"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          314,
+          1559
+        ],
+        [
+          765,
+          1630
+        ]
+      ],
+      "resource_id": "com.cerdillac.persetforlightroom:id/billing_month_msg",
+      "checked": false,
+      "text": "3 Days FREE TRIAL",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 39,
+      "temp_id": 40,
+      "size": "451*71",
+      "signature": "[class]android.widget.TextView[resource_id]com.cerdillac.persetforlightroom:id/billing_month_msg[text]3 Days FREE TRIAL[enabled,,]",
+      "view_str": "eb551dd5b9d4693033bab4e4b1370af7",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.cerdillac.persetforlightroom:id/billing_month_msg"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          441,
+          1622
+        ],
+        [
+          638,
+          1668
+        ]
+      ],
+      "resource_id": "com.cerdillac.persetforlightroom:id/billing_tv_month_price",
+      "checked": false,
+      "text": "$2.99/month",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 39,
+      "temp_id": 41,
+      "size": "197*46",
+      "signature": "[class]android.widget.TextView[resource_id]com.cerdillac.persetforlightroom:id/billing_tv_month_price[text]$2.99/month[enabled,,]",
+      "view_str": "03cee30875e3df7d5fa00cfe09b55d10",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.cerdillac.persetforlightroom:id/billing_tv_month_price"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        43
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          1679
+        ],
+        [
+          1080,
+          1794
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 9,
+      "temp_id": 42,
+      "size": "1080*115",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "6ca424fcda0634d4889c9434f008c9c5",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]None"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          39,
+          1718
+        ],
+        [
+          1041,
+          1794
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": "Subscription automatically renews unless auto-renew is turned off at least 24 hours before the end of the current period. If a user cancels a subscription purchased on Google Play, the user will not receive a refund for the current billing period but will continue to receive their subscription content for the remainder of the current billing period. If the user who purchases a subscription with a free trial does not cancel the subscription after the trial period ends, the subscription fee will be automatically charged, and the payment will be deducted through Google Play. According to the rules of different platforms, VIP cannot be shared between iOS and Android.",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 42,
+      "temp_id": 43,
+      "size": "1002*76",
+      "signature": "[class]android.widget.TextView[resource_id]None[text]None[enabled,,]",
+      "view_str": "4deeb53bbf99cfe79f10edc9cfb0b4a7",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]None"
+    },
+    {
+      "package": "com.cerdillac.persetforlightroom",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          1794
+        ],
+        [
+          1080,
+          1920
+        ]
+      ],
+      "resource_id": "android:id/navigationBarBackground",
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 0,
+      "temp_id": 44,
+      "size": "1080*126",
+      "signature": "[class]android.view.View[resource_id]android:id/navigationBarBackground[text]None[enabled,,]",
+      "view_str": "724a88bf49f6f211cb54aa9c8db8e19e",
+      "content_free_signature": "[class]android.view.View[resource_id]android:id/navigationBarBackground"
+    }
+  ]
+}

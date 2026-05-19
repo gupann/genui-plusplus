@@ -1,0 +1,2713 @@
+{
+  "tag": "2023-07-09_094842",
+  "state_str": "f3b74c9113d0d37127232d7f0afc0e33",
+  "state_str_content_free": "9dcbb49119037e75cde9c0642e02e611",
+  "foreground_activity": "steptracker.healthandfitness.walkingtracker.pedometer/com.drojian.stepcounter.activity.LowRateInstructionActivity",
+  "activity_stack": [
+    "steptracker.healthandfitness.walkingtracker.pedometer/com.drojian.stepcounter.activity.LowRateInstructionActivity",
+    "steptracker.healthandfitness.walkingtracker.pedometer/.MainActivity"
+  ],
+  "background_services": [
+    "com.google.android.gms/.chimera.PersistentInternalBoundBrokerService",
+    "com.google.android.networkstack.tethering/com.android.networkstack.tethering.TetheringService",
+    "com.google.android.ext.services/com.android.textclassifier.DefaultTextClassifierService",
+    "com.google.android.gms/.icing.service.AppIndexingService",
+    "steptracker.healthandfitness.walkingtracker.pedometer/com.drojian.stepcounter.service.NotificationService",
+    "com.google.android.tts/.service.GoogleTTSService",
+    "com.google.android.gms/.deviceconnection.service.DeviceConnectionWatcherService",
+    "com.android.systemui/.keyguard.KeyguardService",
+    "com.android.chrome/org.chromium.content.app.SandboxedProcessService0",
+    "com.google.android.gms/.measurement.service.MeasurementBrokerService",
+    "com.android.bluetooth/.btservice.AdapterService",
+    "com.google.android.gms/org.chromium.content.app.SandboxedProcessService0",
+    "com.android.systemui/.ImageWallpaper",
+    "com.google.android.inputmethod.latin/com.android.inputmethod.latin.spellcheck.AndroidSpellCheckerService",
+    "com.google.android.gms/com.google.android.location.geocode.GeocodeService",
+    "steptracker.healthandfitness.walkingtracker.pedometer/org.chromium.content.app.SandboxedProcessService0",
+    "com.google.android.gms/.auth.setup.devicesignals.LockScreenService",
+    "com.google.android.gms/.gcm.GcmService",
+    "com.google.android.gms/.auth.proximity.firstparty.SystemMemoryCacheService",
+    "com.google.android.gms/.clearcut.debug.ClearcutDebugDumpService",
+    "com.google.android.gms/.chimera.PersistentApiService",
+    "steptracker.healthandfitness.walkingtracker.pedometer/com.drojian.stepcounter.service.CounterService",
+    "com.android.phone/com.android.internal.telephony.CellularNetworkService",
+    "com.google.android.gms/com.google.location.nearby.direct.service.NearbyDirectService",
+    "com.google.android.gms/.chimera.PersistentBoundBrokerService",
+    "com.android.bluetooth/.gatt.GattService",
+    "com.google.android.gms/.chimera.GmsBoundBrokerService",
+    "com.google.android.gms/.fido.fido2.pollux.CableAuthenticatorService",
+    "com.google.android.googlequicksearchbox/com.google.android.apps.gsa.nowoverlayservice.DrawerOverlayService",
+    "io.github.ylimit.droidbotapp/.DroidBotIME",
+    "com.android.bluetooth/.pbap.BluetoothPbapService",
+    "com.google.android.gms/.beacon.BleService",
+    "com.google.android.gms/com.google.android.location.fused.FusedLocationService",
+    "com.google.android.inputmethod.latin/com.google.android.libraries.micore.training.cache.service.TrainingCacheManagerService",
+    "com.google.android.gms/.gcm.nts.SchedulerService",
+    "com.google.android.ext.services/android.ext.services.autofill.InlineSuggestionRenderServiceImpl",
+    "com.android.bluetooth/.a2dp.A2dpService",
+    "com.google.android.providers.media.module/com.android.providers.media.fuse.ExternalStorageServiceImpl",
+    "com.google.android.gms/.ads.AdRequestBrokerService",
+    "io.github.ylimit.droidbotapp/io.github.privacystreams.accessibility.PSAccessibilityService",
+    "com.google.android.gms/com.google.android.location.geofencer.service.GeofenceProviderService",
+    "com.google.android.gms/.thunderbird.EmergencyPersistentService",
+    "com.google.android.apps.nexuslauncher/com.android.launcher3.notification.NotificationListener",
+    "com.android.systemui/.SystemUIService",
+    "com.android.chrome/org.chromium.content.app.PrivilegedProcessService0",
+    "android/.hardware.location.GeofenceHardwareService",
+    "com.android.se/.SecureElementService",
+    "com.google.android.ims/.services.RcsService",
+    "com.google.android.gms/.chimera.PersistentDirectBootAwareApiService",
+    "com.android.bluetooth/.hid.HidDeviceService",
+    "com.google.android.ext.services/android.ext.services.notification.Assistant",
+    "com.google.android.gms/.location.persistent.LocationPersistentService",
+    "com.google.android.gms/.nearby.discovery.service.DiscoveryService",
+    "com.google.android.gms/com.google.android.location.internal.PendingIntentCallbackService",
+    "com.google.android.gms/com.google.android.location.reporting.service.ReportingAndroidService",
+    "com.google.android.gms/.nearby.messages.service.NearbyMessagesService",
+    "com.android.server.telecom/.components.BluetoothPhoneService",
+    "com.google.android.gms/com.google.android.location.internal.server.GoogleLocationService",
+    "com.google.android.gms/com.google.android.contextmanager.service.ContextManagerService",
+    "com.android.systemui/.dump.SystemUIAuxiliaryDumpService",
+    "com.google.android.gms/com.google.android.location.network.NetworkLocationService",
+    "com.android.stk/.StkAppService",
+    "com.google.android.gms/com.google.android.location.internal.GoogleLocationManagerService",
+    "com.google.android.gms/.ads.cache.CacheBrokerService",
+    "com.android.phone/com.android.internal.telephony.dataconnection.CellularDataService",
+    "com.android.service.ims/.RcsService",
+    "com.android.server.telecom/.components.TelecomService",
+    "com.android.chrome/org.chromium.chrome.browser.customtabs.CustomTabsConnectionService",
+    "com.google.android.networkstack/com.android.server.NetworkStackService",
+    "com.android.bluetooth/.hfp.HeadsetService",
+    "com.google.android.googlequicksearchbox/com.google.android.voiceinteraction.GsaVoiceInteractionService",
+    "com.android.emulator.multidisplay/.MultiDisplayService",
+    "steptracker.healthandfitness.walkingtracker.pedometer/.leaderboard.service.MyFirebaseMessagingService",
+    "com.android.phone/.vvm.RemoteVvmTaskManager",
+    "com.google.android.gms/.lockbox.service.LockboxBrokerService",
+    "com.android.ons/.OpportunisticNetworkService",
+    "com.google.android.apps.messaging/.shared.datamodel.action.execution.ActionExecutorImpl",
+    "com.google.android.gms/.common.stats.GmsCoreStatsService",
+    "com.google.android.gms/com.google.android.location.internal.server.HardwareArProviderService",
+    "com.android.bluetooth/.map.BluetoothMapService",
+    "com.android.phone/com.android.services.telephony.sip.components.TelephonySipService",
+    "com.android.phone/.TelephonyDebugService",
+    "com.android.bluetooth/.hid.HidHostService",
+    "com.google.android.gms/.icing.service.IndexService",
+    "com.android.bluetooth/.opp.BluetoothOppService",
+    "com.android.bluetooth/.pan.PanService",
+    "com.android.bluetooth/.avrcp.AvrcpTargetService",
+    "com.google.android.apps.nexuslauncher/com.android.quickstep.TouchInteractionService",
+    "com.google.android.cellbroadcastservice/com.android.cellbroadcastservice.DefaultCellBroadcastService",
+    "com.google.android.gm/org.chromium.content.app.SandboxedProcessService0"
+  ],
+  "width": 1080,
+  "height": 1920,
+  "views": [
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        1,
+        66,
+        67
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1080,
+          1920
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": -1,
+      "temp_id": 0,
+      "size": "1080*1920",
+      "signature": "[class]android.widget.FrameLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "14361126015725694a0aab783d88d023",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]None"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        2
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1080,
+          1794
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 0,
+      "temp_id": 1,
+      "size": "1080*1794",
+      "signature": "[class]android.widget.LinearLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "d338c09ae46d18a151c0e77e7eb18e18",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]None"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        3
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          63
+        ],
+        [
+          1080,
+          1794
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 1,
+      "temp_id": 2,
+      "size": "1080*1731",
+      "signature": "[class]android.widget.FrameLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "32caca39c9c032b62ac6041aa3a200fc",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]None"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        4
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          63
+        ],
+        [
+          1080,
+          1794
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/action_bar_root",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 2,
+      "temp_id": 3,
+      "size": "1080*1731",
+      "signature": "[class]android.widget.LinearLayout[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/action_bar_root[text]None[enabled,,]",
+      "view_str": "9079e5b03c29ed877956524e6196aa17",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/action_bar_root"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        5
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          63
+        ],
+        [
+          1080,
+          1794
+        ]
+      ],
+      "resource_id": "android:id/content",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 3,
+      "temp_id": 4,
+      "size": "1080*1731",
+      "signature": "[class]android.widget.FrameLayout[resource_id]android:id/content[text]None[enabled,,]",
+      "view_str": "7f827c80b3dad14fb8201c885dbf1534",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]android:id/content"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 5,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        6,
+        7,
+        9,
+        64,
+        65
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          63
+        ],
+        [
+          1080,
+          1794
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 4,
+      "temp_id": 5,
+      "size": "1080*1731",
+      "signature": "[class]android.view.ViewGroup[resource_id]None[text]None[enabled,,]",
+      "view_str": "fe8c9261e0754f5d6b9c751462b3a0be",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]None"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          63
+        ],
+        [
+          3,
+          197
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/top",
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 5,
+      "temp_id": 6,
+      "size": "3*134",
+      "signature": "[class]android.view.View[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/top[text]None[enabled,,]",
+      "view_str": "ed7a951c7a223fbb3462f28c8f2a070e",
+      "content_free_signature": "[class]android.view.View[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/top"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        8
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          63
+        ],
+        [
+          1080,
+          168
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/l_sorry_header",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 5,
+      "temp_id": 7,
+      "size": "1080*105",
+      "signature": "[class]android.widget.FrameLayout[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/l_sorry_header[text]None[enabled,,]",
+      "view_str": "cf92ea1700b839b71c8d5fb9312f1ac8",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/l_sorry_header"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          937,
+          63
+        ],
+        [
+          1042,
+          168
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/iv_close_low_rate",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 7,
+      "temp_id": 8,
+      "size": "105*105",
+      "signature": "[class]android.widget.ImageView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/iv_close_low_rate[text]None[enabled,,]",
+      "view_str": "123d41c65f1d085dfb92f4f897ea7d8d",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/iv_close_low_rate"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 11,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        10,
+        14,
+        18,
+        24,
+        28,
+        34,
+        38,
+        44,
+        48,
+        54,
+        58
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          197
+        ],
+        [
+          1080,
+          1515
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/instruction_list",
+      "checked": false,
+      "text": null,
+      "class": "androidx.recyclerview.widget.RecyclerView",
+      "scrollable": true,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 5,
+      "temp_id": 9,
+      "size": "1080*1318",
+      "signature": "[class]androidx.recyclerview.widget.RecyclerView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/instruction_list[text]None[enabled,,]",
+      "view_str": "168539d242ce5c09018b142bc7095e1c",
+      "content_free_signature": "[class]androidx.recyclerview.widget.RecyclerView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/instruction_list"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        11,
+        12,
+        13
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          197
+        ],
+        [
+          1080,
+          805
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/root_item",
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 9,
+      "temp_id": 10,
+      "size": "1080*608",
+      "signature": "[class]android.view.ViewGroup[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/root_item[text]None[enabled,,]",
+      "view_str": "ea039565ee2b6f9c00dd5c88ee09b96b",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/root_item"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          58,
+          197
+        ],
+        [
+          163,
+          302
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/iv_icon",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 10,
+      "temp_id": 11,
+      "size": "105*105",
+      "signature": "[class]android.widget.ImageView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/iv_icon[text]None[enabled,,]",
+      "view_str": "b31ad7e159b0183609fbfcdeafbf6a7b",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/iv_icon"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          58,
+          337
+        ],
+        [
+          1033,
+          491
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/tv_title",
+      "checked": false,
+      "text": "Sorry for not meeting your expectations",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 10,
+      "temp_id": 12,
+      "size": "975*154",
+      "signature": "[class]android.widget.TextView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/tv_title[text]Sorry for not meeting your expectations[enabled,,]",
+      "view_str": "73e28a043e7bded083e49f4fb5352a6a",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/tv_title"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          58,
+          526
+        ],
+        [
+          1033,
+          732
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/tv_desc",
+      "checked": false,
+      "text": "We've listed some frequently asked questions and their solutions below. If the problem you encountered is not on the list, you can tap Feedback to contact us.",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 10,
+      "temp_id": 13,
+      "size": "975*206",
+      "signature": "[class]android.widget.TextView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/tv_desc[text]None[enabled,,]",
+      "view_str": "7b8431336322915bd65bcf2b1a84f855",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/tv_desc"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        15,
+        16,
+        17
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          805
+        ],
+        [
+          1080,
+          808
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 9,
+      "temp_id": 14,
+      "size": "1080*3",
+      "signature": "[class]android.widget.LinearLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "4a86b9da57db43a18ea7105731e50acb",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]None"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          805
+        ],
+        [
+          184,
+          808
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 14,
+      "temp_id": 15,
+      "size": "184*3",
+      "signature": "[class]android.view.View[resource_id]None[text]None[enabled,,]",
+      "view_str": "2cef5e898a160c7926ed37d9cc9045f0",
+      "content_free_signature": "[class]android.view.View[resource_id]None"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          184,
+          805
+        ],
+        [
+          1022,
+          808
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 14,
+      "temp_id": 16,
+      "size": "838*3",
+      "signature": "[class]android.view.View[resource_id]None[text]None[enabled,,]",
+      "view_str": "2cef5e898a160c7926ed37d9cc9045f0",
+      "content_free_signature": "[class]android.view.View[resource_id]None"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1022,
+          805
+        ],
+        [
+          1080,
+          808
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 14,
+      "temp_id": 17,
+      "size": "58*3",
+      "signature": "[class]android.view.View[resource_id]None[text]None[enabled,,]",
+      "view_str": "2cef5e898a160c7926ed37d9cc9045f0",
+      "content_free_signature": "[class]android.view.View[resource_id]None"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        19,
+        20
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          808
+        ],
+        [
+          1080,
+          971
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/root_item",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 9,
+      "temp_id": 18,
+      "size": "1080*163",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/root_item[text]None[enabled,,]",
+      "view_str": "4a8d1a1c5ccb04a9acf76a84dfb8ce06",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/root_item"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          808
+        ],
+        [
+          140,
+          808
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/v_holder",
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 18,
+      "temp_id": 19,
+      "size": "140*0",
+      "signature": "[class]android.view.View[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/v_holder[text]None[enabled,,]",
+      "view_str": "84f674a78c0b63cc3f2fe002878180e6",
+      "content_free_signature": "[class]android.view.View[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/v_holder"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        21,
+        22,
+        23
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          837
+        ],
+        [
+          1080,
+          930
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/ll_head",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 18,
+      "temp_id": 20,
+      "size": "1080*93",
+      "signature": "[class]android.widget.LinearLayout[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/ll_head[text]None[enabled,,]",
+      "view_str": "0642389bf8273ac14b556946cb0a89b4",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/ll_head"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          47,
+          848
+        ],
+        [
+          117,
+          918
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/iv_icon",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 20,
+      "temp_id": 21,
+      "size": "70*70",
+      "signature": "[class]android.widget.ImageView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/iv_icon[text]None[enabled,,]",
+      "view_str": "73f86d42823d6faa82a424998359d22a",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/iv_icon"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          164,
+          841
+        ],
+        [
+          940,
+          925
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/tv_title",
+      "checked": false,
+      "text": "How to use?",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 20,
+      "temp_id": 22,
+      "size": "776*84",
+      "signature": "[class]android.widget.TextView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/tv_title[text]How to use?[enabled,,]",
+      "view_str": "1f9b80556f56a4a2b37bb7f56acd59bb",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/tv_title"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          940,
+          837
+        ],
+        [
+          1033,
+          930
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/iv_fold",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 20,
+      "temp_id": 23,
+      "size": "93*93",
+      "signature": "[class]android.widget.ImageView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/iv_fold[text]None[enabled,,]",
+      "view_str": "1a8722c5f01d87b2ec97df759cd4a69a",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/iv_fold"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        25,
+        26,
+        27
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          971
+        ],
+        [
+          1080,
+          974
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 9,
+      "temp_id": 24,
+      "size": "1080*3",
+      "signature": "[class]android.widget.LinearLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "4a86b9da57db43a18ea7105731e50acb",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]None"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          971
+        ],
+        [
+          184,
+          974
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 24,
+      "temp_id": 25,
+      "size": "184*3",
+      "signature": "[class]android.view.View[resource_id]None[text]None[enabled,,]",
+      "view_str": "2cef5e898a160c7926ed37d9cc9045f0",
+      "content_free_signature": "[class]android.view.View[resource_id]None"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          184,
+          971
+        ],
+        [
+          1022,
+          974
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 24,
+      "temp_id": 26,
+      "size": "838*3",
+      "signature": "[class]android.view.View[resource_id]None[text]None[enabled,,]",
+      "view_str": "2cef5e898a160c7926ed37d9cc9045f0",
+      "content_free_signature": "[class]android.view.View[resource_id]None"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1022,
+          971
+        ],
+        [
+          1080,
+          974
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 24,
+      "temp_id": 27,
+      "size": "58*3",
+      "signature": "[class]android.view.View[resource_id]None[text]None[enabled,,]",
+      "view_str": "2cef5e898a160c7926ed37d9cc9045f0",
+      "content_free_signature": "[class]android.view.View[resource_id]None"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        29,
+        30
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          974
+        ],
+        [
+          1080,
+          1137
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/root_item",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 9,
+      "temp_id": 28,
+      "size": "1080*163",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/root_item[text]None[enabled,,]",
+      "view_str": "4a8d1a1c5ccb04a9acf76a84dfb8ce06",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/root_item"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          974
+        ],
+        [
+          140,
+          974
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/v_holder",
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 28,
+      "temp_id": 29,
+      "size": "140*0",
+      "signature": "[class]android.view.View[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/v_holder[text]None[enabled,,]",
+      "view_str": "84f674a78c0b63cc3f2fe002878180e6",
+      "content_free_signature": "[class]android.view.View[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/v_holder"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        31,
+        32,
+        33
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          1003
+        ],
+        [
+          1080,
+          1096
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/ll_head",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 28,
+      "temp_id": 30,
+      "size": "1080*93",
+      "signature": "[class]android.widget.LinearLayout[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/ll_head[text]None[enabled,,]",
+      "view_str": "4aa326571f80e10b330d57d73d30426e",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/ll_head"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          47,
+          1014
+        ],
+        [
+          117,
+          1084
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/iv_icon",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 30,
+      "temp_id": 31,
+      "size": "70*70",
+      "signature": "[class]android.widget.ImageView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/iv_icon[text]None[enabled,,]",
+      "view_str": "73f86d42823d6faa82a424998359d22a",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/iv_icon"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          164,
+          1007
+        ],
+        [
+          940,
+          1091
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/tv_title",
+      "checked": false,
+      "text": "Stops Counting?",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 30,
+      "temp_id": 32,
+      "size": "776*84",
+      "signature": "[class]android.widget.TextView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/tv_title[text]Stops Counting?[enabled,,]",
+      "view_str": "d2a3e1fc5ecf1508df717cc03f09a839",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/tv_title"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          940,
+          1003
+        ],
+        [
+          1033,
+          1096
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/iv_fold",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 30,
+      "temp_id": 33,
+      "size": "93*93",
+      "signature": "[class]android.widget.ImageView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/iv_fold[text]None[enabled,,]",
+      "view_str": "1a8722c5f01d87b2ec97df759cd4a69a",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/iv_fold"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        35,
+        36,
+        37
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          1137
+        ],
+        [
+          1080,
+          1140
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 9,
+      "temp_id": 34,
+      "size": "1080*3",
+      "signature": "[class]android.widget.LinearLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "4a86b9da57db43a18ea7105731e50acb",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]None"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          1137
+        ],
+        [
+          184,
+          1140
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 34,
+      "temp_id": 35,
+      "size": "184*3",
+      "signature": "[class]android.view.View[resource_id]None[text]None[enabled,,]",
+      "view_str": "2cef5e898a160c7926ed37d9cc9045f0",
+      "content_free_signature": "[class]android.view.View[resource_id]None"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          184,
+          1137
+        ],
+        [
+          1022,
+          1140
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 34,
+      "temp_id": 36,
+      "size": "838*3",
+      "signature": "[class]android.view.View[resource_id]None[text]None[enabled,,]",
+      "view_str": "2cef5e898a160c7926ed37d9cc9045f0",
+      "content_free_signature": "[class]android.view.View[resource_id]None"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1022,
+          1137
+        ],
+        [
+          1080,
+          1140
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 34,
+      "temp_id": 37,
+      "size": "58*3",
+      "signature": "[class]android.view.View[resource_id]None[text]None[enabled,,]",
+      "view_str": "2cef5e898a160c7926ed37d9cc9045f0",
+      "content_free_signature": "[class]android.view.View[resource_id]None"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        39,
+        40
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          1140
+        ],
+        [
+          1080,
+          1303
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/root_item",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 9,
+      "temp_id": 38,
+      "size": "1080*163",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/root_item[text]None[enabled,,]",
+      "view_str": "4a8d1a1c5ccb04a9acf76a84dfb8ce06",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/root_item"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          1140
+        ],
+        [
+          140,
+          1140
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/v_holder",
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 38,
+      "temp_id": 39,
+      "size": "140*0",
+      "signature": "[class]android.view.View[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/v_holder[text]None[enabled,,]",
+      "view_str": "84f674a78c0b63cc3f2fe002878180e6",
+      "content_free_signature": "[class]android.view.View[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/v_holder"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        41,
+        42,
+        43
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          1169
+        ],
+        [
+          1080,
+          1262
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/ll_head",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 38,
+      "temp_id": 40,
+      "size": "1080*93",
+      "signature": "[class]android.widget.LinearLayout[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/ll_head[text]None[enabled,,]",
+      "view_str": "e178da052fe550fa59cf3349a88d478b",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/ll_head"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          47,
+          1180
+        ],
+        [
+          117,
+          1250
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/iv_icon",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 40,
+      "temp_id": 41,
+      "size": "70*70",
+      "signature": "[class]android.widget.ImageView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/iv_icon[text]None[enabled,,]",
+      "view_str": "73f86d42823d6faa82a424998359d22a",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/iv_icon"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          164,
+          1173
+        ],
+        [
+          940,
+          1257
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/tv_title",
+      "checked": false,
+      "text": "Counting when shaking phone?",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 40,
+      "temp_id": 42,
+      "size": "776*84",
+      "signature": "[class]android.widget.TextView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/tv_title[text]Counting when shaking phone?[enabled,,]",
+      "view_str": "a3743893891790e556f130c791298ec5",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/tv_title"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          940,
+          1169
+        ],
+        [
+          1033,
+          1262
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/iv_fold",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 40,
+      "temp_id": 43,
+      "size": "93*93",
+      "signature": "[class]android.widget.ImageView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/iv_fold[text]None[enabled,,]",
+      "view_str": "1a8722c5f01d87b2ec97df759cd4a69a",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/iv_fold"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        45,
+        46,
+        47
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          1303
+        ],
+        [
+          1080,
+          1306
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 9,
+      "temp_id": 44,
+      "size": "1080*3",
+      "signature": "[class]android.widget.LinearLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "4a86b9da57db43a18ea7105731e50acb",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]None"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          1303
+        ],
+        [
+          184,
+          1306
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 44,
+      "temp_id": 45,
+      "size": "184*3",
+      "signature": "[class]android.view.View[resource_id]None[text]None[enabled,,]",
+      "view_str": "2cef5e898a160c7926ed37d9cc9045f0",
+      "content_free_signature": "[class]android.view.View[resource_id]None"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          184,
+          1303
+        ],
+        [
+          1022,
+          1306
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 44,
+      "temp_id": 46,
+      "size": "838*3",
+      "signature": "[class]android.view.View[resource_id]None[text]None[enabled,,]",
+      "view_str": "2cef5e898a160c7926ed37d9cc9045f0",
+      "content_free_signature": "[class]android.view.View[resource_id]None"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1022,
+          1303
+        ],
+        [
+          1080,
+          1306
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 44,
+      "temp_id": 47,
+      "size": "58*3",
+      "signature": "[class]android.view.View[resource_id]None[text]None[enabled,,]",
+      "view_str": "2cef5e898a160c7926ed37d9cc9045f0",
+      "content_free_signature": "[class]android.view.View[resource_id]None"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        49,
+        50
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          1306
+        ],
+        [
+          1080,
+          1469
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/root_item",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 9,
+      "temp_id": 48,
+      "size": "1080*163",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/root_item[text]None[enabled,,]",
+      "view_str": "4a8d1a1c5ccb04a9acf76a84dfb8ce06",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/root_item"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          1306
+        ],
+        [
+          140,
+          1306
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/v_holder",
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 48,
+      "temp_id": 49,
+      "size": "140*0",
+      "signature": "[class]android.view.View[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/v_holder[text]None[enabled,,]",
+      "view_str": "84f674a78c0b63cc3f2fe002878180e6",
+      "content_free_signature": "[class]android.view.View[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/v_holder"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        51,
+        52,
+        53
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          1335
+        ],
+        [
+          1080,
+          1428
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/ll_head",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 48,
+      "temp_id": 50,
+      "size": "1080*93",
+      "signature": "[class]android.widget.LinearLayout[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/ll_head[text]None[enabled,,]",
+      "view_str": "07b9e7f9bb7249dbcfc1c97c3a881456",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/ll_head"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          47,
+          1346
+        ],
+        [
+          117,
+          1416
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/iv_icon",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 50,
+      "temp_id": 51,
+      "size": "70*70",
+      "signature": "[class]android.widget.ImageView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/iv_icon[text]None[enabled,,]",
+      "view_str": "73f86d42823d6faa82a424998359d22a",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/iv_icon"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          164,
+          1339
+        ],
+        [
+          940,
+          1423
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/tv_title",
+      "checked": false,
+      "text": "Counting when driving?",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 50,
+      "temp_id": 52,
+      "size": "776*84",
+      "signature": "[class]android.widget.TextView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/tv_title[text]Counting when driving?[enabled,,]",
+      "view_str": "c02deb4d8cce9386c24759076e1e6696",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/tv_title"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          940,
+          1335
+        ],
+        [
+          1033,
+          1428
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/iv_fold",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 50,
+      "temp_id": 53,
+      "size": "93*93",
+      "signature": "[class]android.widget.ImageView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/iv_fold[text]None[enabled,,]",
+      "view_str": "1a8722c5f01d87b2ec97df759cd4a69a",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/iv_fold"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        55,
+        56,
+        57
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          1469
+        ],
+        [
+          1080,
+          1472
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 9,
+      "temp_id": 54,
+      "size": "1080*3",
+      "signature": "[class]android.widget.LinearLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "4a86b9da57db43a18ea7105731e50acb",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]None"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          1469
+        ],
+        [
+          184,
+          1472
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 54,
+      "temp_id": 55,
+      "size": "184*3",
+      "signature": "[class]android.view.View[resource_id]None[text]None[enabled,,]",
+      "view_str": "2cef5e898a160c7926ed37d9cc9045f0",
+      "content_free_signature": "[class]android.view.View[resource_id]None"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          184,
+          1469
+        ],
+        [
+          1022,
+          1472
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 54,
+      "temp_id": 56,
+      "size": "838*3",
+      "signature": "[class]android.view.View[resource_id]None[text]None[enabled,,]",
+      "view_str": "2cef5e898a160c7926ed37d9cc9045f0",
+      "content_free_signature": "[class]android.view.View[resource_id]None"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1022,
+          1469
+        ],
+        [
+          1080,
+          1472
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 54,
+      "temp_id": 57,
+      "size": "58*3",
+      "signature": "[class]android.view.View[resource_id]None[text]None[enabled,,]",
+      "view_str": "2cef5e898a160c7926ed37d9cc9045f0",
+      "content_free_signature": "[class]android.view.View[resource_id]None"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        59,
+        60
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          1472
+        ],
+        [
+          1080,
+          1515
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/root_item",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 9,
+      "temp_id": 58,
+      "size": "1080*43",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/root_item[text]None[enabled,,]",
+      "view_str": "4a8d1a1c5ccb04a9acf76a84dfb8ce06",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/root_item"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          1472
+        ],
+        [
+          140,
+          1472
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/v_holder",
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 58,
+      "temp_id": 59,
+      "size": "140*0",
+      "signature": "[class]android.view.View[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/v_holder[text]None[enabled,,]",
+      "view_str": "84f674a78c0b63cc3f2fe002878180e6",
+      "content_free_signature": "[class]android.view.View[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/v_holder"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        61,
+        62,
+        63
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          1501
+        ],
+        [
+          1080,
+          1515
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/ll_head",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 58,
+      "temp_id": 60,
+      "size": "1080*14",
+      "signature": "[class]android.widget.LinearLayout[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/ll_head[text]None[enabled,,]",
+      "view_str": "84541d334a85b7a7e4615506543d8f99",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/ll_head"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          47,
+          1512
+        ],
+        [
+          117,
+          1515
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/iv_icon",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 60,
+      "temp_id": 61,
+      "size": "70*3",
+      "signature": "[class]android.widget.ImageView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/iv_icon[text]None[enabled,,]",
+      "view_str": "73f86d42823d6faa82a424998359d22a",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/iv_icon"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          164,
+          1505
+        ],
+        [
+          940,
+          1515
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/tv_title",
+      "checked": false,
+      "text": "Accuracy",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 60,
+      "temp_id": 62,
+      "size": "776*10",
+      "signature": "[class]android.widget.TextView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/tv_title[text]Accuracy[enabled,,]",
+      "view_str": "8504b7cf2097d161e180c47602dd3c14",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/tv_title"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          940,
+          1501
+        ],
+        [
+          1033,
+          1515
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/iv_fold",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 60,
+      "temp_id": 63,
+      "size": "93*14",
+      "signature": "[class]android.widget.ImageView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/iv_fold[text]None[enabled,,]",
+      "view_str": "1a8722c5f01d87b2ec97df759cd4a69a",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/iv_fold"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          53,
+          1544
+        ],
+        [
+          1027,
+          1707
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/tv_feedback",
+      "checked": false,
+      "text": "FEEDBACK",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 5,
+      "temp_id": 64,
+      "size": "974*163",
+      "signature": "[class]android.widget.TextView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/tv_feedback[text]FEEDBACK[enabled,,]",
+      "view_str": "2a6b8f02fc3f8437a3069d085284c8e6",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/tv_feedback"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          1794
+        ],
+        [
+          1080,
+          1794
+        ]
+      ],
+      "resource_id": "steptracker.healthandfitness.walkingtracker.pedometer:id/ad_layout",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 5,
+      "temp_id": 65,
+      "size": "1080*0",
+      "signature": "[class]android.widget.LinearLayout[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/ad_layout[text]None[enabled,,]",
+      "view_str": "0f3160ebbf3858a812865c11ba3e569a",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]steptracker.healthandfitness.walkingtracker.pedometer:id/ad_layout"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1080,
+          63
+        ]
+      ],
+      "resource_id": "android:id/statusBarBackground",
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 0,
+      "temp_id": 66,
+      "size": "1080*63",
+      "signature": "[class]android.view.View[resource_id]android:id/statusBarBackground[text]None[enabled,,]",
+      "view_str": "70148b7106cdbd76974078a3446bbf8e",
+      "content_free_signature": "[class]android.view.View[resource_id]android:id/statusBarBackground"
+    },
+    {
+      "package": "steptracker.healthandfitness.walkingtracker.pedometer",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          1794
+        ],
+        [
+          1080,
+          1920
+        ]
+      ],
+      "resource_id": "android:id/navigationBarBackground",
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 0,
+      "temp_id": 67,
+      "size": "1080*126",
+      "signature": "[class]android.view.View[resource_id]android:id/navigationBarBackground[text]None[enabled,,]",
+      "view_str": "60656add3a42bc968b4da6badcce2239",
+      "content_free_signature": "[class]android.view.View[resource_id]android:id/navigationBarBackground"
+    }
+  ]
+}

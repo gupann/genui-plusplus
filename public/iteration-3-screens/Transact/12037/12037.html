@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Upgrade – Purchase Elite</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: 'Roboto', sans-serif; background: #222; margin: 0; }
+
+  /* ── Toolbar ── */
+  .toolbar {
+    background: #2e6b2e;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    height: 56px;
+    flex-shrink: 0;
+    position: sticky; top: 0; z-index: 10;
+  }
+  .tb-back {
+    background: none; border: none; cursor: pointer;
+    padding: 8px; color: #c8e0c8;
+    display: flex; align-items: center;
+    flex-shrink: 0;
+  }
+  .tb-title {
+    flex: 1;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    color: #c8e0c8;
+    letter-spacing: 0.04em;
+    margin-right: 32px; /* balance the back button width */
+  }
+
+  /* ── Feature comparison table (dimmed behind dialog) ── */
+  .page-body {
+    flex: 1;
+    position: relative;
+    background: #fff;
+    overflow: hidden;
+  }
+  .dimmed { filter: brightness(0.55); pointer-events: none; user-select: none; }
+
+  /* column header row */
+  .col-header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 12px 16px 8px;
+    gap: 28px;
+    border-bottom: 2px solid #222;
+  }
+  .col-label {
+    font-size: 15px;
+    color: #333;
+    font-weight: 400;
+    width: 44px;
+    text-align: center;
+  }
+
+  /* feature row */
+  .feature-row {
+    display: flex;
+    align-items: center;
+    padding: 13px 16px;
+    border-bottom: 1px solid #e8e8e8;
+  }
+  .feature-info { flex: 1; }
+  .feature-name {
+    font-size: 15px;
+    font-weight: 500;
+    color: #222;
+    line-height: 1.2;
+  }
+  .feature-desc {
+    font-size: 12px;
+    color: #888;
+    margin-top: 2px;
+    line-height: 1.3;
+  }
+  .feature-checks {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .check-cell {
+    width: 44px;
+    text-align: center;
+    font-size: 20px;
+  }
+  .check-green  { color: #2e8b2e; }
+  .check-gold   { color: #c8860a; }
+  .check-empty  { color: transparent; }
+
+  /* ── Purchase Elite bottom bar ── */
+  .purchase-bar {
+    background: #e0e0e0;
+    padding: 18px 16px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    color: #111;
+    letter-spacing: 0.08em;
+    border-top: 1px solid #ccc;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .purchase-bar:hover { background: #d0d0d0; }
+
+  /* ── Dialog overlay ── */
+  .dialog-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 30;
+    pointer-events: none;
+  }
+  .dialog-box {
+    background: #fff;
+    border-radius: 4px;
+    width: calc(100% - 60px);
+    max-width: 360px;
+    padding: 28px 24px 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+    pointer-events: all;
+  }
+  .dialog-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 14px;
+    line-height: 1.25;
+  }
+  .dialog-body {
+    font-size: 15px;
+    color: #222;
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+  .dialog-body strong { font-weight: 700; }
+  .dialog-body em { font-style: italic; }
+  .dialog-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    padding-top: 4px;
+  }
+  .dialog-btn {
+    background: none; border: none; cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    color: #c8860a;
+    padding: 10px 14px;
+    border-radius: 4px;
+    letter-spacing: 0.06em;
+    transition: background 0.15s;
+    font-family: 'Roboto', sans-serif;
+  }
+  .dialog-btn:hover { background: rgba(200,134,10,0.08); }
+  .dialog-btn.cancel { margin-right: auto; }
+</style>
+</head>
+<body>
+
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto border-x border-slate-200"
+     style="background:#fff; display:flex; flex-direction:column;">
+
+  <!-- ── Toolbar ── -->
+  <div class="toolbar">
+    <button class="tb-back" aria-label="Navigate up">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+    </button>
+    <div class="tb-title">Upgrade</div>
+  </div>
+
+  <!-- ── Main content area (dimmed behind dialog) ── -->
+  <div class="page-body" style="flex:1; display:flex; flex-direction:column;">
+    <div class="dimmed" style="flex:1; display:flex; flex-direction:column;">
+
+      <!-- Column headers -->
+      <div class="col-header">
+        <span class="col-label">Free</span>
+        <span class="col-label">Elite</span>
+      </div>
+
+      <!-- Feature rows — Free + Elite both get check -->
+      <div class="feature-row">
+        <div class="feature-info">
+          <div class="feature-name">GPS</div>
+          <div class="feature-desc">Track device using GPS.</div>
+        </div>
+        <div class="feature-checks">
+          <span class="check-cell check-green">✓</span>
+          <span class="check-cell check-gold">✓</span>
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-info">
+          <div class="feature-name">GPS Flare</div>
+          <div class="feature-desc">Get location on low battery.</div>
+        </div>
+        <div class="feature-checks">
+          <span class="check-cell check-green">✓</span>
+          <span class="check-cell check-gold">✓</span>
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-info">
+          <div class="feature-name">Ring</div>
+          <div class="feature-desc">Make your phone ring at full volume.</div>
+        </div>
+        <div class="feature-checks">
+          <span class="check-cell check-green">✓</span>
+          <span class="check-cell check-gold">✓</span>
+        </div>
+      </div>
+
+      <!-- Partially visible rows (behind dialog) -->
+      <div class="feature-row">
+        <div class="feature-info">
+          <div class="feature-name">Photo</div>
+          <div class="feature-desc">Capture a photo remotely.</div>
+        </div>
+        <div class="feature-checks">
+          <span class="check-cell check-green">✓</span>
+          <span class="check-cell check-gold">✓</span>
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-info">
+          <div class="feature-name">SIM Change</div>
+          <div class="feature-desc">Send alert if SIM is replaced.</div>
+        </div>
+        <div class="feature-checks">
+          <span class="check-cell check-empty">✓</span>
+          <span class="check-cell check-gold">✓</span>
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-info">
+          <div class="feature-name">Commands</div>
+          <div class="feature-desc">Take actions via SMS.</div>
+        </div>
+        <div class="feature-checks">
+          <span class="check-cell check-empty">–</span>
+          <span class="check-cell check-gold">✓</span>
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-info">
+          <div class="feature-name">Lock</div>
+          <div class="feature-desc">Lock device remotely.</div>
+        </div>
+        <div class="feature-checks">
+          <span class="check-cell check-empty">–</span>
+          <span class="check-cell check-gold">✓</span>
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-info">
+          <div class="feature-name">Wipe</div>
+          <div class="feature-desc">Erase all data remotely.</div>
+        </div>
+        <div class="feature-checks">
+          <span class="check-cell check-empty">–</span>
+          <span class="check-cell check-gold">✓</span>
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-info">
+          <div class="feature-name">Unlimited</div>
+          <div class="feature-desc">Pro support, no limits.</div>
+        </div>
+        <div class="feature-checks">
+          <span class="check-cell check-empty">–</span>
+          <span class="check-cell check-gold">✓</span>
+        </div>
+      </div>
+
+      <!-- Elite-only rows -->
+      <div class="feature-row">
+        <div class="feature-info">
+          <div class="feature-name">Geofence</div>
+          <div class="feature-desc">Lock your device within a set area.</div>
+        </div>
+        <div class="feature-checks">
+          <span class="check-cell check-empty">–</span>
+          <span class="check-cell check-gold">✓</span>
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-info">
+          <div class="feature-name">Theft Detection</div>
+          <div class="feature-desc">Automatically detect if the device is stolen.</div>
+        </div>
+        <div class="feature-checks">
+          <span class="check-cell check-empty">–</span>
+          <span class="check-cell check-gold">✓</span>
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-info">
+          <div class="feature-name">Passive Location</div>
+          <div class="feature-desc">Monitor device location throughout the day.</div>
+        </div>
+        <div class="feature-checks">
+          <span class="check-cell check-empty">–</span>
+          <span class="check-cell check-gold">✓</span>
+        </div>
+      </div>
+
+      <div class="feature-row" style="border-bottom:none;">
+        <div class="feature-info">
+          <div class="feature-name">Motion Alarm</div>
+        </div>
+        <div class="feature-checks">
+          <span class="check-cell check-empty">–</span>
+          <span class="check-cell check-gold">✓</span>
+        </div>
+      </div>
+
+      <!-- Purchase Elite bar -->
+      <div class="purchase-bar" style="margin-top:auto;">PURCHASE ELITE</div>
+
+      <!-- Dialog overlay sits inside dimmed area so it can be positioned absolutely -->
+    </div><!-- /dimmed -->
+
+    <!-- ── Purchase Elite dialog (NOT dimmed) ── -->
+    <div class="dialog-overlay">
+      <div class="dialog-box" role="dialog" aria-modal="true" aria-labelledby="dlg-title">
+
+        <div class="dialog-title" id="dlg-title">Purchase Elite</div>
+
+        <div class="dialog-body">
+          Please chose your billing cycle.<br/><br/>
+          <strong>Monthly</strong> - $0.99/mo<br/>
+          <strong>Yearly</strong> - $8.99/yr <em>(Save 24%)</em>
+        </div>
+
+        <div class="dialog-actions">
+          <button class="dialog-btn cancel">CANCEL</button>
+          <button class="dialog-btn">MONTHLY</button>
+          <button class="dialog-btn">YEARLY</button>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /page-body -->
+
+</div>
+</body>
+</html>

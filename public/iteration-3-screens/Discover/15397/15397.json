@@ -1,0 +1,3446 @@
+{
+  "tag": "2023-06-30_192240",
+  "state_str": "05b6f21caff331b97a2f75de55dfa8f5",
+  "state_str_content_free": "9572ef9ae7ded3100f8bf1bf86f6de1e",
+  "foreground_activity": "com.opera.app.news/com.opera.android.NewsMainActivity",
+  "activity_stack": [
+    "com.opera.app.news/com.opera.android.NewsMainActivity"
+  ],
+  "background_services": [
+    "com.google.android.gms/.icing.service.AppIndexingService",
+    "com.android.providers.media.module/com.android.providers.media.fuse.ExternalStorageServiceImpl",
+    "android.ext.services/.notification.Assistant",
+    "com.google.android.gms/.deviceconnection.service.DeviceConnectionWatcherService",
+    "com.android.systemui/.keyguard.KeyguardService",
+    "com.google.android.gms/.measurement.service.MeasurementBrokerService",
+    "com.android.bluetooth/.btservice.AdapterService",
+    "com.android.systemui/.ImageWallpaper",
+    "com.google.android.gms/com.google.android.location.geocode.GeocodeService",
+    "com.google.android.gms/.auth.setup.devicesignals.LockScreenService",
+    "com.google.android.gms/.gcm.GcmService",
+    "com.google.android.gms/.auth.proximity.firstparty.SystemMemoryCacheService",
+    "com.google.android.gms/.clearcut.debug.ClearcutDebugDumpService",
+    "com.android.permissioncontroller/.role.service.RoleControllerServiceImpl",
+    "com.android.phone/com.android.internal.telephony.CellularNetworkService",
+    "com.google.android.gms/com.google.location.nearby.direct.service.NearbyDirectService",
+    "com.google.android.gms/.chimera.PersistentBoundBrokerService",
+    "com.android.bluetooth/.gatt.GattService",
+    "com.google.android.gms/.chimera.GmsBoundBrokerService",
+    "com.google.android.gms/.fido.fido2.pollux.CableAuthenticatorService",
+    "com.opera.app.news/com.opera.android.analytics.OSPUploaderAlarmService",
+    "com.opera.app.news/org.chromium.content.app.SandboxedProcessService0",
+    "io.github.ylimit.droidbotapp/.DroidBotIME",
+    "com.android.bluetooth/.pbap.BluetoothPbapService",
+    "com.google.android.gms/.beacon.BleService",
+    "com.google.android.gms/com.google.android.location.fused.FusedLocationService",
+    "com.android.networkstack/com.android.server.NetworkStackService",
+    "com.google.android.gms/.gcm.nts.SchedulerService",
+    "com.android.bluetooth/.a2dp.A2dpService",
+    "com.android.cellbroadcastservice/.DefaultCellBroadcastService",
+    "io.github.ylimit.droidbotapp/io.github.privacystreams.accessibility.PSAccessibilityService",
+    "com.google.android.gms/com.google.android.location.geofencer.service.GeofenceProviderService",
+    "com.google.android.gms/.thunderbird.EmergencyPersistentService",
+    "com.android.systemui/.SystemUIService",
+    "android/.hardware.location.GeofenceHardwareService",
+    "com.android.se/.SecureElementService",
+    "com.google.android.gms/.chimera.GmsIntentOperationService",
+    "com.google.android.gms/.chimera.PersistentDirectBootAwareApiService",
+    "com.google.android.gms/.chimera.PersistentIntentOperationService",
+    "com.android.permissioncontroller/.permission.service.PermissionControllerServiceImpl",
+    "com.android.bluetooth/.hid.HidDeviceService",
+    "com.google.android.gms/.location.persistent.LocationPersistentService",
+    "com.google.android.gms/.nearby.discovery.service.DiscoveryService",
+    "com.google.android.gms/com.google.android.location.internal.PendingIntentCallbackService",
+    "com.google.android.gms/.nearby.messages.service.NearbyMessagesService",
+    "com.android.server.telecom/.components.BluetoothPhoneService",
+    "com.google.android.gms/com.google.android.location.internal.server.GoogleLocationService",
+    "com.google.android.gms/com.google.android.contextmanager.service.ContextManagerService",
+    "com.android.systemui/.dump.SystemUIAuxiliaryDumpService",
+    "com.google.android.gms/com.google.android.location.network.NetworkLocationService",
+    "com.android.stk/.StkAppService",
+    "com.google.android.gms/com.google.android.location.internal.GoogleLocationManagerService",
+    "com.android.networkstack.tethering/.TetheringService",
+    "com.android.phone/com.android.internal.telephony.dataconnection.CellularDataService",
+    "com.android.service.ims/.RcsService",
+    "com.android.server.telecom/.components.TelecomService",
+    "com.android.launcher3/com.android.quickstep.TouchInteractionService",
+    "com.opera.app.news/com.xiaomi.push.service.XMPushService",
+    "com.android.bluetooth/.hfp.HeadsetService",
+    "com.android.emulator.multidisplay/.MultiDisplayService",
+    "com.android.phone/.vvm.RemoteVvmTaskManager",
+    "com.android.ons/.OpportunisticNetworkService",
+    "com.google.android.gms/.common.stats.GmsCoreStatsService",
+    "com.google.android.gms/com.google.android.location.internal.server.HardwareArProviderService",
+    "com.android.gallery3d/.app.BatchService",
+    "com.opera.app.news/com.opera.android.firebase.OperaFirebaseMessagingService",
+    "com.android.bluetooth/.map.BluetoothMapService",
+    "com.android.phone/com.android.services.telephony.sip.components.TelephonySipService",
+    "com.android.phone/.TelephonyDebugService",
+    "com.android.bluetooth/.hid.HidHostService",
+    "com.google.android.gms/.icing.service.IndexService",
+    "com.android.bluetooth/.opp.BluetoothOppService",
+    "com.android.bluetooth/.pan.PanService",
+    "com.android.bluetooth/.avrcp.AvrcpTargetService",
+    "com.google.android.gms/.checkin.CheckinApiService",
+    "android.ext.services/.autofill.InlineSuggestionRenderServiceImpl"
+  ],
+  "width": 1440,
+  "height": 2560,
+  "views": [
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        1,
+        85,
+        86
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1440,
+          2560
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": -1,
+      "temp_id": 0,
+      "size": "1440*2560",
+      "signature": "[class]android.widget.FrameLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "eeaabad403c95f9ecb2625ee3fcca8cf",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]None"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        2
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 0,
+      "temp_id": 1,
+      "size": "1440*2392",
+      "signature": "[class]android.widget.LinearLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "4b628836cfda4c98453566c2c94799b8",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]None"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        3
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          84
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 1,
+      "temp_id": 2,
+      "size": "1440*2308",
+      "signature": "[class]android.widget.FrameLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "7623bf39e0178648a760badb30fe14da",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]None"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        4
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          84
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/action_bar_root",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 2,
+      "temp_id": 3,
+      "size": "1440*2308",
+      "signature": "[class]android.widget.LinearLayout[resource_id]com.opera.app.news:id/action_bar_root[text]None[enabled,,]",
+      "view_str": "feeb4b984b2aeeae722a9003c5d03fdb",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]com.opera.app.news:id/action_bar_root"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        5
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          84
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": "android:id/content",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 3,
+      "temp_id": 4,
+      "size": "1440*2308",
+      "signature": "[class]android.widget.FrameLayout[resource_id]android:id/content[text]None[enabled,,]",
+      "view_str": "5db07ba69ec1270af6cc0c6d781846a9",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]android:id/content"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        6
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          84
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/main_ui",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 4,
+      "temp_id": 5,
+      "size": "1440*2308",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]com.opera.app.news:id/main_ui[text]None[enabled,,]",
+      "view_str": "56b63f42fe744554b72c992ca5ce82de",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]com.opera.app.news:id/main_ui"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        7
+      ],
+      "focused": true,
+      "bounds": [
+        [
+          0,
+          84
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/main_frame",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 5,
+      "temp_id": 6,
+      "size": "1440*2308",
+      "signature": "[class]android.widget.FrameLayout[resource_id]com.opera.app.news:id/main_frame[text]None[enabled,,]",
+      "view_str": "55311a8164229f4786f5736f325830f1",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]com.opera.app.news:id/main_frame"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        8
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          84
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/news_feed_page_layout",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 6,
+      "temp_id": 7,
+      "size": "1440*2308",
+      "signature": "[class]android.widget.FrameLayout[resource_id]com.opera.app.news:id/news_feed_page_layout[text]None[enabled,,]",
+      "view_str": "82619409067626fa3caad7f38c7fe59a",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]com.opera.app.news:id/news_feed_page_layout"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        9,
+        73
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          84
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 7,
+      "temp_id": 8,
+      "size": "1440*2308",
+      "signature": "[class]android.widget.FrameLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "59da193853ec2dacdd7d11b6391ea8b3",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]None"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        10
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          84
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/ui_tabs",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 8,
+      "temp_id": 9,
+      "size": "1440*2308",
+      "signature": "[class]android.widget.FrameLayout[resource_id]com.opera.app.news:id/ui_tabs[text]None[enabled,,]",
+      "view_str": "0ddf945dc805a2b387f1c651adc0f430",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]com.opera.app.news:id/ui_tabs"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        11,
+        48
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          84
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 9,
+      "temp_id": 10,
+      "size": "1440*2308",
+      "signature": "[class]android.widget.FrameLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "42fa5d54efc88d51db1acef890d4566b",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]None"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        12
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          259
+        ],
+        [
+          1440,
+          2217
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/root_view",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 10,
+      "temp_id": 11,
+      "size": "1440*1958",
+      "signature": "[class]android.widget.FrameLayout[resource_id]com.opera.app.news:id/root_view[text]None[enabled,,]",
+      "view_str": "7d34efb936f3235fc4105ce5dd966979",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]com.opera.app.news:id/root_view"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        13,
+        14,
+        31
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          259
+        ],
+        [
+          1440,
+          2217
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/main_content",
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 11,
+      "temp_id": 12,
+      "size": "1440*1958",
+      "signature": "[class]android.view.ViewGroup[resource_id]com.opera.app.news:id/main_content[text]None[enabled,,]",
+      "view_str": "e42838a97e6c2d676762191ba9d991da",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]com.opera.app.news:id/main_content"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          259
+        ],
+        [
+          1440,
+          2217
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/floating_popup_container",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 12,
+      "temp_id": 13,
+      "size": "1440*1958",
+      "signature": "[class]android.widget.FrameLayout[resource_id]com.opera.app.news:id/floating_popup_container[text]None[enabled,,]",
+      "view_str": "16515048ae48a12fdd911b8e7562d7dd",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]com.opera.app.news:id/floating_popup_container"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        15,
+        17,
+        24
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          259
+        ],
+        [
+          1440,
+          2217
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/view_pager",
+      "checked": false,
+      "text": null,
+      "class": "androidx.viewpager.widget.ViewPager",
+      "scrollable": true,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 12,
+      "temp_id": 14,
+      "size": "1440*1958",
+      "signature": "[class]androidx.viewpager.widget.ViewPager[resource_id]com.opera.app.news:id/view_pager[text]None[enabled,,]",
+      "view_str": "df5dac55b8b1bd3cba8168d52b7a7d15",
+      "content_free_signature": "[class]androidx.viewpager.widget.ViewPager[resource_id]com.opera.app.news:id/view_pager"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": false,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        16
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          259
+        ],
+        [
+          0,
+          2217
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/swipe_refresh_gesture_handler",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 14,
+      "temp_id": 15,
+      "size": "0*1958",
+      "signature": "[class]android.widget.FrameLayout[resource_id]com.opera.app.news:id/swipe_refresh_gesture_handler[text]None[enabled,,]",
+      "view_str": "61d30026f743f79c7981dbf9845ce569",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]com.opera.app.news:id/swipe_refresh_gesture_handler"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          259
+        ],
+        [
+          0,
+          2217
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/start_page_recycler_view",
+      "checked": false,
+      "text": null,
+      "class": "androidx.recyclerview.widget.RecyclerView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 15,
+      "temp_id": 16,
+      "size": "0*1958",
+      "signature": "[class]androidx.recyclerview.widget.RecyclerView[resource_id]com.opera.app.news:id/start_page_recycler_view[text]None[enabled,,]",
+      "view_str": "a4da8d81da93d5f52bb1fdbcc7d30d0f",
+      "content_free_signature": "[class]androidx.recyclerview.widget.RecyclerView[resource_id]com.opera.app.news:id/start_page_recycler_view"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        18,
+        19
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          259
+        ],
+        [
+          1440,
+          2217
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 14,
+      "temp_id": 17,
+      "size": "1440*1958",
+      "signature": "[class]android.widget.LinearLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "00831d027d0778037f3002fb971c3021",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]None"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          413
+        ],
+        [
+          1440,
+          413
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 17,
+      "temp_id": 18,
+      "size": "1440*0",
+      "signature": "[class]android.widget.FrameLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "12f13d5f06c74140e6dd708c54a748c8",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]None"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        20
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          413
+        ],
+        [
+          1440,
+          2217
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/swipe_refresh_gesture_handler",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 17,
+      "temp_id": 19,
+      "size": "1440*1804",
+      "signature": "[class]android.widget.FrameLayout[resource_id]com.opera.app.news:id/swipe_refresh_gesture_handler[text]None[enabled,,]",
+      "view_str": "105628cc94b7dffbcfb2b9d84d5fb66d",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]com.opera.app.news:id/swipe_refresh_gesture_handler"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        21,
+        22
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          413
+        ],
+        [
+          1440,
+          2217
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/start_page_recycler_view",
+      "checked": false,
+      "text": null,
+      "class": "androidx.recyclerview.widget.RecyclerView",
+      "scrollable": true,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 19,
+      "temp_id": 20,
+      "size": "1440*1804",
+      "signature": "[class]androidx.recyclerview.widget.RecyclerView[resource_id]com.opera.app.news:id/start_page_recycler_view[text]None[enabled,,]",
+      "view_str": "2cd7fe413d1df32b3f82ff44561803d7",
+      "content_free_signature": "[class]androidx.recyclerview.widget.RecyclerView[resource_id]com.opera.app.news:id/start_page_recycler_view"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          413
+        ],
+        [
+          1440,
+          413
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 20,
+      "temp_id": 21,
+      "size": "1440*0",
+      "signature": "[class]android.view.View[resource_id]None[text]None[enabled,,]",
+      "view_str": "0884666d1d217fd472ed5721d92e88ca",
+      "content_free_signature": "[class]android.view.View[resource_id]None"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        23
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          413
+        ],
+        [
+          1440,
+          2217
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 20,
+      "temp_id": 22,
+      "size": "1440*1804",
+      "signature": "[class]android.widget.FrameLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "81f97f6f9926fe3d7d21289198d487d7",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]None"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          671,
+          1266
+        ],
+        [
+          769,
+          1364
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/spinner",
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 22,
+      "temp_id": 23,
+      "size": "98*98",
+      "signature": "[class]android.view.View[resource_id]com.opera.app.news:id/spinner[text]None[enabled,,]",
+      "view_str": "c5e5df771b890396b32a8f84d9ee88ec",
+      "content_free_signature": "[class]android.view.View[resource_id]com.opera.app.news:id/spinner"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": false,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        25
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          1440,
+          259
+        ],
+        [
+          1440,
+          2217
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 14,
+      "temp_id": 24,
+      "size": "0*1958",
+      "signature": "[class]android.widget.LinearLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "7ab9edb51f5abff97d0cfc6ee280145f",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]None"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": false,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        26
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          1440,
+          413
+        ],
+        [
+          1440,
+          2217
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/swipe_refresh_gesture_handler",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 24,
+      "temp_id": 25,
+      "size": "0*1804",
+      "signature": "[class]android.widget.FrameLayout[resource_id]com.opera.app.news:id/swipe_refresh_gesture_handler[text]None[enabled,,]",
+      "view_str": "105628cc94b7dffbcfb2b9d84d5fb66d",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]com.opera.app.news:id/swipe_refresh_gesture_handler"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": false,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        27
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          1440,
+          413
+        ],
+        [
+          1440,
+          2217
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/start_page_recycler_view",
+      "checked": false,
+      "text": null,
+      "class": "androidx.recyclerview.widget.RecyclerView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 25,
+      "temp_id": 26,
+      "size": "0*1804",
+      "signature": "[class]androidx.recyclerview.widget.RecyclerView[resource_id]com.opera.app.news:id/start_page_recycler_view[text]None[enabled,,]",
+      "view_str": "1eff4c76eb527f6e0f6c5e912816869e",
+      "content_free_signature": "[class]androidx.recyclerview.widget.RecyclerView[resource_id]com.opera.app.news:id/start_page_recycler_view"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": false,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        28,
+        29,
+        30
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          1440,
+          435
+        ],
+        [
+          1440,
+          1912
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 26,
+      "temp_id": 27,
+      "size": "0*1477",
+      "signature": "[class]android.widget.LinearLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "6d28b730955b7b8e4e18eb7c2a34b72a",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]None"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1878,
+          873
+        ],
+        [
+          1440,
+          1370
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/local_news_image",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 27,
+      "temp_id": 28,
+      "size": "-438*497",
+      "signature": "[class]android.widget.ImageView[resource_id]com.opera.app.news:id/local_news_image[text]None[enabled,,]",
+      "view_str": "357000e2b2ba78221fedabeb63f6a515",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.opera.app.news:id/local_news_image"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1598,
+          1468
+        ],
+        [
+          1440,
+          1534
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": "Select your city to find the latest news near you.",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 27,
+      "temp_id": 29,
+      "size": "-158*66",
+      "signature": "[class]android.widget.TextView[resource_id]None[text]Select your city to find the latest news near you.[enabled,,]",
+      "view_str": "8bdfa532f02e195928227314dba887a6",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]None"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1545,
+          1772
+        ],
+        [
+          1440,
+          1912
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/ok_button",
+      "checked": false,
+      "text": "OK",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 27,
+      "temp_id": 30,
+      "size": "-105*140",
+      "signature": "[class]android.widget.TextView[resource_id]com.opera.app.news:id/ok_button[text]OK[enabled,,]",
+      "view_str": "7a9365ef8d65db1d01b4ae7a06fcafae",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.opera.app.news:id/ok_button"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        32
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          259
+        ],
+        [
+          1440,
+          413
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/news_toolbar_container",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 12,
+      "temp_id": 31,
+      "size": "1440*154",
+      "signature": "[class]android.widget.FrameLayout[resource_id]com.opera.app.news:id/news_toolbar_container[text]None[enabled,,]",
+      "view_str": "ad2b09945475488e33a5ef609d6e194f",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]com.opera.app.news:id/news_toolbar_container"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        33
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          259
+        ],
+        [
+          1440,
+          413
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/news_toolbar",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 31,
+      "temp_id": 32,
+      "size": "1440*154",
+      "signature": "[class]android.widget.LinearLayout[resource_id]com.opera.app.news:id/news_toolbar[text]None[enabled,,]",
+      "view_str": "cb6d260402317498834e122ccbf1b69f",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]com.opera.app.news:id/news_toolbar"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        34,
+        47
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          259
+        ],
+        [
+          1440,
+          413
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 32,
+      "temp_id": 33,
+      "size": "1440*154",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "8c900c81eb8e5fb76f3b8a9d46221e8f",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]None"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 6,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        35,
+        37,
+        39,
+        41,
+        43,
+        45
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          259
+        ],
+        [
+          1286,
+          413
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/news_category_view",
+      "checked": false,
+      "text": null,
+      "class": "androidx.recyclerview.widget.RecyclerView",
+      "scrollable": true,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 33,
+      "temp_id": 34,
+      "size": "1286*154",
+      "signature": "[class]androidx.recyclerview.widget.RecyclerView[resource_id]com.opera.app.news:id/news_category_view[text]None[enabled,,]",
+      "view_str": "0385cbe7f4788b845fc1c83a7c358539",
+      "content_free_signature": "[class]androidx.recyclerview.widget.RecyclerView[resource_id]com.opera.app.news:id/news_category_view"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        36
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          259
+        ],
+        [
+          243,
+          413
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 34,
+      "temp_id": 35,
+      "size": "243*154",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "d6329afd7ffcc707649e2dd96fc16981",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]None"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          28,
+          259
+        ],
+        [
+          215,
+          413
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/news_category_text_view",
+      "checked": false,
+      "text": "For you",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": true,
+      "long_clickable": false,
+      "parent": 35,
+      "temp_id": 36,
+      "size": "187*154",
+      "signature": "[class]android.widget.TextView[resource_id]com.opera.app.news:id/news_category_text_view[text]For you[enabled,,selected]",
+      "view_str": "ce94862afa7368774b4bb6623d1d262a",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.opera.app.news:id/news_category_text_view"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        38
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          243,
+          259
+        ],
+        [
+          455,
+          413
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 34,
+      "temp_id": 37,
+      "size": "212*154",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "114cc96295bb85eef37fa3b86b213894",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]None"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          271,
+          259
+        ],
+        [
+          427,
+          413
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/news_category_text_view",
+      "checked": false,
+      "text": "Local",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 37,
+      "temp_id": 38,
+      "size": "156*154",
+      "signature": "[class]android.widget.TextView[resource_id]com.opera.app.news:id/news_category_text_view[text]Local[enabled,,]",
+      "view_str": "80b71ef54b6417a71747fd84bd247240",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.opera.app.news:id/news_category_text_view"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        40
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          455,
+          259
+        ],
+        [
+          698,
+          413
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 34,
+      "temp_id": 39,
+      "size": "243*154",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "83e6ab1b9cc8ab4a742ab13a700e79f8",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]None"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          483,
+          259
+        ],
+        [
+          670,
+          413
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/news_category_text_view",
+      "checked": false,
+      "text": "Politics",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 39,
+      "temp_id": 40,
+      "size": "187*154",
+      "signature": "[class]android.widget.TextView[resource_id]com.opera.app.news:id/news_category_text_view[text]Politics[enabled,,]",
+      "view_str": "2cf52a2061e074b414bb426dad1131ad",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.opera.app.news:id/news_category_text_view"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        42
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          698,
+          259
+        ],
+        [
+          879,
+          413
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 34,
+      "temp_id": 41,
+      "size": "181*154",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "3b15ac9afdd72525ab2e8478d9d3bc19",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]None"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          726,
+          259
+        ],
+        [
+          851,
+          413
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/news_category_text_view",
+      "checked": false,
+      "text": "Faith",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 41,
+      "temp_id": 42,
+      "size": "125*154",
+      "signature": "[class]android.widget.TextView[resource_id]com.opera.app.news:id/news_category_text_view[text]Faith[enabled,,]",
+      "view_str": "8879a3b10ac70a51fd88d966d600167c",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.opera.app.news:id/news_category_text_view"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        44
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          879,
+          259
+        ],
+        [
+          1103,
+          413
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 34,
+      "temp_id": 43,
+      "size": "224*154",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "2def4f99783d354907b84d7e65b890f7",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]None"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          907,
+          259
+        ],
+        [
+          1075,
+          413
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/news_category_text_view",
+      "checked": false,
+      "text": "Sports",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 43,
+      "temp_id": 44,
+      "size": "168*154",
+      "signature": "[class]android.widget.TextView[resource_id]com.opera.app.news:id/news_category_text_view[text]Sports[enabled,,]",
+      "view_str": "671886ecaa87b818967249891354ae18",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.opera.app.news:id/news_category_text_view"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        46
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          1103,
+          259
+        ],
+        [
+          1286,
+          413
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 34,
+      "temp_id": 45,
+      "size": "183*154",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "578bec693ea848116535899c1bf45fbd",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]None"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1131,
+          259
+        ],
+        [
+          1286,
+          413
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/news_category_text_view",
+      "checked": false,
+      "text": "Entertainment",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 45,
+      "temp_id": 46,
+      "size": "155*154",
+      "signature": "[class]android.widget.TextView[resource_id]com.opera.app.news:id/news_category_text_view[text]Entertainment[enabled,,]",
+      "view_str": "675cc154ef512c5dfc26c4a984a3bd2d",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.opera.app.news:id/news_category_text_view"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1286,
+          259
+        ],
+        [
+          1440,
+          413
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/news_category_settings",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 33,
+      "temp_id": 47,
+      "size": "154*154",
+      "signature": "[class]android.widget.ImageView[resource_id]com.opera.app.news:id/news_category_settings[text]None[enabled,,]",
+      "view_str": "af1bad0b70a36f10d489a301d2b049a5",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.opera.app.news:id/news_category_settings"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        49
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          2216
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/bottom_toolbar_container",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 10,
+      "temp_id": 48,
+      "size": "1440*176",
+      "signature": "[class]android.widget.FrameLayout[resource_id]com.opera.app.news:id/bottom_toolbar_container[text]None[enabled,,]",
+      "view_str": "998d0c365343844dbfc56af5bbbbb27b",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]com.opera.app.news:id/bottom_toolbar_container"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        50,
+        51
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          2216
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 48,
+      "temp_id": 49,
+      "size": "1440*176",
+      "signature": "[class]android.widget.LinearLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "7ab8b784a8f55ba3abb5cf805db96278",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]None"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          2216
+        ],
+        [
+          1440,
+          2217
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/bottom_toolbar_divider",
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 49,
+      "temp_id": 50,
+      "size": "1440*1",
+      "signature": "[class]android.view.View[resource_id]com.opera.app.news:id/bottom_toolbar_divider[text]None[enabled,,]",
+      "view_str": "5ac88a847faee533a057bb2e5f88c60d",
+      "content_free_signature": "[class]android.view.View[resource_id]com.opera.app.news:id/bottom_toolbar_divider"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        52
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          2217
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/bottom_toolbar",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.TabHost",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 49,
+      "temp_id": 51,
+      "size": "1440*175",
+      "signature": "[class]android.widget.TabHost[resource_id]com.opera.app.news:id/bottom_toolbar[text]None[enabled,,]",
+      "view_str": "f704ce71cede172a3cf815ee4ea018a2",
+      "content_free_signature": "[class]android.widget.TabHost[resource_id]com.opera.app.news:id/bottom_toolbar"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 4,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        53,
+        59,
+        64,
+        68
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          2217
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": "android:id/tabs",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.TabWidget",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 51,
+      "temp_id": 52,
+      "size": "1440*175",
+      "signature": "[class]android.widget.TabWidget[resource_id]android:id/tabs[text]None[enabled,,]",
+      "view_str": "22d64b3c9f3ea981ddd531e956c00d0b",
+      "content_free_signature": "[class]android.widget.TabWidget[resource_id]android:id/tabs"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        54,
+        55
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          2217
+        ],
+        [
+          360,
+          2392
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/opera_news_tab_main_indicator",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": true,
+      "long_clickable": false,
+      "parent": 52,
+      "temp_id": 53,
+      "size": "360*175",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]com.opera.app.news:id/opera_news_tab_main_indicator[text]None[enabled,,selected]",
+      "view_str": "3996a1d6b1f4919761fc6d867ed0a269",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]com.opera.app.news:id/opera_news_tab_main_indicator"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          2217
+        ],
+        [
+          360,
+          2392
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/cover",
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": true,
+      "long_clickable": false,
+      "parent": 53,
+      "temp_id": 54,
+      "size": "360*175",
+      "signature": "[class]android.view.View[resource_id]com.opera.app.news:id/cover[text]None[enabled,,selected]",
+      "view_str": "ef81155b1d380516d65082510a72500e",
+      "content_free_signature": "[class]android.view.View[resource_id]com.opera.app.news:id/cover"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        56,
+        58
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          2217
+        ],
+        [
+          360,
+          2392
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": true,
+      "long_clickable": false,
+      "parent": 53,
+      "temp_id": 55,
+      "size": "360*175",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]None[text]None[enabled,,selected]",
+      "view_str": "f671da7ef130c45d609d17ee7e97a42c",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]None"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        57
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          117,
+          2217
+        ],
+        [
+          243,
+          2343
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": true,
+      "long_clickable": false,
+      "parent": 55,
+      "temp_id": 56,
+      "size": "126*126",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]None[text]None[enabled,,selected]",
+      "view_str": "55e5defe06d5389476a4daee5896ac5a",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]None"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          138,
+          2238
+        ],
+        [
+          222,
+          2322
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/tab_icon",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": true,
+      "long_clickable": false,
+      "parent": 56,
+      "temp_id": 57,
+      "size": "84*84",
+      "signature": "[class]android.widget.ImageView[resource_id]com.opera.app.news:id/tab_icon[text]None[enabled,,selected]",
+      "view_str": "35145d45a71e9ffc1505ec83d65a9a6c",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.opera.app.news:id/tab_icon"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          132,
+          2322
+        ],
+        [
+          227,
+          2369
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/tab_name",
+      "checked": false,
+      "text": "Home",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": true,
+      "long_clickable": false,
+      "parent": 55,
+      "temp_id": 58,
+      "size": "95*47",
+      "signature": "[class]android.widget.TextView[resource_id]com.opera.app.news:id/tab_name[text]Home[enabled,,selected]",
+      "view_str": "6bf99ce839537b3105c3970e68c9d800",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.opera.app.news:id/tab_name"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 4,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        60,
+        61,
+        62,
+        63
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          360,
+          2217
+        ],
+        [
+          720,
+          2392
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/opera_news_tab_social_video_indicator",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 52,
+      "temp_id": 59,
+      "size": "360*175",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]com.opera.app.news:id/opera_news_tab_social_video_indicator[text]None[enabled,,]",
+      "view_str": "a308a496c97252aadd5fcb26a06a394d",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]com.opera.app.news:id/opera_news_tab_social_video_indicator"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          360,
+          2217
+        ],
+        [
+          720,
+          2392
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/cover",
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 59,
+      "temp_id": 60,
+      "size": "360*175",
+      "signature": "[class]android.view.View[resource_id]com.opera.app.news:id/cover[text]None[enabled,,]",
+      "view_str": "5f7198000f1cc84eab09d916cbd5faf0",
+      "content_free_signature": "[class]android.view.View[resource_id]com.opera.app.news:id/cover"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          456,
+          2217
+        ],
+        [
+          624,
+          2364
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/tab_effect",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 59,
+      "temp_id": 61,
+      "size": "168*147",
+      "signature": "[class]android.widget.ImageView[resource_id]com.opera.app.news:id/tab_effect[text]None[enabled,,]",
+      "view_str": "84f3a046a4bfdcea71f7da534dabf4e1",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.opera.app.news:id/tab_effect"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          498,
+          2238
+        ],
+        [
+          582,
+          2322
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/tab_icon",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 59,
+      "temp_id": 62,
+      "size": "84*84",
+      "signature": "[class]android.widget.ImageView[resource_id]com.opera.app.news:id/tab_icon[text]None[enabled,,]",
+      "view_str": "76ea8baaee8a9bf3fd8d73d9734966c6",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.opera.app.news:id/tab_icon"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          495,
+          2329
+        ],
+        [
+          585,
+          2376
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/tab_name",
+      "checked": false,
+      "text": "Video",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 59,
+      "temp_id": 63,
+      "size": "90*47",
+      "signature": "[class]android.widget.TextView[resource_id]com.opera.app.news:id/tab_name[text]Video[enabled,,]",
+      "view_str": "628403767c3cc77a03b385f60617d8d5",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.opera.app.news:id/tab_name"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        65,
+        66,
+        67
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          720,
+          2217
+        ],
+        [
+          1080,
+          2392
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/opera_news_tab_messages_indicator",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 52,
+      "temp_id": 64,
+      "size": "360*175",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]com.opera.app.news:id/opera_news_tab_messages_indicator[text]None[enabled,,]",
+      "view_str": "30fd589e4ffbfbbff89fadd4ac7df197",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]com.opera.app.news:id/opera_news_tab_messages_indicator"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          720,
+          2217
+        ],
+        [
+          1080,
+          2392
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/cover",
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 64,
+      "temp_id": 65,
+      "size": "360*175",
+      "signature": "[class]android.view.View[resource_id]com.opera.app.news:id/cover[text]None[enabled,,]",
+      "view_str": "70c6376c316b202477dbef6b8ceb043e",
+      "content_free_signature": "[class]android.view.View[resource_id]com.opera.app.news:id/cover"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          858,
+          2238
+        ],
+        [
+          942,
+          2322
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/tab_icon",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 64,
+      "temp_id": 66,
+      "size": "84*84",
+      "signature": "[class]android.widget.ImageView[resource_id]com.opera.app.news:id/tab_icon[text]None[enabled,,]",
+      "view_str": "06893f4160b18faf540128a8c1bf6d3e",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.opera.app.news:id/tab_icon"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          857,
+          2329
+        ],
+        [
+          943,
+          2376
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/tab_name",
+      "checked": false,
+      "text": "Inbox",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 64,
+      "temp_id": 67,
+      "size": "86*47",
+      "signature": "[class]android.widget.TextView[resource_id]com.opera.app.news:id/tab_name[text]Inbox[enabled,,]",
+      "view_str": "f42cde5c9a10f9122676dc4441fb183f",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.opera.app.news:id/tab_name"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 4,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        69,
+        70,
+        71,
+        72
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          1080,
+          2217
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/opera_news_tab_profile_indicator",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 52,
+      "temp_id": 68,
+      "size": "360*175",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]com.opera.app.news:id/opera_news_tab_profile_indicator[text]None[enabled,,]",
+      "view_str": "307e0fac1f68a169b037e66a414f8bda",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]com.opera.app.news:id/opera_news_tab_profile_indicator"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1080,
+          2217
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/cover",
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 68,
+      "temp_id": 69,
+      "size": "360*175",
+      "signature": "[class]android.view.View[resource_id]com.opera.app.news:id/cover[text]None[enabled,,]",
+      "view_str": "c91c6635cbc6fdfdaa389725cc33eff6",
+      "content_free_signature": "[class]android.view.View[resource_id]com.opera.app.news:id/cover"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1218,
+          2238
+        ],
+        [
+          1302,
+          2322
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/tab_icon",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 68,
+      "temp_id": 70,
+      "size": "84*84",
+      "signature": "[class]android.widget.ImageView[resource_id]com.opera.app.news:id/tab_icon[text]None[enabled,,]",
+      "view_str": "50403e675e1aaadb799b2fdd5a6e132d",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.opera.app.news:id/tab_icon"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1288,
+          2231
+        ],
+        [
+          1309,
+          2252
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/red_dot",
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 68,
+      "temp_id": 71,
+      "size": "21*21",
+      "signature": "[class]android.view.View[resource_id]com.opera.app.news:id/red_dot[text]None[enabled,,]",
+      "view_str": "96def2df40ef4636594a74f0207e4f1d",
+      "content_free_signature": "[class]android.view.View[resource_id]com.opera.app.news:id/red_dot"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1235,
+          2329
+        ],
+        [
+          1285,
+          2376
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/tab_name",
+      "checked": false,
+      "text": "Me",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 68,
+      "temp_id": 72,
+      "size": "50*47",
+      "signature": "[class]android.widget.TextView[resource_id]com.opera.app.news:id/tab_name[text]Me[enabled,,]",
+      "view_str": "497be254a1d92f3c42d10b1da78a6231",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.opera.app.news:id/tab_name"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        74
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          84
+        ],
+        [
+          1440,
+          259
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/tab_toolbar_container",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 8,
+      "temp_id": 73,
+      "size": "1440*175",
+      "signature": "[class]android.widget.FrameLayout[resource_id]com.opera.app.news:id/tab_toolbar_container[text]None[enabled,,]",
+      "view_str": "2da37250f8f53b798896eb229a943d5b",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]com.opera.app.news:id/tab_toolbar_container"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        75
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          84
+        ],
+        [
+          1440,
+          259
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 73,
+      "temp_id": 74,
+      "size": "1440*175",
+      "signature": "[class]android.widget.FrameLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "87de558a3e227f737705610447c73c2d",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]None"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        76,
+        79,
+        81
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          84
+        ],
+        [
+          1440,
+          259
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 74,
+      "temp_id": 75,
+      "size": "1440*175",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "4db4677617cdadbb7443918b3c6fad57",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]None"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        77,
+        78
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          84
+        ],
+        [
+          224,
+          259
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/choose_language_country_container",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 75,
+      "temp_id": 76,
+      "size": "224*175",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]com.opera.app.news:id/choose_language_country_container[text]None[enabled,,]",
+      "view_str": "0dda3265d5e1f46886e064072f5e3015",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]com.opera.app.news:id/choose_language_country_container"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          46,
+          170
+        ],
+        [
+          48,
+          172
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/choose_language_country_icon",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 76,
+      "temp_id": 77,
+      "size": "2*2",
+      "signature": "[class]android.widget.ImageView[resource_id]com.opera.app.news:id/choose_language_country_icon[text]None[enabled,,]",
+      "view_str": "d0b7c0be1a2df9fe248691914a0e0c4e",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.opera.app.news:id/choose_language_country_icon"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          55,
+          148
+        ],
+        [
+          90,
+          194
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/location_icon",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 76,
+      "temp_id": 78,
+      "size": "35*46",
+      "signature": "[class]android.widget.ImageView[resource_id]com.opera.app.news:id/location_icon[text]None[enabled,,]",
+      "view_str": "cc5e7288cd77d5479e3b7e9c7ebf507f",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.opera.app.news:id/location_icon"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        80
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          224,
+          119
+        ],
+        [
+          1200,
+          224
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/search_hint",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 75,
+      "temp_id": 79,
+      "size": "976*105",
+      "signature": "[class]android.widget.FrameLayout[resource_id]com.opera.app.news:id/search_hint[text]None[enabled,,]",
+      "view_str": "1aa6d1c7aceb200fb2037879b8538aa4",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]com.opera.app.news:id/search_hint"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          614,
+          142
+        ],
+        [
+          810,
+          200
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/search_hint_text",
+      "checked": false,
+      "text": "Search",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 79,
+      "temp_id": 80,
+      "size": "196*58",
+      "signature": "[class]android.widget.TextView[resource_id]com.opera.app.news:id/search_hint_text[text]Search[enabled,,]",
+      "view_str": "5fbeb4e476b7fcdb8a2361e21f6acfdb",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.opera.app.news:id/search_hint_text"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        82
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          1242,
+          84
+        ],
+        [
+          1440,
+          259
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/tools_layout",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 75,
+      "temp_id": 81,
+      "size": "198*175",
+      "signature": "[class]android.widget.LinearLayout[resource_id]com.opera.app.news:id/tools_layout[text]None[enabled,,]",
+      "view_str": "53ea567950eb96cacee79444f85fc1f5",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]com.opera.app.news:id/tools_layout"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        83,
+        84
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          1267,
+          109
+        ],
+        [
+          1415,
+          234
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/offline_reading_arrow_container",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 81,
+      "temp_id": 82,
+      "size": "148*125",
+      "signature": "[class]android.widget.FrameLayout[resource_id]com.opera.app.news:id/offline_reading_arrow_container[text]None[enabled,,]",
+      "view_str": "3b56fa64bcc0e81ca76359ecae70e43f",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]com.opera.app.news:id/offline_reading_arrow_container"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1292,
+          122
+        ],
+        [
+          1390,
+          220
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 82,
+      "temp_id": 83,
+      "size": "98*98",
+      "signature": "[class]android.widget.ImageView[resource_id]None[text]None[enabled,,]",
+      "view_str": "46b1caaed46adc363f7cfa74e9170d91",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]None"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1292,
+          122
+        ],
+        [
+          1390,
+          220
+        ]
+      ],
+      "resource_id": "com.opera.app.news:id/offline_reading_icon_arrow",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 82,
+      "temp_id": 84,
+      "size": "98*98",
+      "signature": "[class]android.widget.ImageView[resource_id]com.opera.app.news:id/offline_reading_icon_arrow[text]None[enabled,,]",
+      "view_str": "85204a2120cc910ce4fc3df282b0c181",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.opera.app.news:id/offline_reading_icon_arrow"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1440,
+          84
+        ]
+      ],
+      "resource_id": "android:id/statusBarBackground",
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 0,
+      "temp_id": 85,
+      "size": "1440*84",
+      "signature": "[class]android.view.View[resource_id]android:id/statusBarBackground[text]None[enabled,,]",
+      "view_str": "a08fff8824cf16465c024b80346598b0",
+      "content_free_signature": "[class]android.view.View[resource_id]android:id/statusBarBackground"
+    },
+    {
+      "package": "com.opera.app.news",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          2392
+        ],
+        [
+          1440,
+          2560
+        ]
+      ],
+      "resource_id": "android:id/navigationBarBackground",
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 0,
+      "temp_id": 86,
+      "size": "1440*168",
+      "signature": "[class]android.view.View[resource_id]android:id/navigationBarBackground[text]None[enabled,,]",
+      "view_str": "2a3bf3546b796332da8bcbcf34b3195f",
+      "content_free_signature": "[class]android.view.View[resource_id]android:id/navigationBarBackground"
+    }
+  ]
+}

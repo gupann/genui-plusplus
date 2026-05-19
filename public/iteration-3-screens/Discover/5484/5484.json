@@ -1,0 +1,6198 @@
+{
+  "tag": "2023-07-09_100946",
+  "state_str": "bf47194ca83f1695a5bc87b3819638e1",
+  "state_str_content_free": "c7e7fcd48707c3c820425285daebef6d",
+  "foreground_activity": "com.mindbodyonline.connect/.activities.MainActivity",
+  "activity_stack": [
+    "com.mindbodyonline.connect/.activities.MainActivity"
+  ],
+  "background_services": [
+    "com.google.android.networkstack.tethering/com.android.networkstack.tethering.TetheringService",
+    "com.google.android.ext.services/com.android.textclassifier.DefaultTextClassifierService",
+    "com.google.android.gms/.deviceconnection.service.DeviceConnectionWatcherService",
+    "com.android.systemui/.keyguard.KeyguardService",
+    "com.android.chrome/org.chromium.content.app.SandboxedProcessService0",
+    "com.android.bluetooth/.btservice.AdapterService",
+    "com.google.android.gms/org.chromium.content.app.SandboxedProcessService0",
+    "com.android.systemui/.ImageWallpaper",
+    "com.google.android.inputmethod.latin/com.android.inputmethod.latin.spellcheck.AndroidSpellCheckerService",
+    "com.google.android.gms/com.google.android.location.geocode.GeocodeService",
+    "com.google.android.gms/.auth.setup.devicesignals.LockScreenService",
+    "com.google.android.gms/.gcm.GcmService",
+    "com.google.android.gms/.auth.proximity.firstparty.SystemMemoryCacheService",
+    "com.google.android.gms/.clearcut.debug.ClearcutDebugDumpService",
+    "com.android.phone/com.android.internal.telephony.CellularNetworkService",
+    "com.google.android.gms/com.google.location.nearby.direct.service.NearbyDirectService",
+    "com.google.android.gms/.chimera.PersistentBoundBrokerService",
+    "com.android.bluetooth/.gatt.GattService",
+    "com.google.android.gms/.fido.fido2.pollux.CableAuthenticatorService",
+    "com.google.android.googlequicksearchbox/com.google.android.apps.gsa.nowoverlayservice.DrawerOverlayService",
+    "io.github.ylimit.droidbotapp/.DroidBotIME",
+    "com.android.bluetooth/.pbap.BluetoothPbapService",
+    "com.google.android.gms/.beacon.BleService",
+    "com.google.android.gms/com.google.android.location.fused.FusedLocationService",
+    "com.google.android.inputmethod.latin/com.google.android.libraries.micore.training.cache.service.TrainingCacheManagerService",
+    "com.google.android.gms/.gcm.nts.SchedulerService",
+    "com.google.android.ext.services/android.ext.services.autofill.InlineSuggestionRenderServiceImpl",
+    "com.android.bluetooth/.a2dp.A2dpService",
+    "com.google.android.providers.media.module/com.android.providers.media.fuse.ExternalStorageServiceImpl",
+    "io.github.ylimit.droidbotapp/io.github.privacystreams.accessibility.PSAccessibilityService",
+    "com.google.android.gms/com.google.android.location.geofencer.service.GeofenceProviderService",
+    "com.google.android.gms/.thunderbird.EmergencyPersistentService",
+    "com.google.android.apps.nexuslauncher/com.android.launcher3.notification.NotificationListener",
+    "com.android.systemui/.SystemUIService",
+    "com.android.chrome/org.chromium.content.app.PrivilegedProcessService0",
+    "android/.hardware.location.GeofenceHardwareService",
+    "com.android.se/.SecureElementService",
+    "com.google.android.ims/.services.RcsService",
+    "com.google.android.gms/.chimera.PersistentDirectBootAwareApiService",
+    "com.google.android.gms/.chimera.PersistentIntentOperationService",
+    "com.android.bluetooth/.hid.HidDeviceService",
+    "com.google.android.ext.services/android.ext.services.notification.Assistant",
+    "com.google.android.gms/.location.persistent.LocationPersistentService",
+    "com.google.android.gms/.nearby.discovery.service.DiscoveryService",
+    "com.google.android.gms/com.google.android.location.internal.PendingIntentCallbackService",
+    "com.google.android.gms/.nearby.messages.service.NearbyMessagesService",
+    "com.android.server.telecom/.components.BluetoothPhoneService",
+    "com.google.android.gms/com.google.android.location.internal.server.GoogleLocationService",
+    "com.google.android.gms/com.google.android.contextmanager.service.ContextManagerService",
+    "com.android.systemui/.dump.SystemUIAuxiliaryDumpService",
+    "com.google.android.gms/com.google.android.location.network.NetworkLocationService",
+    "com.android.stk/.StkAppService",
+    "com.google.android.gms/com.google.android.location.internal.GoogleLocationManagerService",
+    "com.android.phone/com.android.internal.telephony.dataconnection.CellularDataService",
+    "com.android.service.ims/.RcsService",
+    "com.android.server.telecom/.components.TelecomService",
+    "com.android.chrome/org.chromium.chrome.browser.customtabs.CustomTabsConnectionService",
+    "com.google.android.networkstack/com.android.server.NetworkStackService",
+    "com.android.bluetooth/.hfp.HeadsetService",
+    "com.google.android.googlequicksearchbox/com.google.android.voiceinteraction.GsaVoiceInteractionService",
+    "com.android.emulator.multidisplay/.MultiDisplayService",
+    "com.android.phone/.vvm.RemoteVvmTaskManager",
+    "com.android.ons/.OpportunisticNetworkService",
+    "com.google.android.apps.messaging/.shared.datamodel.action.execution.ActionExecutorImpl",
+    "com.google.android.gms/.common.stats.GmsCoreStatsService",
+    "com.google.android.gms/com.google.android.location.internal.server.HardwareArProviderService",
+    "com.android.bluetooth/.map.BluetoothMapService",
+    "com.android.phone/com.android.services.telephony.sip.components.TelephonySipService",
+    "com.mindbodyonline.connect/com.braze.push.BrazeFirebaseMessagingService",
+    "com.android.phone/.TelephonyDebugService",
+    "com.android.bluetooth/.hid.HidHostService",
+    "com.android.bluetooth/.opp.BluetoothOppService",
+    "com.android.bluetooth/.pan.PanService",
+    "com.android.bluetooth/.avrcp.AvrcpTargetService",
+    "com.google.android.apps.nexuslauncher/com.android.quickstep.TouchInteractionService",
+    "com.google.android.cellbroadcastservice/com.android.cellbroadcastservice.DefaultCellBroadcastService",
+    "com.google.android.gm/org.chromium.content.app.SandboxedProcessService0"
+  ],
+  "width": 1080,
+  "height": 1920,
+  "views": [
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        1,
+        2,
+        158
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1080,
+          1920
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": -1,
+      "temp_id": 0,
+      "size": "1080*1920",
+      "signature": "[class]android.widget.FrameLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "7b3d7279a0cd57b509b1c2d40a380b79",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": true,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1080,
+          1920
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 0,
+      "temp_id": 1,
+      "size": "1080*1920",
+      "signature": "[class]android.widget.FrameLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "2140f09178d9459a0961c842a528541f",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        3
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1080,
+          1794
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 0,
+      "temp_id": 2,
+      "size": "1080*1794",
+      "signature": "[class]android.widget.LinearLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "61179ae09150b88f31d4222da60a647e",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        4
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1080,
+          1794
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 2,
+      "temp_id": 3,
+      "size": "1080*1794",
+      "signature": "[class]android.widget.FrameLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "0f851c5d63f2f74bd304be9580b8cf0c",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        5
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1080,
+          1794
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/action_bar_root",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 3,
+      "temp_id": 4,
+      "size": "1080*1794",
+      "signature": "[class]android.widget.FrameLayout[resource_id]com.mindbodyonline.connect:id/action_bar_root[text]None[enabled,,]",
+      "view_str": "7037fb7a66974527f1d6cf1e7b7fe2c6",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]com.mindbodyonline.connect:id/action_bar_root"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        6
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1080,
+          1794
+        ]
+      ],
+      "resource_id": "android:id/content",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 4,
+      "temp_id": 5,
+      "size": "1080*1794",
+      "signature": "[class]android.widget.FrameLayout[resource_id]android:id/content[text]None[enabled,,]",
+      "view_str": "876899a04ce24816083fe45ba4e9fe8c",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]android:id/content"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        7,
+        140,
+        141
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1080,
+          1794
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 5,
+      "temp_id": 6,
+      "size": "1080*1794",
+      "signature": "[class]android.view.ViewGroup[resource_id]None[text]None[enabled,,]",
+      "view_str": "663b77ceada94793c49b803aca25e8ab",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        8
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1080,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/fragment_frame",
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 6,
+      "temp_id": 7,
+      "size": "1080*1605",
+      "signature": "[class]android.view.ViewGroup[resource_id]com.mindbodyonline.connect:id/fragment_frame[text]None[enabled,,]",
+      "view_str": "b1450644210591677de66df736eff0e1",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]com.mindbodyonline.connect:id/fragment_frame"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        9,
+        10
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1080,
+          1605
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 7,
+      "temp_id": 8,
+      "size": "1080*1605",
+      "signature": "[class]android.view.ViewGroup[resource_id]None[text]None[enabled,,]",
+      "view_str": "fc8cf8d7a6c0c3f6a25bcea83c0d17c5",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1080,
+          63
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/status_bar_scrim",
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 8,
+      "temp_id": 9,
+      "size": "1080*63",
+      "signature": "[class]android.view.View[resource_id]com.mindbodyonline.connect:id/status_bar_scrim[text]None[enabled,,]",
+      "view_str": "0b2f399893d8dcbf96ae9b2e815731a2",
+      "content_free_signature": "[class]android.view.View[resource_id]com.mindbodyonline.connect:id/status_bar_scrim"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        11
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          63
+        ],
+        [
+          1080,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/content_scroll_view",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ScrollView",
+      "scrollable": true,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 8,
+      "temp_id": 10,
+      "size": "1080*1542",
+      "signature": "[class]android.widget.ScrollView[resource_id]com.mindbodyonline.connect:id/content_scroll_view[text]None[enabled,,]",
+      "view_str": "6ea596e3237c10ca3a4022c814472d3d",
+      "content_free_signature": "[class]android.widget.ScrollView[resource_id]com.mindbodyonline.connect:id/content_scroll_view"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        12,
+        13
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          63
+        ],
+        [
+          1080,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/home_fragment_content_container",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 10,
+      "temp_id": 11,
+      "size": "1080*1542",
+      "signature": "[class]android.widget.LinearLayout[resource_id]com.mindbodyonline.connect:id/home_fragment_content_container[text]None[enabled,,]",
+      "view_str": "28d95229ba8fa6a5a805102f5a00083c",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]com.mindbodyonline.connect:id/home_fragment_content_container"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          63
+        ],
+        [
+          1080,
+          387
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/greeting_bar_v2",
+      "checked": false,
+      "text": "Time to crush it.",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 11,
+      "temp_id": 12,
+      "size": "1080*324",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/greeting_bar_v2[text]Time to crush it.[enabled,,]",
+      "view_str": "1a29e15dc06fcceb72b6c6500394a1ee",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/greeting_bar_v2"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 6,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        14,
+        37,
+        66,
+        78,
+        112,
+        128
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          387
+        ],
+        [
+          1080,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/home_content",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 11,
+      "temp_id": 13,
+      "size": "1080*1218",
+      "signature": "[class]android.widget.LinearLayout[resource_id]com.mindbodyonline.connect:id/home_content[text]None[enabled,,]",
+      "view_str": "9369573255aa8a7bc127ec1020d49c57",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]com.mindbodyonline.connect:id/home_content"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        15,
+        27
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          387
+        ],
+        [
+          1080,
+          1408
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 13,
+      "temp_id": 14,
+      "size": "1080*1021",
+      "signature": "[class]android.view.ViewGroup[resource_id]None[text]None[enabled,,]",
+      "view_str": "32bac8f95d0ebd4441014d58c1867d78",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        16
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          471
+        ],
+        [
+          1080,
+          1261
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/home_discovery_container",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 14,
+      "temp_id": 15,
+      "size": "1080*790",
+      "signature": "[class]android.widget.FrameLayout[resource_id]com.mindbodyonline.connect:id/home_discovery_container[text]None[enabled,,]",
+      "view_str": "5ee3946a3979bc8b4a41eed09b66a0be",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]com.mindbodyonline.connect:id/home_discovery_container"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        17,
+        22
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          471
+        ],
+        [
+          1038,
+          1261
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/home_discovery_view_pager",
+      "checked": false,
+      "text": null,
+      "class": "androidx.viewpager.widget.ViewPager",
+      "scrollable": true,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 15,
+      "temp_id": 16,
+      "size": "996*790",
+      "signature": "[class]androidx.viewpager.widget.ViewPager[resource_id]com.mindbodyonline.connect:id/home_discovery_view_pager[text]None[enabled,,]",
+      "view_str": "8e05b6df20c7fdfd287f35c7070a1cc3",
+      "content_free_signature": "[class]androidx.viewpager.widget.ViewPager[resource_id]com.mindbodyonline.connect:id/home_discovery_view_pager"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        18,
+        19
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          471
+        ],
+        [
+          1038,
+          1261
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 16,
+      "temp_id": 17,
+      "size": "996*790",
+      "signature": "[class]android.view.ViewGroup[resource_id]None[text]None[enabled,,]",
+      "view_str": "ec9375a15f0e1acdccc3693b0b8501cd",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": "Deals near you",
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          471
+        ],
+        [
+          1038,
+          1261
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/discovery_iv",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 17,
+      "temp_id": 18,
+      "size": "996*790",
+      "signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/discovery_iv[text]None[enabled,,]",
+      "view_str": "df43414311cc6e9ac5bd821c94908d4b",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/discovery_iv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        20,
+        21
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          311,
+          534
+        ],
+        [
+          769,
+          599
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 17,
+      "temp_id": 19,
+      "size": "458*65",
+      "signature": "[class]android.widget.LinearLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "023760034a53974f60b1571ac357cb5b",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          311,
+          534
+        ],
+        [
+          677,
+          599
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/discovery_title_tv",
+      "checked": false,
+      "text": "Deals near you",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 19,
+      "temp_id": 20,
+      "size": "366*65",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/discovery_title_tv[text]Deals near you[enabled,,]",
+      "view_str": "a091e1df99a800ef3e4e9e475e8e8e5c",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/discovery_title_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          716,
+          534
+        ],
+        [
+          769,
+          599
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/discovery_arrow_iv",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 19,
+      "temp_id": 21,
+      "size": "53*65",
+      "signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/discovery_arrow_iv[text]None[enabled,,]",
+      "view_str": "d61b0786b15b993aef1921b1b90195d2",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/discovery_arrow_iv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        23,
+        24
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          1080,
+          471
+        ],
+        [
+          1038,
+          1261
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 16,
+      "temp_id": 22,
+      "size": "-42*790",
+      "signature": "[class]android.view.ViewGroup[resource_id]None[text]None[enabled,,]",
+      "view_str": "ec9375a15f0e1acdccc3693b0b8501cd",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": "Fitness near you",
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1080,
+          471
+        ],
+        [
+          1038,
+          1261
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/discovery_iv",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 22,
+      "temp_id": 23,
+      "size": "-42*790",
+      "signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/discovery_iv[text]None[enabled,,]",
+      "view_str": "df43414311cc6e9ac5bd821c94908d4b",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/discovery_iv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        25,
+        26
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          1333,
+          534
+        ],
+        [
+          1038,
+          599
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 22,
+      "temp_id": 24,
+      "size": "-295*65",
+      "signature": "[class]android.widget.LinearLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "262ffd93bb12276ec37ca87321a22615",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1333,
+          534
+        ],
+        [
+          1038,
+          599
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/discovery_title_tv",
+      "checked": false,
+      "text": "Fitness near you",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 24,
+      "temp_id": 25,
+      "size": "-295*65",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/discovery_title_tv[text]Fitness near you[enabled,,]",
+      "view_str": "28277d24b1e0de40aad5cb6c07ccdfe1",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/discovery_title_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1770,
+          534
+        ],
+        [
+          1038,
+          599
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/discovery_arrow_iv",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 24,
+      "temp_id": 26,
+      "size": "-732*65",
+      "signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/discovery_arrow_iv[text]None[enabled,,]",
+      "view_str": "d61b0786b15b993aef1921b1b90195d2",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/discovery_arrow_iv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        28
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          448,
+          1261
+        ],
+        [
+          633,
+          1366
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/discovery_indicator",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 14,
+      "temp_id": 27,
+      "size": "185*105",
+      "signature": "[class]android.widget.FrameLayout[resource_id]com.mindbodyonline.connect:id/discovery_indicator[text]None[enabled,,]",
+      "view_str": "ee51b05340b580e8f0eb5f4b9732f8f8",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]com.mindbodyonline.connect:id/discovery_indicator"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 4,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        29,
+        31,
+        33,
+        35
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          448,
+          1303
+        ],
+        [
+          633,
+          1324
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 27,
+      "temp_id": 28,
+      "size": "185*21",
+      "signature": "[class]android.widget.LinearLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "a4f4bc2f4aafbe1e357822ecbc67e837",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        30
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          448,
+          1303
+        ],
+        [
+          510,
+          1324
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 28,
+      "temp_id": 29,
+      "size": "62*21",
+      "signature": "[class]android.widget.FrameLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "ec1354230b3475e037d45a5ce05d9f96",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          458,
+          1303
+        ],
+        [
+          500,
+          1324
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/dot",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 29,
+      "temp_id": 30,
+      "size": "42*21",
+      "signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/dot[text]None[enabled,,]",
+      "view_str": "bf4a92b344fd6e8a1127b4a7f8935c03",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/dot"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        32
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          510,
+          1303
+        ],
+        [
+          551,
+          1324
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 28,
+      "temp_id": 31,
+      "size": "41*21",
+      "signature": "[class]android.widget.FrameLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "ec1354230b3475e037d45a5ce05d9f96",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          520,
+          1303
+        ],
+        [
+          541,
+          1324
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/dot",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 31,
+      "temp_id": 32,
+      "size": "21*21",
+      "signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/dot[text]None[enabled,,]",
+      "view_str": "bf4a92b344fd6e8a1127b4a7f8935c03",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/dot"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        34
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          551,
+          1303
+        ],
+        [
+          592,
+          1324
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 28,
+      "temp_id": 33,
+      "size": "41*21",
+      "signature": "[class]android.widget.FrameLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "ec1354230b3475e037d45a5ce05d9f96",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          561,
+          1303
+        ],
+        [
+          582,
+          1324
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/dot",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 33,
+      "temp_id": 34,
+      "size": "21*21",
+      "signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/dot[text]None[enabled,,]",
+      "view_str": "bf4a92b344fd6e8a1127b4a7f8935c03",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/dot"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        36
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          592,
+          1303
+        ],
+        [
+          633,
+          1324
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 28,
+      "temp_id": 35,
+      "size": "41*21",
+      "signature": "[class]android.widget.FrameLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "ec1354230b3475e037d45a5ce05d9f96",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          602,
+          1303
+        ],
+        [
+          623,
+          1324
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/dot",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 35,
+      "temp_id": 36,
+      "size": "21*21",
+      "signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/dot[text]None[enabled,,]",
+      "view_str": "bf4a92b344fd6e8a1127b4a7f8935c03",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/dot"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        38,
+        40
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          1408
+        ],
+        [
+          1080,
+          1605
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 13,
+      "temp_id": 37,
+      "size": "1080*197",
+      "signature": "[class]android.view.ViewGroup[resource_id]None[text]None[enabled,,]",
+      "view_str": "c0e013e6ad2614f436435d6452a238b7",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        39
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          1450
+        ],
+        [
+          1027,
+          1566
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/home_intro_offers_title",
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 37,
+      "temp_id": 38,
+      "size": "985*116",
+      "signature": "[class]android.view.ViewGroup[resource_id]com.mindbodyonline.connect:id/home_intro_offers_title[text]None[enabled,,]",
+      "view_str": "9ac0b1ed88eb273a5c0273e12969810c",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]com.mindbodyonline.connect:id/home_intro_offers_title"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          1461
+        ],
+        [
+          985,
+          1555
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/title_bar_text",
+      "checked": false,
+      "text": "Try something new",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 38,
+      "temp_id": 39,
+      "size": "943*94",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/title_bar_text[text]Try something new[enabled,,]",
+      "view_str": "b9b2c69ef622e894152d707a3498ffe6",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/title_bar_text"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        41
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          1608
+        ],
+        [
+          1080,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/home_intro_offer_container",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 37,
+      "temp_id": 40,
+      "size": "1080*-3",
+      "signature": "[class]android.widget.FrameLayout[resource_id]com.mindbodyonline.connect:id/home_intro_offer_container[text]None[enabled,,]",
+      "view_str": "fdf1afd69ecd5b84828b246d5d6e2309",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]com.mindbodyonline.connect:id/home_intro_offer_container"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        42,
+        54
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          1608
+        ],
+        [
+          1038,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/home_intro_offer_view_pager",
+      "checked": false,
+      "text": null,
+      "class": "androidx.viewpager.widget.ViewPager",
+      "scrollable": true,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 40,
+      "temp_id": 41,
+      "size": "996*-3",
+      "signature": "[class]androidx.viewpager.widget.ViewPager[resource_id]com.mindbodyonline.connect:id/home_intro_offer_view_pager[text]None[enabled,,]",
+      "view_str": "c480da6ae394bf72d4c524730e580cce",
+      "content_free_signature": "[class]androidx.viewpager.widget.ViewPager[resource_id]com.mindbodyonline.connect:id/home_intro_offer_view_pager"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 10,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        43,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          1608
+        ],
+        [
+          1038,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/intro_offer_constraint_layout",
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 41,
+      "temp_id": 42,
+      "size": "996*-3",
+      "signature": "[class]android.view.ViewGroup[resource_id]com.mindbodyonline.connect:id/intro_offer_constraint_layout[text]None[enabled,,]",
+      "view_str": "6829b8ac3b9fae5dee61e21651026bde",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]com.mindbodyonline.connect:id/intro_offer_constraint_layout"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        44
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          1608
+        ],
+        [
+          462,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/material_card",
+      "checked": false,
+      "text": null,
+      "class": "androidx.cardview.widget.CardView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 42,
+      "temp_id": 43,
+      "size": "420*-3",
+      "signature": "[class]androidx.cardview.widget.CardView[resource_id]com.mindbodyonline.connect:id/material_card[text]None[enabled,,]",
+      "view_str": "5b3118b37cf65b28a8ed464d230ed459",
+      "content_free_signature": "[class]androidx.cardview.widget.CardView[resource_id]com.mindbodyonline.connect:id/material_card"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": "Business Image",
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          1608
+        ],
+        [
+          462,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/studio_image",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 43,
+      "temp_id": 44,
+      "size": "420*-3",
+      "signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/studio_image[text]None[enabled,,]",
+      "view_str": "2530387af2c103cb99fd217f6bcc9f2a",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/studio_image"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          504,
+          1619
+        ],
+        [
+          585,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/price_tv",
+      "checked": false,
+      "text": "$49",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 42,
+      "temp_id": 45,
+      "size": "81*-14",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/price_tv[text]$49[enabled,,]",
+      "view_str": "88c959d13527a1ee3b06ba4ed915abf7",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/price_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          606,
+          1634
+        ],
+        [
+          795,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/intro_offer_tv",
+      "checked": false,
+      "text": "intro offer",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 42,
+      "temp_id": 46,
+      "size": "189*-29",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/intro_offer_tv[text]intro offer[enabled,,]",
+      "view_str": "18f63db8e27a0bd826703d1152f228d1",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/intro_offer_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          504,
+          1693
+        ],
+        [
+          1038,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/intro_offer_name_tv",
+      "checked": false,
+      "text": "New Visitor Special: 3-Class Pack $49",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 42,
+      "temp_id": 47,
+      "size": "534*-88",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/intro_offer_name_tv[text]New Visitor Special: 3-Class Pack $49[enabled,,]",
+      "view_str": "24fc927b5fe2b23cbdaf023fe3a609ca",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/intro_offer_name_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          504,
+          1808
+        ],
+        [
+          1038,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/studio_name_tv",
+      "checked": false,
+      "text": "Yoga Belly",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 42,
+      "temp_id": 48,
+      "size": "534*-203",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/studio_name_tv[text]Yoga Belly[enabled,,]",
+      "view_str": "be90f1241ab4c187a7ecfb1e27cadd26",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/studio_name_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": "Location distance",
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          504,
+          1984
+        ],
+        [
+          536,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/distance_image_view",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 42,
+      "temp_id": 49,
+      "size": "32*-379",
+      "signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/distance_image_view[text]None[enabled,,]",
+      "view_str": "c0189b78a3dae05638bc7a6525346164",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/distance_image_view"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          536,
+          1972
+        ],
+        [
+          636,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/distance_tv",
+      "checked": false,
+      "text": "1.8 mi",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 42,
+      "temp_id": 50,
+      "size": "100*-367",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/distance_tv[text]1.8 mi[enabled,,]",
+      "view_str": "909159bb70b8ac907f15d121e816a2d4",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/distance_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": "Start Image",
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          678,
+          1984
+        ],
+        [
+          710,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/star_iv",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 42,
+      "temp_id": 51,
+      "size": "32*-379",
+      "signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/star_iv[text]None[enabled,,]",
+      "view_str": "d585b227d8a0263631e4ef06bcdf97e2",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/star_iv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          721,
+          1972
+        ],
+        [
+          763,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/average_review_tv",
+      "checked": false,
+      "text": "4.7",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 42,
+      "temp_id": 52,
+      "size": "42*-367",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/average_review_tv[text]4.7[enabled,,]",
+      "view_str": "cc2146e5618144dedac0fb082531625c",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/average_review_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          763,
+          1972
+        ],
+        [
+          850,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/review_count_tv",
+      "checked": false,
+      "text": "(263)",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 42,
+      "temp_id": 53,
+      "size": "87*-367",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/review_count_tv[text](263)[enabled,,]",
+      "view_str": "e51bf1497ecff621af20e41e6844f061",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/review_count_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 10,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        55,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          1038,
+          1608
+        ],
+        [
+          1038,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/intro_offer_constraint_layout",
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 41,
+      "temp_id": 54,
+      "size": "0*-3",
+      "signature": "[class]android.view.ViewGroup[resource_id]com.mindbodyonline.connect:id/intro_offer_constraint_layout[text]None[enabled,,]",
+      "view_str": "22a3209528be846cb89983f3e478468c",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]com.mindbodyonline.connect:id/intro_offer_constraint_layout"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        56
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          1038,
+          1608
+        ],
+        [
+          1038,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/material_card",
+      "checked": false,
+      "text": null,
+      "class": "androidx.cardview.widget.CardView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 54,
+      "temp_id": 55,
+      "size": "0*-3",
+      "signature": "[class]androidx.cardview.widget.CardView[resource_id]com.mindbodyonline.connect:id/material_card[text]None[enabled,,]",
+      "view_str": "5b3118b37cf65b28a8ed464d230ed459",
+      "content_free_signature": "[class]androidx.cardview.widget.CardView[resource_id]com.mindbodyonline.connect:id/material_card"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": "Business Image",
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1038,
+          1608
+        ],
+        [
+          1038,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/studio_image",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 55,
+      "temp_id": 56,
+      "size": "0*-3",
+      "signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/studio_image[text]None[enabled,,]",
+      "view_str": "2530387af2c103cb99fd217f6bcc9f2a",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/studio_image"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1500,
+          1619
+        ],
+        [
+          1038,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/price_tv",
+      "checked": false,
+      "text": "$69",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 54,
+      "temp_id": 57,
+      "size": "-462*-14",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/price_tv[text]$69[enabled,,]",
+      "view_str": "c88da95dbcda89d9591b0b5ff6e7952f",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/price_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1602,
+          1634
+        ],
+        [
+          1038,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/intro_offer_tv",
+      "checked": false,
+      "text": "intro offer",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 54,
+      "temp_id": 58,
+      "size": "-564*-29",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/intro_offer_tv[text]intro offer[enabled,,]",
+      "view_str": "18f63db8e27a0bd826703d1152f228d1",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/intro_offer_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1500,
+          1693
+        ],
+        [
+          1038,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/intro_offer_name_tv",
+      "checked": false,
+      "text": "Introductory 14 days Unlimited Classes",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 54,
+      "temp_id": 59,
+      "size": "-462*-88",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/intro_offer_name_tv[text]Introductory 14 days Unlimited Classes[enabled,,]",
+      "view_str": "f4576526c38f8634c7f7d3cce6b3eda0",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/intro_offer_name_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1500,
+          1808
+        ],
+        [
+          1038,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/studio_name_tv",
+      "checked": false,
+      "text": "Crave Yoga",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 54,
+      "temp_id": 60,
+      "size": "-462*-203",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/studio_name_tv[text]Crave Yoga[enabled,,]",
+      "view_str": "03c0c255aad28a09692e1a3218d0a194",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/studio_name_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": "Location distance",
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1500,
+          1984
+        ],
+        [
+          1038,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/distance_image_view",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 54,
+      "temp_id": 61,
+      "size": "-462*-379",
+      "signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/distance_image_view[text]None[enabled,,]",
+      "view_str": "c0189b78a3dae05638bc7a6525346164",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/distance_image_view"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1532,
+          1972
+        ],
+        [
+          1038,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/distance_tv",
+      "checked": false,
+      "text": "1.8 mi",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 54,
+      "temp_id": 62,
+      "size": "-494*-367",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/distance_tv[text]1.8 mi[enabled,,]",
+      "view_str": "909159bb70b8ac907f15d121e816a2d4",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/distance_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": "Start Image",
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1674,
+          1984
+        ],
+        [
+          1038,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/star_iv",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 54,
+      "temp_id": 63,
+      "size": "-636*-379",
+      "signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/star_iv[text]None[enabled,,]",
+      "view_str": "d585b227d8a0263631e4ef06bcdf97e2",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/star_iv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1717,
+          1972
+        ],
+        [
+          1038,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/average_review_tv",
+      "checked": false,
+      "text": "5.0",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 54,
+      "temp_id": 64,
+      "size": "-679*-367",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/average_review_tv[text]5.0[enabled,,]",
+      "view_str": "c5216248e46f12bbd2d90d3e4b5c9eac",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/average_review_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1763,
+          1972
+        ],
+        [
+          1038,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/review_count_tv",
+      "checked": false,
+      "text": "(219)",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 54,
+      "temp_id": 65,
+      "size": "-725*-367",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/review_count_tv[text](219)[enabled,,]",
+      "view_str": "2209f163c6c45164e353b75ae545a6bb",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/review_count_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        67,
+        68,
+        77
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          2049
+        ],
+        [
+          1080,
+          1605
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 13,
+      "temp_id": 66,
+      "size": "1080*-444",
+      "signature": "[class]android.view.ViewGroup[resource_id]None[text]None[enabled,,]",
+      "view_str": "d2ede2a56ea78ffb4aa35be1960d23d5",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          2091
+        ],
+        [
+          1038,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/home_near_you_title",
+      "checked": false,
+      "text": "Near you",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 66,
+      "temp_id": 67,
+      "size": "996*-486",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/home_near_you_title[text]Near you[enabled,,]",
+      "view_str": "cb53006eea3c0dd3762893c026050369",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/home_near_you_title"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        69,
+        70
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          2227
+        ],
+        [
+          1038,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/near_you_map_container",
+      "checked": false,
+      "text": null,
+      "class": "androidx.cardview.widget.CardView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 66,
+      "temp_id": 68,
+      "size": "996*-622",
+      "signature": "[class]androidx.cardview.widget.CardView[resource_id]com.mindbodyonline.connect:id/near_you_map_container[text]None[enabled,,]",
+      "view_str": "8a3028fb949baf113701fdc4166ce375",
+      "content_free_signature": "[class]androidx.cardview.widget.CardView[resource_id]com.mindbodyonline.connect:id/near_you_map_container"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": "Map view",
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          2227
+        ],
+        [
+          1038,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/near_you_map_overlay",
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 68,
+      "temp_id": 69,
+      "size": "996*-622",
+      "signature": "[class]android.view.View[resource_id]com.mindbodyonline.connect:id/near_you_map_overlay[text]None[enabled,,]",
+      "view_str": "4c32fb5604e4d20e1bf2b40890e64f34",
+      "content_free_signature": "[class]android.view.View[resource_id]com.mindbodyonline.connect:id/near_you_map_overlay"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        71
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          2227
+        ],
+        [
+          1038,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/near_you_map_fragment",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 68,
+      "temp_id": 70,
+      "size": "996*-622",
+      "signature": "[class]android.widget.FrameLayout[resource_id]com.mindbodyonline.connect:id/near_you_map_fragment[text]None[enabled,,]",
+      "view_str": "eb7a81593ceefb5405b15fc1d8a148f9",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]com.mindbodyonline.connect:id/near_you_map_fragment"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        72
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          2227
+        ],
+        [
+          1038,
+          1605
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 70,
+      "temp_id": 71,
+      "size": "996*-622",
+      "signature": "[class]android.widget.FrameLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "2e6902d1346fb756bec32483fc94e487",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        73,
+        74,
+        75
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          2227
+        ],
+        [
+          1038,
+          1605
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 71,
+      "temp_id": 72,
+      "size": "996*-622",
+      "signature": "[class]android.widget.FrameLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "b9f68e1ba60fc363433facf109e1dd58",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": "Google Map",
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          2227
+        ],
+        [
+          1038,
+          1605
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 72,
+      "temp_id": 73,
+      "size": "996*-622",
+      "signature": "[class]android.view.View[resource_id]None[text]None[enabled,,]",
+      "view_str": "273e17b6987551c9936a2d48aa827f40",
+      "content_free_signature": "[class]android.view.View[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          2227
+        ],
+        [
+          1038,
+          1605
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 72,
+      "temp_id": 74,
+      "size": "996*-622",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "11f93d56558a80a5a6c822267f297337",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        76
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          2227
+        ],
+        [
+          1038,
+          1605
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 72,
+      "temp_id": 75,
+      "size": "996*-622",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "d03a466e5a3c45935ffdd47803d07c8e",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          55,
+          2786
+        ],
+        [
+          213,
+          1605
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 75,
+      "temp_id": 76,
+      "size": "158*-1181",
+      "signature": "[class]android.widget.ImageView[resource_id]None[text]None[enabled,,]",
+      "view_str": "e4f078f86c9c247adc8adc03ea24a960",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          372,
+          2702
+        ],
+        [
+          709,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/view_map_btn",
+      "checked": false,
+      "text": "View Map",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 66,
+      "temp_id": 77,
+      "size": "337*-1097",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/view_map_btn[text]View Map[enabled,,]",
+      "view_str": "51d933b1231d8fbb908b44a0fbc92551",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/view_map_btn"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        79,
+        81
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          2899
+        ],
+        [
+          1080,
+          1605
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 13,
+      "temp_id": 78,
+      "size": "1080*-1294",
+      "signature": "[class]android.view.ViewGroup[resource_id]None[text]None[enabled,,]",
+      "view_str": "d07928569ecaea1895b1c18960be37e2",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        80
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          2941
+        ],
+        [
+          1027,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/home_lmo_title",
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 78,
+      "temp_id": 79,
+      "size": "985*-1336",
+      "signature": "[class]android.view.ViewGroup[resource_id]com.mindbodyonline.connect:id/home_lmo_title[text]None[enabled,,]",
+      "view_str": "d998edf23ebdcde47bb9b2404c795741",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]com.mindbodyonline.connect:id/home_lmo_title"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          2952
+        ],
+        [
+          985,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/title_bar_text",
+      "checked": false,
+      "text": "Price drop",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 79,
+      "temp_id": 80,
+      "size": "943*-1347",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/title_bar_text[text]Price drop[enabled,,]",
+      "view_str": "10d545ab01e4350ba389ae3d6e4c5745",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/title_bar_text"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        82,
+        92,
+        102
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          3099
+        ],
+        [
+          1080,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/home_lmo_rv",
+      "checked": false,
+      "text": null,
+      "class": "androidx.recyclerview.widget.RecyclerView",
+      "scrollable": true,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 78,
+      "temp_id": 81,
+      "size": "1080*-1494",
+      "signature": "[class]androidx.recyclerview.widget.RecyclerView[resource_id]com.mindbodyonline.connect:id/home_lmo_rv[text]None[enabled,,]",
+      "view_str": "f4cd31098df7d5c69b32dcb1df8deb04",
+      "content_free_signature": "[class]androidx.recyclerview.widget.RecyclerView[resource_id]com.mindbodyonline.connect:id/home_lmo_rv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 8,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        83,
+        84,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          3099
+        ],
+        [
+          462,
+          1605
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 81,
+      "temp_id": 82,
+      "size": "420*-1494",
+      "signature": "[class]android.view.ViewGroup[resource_id]None[text]None[enabled,,]",
+      "view_str": "d8e4d9b0f0a33a0df469f18fd5f46705",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          3099
+        ],
+        [
+          42,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/lmo_price_discount_group",
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 82,
+      "temp_id": 83,
+      "size": "0*-1494",
+      "signature": "[class]android.view.View[resource_id]com.mindbodyonline.connect:id/lmo_price_discount_group[text]None[enabled,,]",
+      "view_str": "65d1348ffbc28398957c65a31f34ede0",
+      "content_free_signature": "[class]android.view.View[resource_id]com.mindbodyonline.connect:id/lmo_price_discount_group"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        85
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          3099
+        ],
+        [
+          462,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/material_card",
+      "checked": false,
+      "text": null,
+      "class": "androidx.cardview.widget.CardView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 82,
+      "temp_id": 84,
+      "size": "420*-1494",
+      "signature": "[class]androidx.cardview.widget.CardView[resource_id]com.mindbodyonline.connect:id/material_card[text]None[enabled,,]",
+      "view_str": "bfbfbed9ec923eda9f4c0d5cab36de04",
+      "content_free_signature": "[class]androidx.cardview.widget.CardView[resource_id]com.mindbodyonline.connect:id/material_card"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": "Class Image",
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          3099
+        ],
+        [
+          462,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/class_iv",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 84,
+      "temp_id": 85,
+      "size": "420*-1494",
+      "signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/class_iv[text]None[enabled,,]",
+      "view_str": "a0dfce44a432657f5c7e70eace63ede9",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/class_iv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          63,
+          3120
+        ],
+        [
+          258,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/day_tv",
+      "checked": false,
+      "text": "tomorrow",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 82,
+      "temp_id": 86,
+      "size": "195*-1515",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/day_tv[text]tomorrow[enabled,,]",
+      "view_str": "0f12272df62b2a96e16e1f9559b3e869",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/day_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": "Monday, Jul 10 at 4:30am",
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          3561
+        ],
+        [
+          462,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/date_time_tv",
+      "checked": false,
+      "text": "Mon 7/10 at 4:30am",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 82,
+      "temp_id": 87,
+      "size": "420*-1956",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/date_time_tv[text]Mon 7/10 at 4:30am[enabled,,]",
+      "view_str": "d68b1fe661e1f354bd7ff21ce2e2e72c",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/date_time_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          3634
+        ],
+        [
+          462,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/class_name_tv",
+      "checked": false,
+      "text": "BOLLYX FITNESS CLASS",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 82,
+      "temp_id": 88,
+      "size": "420*-2029",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/class_name_tv[text]BOLLYX FITNESS CLASS[enabled,,]",
+      "view_str": "e94b0cb0f797a7719db28d82215fe5a7",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/class_name_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          3729
+        ],
+        [
+          188,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/lmo_new_price_tv",
+      "checked": false,
+      "text": "$22.50",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 82,
+      "temp_id": 89,
+      "size": "146*-2124",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/lmo_new_price_tv[text]$22.50[enabled,,]",
+      "view_str": "e31bb683a9a0f415e3ab36809855d165",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/lmo_new_price_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          209,
+          3736
+        ],
+        [
+          282,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/lmo_old_price_tv",
+      "checked": false,
+      "text": "$30",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 82,
+      "temp_id": 90,
+      "size": "73*-2131",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/lmo_old_price_tv[text]$30[enabled,,]",
+      "view_str": "b2773a6f6da747cd27ad73f6f1ad3aa4",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/lmo_old_price_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          303,
+          3737
+        ],
+        [
+          462,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/lmo_discount_tv",
+      "checked": false,
+      "text": "25% off",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 82,
+      "temp_id": 91,
+      "size": "159*-2132",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/lmo_discount_tv[text]25% off[enabled,,]",
+      "view_str": "232613bc90d09d36db929c11a35f1307",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/lmo_discount_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 8,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        93,
+        94,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          504,
+          3099
+        ],
+        [
+          924,
+          1605
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 81,
+      "temp_id": 92,
+      "size": "420*-1494",
+      "signature": "[class]android.view.ViewGroup[resource_id]None[text]None[enabled,,]",
+      "view_str": "bc3799fe5244adc2f808e2f793c468f9",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          504,
+          3099
+        ],
+        [
+          504,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/lmo_price_discount_group",
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 92,
+      "temp_id": 93,
+      "size": "0*-1494",
+      "signature": "[class]android.view.View[resource_id]com.mindbodyonline.connect:id/lmo_price_discount_group[text]None[enabled,,]",
+      "view_str": "65d1348ffbc28398957c65a31f34ede0",
+      "content_free_signature": "[class]android.view.View[resource_id]com.mindbodyonline.connect:id/lmo_price_discount_group"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        95
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          504,
+          3099
+        ],
+        [
+          924,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/material_card",
+      "checked": false,
+      "text": null,
+      "class": "androidx.cardview.widget.CardView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 92,
+      "temp_id": 94,
+      "size": "420*-1494",
+      "signature": "[class]androidx.cardview.widget.CardView[resource_id]com.mindbodyonline.connect:id/material_card[text]None[enabled,,]",
+      "view_str": "bfbfbed9ec923eda9f4c0d5cab36de04",
+      "content_free_signature": "[class]androidx.cardview.widget.CardView[resource_id]com.mindbodyonline.connect:id/material_card"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": "Class Image",
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          504,
+          3099
+        ],
+        [
+          924,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/class_iv",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 94,
+      "temp_id": 95,
+      "size": "420*-1494",
+      "signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/class_iv[text]None[enabled,,]",
+      "view_str": "a0dfce44a432657f5c7e70eace63ede9",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/class_iv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          525,
+          3120
+        ],
+        [
+          720,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/day_tv",
+      "checked": false,
+      "text": "tomorrow",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 92,
+      "temp_id": 96,
+      "size": "195*-1515",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/day_tv[text]tomorrow[enabled,,]",
+      "view_str": "0f12272df62b2a96e16e1f9559b3e869",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/day_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": "Monday, Jul 10 at 9:15am",
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          504,
+          3561
+        ],
+        [
+          924,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/date_time_tv",
+      "checked": false,
+      "text": "Mon 7/10 at 9:15am",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 92,
+      "temp_id": 97,
+      "size": "420*-1956",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/date_time_tv[text]Mon 7/10 at 9:15am[enabled,,]",
+      "view_str": "8d2f9036853f1b80aff20f9ad92cda81",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/date_time_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          504,
+          3634
+        ],
+        [
+          924,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/class_name_tv",
+      "checked": false,
+      "text": "LIVE STREAM - Gentle Restorative Yoga",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 92,
+      "temp_id": 98,
+      "size": "420*-2029",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/class_name_tv[text]LIVE STREAM - Gentle Restorative Yoga[enabled,,]",
+      "view_str": "9f5ff010b753b478c0853be9c70fc293",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/class_name_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          504,
+          3729
+        ],
+        [
+          587,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/lmo_new_price_tv",
+      "checked": false,
+      "text": "$30",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 92,
+      "temp_id": 99,
+      "size": "83*-2124",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/lmo_new_price_tv[text]$30[enabled,,]",
+      "view_str": "617647609d880335dc689931fcbcfe02",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/lmo_new_price_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          608,
+          3736
+        ],
+        [
+          682,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/lmo_old_price_tv",
+      "checked": false,
+      "text": "$40",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 92,
+      "temp_id": 100,
+      "size": "74*-2131",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/lmo_old_price_tv[text]$40[enabled,,]",
+      "view_str": "1d4f7e17449d1876b9ca2b22486d4621",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/lmo_old_price_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          703,
+          3737
+        ],
+        [
+          862,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/lmo_discount_tv",
+      "checked": false,
+      "text": "25% off",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 92,
+      "temp_id": 101,
+      "size": "159*-2132",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/lmo_discount_tv[text]25% off[enabled,,]",
+      "view_str": "232613bc90d09d36db929c11a35f1307",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/lmo_discount_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 8,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        103,
+        104,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          966,
+          3099
+        ],
+        [
+          1080,
+          1605
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 81,
+      "temp_id": 102,
+      "size": "114*-1494",
+      "signature": "[class]android.view.ViewGroup[resource_id]None[text]None[enabled,,]",
+      "view_str": "5b4d7c87eaf5c53b850a250d330ffa29",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          966,
+          3099
+        ],
+        [
+          966,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/lmo_price_discount_group",
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 102,
+      "temp_id": 103,
+      "size": "0*-1494",
+      "signature": "[class]android.view.View[resource_id]com.mindbodyonline.connect:id/lmo_price_discount_group[text]None[enabled,,]",
+      "view_str": "65d1348ffbc28398957c65a31f34ede0",
+      "content_free_signature": "[class]android.view.View[resource_id]com.mindbodyonline.connect:id/lmo_price_discount_group"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        105
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          966,
+          3099
+        ],
+        [
+          1080,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/material_card",
+      "checked": false,
+      "text": null,
+      "class": "androidx.cardview.widget.CardView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 102,
+      "temp_id": 104,
+      "size": "114*-1494",
+      "signature": "[class]androidx.cardview.widget.CardView[resource_id]com.mindbodyonline.connect:id/material_card[text]None[enabled,,]",
+      "view_str": "bfbfbed9ec923eda9f4c0d5cab36de04",
+      "content_free_signature": "[class]androidx.cardview.widget.CardView[resource_id]com.mindbodyonline.connect:id/material_card"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": "Class Image",
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          966,
+          3099
+        ],
+        [
+          1080,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/class_iv",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 104,
+      "temp_id": 105,
+      "size": "114*-1494",
+      "signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/class_iv[text]None[enabled,,]",
+      "view_str": "a0dfce44a432657f5c7e70eace63ede9",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/class_iv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          987,
+          3120
+        ],
+        [
+          1080,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/day_tv",
+      "checked": false,
+      "text": "tomorrow",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 102,
+      "temp_id": 106,
+      "size": "93*-1515",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/day_tv[text]tomorrow[enabled,,]",
+      "view_str": "0f12272df62b2a96e16e1f9559b3e869",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/day_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": "Monday, Jul 10 at 9:15am",
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          966,
+          3561
+        ],
+        [
+          1080,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/date_time_tv",
+      "checked": false,
+      "text": "Mon 7/10 at 9:15am",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 102,
+      "temp_id": 107,
+      "size": "114*-1956",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/date_time_tv[text]Mon 7/10 at 9:15am[enabled,,]",
+      "view_str": "8d2f9036853f1b80aff20f9ad92cda81",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/date_time_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          966,
+          3634
+        ],
+        [
+          1080,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/class_name_tv",
+      "checked": false,
+      "text": "IN STUDIO - Gentle Restorative Yoga",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 102,
+      "temp_id": 108,
+      "size": "114*-2029",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/class_name_tv[text]IN STUDIO - Gentle Restorative Yoga[enabled,,]",
+      "view_str": "e9f11f99c56a20a6cb6ffb3dfed84592",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/class_name_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          966,
+          3729
+        ],
+        [
+          1049,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/lmo_new_price_tv",
+      "checked": false,
+      "text": "$30",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 102,
+      "temp_id": 109,
+      "size": "83*-2124",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/lmo_new_price_tv[text]$30[enabled,,]",
+      "view_str": "617647609d880335dc689931fcbcfe02",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/lmo_new_price_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1070,
+          3736
+        ],
+        [
+          1080,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/lmo_old_price_tv",
+      "checked": false,
+      "text": "$40",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 102,
+      "temp_id": 110,
+      "size": "10*-2131",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/lmo_old_price_tv[text]$40[enabled,,]",
+      "view_str": "1d4f7e17449d1876b9ca2b22486d4621",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/lmo_old_price_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1165,
+          3737
+        ],
+        [
+          1080,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/lmo_discount_tv",
+      "checked": false,
+      "text": "25% off",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 102,
+      "temp_id": 111,
+      "size": "-85*-2132",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/lmo_discount_tv[text]25% off[enabled,,]",
+      "view_str": "232613bc90d09d36db929c11a35f1307",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/lmo_discount_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        113,
+        115
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          3836
+        ],
+        [
+          1080,
+          1605
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 13,
+      "temp_id": 112,
+      "size": "1080*-2231",
+      "signature": "[class]android.view.ViewGroup[resource_id]None[text]None[enabled,,]",
+      "view_str": "dda443a0cf8c99937f0393d295a9fe6e",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        114
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          3878
+        ],
+        [
+          1027,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/spas_carousel_title",
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 112,
+      "temp_id": 113,
+      "size": "985*-2273",
+      "signature": "[class]android.view.ViewGroup[resource_id]com.mindbodyonline.connect:id/spas_carousel_title[text]None[enabled,,]",
+      "view_str": "b1f3accd03b772a2f375461cc45391ce",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]com.mindbodyonline.connect:id/spas_carousel_title"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          3889
+        ],
+        [
+          985,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/title_bar_text",
+      "checked": false,
+      "text": "Spas to treat yourself",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 113,
+      "temp_id": 114,
+      "size": "943*-2284",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/title_bar_text[text]Spas to treat yourself[enabled,,]",
+      "view_str": "1ea904e29b88bf8a0d68ebbdbb54f0bc",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/title_bar_text"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        116
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          4036
+        ],
+        [
+          1080,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/home_spas_container",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 112,
+      "temp_id": 115,
+      "size": "1080*-2431",
+      "signature": "[class]android.widget.FrameLayout[resource_id]com.mindbodyonline.connect:id/home_spas_container[text]None[enabled,,]",
+      "view_str": "b37d01b039720e57330eb14073cbfca6",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]com.mindbodyonline.connect:id/home_spas_container"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        117
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          4036
+        ],
+        [
+          1038,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/home_spas_view_pager",
+      "checked": false,
+      "text": null,
+      "class": "androidx.viewpager.widget.ViewPager",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 115,
+      "temp_id": 116,
+      "size": "996*-2431",
+      "signature": "[class]androidx.viewpager.widget.ViewPager[resource_id]com.mindbodyonline.connect:id/home_spas_view_pager[text]None[enabled,,]",
+      "view_str": "6d66794dba0ad77c65aa32722e558e50",
+      "content_free_signature": "[class]androidx.viewpager.widget.ViewPager[resource_id]com.mindbodyonline.connect:id/home_spas_view_pager"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 8,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        118,
+        120,
+        121,
+        123,
+        124,
+        125,
+        126,
+        127
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          4036
+        ],
+        [
+          1038,
+          1605
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 116,
+      "temp_id": 117,
+      "size": "996*-2431",
+      "signature": "[class]android.view.ViewGroup[resource_id]None[text]None[enabled,,]",
+      "view_str": "56d4e5fa482fe188e9441056ef0ef656",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        119
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          4036
+        ],
+        [
+          252,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/material_card",
+      "checked": false,
+      "text": null,
+      "class": "androidx.cardview.widget.CardView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 117,
+      "temp_id": 118,
+      "size": "210*-2431",
+      "signature": "[class]androidx.cardview.widget.CardView[resource_id]com.mindbodyonline.connect:id/material_card[text]None[enabled,,]",
+      "view_str": "bbb3cfc5089716fb1a1731e719a8aada",
+      "content_free_signature": "[class]androidx.cardview.widget.CardView[resource_id]com.mindbodyonline.connect:id/material_card"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": "Business Image",
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          4036
+        ],
+        [
+          252,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/studio_image",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 118,
+      "temp_id": 119,
+      "size": "210*-2431",
+      "signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/studio_image[text]None[enabled,,]",
+      "view_str": "30b9bdc4690411a3561e9e5ae5e3ed13",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/studio_image"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          294,
+          4036
+        ],
+        [
+          1038,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/spas_name_tv",
+      "checked": false,
+      "text": "Parasol Beauty Atelier",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 117,
+      "temp_id": 120,
+      "size": "744*-2431",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/spas_name_tv[text]Parasol Beauty Atelier[enabled,,]",
+      "view_str": "17e3c92b45ac09f4cecc6630f7fe95d1",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/spas_name_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        122
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          294,
+          4110
+        ],
+        [
+          1038,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/tags_layout",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 117,
+      "temp_id": 121,
+      "size": "744*-2505",
+      "signature": "[class]android.widget.LinearLayout[resource_id]com.mindbodyonline.connect:id/tags_layout[text]None[enabled,,]",
+      "view_str": "781b2ffafbee4912e4f6fb3f34081aca",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]com.mindbodyonline.connect:id/tags_layout"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          294,
+          4122
+        ],
+        [
+          548,
+          1605
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": "hair removal",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 121,
+      "temp_id": 122,
+      "size": "254*-2517",
+      "signature": "[class]android.widget.TextView[resource_id]None[text]hair removal[enabled,,]",
+      "view_str": "347f47f4f4abca4a4e6746fafc98e706",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": "Location distance",
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          294,
+          4202
+        ],
+        [
+          326,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/distance_image_view",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 117,
+      "temp_id": 123,
+      "size": "32*-2597",
+      "signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/distance_image_view[text]None[enabled,,]",
+      "view_str": "e074590d62747ebfc85e5b3e48b1f1dc",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/distance_image_view"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          326,
+          4190
+        ],
+        [
+          431,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/distance_tv",
+      "checked": false,
+      "text": "4.4 mi",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 117,
+      "temp_id": 124,
+      "size": "105*-2585",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/distance_tv[text]4.4 mi[enabled,,]",
+      "view_str": "dffa9fbb9512903bd656ab456133ab7f",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/distance_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": "Start Image",
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          473,
+          4202
+        ],
+        [
+          505,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/star_iv",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 117,
+      "temp_id": 125,
+      "size": "32*-2597",
+      "signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/star_iv[text]None[enabled,,]",
+      "view_str": "5c1fc46fea1d6a46728016a8f41c0497",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/star_iv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          516,
+          4190
+        ],
+        [
+          562,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/average_review_tv",
+      "checked": false,
+      "text": "5.0",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 117,
+      "temp_id": 126,
+      "size": "46*-2585",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/average_review_tv[text]5.0[enabled,,]",
+      "view_str": "6bab6455a74d47bd966e6f516362a242",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/average_review_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          562,
+          4190
+        ],
+        [
+          615,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/review_count_tv",
+      "checked": false,
+      "text": "(9)",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 117,
+      "temp_id": 127,
+      "size": "53*-2585",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/review_count_tv[text](9)[enabled,,]",
+      "view_str": "320132f406e418a80e82587b847012b6",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/review_count_tv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        129,
+        130
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          4267
+        ],
+        [
+          1080,
+          1605
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 13,
+      "temp_id": 128,
+      "size": "1080*-2662",
+      "signature": "[class]android.widget.LinearLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "7abd44a1e9dc7be1764235780769c7a9",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          4351
+        ],
+        [
+          1080,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/fitness_category_title",
+      "checked": false,
+      "text": "Explore categories",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 128,
+      "temp_id": 129,
+      "size": "1080*-2746",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/fitness_category_title[text]Explore categories[enabled,,]",
+      "view_str": "5ae9dffd0add6b8b7efacc61d0358e97",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/fitness_category_title"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        131,
+        134,
+        137
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          4451
+        ],
+        [
+          1080,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/home_fitness_category_rv",
+      "checked": false,
+      "text": null,
+      "class": "androidx.recyclerview.widget.RecyclerView",
+      "scrollable": true,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 128,
+      "temp_id": 130,
+      "size": "1080*-2846",
+      "signature": "[class]androidx.recyclerview.widget.RecyclerView[resource_id]com.mindbodyonline.connect:id/home_fitness_category_rv[text]None[enabled,,]",
+      "view_str": "7a02d8dfb7acbecd34f0a48087672e69",
+      "content_free_signature": "[class]androidx.recyclerview.widget.RecyclerView[resource_id]com.mindbodyonline.connect:id/home_fitness_category_rv"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": "Relaxation",
+      "children": [
+        132,
+        133
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          46,
+          4451
+        ],
+        [
+          466,
+          1605
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 130,
+      "temp_id": 131,
+      "size": "420*-2846",
+      "signature": "[class]android.view.ViewGroup[resource_id]None[text]None[enabled,,]",
+      "view_str": "3c8aa8b57029e0d257ccca20dbd9fa52",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          151,
+          4509
+        ],
+        [
+          361,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/category_image",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 131,
+      "temp_id": 132,
+      "size": "210*-2904",
+      "signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/category_image[text]None[enabled,,]",
+      "view_str": "edea9814df924a5e7326aa6bb00d6b03",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/category_image"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          124,
+          4763
+        ],
+        [
+          389,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/category_name",
+      "checked": false,
+      "text": "Relaxation",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 131,
+      "temp_id": 133,
+      "size": "265*-3158",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/category_name[text]Relaxation[enabled,,]",
+      "view_str": "a6deb45478eec76e8ccafca9ef7a61e9",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/category_name"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": "Flexibility",
+      "children": [
+        135,
+        136
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          498,
+          4451
+        ],
+        [
+          918,
+          1605
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 130,
+      "temp_id": 134,
+      "size": "420*-2846",
+      "signature": "[class]android.view.ViewGroup[resource_id]None[text]None[enabled,,]",
+      "view_str": "fb619135c47700f8ec407df2bec63ac3",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          580,
+          4527
+        ],
+        [
+          837,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/category_image",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 134,
+      "temp_id": 135,
+      "size": "257*-2922",
+      "signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/category_image[text]None[enabled,,]",
+      "view_str": "edea9814df924a5e7326aa6bb00d6b03",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/category_image"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          589,
+          4763
+        ],
+        [
+          828,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/category_name",
+      "checked": false,
+      "text": "Flexibility",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 134,
+      "temp_id": 136,
+      "size": "239*-3158",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/category_name[text]Flexibility[enabled,,]",
+      "view_str": "6241287df9be3bad444a04999f6d83b1",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/category_name"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": "Cardio",
+      "children": [
+        138,
+        139
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          950,
+          4451
+        ],
+        [
+          1080,
+          1605
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 130,
+      "temp_id": 137,
+      "size": "130*-2846",
+      "signature": "[class]android.view.ViewGroup[resource_id]None[text]None[enabled,,]",
+      "view_str": "9fb9247b0293190df97bb700cbee8404",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1081,
+          4502
+        ],
+        [
+          1080,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/category_image",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 137,
+      "temp_id": 138,
+      "size": "-1*-2897",
+      "signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/category_image[text]None[enabled,,]",
+      "view_str": "edea9814df924a5e7326aa6bb00d6b03",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/category_image"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1075,
+          4763
+        ],
+        [
+          1080,
+          1605
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/category_name",
+      "checked": false,
+      "text": "Cardio",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 137,
+      "temp_id": 139,
+      "size": "5*-3158",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/category_name[text]Cardio[enabled,,]",
+      "view_str": "903ddabf2dbc55e0809078cbee9459bd",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/category_name"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          1602
+        ],
+        [
+          1080,
+          1605
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 6,
+      "temp_id": 140,
+      "size": "1080*3",
+      "signature": "[class]android.view.View[resource_id]None[text]None[enabled,,]",
+      "view_str": "339bff4e0be32c46727f2d164fcbca27",
+      "content_free_signature": "[class]android.view.View[resource_id]None"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 5,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        142,
+        146,
+        149,
+        152,
+        155
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          1605
+        ],
+        [
+          1080,
+          1794
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/nav_tabs",
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 6,
+      "temp_id": 141,
+      "size": "1080*189",
+      "signature": "[class]android.view.ViewGroup[resource_id]com.mindbodyonline.connect:id/nav_tabs[text]None[enabled,,]",
+      "view_str": "9943dec70e7854d33b9d655a316944c4",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]com.mindbodyonline.connect:id/nav_tabs"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        143,
+        144,
+        145
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          1605
+        ],
+        [
+          216,
+          1794
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/container_nav_home",
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": true,
+      "long_clickable": false,
+      "parent": 141,
+      "temp_id": 142,
+      "size": "216*189",
+      "signature": "[class]android.view.ViewGroup[resource_id]com.mindbodyonline.connect:id/container_nav_home[text]None[enabled,,selected]",
+      "view_str": "eae2169ef61958fe817d3c812a5f1e4d",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]com.mindbodyonline.connect:id/container_nav_home"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          43,
+          1605
+        ],
+        [
+          174,
+          1610
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/view_top_selected_indicator",
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": true,
+      "long_clickable": false,
+      "parent": 142,
+      "temp_id": 143,
+      "size": "131*5",
+      "signature": "[class]android.view.View[resource_id]com.mindbodyonline.connect:id/view_top_selected_indicator[text]None[enabled,,selected]",
+      "view_str": "d14b87038ea976a078ec13a9c45f6c73",
+      "content_free_signature": "[class]android.view.View[resource_id]com.mindbodyonline.connect:id/view_top_selected_indicator"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          77,
+          1644
+        ],
+        [
+          140,
+          1707
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/image_view_nav_button",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": true,
+      "long_clickable": false,
+      "parent": 142,
+      "temp_id": 144,
+      "size": "63*63",
+      "signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/image_view_nav_button[text]None[enabled,,selected]",
+      "view_str": "43f454d50edcbf04b29099063945438d",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/image_view_nav_button"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          76,
+          1731
+        ],
+        [
+          140,
+          1758
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/textview_nav_button",
+      "checked": false,
+      "text": "HOME",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": true,
+      "long_clickable": false,
+      "parent": 142,
+      "temp_id": 145,
+      "size": "64*27",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/textview_nav_button[text]HOME[enabled,,selected]",
+      "view_str": "1fbd802344639340dd7703b5e180bf7e",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/textview_nav_button"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        147,
+        148
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          216,
+          1605
+        ],
+        [
+          432,
+          1794
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/container_nav_explore",
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 141,
+      "temp_id": 146,
+      "size": "216*189",
+      "signature": "[class]android.view.ViewGroup[resource_id]com.mindbodyonline.connect:id/container_nav_explore[text]None[enabled,,]",
+      "view_str": "8cf835092e853313ea5573980a8cca8b",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]com.mindbodyonline.connect:id/container_nav_explore"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          293,
+          1644
+        ],
+        [
+          356,
+          1707
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/image_view_nav_button",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 146,
+      "temp_id": 147,
+      "size": "63*63",
+      "signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/image_view_nav_button[text]None[enabled,,]",
+      "view_str": "e8b39f4489ead7c5bfff9d1780179c7c",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/image_view_nav_button"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          282,
+          1731
+        ],
+        [
+          366,
+          1758
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/textview_nav_button",
+      "checked": false,
+      "text": "SEARCH",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 146,
+      "temp_id": 148,
+      "size": "84*27",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/textview_nav_button[text]SEARCH[enabled,,]",
+      "view_str": "671a941d5ecef6630c698708fea8c50a",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/textview_nav_button"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        150,
+        151
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          432,
+          1605
+        ],
+        [
+          648,
+          1794
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/container_nav_fav",
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 141,
+      "temp_id": 149,
+      "size": "216*189",
+      "signature": "[class]android.view.ViewGroup[resource_id]com.mindbodyonline.connect:id/container_nav_fav[text]None[enabled,,]",
+      "view_str": "41aef16d03531538ed7665fa7cbc6466",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]com.mindbodyonline.connect:id/container_nav_fav"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          509,
+          1644
+        ],
+        [
+          572,
+          1707
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/image_view_nav_button",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 149,
+      "temp_id": 150,
+      "size": "63*63",
+      "signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/image_view_nav_button[text]None[enabled,,]",
+      "view_str": "ad056b8439d37372717ef281dda08abb",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/image_view_nav_button"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          484,
+          1731
+        ],
+        [
+          596,
+          1758
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/textview_nav_button",
+      "checked": false,
+      "text": "FAVORITES",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 149,
+      "temp_id": 151,
+      "size": "112*27",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/textview_nav_button[text]FAVORITES[enabled,,]",
+      "view_str": "89ea8e73fdc79006fafa1ff84455e9bc",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/textview_nav_button"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        153,
+        154
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          648,
+          1605
+        ],
+        [
+          864,
+          1794
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/container_nav_deals",
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 141,
+      "temp_id": 152,
+      "size": "216*189",
+      "signature": "[class]android.view.ViewGroup[resource_id]com.mindbodyonline.connect:id/container_nav_deals[text]None[enabled,,]",
+      "view_str": "c0e439b2bba06717adbc976f227c01cd",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]com.mindbodyonline.connect:id/container_nav_deals"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          729,
+          1648
+        ],
+        [
+          784,
+          1703
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/image_view_nav_button",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 152,
+      "temp_id": 153,
+      "size": "55*55",
+      "signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/image_view_nav_button[text]None[enabled,,]",
+      "view_str": "0cd1fb61291b6859fbc2ecfa5c1995c6",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/image_view_nav_button"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          723,
+          1731
+        ],
+        [
+          790,
+          1758
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/textview_nav_button",
+      "checked": false,
+      "text": "DEALS",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 152,
+      "temp_id": 154,
+      "size": "67*27",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/textview_nav_button[text]DEALS[enabled,,]",
+      "view_str": "b0f25726732d6be9f28300d88baad1e5",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/textview_nav_button"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        156,
+        157
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          864,
+          1605
+        ],
+        [
+          1080,
+          1794
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/container_nav_profile",
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 141,
+      "temp_id": 155,
+      "size": "216*189",
+      "signature": "[class]android.view.ViewGroup[resource_id]com.mindbodyonline.connect:id/container_nav_profile[text]None[enabled,,]",
+      "view_str": "e3a3a473199ab06f87c1c3da97ca4731",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]com.mindbodyonline.connect:id/container_nav_profile"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          941,
+          1644
+        ],
+        [
+          1004,
+          1707
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/image_view_nav_button",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 155,
+      "temp_id": 156,
+      "size": "63*63",
+      "signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/image_view_nav_button[text]None[enabled,,]",
+      "view_str": "e5349f5518bb2c25ca10735359fb2c75",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.mindbodyonline.connect:id/image_view_nav_button"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          929,
+          1731
+        ],
+        [
+          1016,
+          1758
+        ]
+      ],
+      "resource_id": "com.mindbodyonline.connect:id/textview_nav_button",
+      "checked": false,
+      "text": "PROFILE",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 155,
+      "temp_id": 157,
+      "size": "87*27",
+      "signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/textview_nav_button[text]PROFILE[enabled,,]",
+      "view_str": "520febc6010309260761f83418e29e20",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.mindbodyonline.connect:id/textview_nav_button"
+    },
+    {
+      "package": "com.mindbodyonline.connect",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          1794
+        ],
+        [
+          1080,
+          1920
+        ]
+      ],
+      "resource_id": "android:id/navigationBarBackground",
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 0,
+      "temp_id": 158,
+      "size": "1080*126",
+      "signature": "[class]android.view.View[resource_id]android:id/navigationBarBackground[text]None[enabled,,]",
+      "view_str": "3035f1303b792f49674e2329050745f5",
+      "content_free_signature": "[class]android.view.View[resource_id]android:id/navigationBarBackground"
+    }
+  ]
+}

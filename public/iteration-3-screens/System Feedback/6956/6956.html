@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sorry for not meeting your expectations</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #e0e0e0; margin: 0; }
+
+  /* ── Close button row ── */
+  .close-row {
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px 16px 8px;
+    background: #fff;
+  }
+  .close-btn {
+    background: none; border: none; cursor: pointer;
+    padding: 6px; color: #aaa;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+  }
+  .close-btn:hover { background: #f0f0f0; }
+
+  /* ── Header section ── */
+  .header-section {
+    background: #fff;
+    padding: 0 22px 24px;
+  }
+  .emoji {
+    font-size: 52px;
+    line-height: 1;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .sorry-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: #111;
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+  .sorry-body {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.65;
+  }
+
+  /* ── Divider ── */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: #e8e8e8;
+  }
+
+  /* ── FAQ accordion ── */
+  .faq-list {
+    background: #fff;
+    padding: 0 16px;
+  }
+  .faq-item {
+    border-bottom: 1px solid #eaecef;
+  }
+  .faq-item:last-child { border-bottom: none; }
+
+  .faq-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 20px 4px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+  }
+  .faq-icon {
+    width: 32px; height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    color: #2563eb;
+  }
+  .faq-label {
+    flex: 1;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a2e;
+  }
+  .faq-chevron {
+    color: #aaa;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+  .faq-item.open .faq-chevron {
+    transform: rotate(180deg);
+  }
+  .faq-answer {
+    display: none;
+    padding: 0 4px 18px 50px;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+  }
+  .faq-item.open .faq-answer {
+    display: block;
+  }
+
+  /* ── Spacer ── */
+  .spacer { flex: 1; background: #fff; min-height: 24px; }
+
+  /* ── FEEDBACK button ── */
+  .feedback-wrap {
+    background: #fff;
+    padding: 20px 16px 28px;
+  }
+  .feedback-btn {
+    width: 100%;
+    padding: 20px 0;
+    border: none;
+    border-radius: 36px;
+    background: linear-gradient(90deg, #2563eb 0%, #7c3aed 100%);
+    color: #fff;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+  .feedback-btn:hover { opacity: 0.92; }
+</style>
+</head>
+<body>
+
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto border-x border-slate-200"
+     style="background:#fff;">
+
+  <!-- ── Close (×) ── -->
+  <div class="close-row">
+    <button class="close-btn" aria-label="Close">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6"  y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- ── Header ── -->
+  <div class="header-section">
+    <!-- Crying face emoji rendered inline as SVG so it's always consistent -->
+    <span class="emoji" role="img" aria-label="Crying face">😢</span>
+    <div class="sorry-title">Sorry for not meeting your expectations</div>
+    <p class="sorry-body">
+      We've listed some frequently asked questions and their solutions below.
+      If the problem you encountered is not on the list, you can tap Feedback
+      to contact us.
+    </p>
+  </div>
+
+  <!-- full-width divider with extra top margin -->
+  <div style="background:#fff; padding: 20px 22px 0;">
+    <div class="divider"></div>
+  </div>
+
+  <!-- ── FAQ accordion ── -->
+  <div class="faq-list">
+
+    <!-- 1. How to use? -->
+    <div class="faq-item" id="faq-1">
+      <button class="faq-row" onclick="toggle('faq-1')" aria-expanded="false">
+        <span class="faq-icon">
+          <!-- Play / triangle icon -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#2563eb">
+            <polygon points="5,3 19,12 5,21"/>
+          </svg>
+        </span>
+        <span class="faq-label">How to use?</span>
+        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <div class="faq-answer">
+        Open the app and press Start to begin counting your steps. The counter
+        works automatically in the background. Check your daily progress on the
+        main dashboard.
+      </div>
+    </div>
+
+    <!-- 2. Stops Counting? -->
+    <div class="faq-item" id="faq-2">
+      <button class="faq-row" onclick="toggle('faq-2')" aria-expanded="false">
+        <span class="faq-icon">
+          <!-- Pause bars icon -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#2563eb">
+            <rect x="4"  y="3" width="5" height="18" rx="1.5"/>
+            <rect x="15" y="3" width="5" height="18" rx="1.5"/>
+          </svg>
+        </span>
+        <span class="faq-label">Stops Counting?</span>
+        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <div class="faq-answer">
+        If counting stops unexpectedly, ensure the app has permission to run
+        in the background. Go to Settings → Apps → Battery and set it to
+        "Unrestricted" or "Don't optimise".
+      </div>
+    </div>
+
+    <!-- 3. Counting when shaking phone? -->
+    <div class="faq-item" id="faq-3">
+      <button class="faq-row" onclick="toggle('faq-3')" aria-expanded="false">
+        <span class="faq-icon">
+          <!-- Phone shake / flag-like icon -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+               stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="5" y="2" width="14" height="20" rx="3"/>
+            <line x1="9" y1="6"  x2="9"  y2="10"/>
+            <line x1="13" y1="4" x2="13" y2="8"/>
+            <line x1="9"  y1="10" x2="13" y2="8"/>
+            <circle cx="12" cy="17" r="1.2" fill="#2563eb"/>
+          </svg>
+        </span>
+        <span class="faq-label">Counting when shaking phone?</span>
+        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <div class="faq-answer">
+        The step counter uses an accelerometer algorithm to distinguish walking
+        from random shaking. Adjust the sensitivity in Settings → Sensitivity
+        if false counts occur frequently.
+      </div>
+    </div>
+
+    <!-- 4. Counting when driving? -->
+    <div class="faq-item" id="faq-4">
+      <button class="faq-row" onclick="toggle('faq-4')" aria-expanded="false">
+        <span class="faq-icon">
+          <!-- Car icon -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+               stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 17H3v-5l2-5h14l2 5v5h-2"/>
+            <circle cx="7.5"  cy="17" r="2.5"/>
+            <circle cx="16.5" cy="17" r="2.5"/>
+            <path d="M5 12h14"/>
+          </svg>
+        </span>
+        <span class="faq-label">Counting when driving?</span>
+        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <div class="faq-answer">
+        The app uses GPS and motion sensors together to detect driving vs
+        walking. Enable "Auto-pause while in vehicle" in Settings to prevent
+        false counts during car journeys.
+      </div>
+    </div>
+
+    <!-- 5. Accuracy (partially visible in screenshot) -->
+    <div class="faq-item" id="faq-5">
+      <button class="faq-row" onclick="toggle('faq-5')" aria-expanded="false">
+        <span class="faq-icon">
+          <!-- Target / accuracy icon -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+               stroke="#2563eb" stroke-width="2" stroke-linecap="round">
+            <circle cx="12" cy="12" r="10"/>
+            <circle cx="12" cy="12" r="6"/>
+            <circle cx="12" cy="12" r="2" fill="#2563eb"/>
+          </svg>
+        </span>
+        <span class="faq-label">Accuracy</span>
+        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <div class="faq-answer">
+        Step count accuracy depends on phone placement and walking style.
+        Carrying the phone in your pocket or hand gives the best results.
+        Calibrate in Settings → Calibration for improved precision.
+      </div>
+    </div>
+
+  </div><!-- /faq-list -->
+
+  <div class="spacer"></div>
+
+  <!-- ── FEEDBACK button ── -->
+  <div class="feedback-wrap">
+    <button class="feedback-btn">FEEDBACK</button>
+  </div>
+
+</div>
+
+<script>
+  function toggle(id) {
+    const item = document.getElementById(id);
+    const isOpen = item.classList.contains('open');
+    // close all
+    document.querySelectorAll('.faq-item').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('button').setAttribute('aria-expanded', 'false');
+    });
+    // open clicked if it was closed
+    if (!isOpen) {
+      item.classList.add('open');
+      item.querySelector('button').setAttribute('aria-expanded', 'true');
+    }
+  }
+</script>
+</body>
+</html>

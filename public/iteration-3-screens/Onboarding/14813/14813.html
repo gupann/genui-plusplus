@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meijer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: #e5e7eb;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    .meijer-blue { background: #1b4f8a; }
+    .meijer-blue-mid { background: #1e5799; }
+    .quick-icon {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: #e8eef5;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .category-pill {
+      background: #d0dce8;
+      border-radius: 6px;
+      height: 36px;
+      min-width: 90px;
+    }
+    .product-card {
+      background: #c8d8e8;
+      border-radius: 6px;
+      height: 80px;
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto border-x border-slate-200" style="background:#f0f2f5;">
+
+  <!-- ── Blue header ── -->
+  <div class="meijer-blue px-4 pt-4 pb-3">
+    <!-- Row 1: hamburger + logo + hello/user -->
+    <div class="flex items-center justify-between mb-3">
+      <div class="flex items-center gap-3">
+        <!-- Hamburger -->
+        <button class="flex flex-col gap-1.5">
+          <span class="block w-5 h-0.5 bg-white opacity-80"></span>
+          <span class="block w-5 h-0.5 bg-white opacity-80"></span>
+          <span class="block w-5 h-0.5 bg-white opacity-80"></span>
+        </button>
+        <!-- meijer wordmark -->
+        <span class="text-white font-bold text-3xl tracking-tight" style="font-style:italic; letter-spacing:-1px;">meijer</span>
+      </div>
+      <div class="flex items-center gap-2 text-white opacity-80">
+        <span class="text-base font-light">Hello</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="rgba(255,255,255,0.7)">
+          <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Row 2: search bar + barcode + list + cart -->
+    <div class="flex items-center gap-2">
+      <!-- Search bar -->
+      <div class="flex items-center gap-2 flex-1 rounded px-3 py-2" style="background:rgba(255,255,255,0.18);">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white opacity-70" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <span class="text-white opacity-60 text-sm flex-1">Search Products...</span>
+        <!-- Barcode scanner icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.5">
+          <rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="3" width="6" height="6" rx="1"/>
+          <rect x="3" y="15" width="6" height="6" rx="1"/>
+          <line x1="15" y1="15" x2="21" y2="15"/><line x1="15" y1="18" x2="21" y2="18"/>
+          <line x1="18" y1="15" x2="18" y2="21"/><line x1="21" y1="18" x2="21" y2="21"/>
+        </svg>
+      </div>
+      <!-- List icon -->
+      <button>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.8">
+          <line x1="9" y1="6" x2="20" y2="6"/><line x1="9" y1="12" x2="20" y2="12"/><line x1="9" y1="18" x2="20" y2="18"/>
+          <line x1="4" y1="6" x2="5" y2="6" stroke-width="2.5"/><line x1="4" y1="12" x2="5" y2="12" stroke-width="2.5"/><line x1="4" y1="18" x2="5" y2="18" stroke-width="2.5"/>
+        </svg>
+      </button>
+      <!-- Cart icon -->
+      <button>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="rgba(255,255,255,0.8)" stroke-width="1.8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ── Background content (dimmed behind modal) ── -->
+  <div class="flex-1 relative" style="filter: brightness(0.82);">
+
+    <!-- Choose Pickup or Delivery row -->
+    <div class="flex items-center justify-between px-4 py-3 bg-white border-b border-gray-200">
+      <div class="flex items-center gap-3">
+        <!-- Meijer bag icon approximation -->
+        <div class="w-10 h-10 flex items-center justify-center rounded" style="background:#e8f0f8;">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="#1b4f8a">
+            <path d="M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3zm0 10c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+          </svg>
+        </div>
+        <span class="font-semibold text-gray-800">Choose Pickup or Delivery</span>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="#888" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+      </svg>
+    </div>
+
+    <!-- Quick action icons row -->
+    <div class="flex items-center justify-around px-4 py-4 bg-white mb-2">
+      <div class="flex flex-col items-center gap-1">
+        <div class="quick-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="#1b4f8a"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        </div>
+      </div>
+      <div class="flex flex-col items-center gap-1">
+        <div class="quick-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#1b4f8a" stroke-width="1.6">
+            <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+            <line x1="14" y1="17.5" x2="21" y2="17.5"/><line x1="17.5" y1="14" x2="17.5" y2="21"/>
+          </svg>
+        </div>
+      </div>
+      <div class="flex flex-col items-center gap-1">
+        <div class="quick-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="#1b4f8a"><path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+        </div>
+      </div>
+      <div class="flex flex-col items-center gap-1">
+        <div class="quick-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="#1b4f8a"><path d="M2 5h2v14H2zm3 0h1v14H5zm2 0h2v14H7zm3 0h1v14h-1zm2 0h1v14h-1zm2 0h1v14h-1zm2 0h2v14h-2zm3 0h1v14h-1z"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category pills row -->
+    <div class="flex gap-2 px-4 pb-3 overflow-x-auto" style="scrollbar-width:none;">
+      <div class="category-pill flex items-center justify-center text-xs text-gray-500 px-3 whitespace-nowrap">Summer Celebration</div>
+      <div class="category-pill flex items-center justify-center text-xs text-gray-500 px-3 whitespace-nowrap">Back to School</div>
+      <div class="category-pill flex items-center justify-center text-xs text-gray-500 px-3 whitespace-nowrap">Grocery</div>
+      <div class="category-pill flex items-center justify-center text-xs text-gray-500 px-3 whitespace-nowrap">More</div>
+    </div>
+
+    <!-- Produce section -->
+    <div class="flex items-center justify-between px-4 py-2 bg-white">
+      <span class="font-bold text-gray-900 text-base">Produce</span>
+      <span class="text-sm font-semibold" style="color:#1b4f8a;">View All</span>
+    </div>
+    <div class="flex gap-2 px-4 pb-4 pt-2">
+      <div class="product-card"></div>
+      <div class="product-card"></div>
+      <div class="product-card" style="max-width:80px;"></div>
+    </div>
+
+    <!-- Sign In / Create Account buttons -->
+    <div class="flex gap-3 px-4 pb-4">
+      <button class="flex-1 py-4 rounded border-2 font-semibold text-base" style="border-color:#1b4f8a; color:#1b4f8a; background:white;">Sign In</button>
+      <button class="flex-1 py-4 rounded font-semibold text-base text-white" style="background:#1b4f8a;">Create Account</button>
+    </div>
+
+  </div>
+
+  <!-- ── Modal overlay ── -->
+  <div class="absolute inset-0 flex items-center justify-center" style="background:rgba(0,0,0,0.35); z-index:20;">
+    <div class="bg-white rounded-lg mx-4 px-6 pt-6 pb-5 shadow-2xl" style="max-width:340px; width:100%;">
+      <h2 class="font-bold text-gray-900 text-lg leading-snug mb-3">
+        Don't miss out on the latest deals &amp; order status updates
+      </h2>
+      <p class="text-gray-500 text-sm leading-relaxed mb-8">
+        Allow notifications &amp; stay up-to-date on order status, mPerks coupons, rewards progress and more.
+      </p>
+      <div class="flex items-center justify-end gap-6">
+        <button class="font-bold text-sm tracking-wide" style="color:#1b4f8a;">NOT NOW</button>
+        <button class="font-bold text-sm tracking-wide" style="color:#1b4f8a;">SOUNDS GREAT</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

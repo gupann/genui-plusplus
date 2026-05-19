@@ -1,0 +1,1709 @@
+{
+  "tag": "2023-07-07_223940",
+  "state_str": "62b59712aeccd42c4e3ce26dd2c05b70",
+  "state_str_content_free": "eab7d42826396d6da7cbc00cd5e7127e",
+  "foreground_activity": "com.brinker.chilis/.features.restaurant.RestaurantSearchActivity",
+  "activity_stack": [
+    "com.brinker.chilis/.features.restaurant.RestaurantSearchActivity",
+    "com.brinker.chilis/.features.chilismain.ChilisMainActivity"
+  ],
+  "background_services": [
+    "com.google.android.apps.messaging/com.google.android.ims.service.JibeService",
+    "com.google.android.networkstack.tethering/com.android.networkstack.tethering.TetheringService",
+    "com.google.android.ext.services/com.android.textclassifier.DefaultTextClassifierService",
+    "com.google.android.gms/.nearby.sharing.ReceiveSurfaceService",
+    "com.google.android.gms/.icing.service.AppIndexingService",
+    "com.google.android.googlequicksearchbox/com.google.android.apps.gsa.shared.util.keepalive.StandaloneKeepAlive",
+    "com.google.android.gms/.deviceconnection.service.DeviceConnectionWatcherService",
+    "com.brinker.chilis/org.chromium.content.app.SandboxedProcessService0",
+    "com.google.android.gms/.chimera.MdnsPersistentBoundBrokerService",
+    "com.android.systemui/.keyguard.KeyguardService",
+    "com.android.chrome/org.chromium.content.app.SandboxedProcessService0",
+    "com.android.chrome/org.chromium.content.app.SandboxedProcessService0",
+    "com.android.chrome/org.chromium.content.app.SandboxedProcessService0",
+    "com.android.chrome/org.chromium.content.app.SandboxedProcessService0",
+    "com.android.chrome/org.chromium.content.app.SandboxedProcessService0",
+    "com.android.chrome/org.chromium.content.app.SandboxedProcessService0",
+    "com.android.chrome/org.chromium.content.app.SandboxedProcessService0",
+    "com.android.chrome/org.chromium.content.app.SandboxedProcessService0",
+    "com.google.android.gms/.measurement.service.MeasurementBrokerService",
+    "com.google.android.gms/.droidguard.DroidGuardService",
+    "com.android.bluetooth/.btservice.AdapterService",
+    "com.android.systemui/.ImageWallpaper",
+    "com.google.android.inputmethod.latin/com.android.inputmethod.latin.spellcheck.AndroidSpellCheckerService",
+    "com.google.android.gms/.auth.setup.devicesignals.LockScreenService",
+    "com.google.android.gms/.gcm.GcmService",
+    "com.google.android.gms/.clearcut.debug.ClearcutDebugDumpService",
+    "com.google.android.apps.messaging/com.google.android.ims.binding.SystemBindingService",
+    "com.google.android.gms/.chimera.PersistentApiService",
+    "com.google.android.gms/.location.geocode.GeocodeService",
+    "com.android.phone/com.android.internal.telephony.CellularNetworkService",
+    "com.google.android.gms/com.google.location.nearby.direct.service.NearbyDirectService",
+    "com.google.android.tts/com.google.android.apps.speech.tts.googletts.service.GoogleTTSService",
+    "com.google.android.gms/.chimera.PersistentBoundBrokerService",
+    "com.android.bluetooth/.gatt.GattService",
+    "com.google.android.gms/.chimera.GmsBoundBrokerService",
+    "com.google.android.gms/.tron.CollectionService",
+    "com.google.android.gms/.fido.fido2.pollux.CableAuthenticatorService",
+    "io.github.ylimit.droidbotapp/.DroidBotIME",
+    "com.android.bluetooth/.pbap.BluetoothPbapService",
+    "com.google.android.gms/com.google.android.location.fused.FusedLocationService",
+    "com.google.android.gms/.gcm.nts.SchedulerService",
+    "com.google.android.ext.services/android.ext.services.autofill.InlineSuggestionRenderServiceImpl",
+    "com.google.android.apps.photos/com.google.android.libraries.social.mediamonitor.BackgroundThreadNotifierIntentService",
+    "com.android.bluetooth/.a2dp.A2dpService",
+    "com.google.android.providers.media.module/com.android.providers.media.fuse.ExternalStorageServiceImpl",
+    "io.github.ylimit.droidbotapp/io.github.privacystreams.accessibility.PSAccessibilityService",
+    "com.google.android.googlequicksearchbox/com.google.android.apps.gsa.nga.engine.viss.NgaService",
+    "com.google.android.gms/.thunderbird.EmergencyPersistentService",
+    "com.android.systemui/.SystemUIService",
+    "com.google.android.gms/.nearby.exposurenotification.service.ExposureMatchingService",
+    "com.android.chrome/org.chromium.content.app.PrivilegedProcessService0",
+    "android/.hardware.location.GeofenceHardwareService",
+    "com.android.se/.SecureElementService",
+    "com.google.android.googlequicksearchbox/com.google.android.ssb.service.SsbService",
+    "com.google.android.gms/.chimera.GmsIntentOperationService",
+    "com.google.android.gms/.chimera.PersistentDirectBootAwareApiService",
+    "com.android.bluetooth/.hid.HidDeviceService",
+    "com.google.android.gms/.geotimezone.GeoTimeZoneService",
+    "com.google.android.gms/.location.persistent.LocationPersistentService",
+    "com.google.android.gms/.nearby.discovery.service.DiscoveryService",
+    "com.google.android.gms/com.google.android.location.internal.PendingIntentCallbackService",
+    "com.google.android.gms/.nearby.messages.service.NearbyMessagesService",
+    "com.google.android.gms/.fido.authenticator.service.AuthenticatorService",
+    "com.google.android.gms/com.google.android.location.internal.server.GoogleLocationService",
+    "com.google.android.apps.maps/com.google.android.apps.gmm.cloudmessage.receiver.FcmService",
+    "com.google.android.gms/com.google.android.contextmanager.service.ContextManagerService",
+    "com.google.android.gm/com.google.android.libraries.hub.firebase.FirebaseMessagingServiceImpl",
+    "com.android.systemui/.dump.SystemUIAuxiliaryDumpService",
+    "com.google.android.gms/com.google.android.location.network.NetworkLocationService",
+    "com.android.stk/.StkAppService",
+    "com.google.android.gms/com.google.android.location.internal.GoogleLocationManagerService",
+    "com.android.chrome/org.chromium.content.app.SandboxedProcessService0",
+    "com.android.chrome/org.chromium.content.app.SandboxedProcessService0",
+    "com.android.chrome/org.chromium.content.app.SandboxedProcessService0",
+    "com.android.chrome/org.chromium.content.app.SandboxedProcessService0",
+    "com.android.chrome/org.chromium.content.app.SandboxedProcessService0",
+    "com.android.chrome/org.chromium.content.app.SandboxedProcessService0",
+    "com.android.chrome/org.chromium.content.app.SandboxedProcessService0",
+    "com.android.chrome/org.chromium.content.app.SandboxedProcessService0",
+    "com.android.chrome/org.chromium.content.app.SandboxedProcessService0",
+    "com.android.chrome/org.chromium.content.app.SandboxedProcessService0",
+    "com.android.chrome/org.chromium.content.app.SandboxedProcessService0",
+    "com.android.chrome/org.chromium.content.app.SandboxedProcessService0",
+    "com.android.chrome/org.chromium.content.app.SandboxedProcessService0",
+    "com.android.chrome/org.chromium.content.app.SandboxedProcessService0",
+    "com.android.chrome/org.chromium.content.app.SandboxedProcessService0",
+    "com.android.chrome/org.chromium.content.app.SandboxedProcessService0",
+    "com.android.chrome/org.chromium.content.app.SandboxedProcessService0",
+    "com.android.chrome/org.chromium.content.app.SandboxedProcessService0",
+    "com.android.chrome/org.chromium.content.app.SandboxedProcessService0",
+    "com.android.chrome/org.chromium.content.app.SandboxedProcessService0",
+    "com.android.phone/com.android.internal.telephony.dataconnection.CellularDataService",
+    "com.android.server.telecom/.components.TelecomService",
+    "com.android.chrome/org.chromium.chrome.browser.customtabs.CustomTabsConnectionService",
+    "com.google.android.networkstack/com.android.server.NetworkStackService",
+    "com.android.bluetooth/.hfp.HeadsetService",
+    "com.google.android.googlequicksearchbox/com.google.android.voiceinteraction.GsaVoiceInteractionService",
+    "com.android.emulator.multidisplay/.MultiDisplayService",
+    "com.android.phone/.vvm.RemoteVvmTaskManager",
+    "com.google.android.gms/.lockbox.service.LockboxBrokerService",
+    "com.android.ons/.OpportunisticNetworkService",
+    "com.google.android.gms/.common.stats.GmsCoreStatsService",
+    "com.google.android.gms/com.google.android.location.internal.server.HardwareArProviderService",
+    "com.android.bluetooth/.map.BluetoothMapService",
+    "app.lawnchair/com.android.quickstep.TouchInteractionService",
+    "com.android.phone/com.android.services.telephony.sip.components.TelephonySipService",
+    "com.android.phone/.TelephonyDebugService",
+    "com.android.bluetooth/.hid.HidHostService",
+    "com.google.android.gms/.nearby.connection.service.NearbyConnectionsAndroidService",
+    "com.google.android.gms/.icing.service.IndexService",
+    "com.android.bluetooth/.opp.BluetoothOppService",
+    "com.android.bluetooth/.pan.PanService",
+    "com.android.bluetooth/.avrcp.AvrcpTargetService",
+    "com.google.android.apps.nexuslauncher/com.android.quickstep.TouchInteractionService",
+    "com.google.android.cellbroadcastservice/com.android.cellbroadcastservice.DefaultCellBroadcastService",
+    "com.google.android.gm/org.chromium.content.app.SandboxedProcessService0"
+  ],
+  "width": 1440,
+  "height": 2560,
+  "views": [
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        1,
+        39,
+        40
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1440,
+          2560
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": -1,
+      "temp_id": 0,
+      "size": "1440*2560",
+      "signature": "[class]android.widget.FrameLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "7e79cadbd1e5928611aacf8596e79032",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]None"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        2
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 0,
+      "temp_id": 1,
+      "size": "1440*2392",
+      "signature": "[class]android.widget.LinearLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "d31fad729024fc29f223716a0789e959",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]None"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        3
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 1,
+      "temp_id": 2,
+      "size": "1440*2392",
+      "signature": "[class]android.widget.FrameLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "338e93edb04e026097110e47c2a4bbc0",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]None"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        4
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": "com.brinker.chilis:id/action_bar_root",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 2,
+      "temp_id": 3,
+      "size": "1440*2392",
+      "signature": "[class]android.widget.LinearLayout[resource_id]com.brinker.chilis:id/action_bar_root[text]None[enabled,,]",
+      "view_str": "5a6ecf771973ca3d75f07fb4e53a90ea",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]com.brinker.chilis:id/action_bar_root"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        5
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": "android:id/content",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 3,
+      "temp_id": 4,
+      "size": "1440*2392",
+      "signature": "[class]android.widget.FrameLayout[resource_id]android:id/content[text]None[enabled,,]",
+      "view_str": "ff36a538b519357e068a1bbb07e9ce97",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]android:id/content"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        6,
+        11
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 4,
+      "temp_id": 5,
+      "size": "1440*2392",
+      "signature": "[class]android.view.ViewGroup[resource_id]None[text]None[enabled,,]",
+      "view_str": "dcabdd85a65f7efa2ce08fad44fcbc7c",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]None"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        7
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          84
+        ],
+        [
+          1440,
+          280
+        ]
+      ],
+      "resource_id": "com.brinker.chilis:id/appbar",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 5,
+      "temp_id": 6,
+      "size": "1440*196",
+      "signature": "[class]android.widget.LinearLayout[resource_id]com.brinker.chilis:id/appbar[text]None[enabled,,]",
+      "view_str": "24f280a98728e9a7adb8ea77b603032c",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]com.brinker.chilis:id/appbar"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        8,
+        9,
+        10
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          84
+        ],
+        [
+          1440,
+          280
+        ]
+      ],
+      "resource_id": "com.brinker.chilis:id/toolbar",
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 6,
+      "temp_id": 7,
+      "size": "1440*196",
+      "signature": "[class]android.view.ViewGroup[resource_id]com.brinker.chilis:id/toolbar[text]None[enabled,,]",
+      "view_str": "cdf33485a81c24288b489806eb62189c",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]com.brinker.chilis:id/toolbar"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          84
+        ],
+        [
+          0,
+          84
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "androidx.appcompat.widget.LinearLayoutCompat",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 7,
+      "temp_id": 8,
+      "size": "0*0",
+      "signature": "[class]androidx.appcompat.widget.LinearLayoutCompat[resource_id]None[text]None[enabled,,]",
+      "view_str": "25ddb413aa472ddc64ab3fdcfb2b5982",
+      "content_free_signature": "[class]androidx.appcompat.widget.LinearLayoutCompat[resource_id]None"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": "Back",
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          84
+        ],
+        [
+          196,
+          280
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageButton",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 7,
+      "temp_id": 9,
+      "size": "196*196",
+      "signature": "[class]android.widget.ImageButton[resource_id]None[text]None[enabled,,]",
+      "view_str": "0c3620e62f28ade0da3ccd8502b27a1f",
+      "content_free_signature": "[class]android.widget.ImageButton[resource_id]None"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          252,
+          135
+        ],
+        [
+          964,
+          229
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": "Nearby Restaurants",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 7,
+      "temp_id": 10,
+      "size": "712*94",
+      "signature": "[class]android.widget.TextView[resource_id]None[text]Nearby Restaurants[enabled,,]",
+      "view_str": "c000ab60342f75ba302f0403653306b9",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]None"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        12,
+        21
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          280
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": "com.brinker.chilis:id/container",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 5,
+      "temp_id": 11,
+      "size": "1440*2112",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]com.brinker.chilis:id/container[text]None[enabled,,]",
+      "view_str": "3035adc4d4f43b9a9bd3057d8406d0c6",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]com.brinker.chilis:id/container"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        13,
+        20
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          280
+        ],
+        [
+          1440,
+          966
+        ]
+      ],
+      "resource_id": "com.brinker.chilis:id/restaurant_search_header",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 11,
+      "temp_id": 12,
+      "size": "1440*686",
+      "signature": "[class]android.widget.LinearLayout[resource_id]com.brinker.chilis:id/restaurant_search_header[text]None[enabled,,]",
+      "view_str": "10d5be3f1dcf841abeb61914dc7df73f",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]com.brinker.chilis:id/restaurant_search_header"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        14,
+        18,
+        19
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          280
+        ],
+        [
+          1440,
+          948
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 12,
+      "temp_id": 13,
+      "size": "1440*668",
+      "signature": "[class]android.widget.LinearLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "37d7abed1d75e94b4c7c744a33acc4b6",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]None"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        15
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          336
+        ],
+        [
+          1398,
+          518
+        ]
+      ],
+      "resource_id": "com.brinker.chilis:id/address_search_section",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 13,
+      "temp_id": 14,
+      "size": "1356*182",
+      "signature": "[class]android.widget.LinearLayout[resource_id]com.brinker.chilis:id/address_search_section[text]None[enabled,,]",
+      "view_str": "0f45cc2bf83573dfc5ebf63dd41fe3d4",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]com.brinker.chilis:id/address_search_section"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        16,
+        17
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          336
+        ],
+        [
+          1398,
+          511
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 14,
+      "temp_id": 15,
+      "size": "1356*175",
+      "signature": "[class]android.widget.FrameLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "6f786b62ce2f2ac07b215fa2bfec1091",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]None"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": true,
+      "clickable": true,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          336
+        ],
+        [
+          1398,
+          511
+        ]
+      ],
+      "resource_id": "com.brinker.chilis:id/address_text_field",
+      "checked": false,
+      "text": "City, State OR ZIP",
+      "class": "android.widget.EditText",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": true,
+      "parent": 15,
+      "temp_id": 16,
+      "size": "1356*175",
+      "signature": "[class]android.widget.EditText[resource_id]com.brinker.chilis:id/address_text_field[text]City, State OR ZIP[enabled,,]",
+      "view_str": "87f09494bce2acacecbf1da839344e9a",
+      "content_free_signature": "[class]android.widget.EditText[resource_id]com.brinker.chilis:id/address_text_field"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": "Clear",
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1279,
+          381
+        ],
+        [
+          1363,
+          465
+        ]
+      ],
+      "resource_id": "com.brinker.chilis:id/search_clear_btn",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 15,
+      "temp_id": 17,
+      "size": "84*84",
+      "signature": "[class]android.widget.ImageView[resource_id]com.brinker.chilis:id/search_clear_btn[text]None[enabled,,]",
+      "view_str": "54963af7d36132bc23d7a75c3827e633",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.brinker.chilis:id/search_clear_btn"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          648,
+          588
+        ],
+        [
+          791,
+          654
+        ]
+      ],
+      "resource_id": "com.brinker.chilis:id/or_label",
+      "checked": false,
+      "text": "- OR -",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 13,
+      "temp_id": 18,
+      "size": "143*66",
+      "signature": "[class]android.widget.TextView[resource_id]com.brinker.chilis:id/or_label[text]- OR -[enabled,,]",
+      "view_str": "3f66b6be62c083925ea568f22b796d94",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.brinker.chilis:id/or_label"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": "SearchCurrentLocation",
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          724
+        ],
+        [
+          1398,
+          892
+        ]
+      ],
+      "resource_id": "com.brinker.chilis:id/use_current_location_btn",
+      "checked": false,
+      "text": "USE MY CURRENT LOCATION",
+      "class": "android.widget.Button",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 13,
+      "temp_id": 19,
+      "size": "1356*168",
+      "signature": "[class]android.widget.Button[resource_id]com.brinker.chilis:id/use_current_location_btn[text]USE MY CURRENT LOCATION[enabled,,]",
+      "view_str": "76bb39b31c3c98d2f35108ea9a1cb7e8",
+      "content_free_signature": "[class]android.widget.Button[resource_id]com.brinker.chilis:id/use_current_location_btn"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          56,
+          962
+        ],
+        [
+          1384,
+          966
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 12,
+      "temp_id": 20,
+      "size": "1328*4",
+      "signature": "[class]android.view.View[resource_id]None[text]None[enabled,,]",
+      "view_str": "555257f907756161e56d38ffd2b936ca",
+      "content_free_signature": "[class]android.view.View[resource_id]None"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        22
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          966
+        ],
+        [
+          1440,
+          1683
+        ]
+      ],
+      "resource_id": "com.brinker.chilis:id/restaurant_list",
+      "checked": false,
+      "text": null,
+      "class": "androidx.recyclerview.widget.RecyclerView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 11,
+      "temp_id": 21,
+      "size": "1440*717",
+      "signature": "[class]androidx.recyclerview.widget.RecyclerView[resource_id]com.brinker.chilis:id/restaurant_list[text]None[enabled,,]",
+      "view_str": "96b49659637b38ab42fdd53444fd85d2",
+      "content_free_signature": "[class]androidx.recyclerview.widget.RecyclerView[resource_id]com.brinker.chilis:id/restaurant_list"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        23,
+        37
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          966
+        ],
+        [
+          1440,
+          1655
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 21,
+      "temp_id": 22,
+      "size": "1440*689",
+      "signature": "[class]android.widget.LinearLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "564c646cadf0a22a2c8cbca8ee065a78",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]None"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 6,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        24,
+        25,
+        26,
+        27,
+        30,
+        33
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          1036
+        ],
+        [
+          1048,
+          1627
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 22,
+      "temp_id": 23,
+      "size": "1006*591",
+      "signature": "[class]android.widget.LinearLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "7f237a1f1e6b2161fa307a7139299f59",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]None"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          1036
+        ],
+        [
+          532,
+          1121
+        ]
+      ],
+      "resource_id": "com.brinker.chilis:id/restaurant_name",
+      "checked": false,
+      "text": "Mountain View",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 23,
+      "temp_id": 24,
+      "size": "490*85",
+      "signature": "[class]android.widget.TextView[resource_id]com.brinker.chilis:id/restaurant_name[text]Mountain View[enabled,,]",
+      "view_str": "5130ccc6d9ff4eb064977831504a032c",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.brinker.chilis:id/restaurant_name"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          1128
+        ],
+        [
+          619,
+          1203
+        ]
+      ],
+      "resource_id": "com.brinker.chilis:id/restaurant_address",
+      "checked": false,
+      "text": "2560 W. El Camino Real",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 23,
+      "temp_id": 25,
+      "size": "577*75",
+      "signature": "[class]android.widget.TextView[resource_id]com.brinker.chilis:id/restaurant_address[text]2560 W. El Camino Real[enabled,,]",
+      "view_str": "685360e38cf13120a81dc89b598aac4c",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.brinker.chilis:id/restaurant_address"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          1210
+        ],
+        [
+          669,
+          1285
+        ]
+      ],
+      "resource_id": "com.brinker.chilis:id/restaurant_city_state",
+      "checked": false,
+      "text": "Mountain View, CA 94040",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 23,
+      "temp_id": 26,
+      "size": "627*75",
+      "signature": "[class]android.widget.TextView[resource_id]com.brinker.chilis:id/restaurant_city_state[text]Mountain View, CA 94040[enabled,,]",
+      "view_str": "4d8d66498791a3210e170daf4670e260",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.brinker.chilis:id/restaurant_city_state"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        28,
+        29
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          1285
+        ],
+        [
+          1030,
+          1356
+        ]
+      ],
+      "resource_id": "com.brinker.chilis:id/distance_waittimes_layout",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 23,
+      "temp_id": 27,
+      "size": "988*71",
+      "signature": "[class]android.widget.LinearLayout[resource_id]com.brinker.chilis:id/distance_waittimes_layout[text]None[enabled,,]",
+      "view_str": "509afdc99d7c087af6dd7af2ed0726ef",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]com.brinker.chilis:id/distance_waittimes_layout"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          1292
+        ],
+        [
+          252,
+          1356
+        ]
+      ],
+      "resource_id": "com.brinker.chilis:id/restaurant_distance",
+      "checked": false,
+      "text": "2.07 miles",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 27,
+      "temp_id": 28,
+      "size": "210*64",
+      "signature": "[class]android.widget.TextView[resource_id]com.brinker.chilis:id/restaurant_distance[text]2.07 miles[enabled,,]",
+      "view_str": "23dbd0658c8a2b1a3da6901419e8c9c5",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.brinker.chilis:id/restaurant_distance"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          252,
+          1292
+        ],
+        [
+          443,
+          1356
+        ]
+      ],
+      "resource_id": "com.brinker.chilis:id/restaurant_waittime",
+      "checked": false,
+      "text": ", CLOSED",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 27,
+      "temp_id": 29,
+      "size": "191*64",
+      "signature": "[class]android.widget.TextView[resource_id]com.brinker.chilis:id/restaurant_waittime[text], CLOSED[enabled,,]",
+      "view_str": "44648dd05c12400ee2faa6cf9d97c01c",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.brinker.chilis:id/restaurant_waittime"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        31,
+        32
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          1356
+        ],
+        [
+          1030,
+          1494
+        ]
+      ],
+      "resource_id": "com.brinker.chilis:id/phone_number",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 23,
+      "temp_id": 30,
+      "size": "988*138",
+      "signature": "[class]android.widget.LinearLayout[resource_id]com.brinker.chilis:id/phone_number[text]None[enabled,,]",
+      "view_str": "9b2ec28a233308cac64f8d0874459f8f",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]com.brinker.chilis:id/phone_number"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          1411
+        ],
+        [
+          126,
+          1494
+        ]
+      ],
+      "resource_id": "com.brinker.chilis:id/phone_icon",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 30,
+      "temp_id": 31,
+      "size": "84*83",
+      "signature": "[class]android.widget.ImageView[resource_id]com.brinker.chilis:id/phone_icon[text]None[enabled,,]",
+      "view_str": "44f7b3ebff62f11ca43c083323714702",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.brinker.chilis:id/phone_icon"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          154,
+          1409
+        ],
+        [
+          552,
+          1494
+        ]
+      ],
+      "resource_id": "com.brinker.chilis:id/restaurant_phone",
+      "checked": false,
+      "text": "(650) 941-2227",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 30,
+      "temp_id": 32,
+      "size": "398*85",
+      "signature": "[class]android.widget.TextView[resource_id]com.brinker.chilis:id/restaurant_phone[text](650) 941-2227[enabled,,]",
+      "view_str": "09d05adf8b16bcac6b6f3ab0d1b9a542",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.brinker.chilis:id/restaurant_phone"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        34,
+        35,
+        36
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          42,
+          1494
+        ],
+        [
+          1030,
+          1627
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 23,
+      "temp_id": 33,
+      "size": "988*133",
+      "signature": "[class]android.widget.LinearLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "073abf1e5edae6d621105a636bb72eb6",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]None"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          84,
+          1536
+        ],
+        [
+          168,
+          1620
+        ]
+      ],
+      "resource_id": "com.brinker.chilis:id/curbside_image",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 33,
+      "temp_id": 34,
+      "size": "84*84",
+      "signature": "[class]android.widget.ImageView[resource_id]com.brinker.chilis:id/curbside_image[text]None[enabled,,]",
+      "view_str": "06546984d2e88d10622d6c7d6212fc8d",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.brinker.chilis:id/curbside_image"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          210,
+          1536
+        ],
+        [
+          294,
+          1620
+        ]
+      ],
+      "resource_id": "com.brinker.chilis:id/delivery_image",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 33,
+      "temp_id": 35,
+      "size": "84*84",
+      "signature": "[class]android.widget.ImageView[resource_id]com.brinker.chilis:id/delivery_image[text]None[enabled,,]",
+      "view_str": "04f3746e4f477b8bd18c0b701662a6bf",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.brinker.chilis:id/delivery_image"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          336,
+          1536
+        ],
+        [
+          420,
+          1620
+        ]
+      ],
+      "resource_id": "com.brinker.chilis:id/alcohol_allowed_image",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 33,
+      "temp_id": 36,
+      "size": "84*84",
+      "signature": "[class]android.widget.ImageView[resource_id]com.brinker.chilis:id/alcohol_allowed_image[text]None[enabled,,]",
+      "view_str": "c9d27d43264227826db7632d8bc92c46",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.brinker.chilis:id/alcohol_allowed_image"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        38
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          1048,
+          1299
+        ],
+        [
+          1398,
+          1363
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 22,
+      "temp_id": 37,
+      "size": "350*64",
+      "signature": "[class]android.widget.LinearLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "09f4d8b16c9adfdbeb5c3a0943d84ede",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]None"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1048,
+          1299
+        ],
+        [
+          1398,
+          1363
+        ]
+      ],
+      "resource_id": "com.brinker.chilis:id/current_restaurant_label",
+      "checked": false,
+      "text": "Current Location",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 37,
+      "temp_id": 38,
+      "size": "350*64",
+      "signature": "[class]android.widget.TextView[resource_id]com.brinker.chilis:id/current_restaurant_label[text]Current Location[enabled,,]",
+      "view_str": "0b2597279b072dfdab928a558543a652",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.brinker.chilis:id/current_restaurant_label"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1440,
+          84
+        ]
+      ],
+      "resource_id": "android:id/statusBarBackground",
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 0,
+      "temp_id": 39,
+      "size": "1440*84",
+      "signature": "[class]android.view.View[resource_id]android:id/statusBarBackground[text]None[enabled,,]",
+      "view_str": "dcfd5beba49d0bd8ac4f0a91bd30aed5",
+      "content_free_signature": "[class]android.view.View[resource_id]android:id/statusBarBackground"
+    },
+    {
+      "package": "com.brinker.chilis",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          2392
+        ],
+        [
+          1440,
+          2560
+        ]
+      ],
+      "resource_id": "android:id/navigationBarBackground",
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 0,
+      "temp_id": 40,
+      "size": "1440*168",
+      "signature": "[class]android.view.View[resource_id]android:id/navigationBarBackground[text]None[enabled,,]",
+      "view_str": "be02e5c5cbe3594867e4f8f15f739897",
+      "content_free_signature": "[class]android.view.View[resource_id]android:id/navigationBarBackground"
+    }
+  ]
+}

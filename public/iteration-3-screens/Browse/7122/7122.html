@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=390, height=844, initial-scale=1.0">
+    <title>Distributors Map UI</title>
+    <style>
+        :root {
+            --red-brand: #E32619;
+            --map-green: #B9DFA8;
+            --map-yellow: #F9DA7A;
+            --map-white: #FFFFFF;
+            --marker-red: #EA4335;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            background-color: #000;
+        }
+
+        .phone-container {
+            width: 100%;
+            height: 100%;
+            background-color: var(--map-green);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--red-brand);
+            height: 110px;
+            padding-top: 40px;
+            display: flex;
+            align-items: center;
+            padding-left: 15px;
+            padding-right: 15px;
+            z-index: 10;
+        }
+
+        .menu-icon {
+            width: 24px;
+            height: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .menu-icon span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: white;
+            border-radius: 1px;
+        }
+
+        .logo-container {
+            margin-left: auto;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-diamond {
+            width: 34px;
+            height: 34px;
+            border: 2px solid white;
+            transform: rotate(45deg);
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-flame {
+            width: 14px;
+            height: 20px;
+            background-color: transparent;
+            border-right: 2px solid white;
+            border-bottom: 2px solid white;
+            border-radius: 0 0 10px 0;
+            transform: rotate(-45deg) translate(-2px, -2px);
+            position: relative;
+        }
+        
+        .logo-flame::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 5px;
+            width: 2px;
+            height: 10px;
+            background: white;
+            transform: rotate(20deg);
+        }
+
+        .header-title {
+            color: white;
+            font-size: 24px;
+            font-weight: 400;
+            margin-right: auto;
+            letter-spacing: 0.5px;
+        }
+
+        /* Map Simulation Styles */
+        .map-area {
+            flex: 1;
+            position: relative;
+            background-color: var(--map-green);
+            background-image: 
+                /* Major Roads */
+                linear-gradient(160deg, transparent 45%, var(--map-yellow) 45%, var(--map-yellow) 47%, transparent 47%),
+                linear-gradient(70deg, transparent 20%, var(--map-yellow) 20%, var(--map-yellow) 22%, transparent 22%),
+                linear-gradient(0deg, transparent 60%, var(--map-yellow) 60%, var(--map-yellow) 61%, transparent 61%),
+                /* Smaller Roads */
+                linear-gradient(90deg, transparent 10%, rgba(255,255,255,0.4) 10.5%, rgba(255,255,255,0.4) 11%, transparent 11.5%),
+                radial-gradient(circle at 50% 50%, rgba(255,255,255,0.2) 0%, transparent 70%);
+        }
+
+        /* Map Grid/City Labels */
+        .city-label {
+            position: absolute;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            text-shadow: 1px 1px 2px white, -1px -1px 2px white;
+        }
+
+        .reims { top: 20px; left: 170px; }
+        .chalons { top: 125px; left: 240px; font-size: 12px; }
+        .sezanne { top: 195px; left: 115px; }
+        .romilly { top: 265px; left: 100px; font-size: 13px; }
+        .troyes { top: 345px; left: 180px; font-size: 15px; font-weight: 700; }
+        .joigny { top: 450px; left: 65px; }
+        .auxerre { top: 510px; left: 90px; }
+        .tonnerre { top: 505px; left: 180px; }
+        .dijon { bottom: 50px; right: 25px; }
+
+        .road-label {
+            position: absolute;
+            background-color: #EE6E68;
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+            padding: 1px 4px;
+            border-radius: 2px;
+        }
+
+        .r-a4 { top: 85px; left: 105px; }
+        .r-a26 { top: 250px; left: 205px; }
+        .r-a5 { top: 435px; left: 290px; }
+        .r-a6 { top: 495px; left: 42px; }
+
+        /* Map Pins */
+        .pin {
+            position: absolute;
+            width: 32px;
+            height: 44px;
+            z-index: 5;
+        }
+
+        .pin-head {
+            width: 32px;
+            height: 32px;
+            background-color: var(--marker-red);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .pin-head::after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .pin-tail {
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 18px solid var(--marker-red);
+            position: absolute;
+            bottom: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Locations from Screenshot */
+        .p1 { top: 240px; left: 50px; }
+        .p2 { top: 285px; left: 42px; }
+        .p3 { top: 260px; left: 87px; }
+        .p4 { top: 305px; left: 156px; }
+        .p5 { top: 340px; left: 181px; }
+        .p6 { top: 340px; left: 211px; }
+
+        /* Floating UI Elements */
+        .gps-btn {
+            position: absolute;
+            top: 20px;
+            right: 15px;
+            width: 36px;
+            height: 36px;
+            background: white;
+            border-radius: 2px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gps-icon {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #666;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .gps-icon::before, .gps-icon::after {
+            content: '';
+            position: absolute;
+            background: #666;
+        }
+
+        .gps-icon::before { width: 2px; height: 6px; top: -6px; left: 7px; box-shadow: 0 16px 0 #666; }
+        .gps-icon::after { width: 6px; height: 2px; top: 7px; left: -6px; box-shadow: 16px 0 0 #666; }
+
+        .google-logo {
+            position: absolute;
+            bottom: 40px;
+            left: 5px;
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 18px;
+            letter-spacing: -1px;
+        }
+        .g-blue { color: #4285F4; }
+        .g-red { color: #EA4335; }
+        .g-yellow { color: #FBBC05; }
+        .g-green { color: #34A853; }
+
+        /* Bottom Nav */
+        .bottom-nav {
+            background-color: #000;
+            height: 48px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0 50px;
+        }
+
+        .nav-shape {
+            border: 2px solid #888;
+            background: transparent;
+        }
+
+        .nav-triangle {
+            width: 0;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-right: 14px solid #888;
+            border-left: none;
+        }
+
+        .nav-circle {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border-width: 3px;
+        }
+
+        .nav-square {
+            width: 14px;
+            height: 14px;
+            border-radius: 2px;
+            border-width: 3px;
+        }
+
+        /* Area Overlay Text (Parc Naturel...) */
+        .park-label {
+            position: absolute;
+            color: #1A5E20;
+            font-size: 14px;
+            font-weight: 500;
+            text-align: center;
+            line-height: 1.1;
+        }
+        .park-top { top: 40px; left: 140px; width: 80px; }
+        .park-bottom { bottom: 200px; right: 15px; width: 100px; }
+    </style>
+</head>
+<body>
+    <div class="phone-container">
+        <!-- App Header -->
+        <header>
+            <div class="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="logo-container">
+                <div class="logo-diamond">
+                    <div class="logo-flame"></div>
+                </div>
+            </div>
+            <h1 class="header-title">Distributors</h1>
+        </header>
+
+        <!-- Map Screen -->
+        <main class="map-area">
+            <!-- Road Markers -->
+            <div class="road-label r-a4">A4</div>
+            <div class="road-label r-a26">A26</div>
+            <div class="road-label r-a5">A5</div>
+            <div class="road-label r-a6">A6</div>
+
+            <!-- Natural Parks -->
+            <div class="park-label park-top">Parc naturel régional de la Montagne de Reims</div>
+            <div class="park-label park-bottom">Parc national de forêts</div>
+
+            <!-- City Labels -->
+            <div class="city-label reims">Reims</div>
+            <div class="city-label chalons">Châlons-en-Champagne</div>
+            <div class="city-label sezanne">Sézanne</div>
+            <div class="city-label romilly">Romilly-sur-Seine</div>
+            <div class="city-label troyes">Troyes</div>
+            <div class="city-label joigny">Joigny</div>
+            <div class="city-label tonnerre">Tonnerre</div>
+            <div class="city-label auxerre">Auxerre</div>
+            <div class="city-label dijon">Dijon</div>
+
+            <!-- Distribution Pins -->
+            <div class="pin p1"><div class="pin-head"></div><div class="pin-tail"></div></div>
+            <div class="pin p2"><div class="pin-head"></div><div class="pin-tail"></div></div>
+            <div class="pin p3"><div class="pin-head"></div><div class="pin-tail"></div></div>
+            <div class="pin p4"><div class="pin-head"></div><div class="pin-tail"></div></div>
+            <div class="pin p5"><div class="pin-head"></div><div class="pin-tail"></div></div>
+            <div class="pin p6"><div class="pin-head"></div><div class="pin-tail"></div></div>
+
+            <!-- UI Overlay -->
+            <div class="gps-btn">
+                <div class="gps-icon"></div>
+            </div>
+
+            <div class="google-logo">
+                <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span>
+            </div>
+        </main>
+
+        <!-- Android Nav Bar -->
+        <nav class="bottom-nav">
+            <div class="nav-triangle"></div>
+            <div class="nav-shape nav-circle"></div>
+            <div class="nav-shape nav-square"></div>
+        </nav>
+    </div>
+</body>
+</html>

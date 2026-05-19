@@ -1,0 +1,1132 @@
+{
+  "tag": "2023-07-12_195202",
+  "state_str": "3e3d50a2229a4269c54f497e93676670",
+  "state_str_content_free": "9b34214621a9bdad8659a07c23dc9a27",
+  "foreground_activity": "app.fire.nicknamegenerator.free.nicknameforgamers/.ProVersionActivity",
+  "activity_stack": [
+    "app.fire.nicknamegenerator.free.nicknameforgamers/.ProVersionActivity",
+    "app.fire.nicknamegenerator.free.nicknameforgamers/.MainActivity"
+  ],
+  "background_services": [
+    "com.google.android.apps.messaging/com.google.android.ims.service.JibeService",
+    "com.google.android.networkstack.tethering/com.android.networkstack.tethering.TetheringService",
+    "com.google.android.permissioncontroller/com.android.permissioncontroller.permission.service.PermissionControllerServiceImpl",
+    "com.google.android.gms/.nearby.sharing.ReceiveSurfaceService",
+    "com.google.android.gms/.icing.service.AppIndexingService",
+    "com.google.android.googlequicksearchbox/com.google.android.apps.gsa.shared.util.keepalive.StandaloneKeepAlive",
+    "com.google.android.gms/.deviceconnection.service.DeviceConnectionWatcherService",
+    "com.android.systemui/.keyguard.KeyguardService",
+    "com.android.chrome/org.chromium.content.app.SandboxedProcessService0",
+    "com.google.android.gms/.measurement.service.MeasurementBrokerService",
+    "com.android.bluetooth/.btservice.AdapterService",
+    "com.android.systemui/.ImageWallpaper",
+    "com.google.android.gms/.auth.setup.devicesignals.LockScreenService",
+    "com.google.android.gms/.gcm.GcmService",
+    "com.google.android.gms/.auth.proximity.firstparty.SystemMemoryCacheService",
+    "com.google.android.gms/.clearcut.debug.ClearcutDebugDumpService",
+    "com.google.android.apps.messaging/com.google.android.ims.binding.SystemBindingService",
+    "com.google.android.gms/.chimera.PersistentApiService",
+    "com.google.android.gms/.location.geocode.GeocodeService",
+    "com.android.phone/com.android.internal.telephony.CellularNetworkService",
+    "com.google.android.gms/com.google.location.nearby.direct.service.NearbyDirectService",
+    "com.google.android.gms/.chimera.PersistentBoundBrokerService",
+    "com.android.bluetooth/.gatt.GattService",
+    "com.google.android.gms/.chimera.GmsBoundBrokerService",
+    "com.google.android.gms/.fido.fido2.pollux.CableAuthenticatorService",
+    "com.google.android.googlequicksearchbox/com.google.android.apps.gsa.nowoverlayservice.DrawerOverlayService",
+    "io.github.ylimit.droidbotapp/.DroidBotIME",
+    "com.android.bluetooth/.pbap.BluetoothPbapService",
+    "com.google.android.gms/com.google.android.location.fused.FusedLocationService",
+    "com.google.android.gms/.gcm.nts.SchedulerService",
+    "com.google.android.ext.services/android.ext.services.autofill.InlineSuggestionRenderServiceImpl",
+    "com.android.bluetooth/.a2dp.A2dpService",
+    "com.google.android.providers.media.module/com.android.providers.media.fuse.ExternalStorageServiceImpl",
+    "io.github.ylimit.droidbotapp/io.github.privacystreams.accessibility.PSAccessibilityService",
+    "com.google.android.googlequicksearchbox/com.google.android.apps.gsa.nga.engine.viss.NgaService",
+    "com.google.android.gms/.thunderbird.EmergencyPersistentService",
+    "com.google.android.apps.nexuslauncher/com.android.launcher3.notification.NotificationListener",
+    "com.android.systemui/.SystemUIService",
+    "com.google.android.gms/.nearby.exposurenotification.service.ExposureMatchingService",
+    "com.android.chrome/org.chromium.content.app.PrivilegedProcessService0",
+    "android/.hardware.location.GeofenceHardwareService",
+    "com.android.se/.SecureElementService",
+    "com.google.android.gms/.presencemanager.service.PresenceManagerPresenceReportService",
+    "com.google.android.gms/.chimera.PersistentDirectBootAwareApiService",
+    "com.android.bluetooth/.hid.HidDeviceService",
+    "com.google.android.gms/.geotimezone.GeoTimeZoneService",
+    "com.google.android.gms/.location.persistent.LocationPersistentService",
+    "com.google.android.gms/.nearby.discovery.service.DiscoveryService",
+    "com.google.android.gms/com.google.android.location.internal.PendingIntentCallbackService",
+    "com.google.android.gms/.nearby.messages.service.NearbyMessagesService",
+    "com.google.android.gms/com.google.android.location.internal.server.GoogleLocationService",
+    "com.google.android.gms/com.google.android.contextmanager.service.ContextManagerService",
+    "com.android.systemui/.dump.SystemUIAuxiliaryDumpService",
+    "com.google.android.gms/com.google.android.location.network.NetworkLocationService",
+    "com.android.stk/.StkAppService",
+    "com.google.android.gms/com.google.android.location.internal.GoogleLocationManagerService",
+    "com.android.phone/com.android.internal.telephony.dataconnection.CellularDataService",
+    "com.android.server.telecom/.components.TelecomService",
+    "com.android.chrome/org.chromium.chrome.browser.customtabs.CustomTabsConnectionService",
+    "com.google.android.networkstack/com.android.server.NetworkStackService",
+    "com.android.bluetooth/.hfp.HeadsetService",
+    "com.google.android.googlequicksearchbox/com.google.android.voiceinteraction.GsaVoiceInteractionService",
+    "com.android.emulator.multidisplay/.MultiDisplayService",
+    "com.google.android.permissioncontroller/com.android.permissioncontroller.role.service.RoleControllerServiceImpl",
+    "com.android.phone/.vvm.RemoteVvmTaskManager",
+    "com.google.android.gms/.lockbox.service.LockboxBrokerService",
+    "com.android.ons/.OpportunisticNetworkService",
+    "com.google.android.gms/.common.stats.GmsCoreStatsService",
+    "com.google.android.gms/com.google.android.location.internal.server.HardwareArProviderService",
+    "com.android.bluetooth/.map.BluetoothMapService",
+    "com.android.phone/com.android.services.telephony.sip.components.TelephonySipService",
+    "com.android.phone/.TelephonyDebugService",
+    "com.android.bluetooth/.hid.HidHostService",
+    "com.google.android.gms/.icing.service.IndexService",
+    "com.android.bluetooth/.opp.BluetoothOppService",
+    "com.android.bluetooth/.pan.PanService",
+    "com.android.bluetooth/.avrcp.AvrcpTargetService",
+    "com.google.android.apps.nexuslauncher/com.android.quickstep.TouchInteractionService",
+    "com.google.android.cellbroadcastservice/com.android.cellbroadcastservice.DefaultCellBroadcastService",
+    "com.google.android.gm/org.chromium.content.app.SandboxedProcessService0"
+  ],
+  "width": 1440,
+  "height": 2560,
+  "views": [
+    {
+      "package": "app.fire.nicknamegenerator.free.nicknameforgamers",
+      "visible": true,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        1,
+        25,
+        26
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1440,
+          2560
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": -1,
+      "temp_id": 0,
+      "size": "1440*2560",
+      "signature": "[class]android.widget.FrameLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "bb441db1530008a5fa820a58ab14e56b",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]None"
+    },
+    {
+      "package": "app.fire.nicknamegenerator.free.nicknameforgamers",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        2
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 0,
+      "temp_id": 1,
+      "size": "1440*2392",
+      "signature": "[class]android.widget.LinearLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "6bd4e2e2bd8d04820d83d5ea10b1ea81",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]None"
+    },
+    {
+      "package": "app.fire.nicknamegenerator.free.nicknameforgamers",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        3
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          84
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 1,
+      "temp_id": 2,
+      "size": "1440*2308",
+      "signature": "[class]android.widget.FrameLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "78d6c6a0da1c7c92209e0335475ac9c4",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]None"
+    },
+    {
+      "package": "app.fire.nicknamegenerator.free.nicknameforgamers",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        4
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          84
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": "app.fire.nicknamegenerator.free.nicknameforgamers:id/action_bar_root",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 2,
+      "temp_id": 3,
+      "size": "1440*2308",
+      "signature": "[class]android.widget.LinearLayout[resource_id]app.fire.nicknamegenerator.free.nicknameforgamers:id/action_bar_root[text]None[enabled,,]",
+      "view_str": "270bc4da7b7c246ce39c2078e0cb5655",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]app.fire.nicknamegenerator.free.nicknameforgamers:id/action_bar_root"
+    },
+    {
+      "package": "app.fire.nicknamegenerator.free.nicknameforgamers",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        5
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          84
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": "android:id/content",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 3,
+      "temp_id": 4,
+      "size": "1440*2308",
+      "signature": "[class]android.widget.FrameLayout[resource_id]android:id/content[text]None[enabled,,]",
+      "view_str": "7b0965c0748a069b84eea45c33dc511d",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]android:id/content"
+    },
+    {
+      "package": "app.fire.nicknamegenerator.free.nicknameforgamers",
+      "visible": true,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        6,
+        23,
+        24
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          84
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 4,
+      "temp_id": 5,
+      "size": "1440*2308",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "715d40eab8edbbe68f28df7916b5b874",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]None"
+    },
+    {
+      "package": "app.fire.nicknamegenerator.free.nicknameforgamers",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        7
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          84
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ScrollView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 5,
+      "temp_id": 6,
+      "size": "1440*2308",
+      "signature": "[class]android.widget.ScrollView[resource_id]None[text]None[enabled,,]",
+      "view_str": "36de2a6bd70843db19d5762589dcea18",
+      "content_free_signature": "[class]android.widget.ScrollView[resource_id]None"
+    },
+    {
+      "package": "app.fire.nicknamegenerator.free.nicknameforgamers",
+      "visible": true,
+      "checkable": false,
+      "child_count": 7,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        8,
+        9,
+        10,
+        11,
+        16,
+        17,
+        20
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          84
+        ],
+        [
+          1440,
+          2071
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 6,
+      "temp_id": 7,
+      "size": "1440*1987",
+      "signature": "[class]android.widget.LinearLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "4a99d321e507efad5c9157cafe9a9830",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]None"
+    },
+    {
+      "package": "app.fire.nicknamegenerator.free.nicknameforgamers",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          608,
+          259
+        ],
+        [
+          832,
+          483
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 7,
+      "temp_id": 8,
+      "size": "224*224",
+      "signature": "[class]android.widget.ImageView[resource_id]None[text]None[enabled,,]",
+      "view_str": "aff557c2705446bdfbe7b354430ba66c",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]None"
+    },
+    {
+      "package": "app.fire.nicknamegenerator.free.nicknameforgamers",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          70,
+          553
+        ],
+        [
+          1370,
+          653
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": "Start Like A Pro",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 7,
+      "temp_id": 9,
+      "size": "1300*100",
+      "signature": "[class]android.widget.TextView[resource_id]None[text]Start Like A Pro[enabled,,]",
+      "view_str": "6b8ff9cbaa61eb11e12350853a9c28a0",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]None"
+    },
+    {
+      "package": "app.fire.nicknamegenerator.free.nicknameforgamers",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          70,
+          793
+        ],
+        [
+          1370,
+          893
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": "Pro Features",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 7,
+      "temp_id": 10,
+      "size": "1300*100",
+      "signature": "[class]android.widget.TextView[resource_id]None[text]Pro Features[enabled,,]",
+      "view_str": "f8be968abb38b8997df1326af792773c",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]None"
+    },
+    {
+      "package": "app.fire.nicknamegenerator.free.nicknameforgamers",
+      "visible": true,
+      "checkable": false,
+      "child_count": 4,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          383,
+          963
+        ],
+        [
+          1056,
+          1467
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 7,
+      "temp_id": 11,
+      "size": "673*504",
+      "signature": "[class]android.widget.LinearLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "4b3633f1fd3c623445974c234ba73904",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]None"
+    },
+    {
+      "package": "app.fire.nicknamegenerator.free.nicknameforgamers",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          383,
+          963
+        ],
+        [
+          1030,
+          1047
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": "More Fonts Available",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 11,
+      "temp_id": 12,
+      "size": "647*84",
+      "signature": "[class]android.widget.TextView[resource_id]None[text]More Fonts Available[enabled,,]",
+      "view_str": "9dee1495fefb55b25c3b9e7d3235d546",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]None"
+    },
+    {
+      "package": "app.fire.nicknamegenerator.free.nicknameforgamers",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          383,
+          1089
+        ],
+        [
+          853,
+          1173
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": "More Symbols",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 11,
+      "temp_id": 13,
+      "size": "470*84",
+      "signature": "[class]android.widget.TextView[resource_id]None[text]More Symbols[enabled,,]",
+      "view_str": "8efea9467ca69db5b197d12d8da87abe",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]None"
+    },
+    {
+      "package": "app.fire.nicknamegenerator.free.nicknameforgamers",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          383,
+          1215
+        ],
+        [
+          663,
+          1299
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": "No Ads",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 11,
+      "temp_id": 14,
+      "size": "280*84",
+      "signature": "[class]android.widget.TextView[resource_id]None[text]No Ads[enabled,,]",
+      "view_str": "b9a074ed4529169fb7bb414f9334dfe1",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]None"
+    },
+    {
+      "package": "app.fire.nicknamegenerator.free.nicknameforgamers",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          383,
+          1341
+        ],
+        [
+          1056,
+          1425
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": "All New Features Free",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 11,
+      "temp_id": 15,
+      "size": "673*84",
+      "signature": "[class]android.widget.TextView[resource_id]None[text]All New Features Free[enabled,,]",
+      "view_str": "83d4c6b7721d6256dd7e3cf2abe74e74",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]None"
+    },
+    {
+      "package": "app.fire.nicknamegenerator.free.nicknameforgamers",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          1467
+        ],
+        [
+          1440,
+          1567
+        ]
+      ],
+      "resource_id": "app.fire.nicknamegenerator.free.nicknameforgamers:id/pro_and_error",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 7,
+      "temp_id": 16,
+      "size": "1440*100",
+      "signature": "[class]android.widget.TextView[resource_id]app.fire.nicknamegenerator.free.nicknameforgamers:id/pro_and_error[text]None[enabled,,]",
+      "view_str": "2cf83c4bca2cad8ef5c5cdcd6b50f166",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]app.fire.nicknamegenerator.free.nicknameforgamers:id/pro_and_error"
+    },
+    {
+      "package": "app.fire.nicknamegenerator.free.nicknameforgamers",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        18,
+        19
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          70,
+          1637
+        ],
+        [
+          1370,
+          1819
+        ]
+      ],
+      "resource_id": "app.fire.nicknamegenerator.free.nicknameforgamers:id/ll_pro_annual",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 7,
+      "temp_id": 17,
+      "size": "1300*182",
+      "signature": "[class]android.widget.LinearLayout[resource_id]app.fire.nicknamegenerator.free.nicknameforgamers:id/ll_pro_annual[text]None[enabled,,]",
+      "view_str": "9ebcddb230309b37aa4b32e071618b64",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]app.fire.nicknamegenerator.free.nicknameforgamers:id/ll_pro_annual"
+    },
+    {
+      "package": "app.fire.nicknamegenerator.free.nicknameforgamers",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          238,
+          1658
+        ],
+        [
+          776,
+          1738
+        ]
+      ],
+      "resource_id": "app.fire.nicknamegenerator.free.nicknameforgamers:id/textView_heading_pro_one",
+      "checked": false,
+      "text": "Annual - Best Value",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 17,
+      "temp_id": 18,
+      "size": "538*80",
+      "signature": "[class]android.widget.TextView[resource_id]app.fire.nicknamegenerator.free.nicknameforgamers:id/textView_heading_pro_one[text]Annual - Best Value[enabled,,]",
+      "view_str": "bfd8e3efbf31b0cab7d39784e65d0127",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]app.fire.nicknamegenerator.free.nicknameforgamers:id/textView_heading_pro_one"
+    },
+    {
+      "package": "app.fire.nicknamegenerator.free.nicknameforgamers",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          238,
+          1738
+        ],
+        [
+          888,
+          1798
+        ]
+      ],
+      "resource_id": "app.fire.nicknamegenerator.free.nicknameforgamers:id/textView_heading_pro_sub_one",
+      "checked": false,
+      "text": "$0.25/month, Billed yearly at $3",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 17,
+      "temp_id": 19,
+      "size": "650*60",
+      "signature": "[class]android.widget.TextView[resource_id]app.fire.nicknamegenerator.free.nicknameforgamers:id/textView_heading_pro_sub_one[text]$0.25/month, Billed yearly at $3[enabled,,]",
+      "view_str": "a4481639cd78b3e4275b43c511a2eef1",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]app.fire.nicknamegenerator.free.nicknameforgamers:id/textView_heading_pro_sub_one"
+    },
+    {
+      "package": "app.fire.nicknamegenerator.free.nicknameforgamers",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        21,
+        22
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          70,
+          1889
+        ],
+        [
+          1370,
+          2071
+        ]
+      ],
+      "resource_id": "app.fire.nicknamegenerator.free.nicknameforgamers:id/ll_pro_quarterly",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 7,
+      "temp_id": 20,
+      "size": "1300*182",
+      "signature": "[class]android.widget.LinearLayout[resource_id]app.fire.nicknamegenerator.free.nicknameforgamers:id/ll_pro_quarterly[text]None[enabled,,]",
+      "view_str": "7c953cd0ac2f9bbfc6bfda77529d1dbd",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]app.fire.nicknamegenerator.free.nicknameforgamers:id/ll_pro_quarterly"
+    },
+    {
+      "package": "app.fire.nicknamegenerator.free.nicknameforgamers",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          238,
+          1910
+        ],
+        [
+          501,
+          1990
+        ]
+      ],
+      "resource_id": "app.fire.nicknamegenerator.free.nicknameforgamers:id/textView_heading_pro_two",
+      "checked": false,
+      "text": "Quarterly",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 20,
+      "temp_id": 21,
+      "size": "263*80",
+      "signature": "[class]android.widget.TextView[resource_id]app.fire.nicknamegenerator.free.nicknameforgamers:id/textView_heading_pro_two[text]Quarterly[enabled,,]",
+      "view_str": "70a8037befcdcd4c47efd099aebbd21d",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]app.fire.nicknamegenerator.free.nicknameforgamers:id/textView_heading_pro_two"
+    },
+    {
+      "package": "app.fire.nicknamegenerator.free.nicknameforgamers",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          238,
+          1990
+        ],
+        [
+          951,
+          2050
+        ]
+      ],
+      "resource_id": "app.fire.nicknamegenerator.free.nicknameforgamers:id/textView_sub_heading_pro_two",
+      "checked": false,
+      "text": "$0.33/month, Billed Quarterly at $1",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 20,
+      "temp_id": 22,
+      "size": "713*60",
+      "signature": "[class]android.widget.TextView[resource_id]app.fire.nicknamegenerator.free.nicknameforgamers:id/textView_sub_heading_pro_two[text]$0.33/month, Billed Quarterly at $1[enabled,,]",
+      "view_str": "9b3f9658913856d006db95b1b2144499",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]app.fire.nicknamegenerator.free.nicknameforgamers:id/textView_sub_heading_pro_two"
+    },
+    {
+      "package": "app.fire.nicknamegenerator.free.nicknameforgamers",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          56,
+          140
+        ],
+        [
+          182,
+          266
+        ]
+      ],
+      "resource_id": "app.fire.nicknamegenerator.free.nicknameforgamers:id/back_and_close",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 5,
+      "temp_id": 23,
+      "size": "126*126",
+      "signature": "[class]android.widget.ImageView[resource_id]app.fire.nicknamegenerator.free.nicknameforgamers:id/back_and_close[text]None[enabled,,]",
+      "view_str": "c9128803ce74e20fca3330cb13982f6e",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]app.fire.nicknamegenerator.free.nicknameforgamers:id/back_and_close"
+    },
+    {
+      "package": "app.fire.nicknamegenerator.free.nicknameforgamers",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          386,
+          2196
+        ],
+        [
+          1054,
+          2336
+        ]
+      ],
+      "resource_id": "app.fire.nicknamegenerator.free.nicknameforgamers:id/subcscribe_now",
+      "checked": false,
+      "text": "Subscribe Now",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 5,
+      "temp_id": 24,
+      "size": "668*140",
+      "signature": "[class]android.widget.TextView[resource_id]app.fire.nicknamegenerator.free.nicknameforgamers:id/subcscribe_now[text]Subscribe Now[enabled,,]",
+      "view_str": "4fee27beb6f4b105738abde718aca969",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]app.fire.nicknamegenerator.free.nicknameforgamers:id/subcscribe_now"
+    },
+    {
+      "package": "app.fire.nicknamegenerator.free.nicknameforgamers",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1440,
+          84
+        ]
+      ],
+      "resource_id": "android:id/statusBarBackground",
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 0,
+      "temp_id": 25,
+      "size": "1440*84",
+      "signature": "[class]android.view.View[resource_id]android:id/statusBarBackground[text]None[enabled,,]",
+      "view_str": "cbb93df6f457e64c20606b00b3e27765",
+      "content_free_signature": "[class]android.view.View[resource_id]android:id/statusBarBackground"
+    },
+    {
+      "package": "app.fire.nicknamegenerator.free.nicknameforgamers",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          2392
+        ],
+        [
+          1440,
+          2560
+        ]
+      ],
+      "resource_id": "android:id/navigationBarBackground",
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 0,
+      "temp_id": 26,
+      "size": "1440*168",
+      "signature": "[class]android.view.View[resource_id]android:id/navigationBarBackground[text]None[enabled,,]",
+      "view_str": "04fa99f055a062e675a2b5087f2984d8",
+      "content_free_signature": "[class]android.view.View[resource_id]android:id/navigationBarBackground"
+    }
+  ]
+}

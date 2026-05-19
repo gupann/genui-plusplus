@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Start Like A Pro</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #111; margin: 0; }
+
+  .screen {
+    background: #0d0d0f;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    position: relative;
+  }
+
+  /* ── Close button ── */
+  .close-btn {
+    position: absolute;
+    top: 18px; left: 14px;
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background: none;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff;
+    z-index: 10;
+  }
+  .close-btn:hover { background: rgba(255,255,255,0.08); }
+
+  /* ── Logo ── */
+  .logo-wrap {
+    display: flex;
+    justify-content: center;
+    padding: 72px 0 24px;
+  }
+
+  /* ── Headings ── */
+  .main-title {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 36px;
+    letter-spacing: 0.01em;
+  }
+  .section-title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 22px;
+  }
+
+  /* ── Feature list ── */
+  .features {
+    padding: 0 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 48px;
+  }
+  .feature-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 17px;
+    font-weight: 600;
+    color: #fff;
+  }
+  .feat-check {
+    flex-shrink: 0;
+    color: #fff;
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  /* ── Plan cards ── */
+  .plans {
+    padding: 0 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  .plan-card {
+    border-radius: 12px;
+    padding: 18px 22px;
+    cursor: pointer;
+    border: 1.5px solid transparent;
+    transition: border-color 0.15s;
+  }
+  .plan-card.selected {
+    background: #2e2c3e;
+    border-color: #5a5580;
+  }
+  .plan-card.unselected {
+    background: #e8e8e8;
+    border-color: transparent;
+  }
+  .plan-card.unselected:hover { border-color: #bbb; }
+  .plan-card.selected:hover   { border-color: #8880c0; }
+
+  .plan-name {
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .plan-card.unselected .plan-name { color: #111; }
+  .plan-price {
+    font-size: 13px;
+    font-weight: 400;
+    color: #b0b0c8;
+  }
+  .plan-card.unselected .plan-price { color: #555; }
+
+  /* ── Subscribe button ── */
+  .subscribe-wrap {
+    padding: 0 24px 36px;
+  }
+  .subscribe-btn {
+    width: 100%;
+    padding: 20px 0;
+    border-radius: 40px;
+    border: none;
+    background: linear-gradient(135deg, #f07070 0%, #f05060 50%, #e04070 100%);
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 0.01em;
+    box-shadow: 0 4px 18px rgba(220, 60, 80, 0.45);
+    transition: opacity 0.15s;
+  }
+  .subscribe-btn:hover { opacity: 0.92; }
+</style>
+</head>
+<body>
+
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto border-x border-slate-800"
+     style="background:#0d0d0f;">
+
+  <!-- ── Close (×) ── -->
+  <button class="close-btn" aria-label="Close">
+    <svg width="16" height="16" viewBox="0 0 18 18" fill="none"
+         stroke="#fff" stroke-width="2.4" stroke-linecap="round">
+      <line x1="1" y1="1" x2="17" y2="17"/>
+      <line x1="17" y1="1" x2="1"  y2="17"/>
+    </svg>
+  </button>
+
+  <!-- ── Winged clown / joker mascot logo ── -->
+  <div class="logo-wrap">
+    <svg width="120" height="90" viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- Left wing -->
+      <path d="M10 44
+               C4 30 0 16 8 8
+               C14 2 24 6 30 12
+               C22 20 18 30 20 44 Z"
+            fill="#fff" opacity="0.92"/>
+      <!-- Left wing feather detail -->
+      <path d="M10 44 C10 36 12 28 16 22" stroke="#0d0d0f" stroke-width="1" fill="none" opacity="0.3"/>
+      <path d="M14 42 C12 34 15 26 20 20" stroke="#0d0d0f" stroke-width="1" fill="none" opacity="0.3"/>
+
+      <!-- Right wing -->
+      <path d="M110 44
+               C116 30 120 16 112 8
+               C106 2 96 6 90 12
+               C98 20 102 30 100 44 Z"
+            fill="#fff" opacity="0.92"/>
+      <!-- Right wing feather detail -->
+      <path d="M110 44 C110 36 108 28 104 22" stroke="#0d0d0f" stroke-width="1" fill="none" opacity="0.3"/>
+      <path d="M106 42 C108 34 105 26 100 20" stroke="#0d0d0f" stroke-width="1" fill="none" opacity="0.3"/>
+
+      <!-- Face circle -->
+      <circle cx="60" cy="52" r="32" fill="#fff"/>
+
+      <!-- Eyes — X marks (joker/clown style) -->
+      <!-- Left eye X -->
+      <line x1="46" y1="42" x2="54" y2="50" stroke="#0d0d0f" stroke-width="3" stroke-linecap="round"/>
+      <line x1="54" y1="42" x2="46" y2="50" stroke="#0d0d0f" stroke-width="3" stroke-linecap="round"/>
+      <!-- Right eye X -->
+      <line x1="66" y1="42" x2="74" y2="50" stroke="#0d0d0f" stroke-width="3" stroke-linecap="round"/>
+      <line x1="74" y1="42" x2="66" y2="50" stroke="#0d0d0f" stroke-width="3" stroke-linecap="round"/>
+
+      <!-- Clown nose dot -->
+      <circle cx="60" cy="57" r="3.5" fill="#0d0d0f"/>
+
+      <!-- Smile -->
+      <path d="M46 66 Q60 76 74 66" stroke="#0d0d0f" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+
+      <!-- Jester collar / ruff at neck -->
+      <path d="M36 80 Q44 72 52 80 Q60 88 68 80 Q76 72 84 80"
+            stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <!-- ── Main title ── -->
+  <h1 class="main-title">Start Like A Pro</h1>
+
+  <!-- ── Pro Features heading ── -->
+  <h2 class="section-title">Pro Features</h2>
+
+  <!-- ── Feature checklist ── -->
+  <div class="features">
+    <div class="feature-row">
+      <span class="feat-check">✓</span>
+      <span>More Fonts Available</span>
+    </div>
+    <div class="feature-row">
+      <span class="feat-check">✓</span>
+      <span>More Symbols</span>
+    </div>
+    <div class="feature-row">
+      <span class="feat-check">✓</span>
+      <span>No Ads</span>
+    </div>
+    <div class="feature-row">
+      <span class="feat-check">✓</span>
+      <span>All New Features Free</span>
+    </div>
+  </div>
+
+  <!-- ── Plan cards ── -->
+  <div class="plans">
+
+    <!-- Annual — selected / highlighted -->
+    <div class="plan-card selected" onclick="selectPlan(this)">
+      <div class="plan-name">Annual - Best Value</div>
+      <div class="plan-price">$0.25/month, Billed yearly at $3</div>
+    </div>
+
+    <!-- Quarterly -->
+    <div class="plan-card unselected" onclick="selectPlan(this)">
+      <div class="plan-name">Quarterly</div>
+      <div class="plan-price">$0.33/month, Billed Quarterly at $1</div>
+    </div>
+
+  </div>
+
+  <!-- ── Subscribe Now ── -->
+  <div class="subscribe-wrap">
+    <button class="subscribe-btn">Subscribe Now</button>
+  </div>
+
+</div>
+
+<script>
+  function selectPlan(el) {
+    document.querySelectorAll('.plan-card').forEach(c => {
+      c.classList.remove('selected');
+      c.classList.add('unselected');
+    });
+    el.classList.remove('unselected');
+    el.classList.add('selected');
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Travel Search</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: #e5e7eb;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    /* Binary rain header */
+    .binary-grid {
+      display: grid;
+      grid-template-columns: repeat(14, 1fr);
+      gap: 0;
+      padding: 10px 8px 6px 8px;
+      background: white;
+      user-select: none;
+    }
+    .bit {
+      text-align: center;
+      font-size: 0.82rem;
+      line-height: 1.7;
+      color: #b0bec5;
+      font-weight: 400;
+    }
+    .bit.teal { color: #2bbb9e; font-weight: 700; font-size: 0.9rem; }
+
+    /* Form field rows */
+    .field-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #eef1f4;
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+    }
+    .field-label { color: #8090a0; font-size: 0.95rem; }
+    .field-value { color: #1a2535; font-size: 0.95rem; font-weight: 500; }
+
+    /* Dropdown row */
+    .dropdown-row {
+      display: flex;
+      border: 1.5px solid #d8dde4;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 14px;
+    }
+    .dropdown-half {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px;
+      gap: 8px;
+    }
+    .dropdown-half:first-child { border-right: 1.5px solid #d8dde4; }
+
+    /* Tab nav */
+    .tab-active { font-weight: 800; color: #1a2535; font-size: 1.35rem; }
+    .tab-inactive { font-weight: 400; color: #8090a0; font-size: 1.35rem; }
+
+    /* Bottom nav */
+    .nav-item { display: flex; flex-direction: column; align-items: center; gap: 3px; flex: 1; }
+    .nav-label { font-size: 0.72rem; color: #8090a0; }
+    .nav-label.active { color: #2bbb9e; }
+
+    .search-btn {
+      width: 100%;
+      background: #2bbb9e;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      padding: 18px;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+    }
+  </style>
+</head>
+<body>
+
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto border-x border-slate-200" style="background:white;">
+
+  <!-- ── Binary / matrix header ── -->
+  <div class="binary-grid">
+    <!-- Row 1: all grey -->
+    <span class="bit">0</span><span class="bit">1</span><span class="bit">1</span><span class="bit">1</span><span class="bit">0</span><span class="bit">0</span><span class="bit">0</span><span class="bit">0</span><span class="bit">1</span><span class="bit">1</span><span class="bit">0</span><span class="bit">1</span><span class="bit">1</span><span class="bit">1</span>
+    <!-- Row 2 -->
+    <span class="bit">1</span><span class="bit">1</span><span class="bit">0</span><span class="bit">0</span><span class="bit">1</span><span class="bit">0</span><span class="bit">0</span><span class="bit">1</span><span class="bit">1</span><span class="bit">0</span><span class="bit">1</span><span class="bit">1</span><span class="bit">0</span><span class="bit">0</span>
+    <!-- Row 3: teal "YOU FLY FOR" partially decoding -->
+    <span class="bit teal">Y</span><span class="bit teal">O</span><span class="bit teal">U</span><span class="bit">0</span><span class="bit teal">F</span><span class="bit teal">L</span><span class="bit teal">Y</span><span class="bit">0</span><span class="bit teal">F</span><span class="bit teal">O</span><span class="bit teal">R</span><span class="bit">0</span><span class="bit teal">$</span><span class="bit teal">M</span>
+    <!-- Row 4 -->
+    <span class="bit">0</span><span class="bit">1</span><span class="bit">0</span><span class="bit">0</span><span class="bit">1</span><span class="bit">1</span><span class="bit">1</span><span class="bit">1</span><span class="bit">0</span><span class="bit">0</span><span class="bit">0</span><span class="bit">1</span><span class="bit">0</span><span class="bit">0</span>
+    <!-- Row 5 -->
+    <span class="bit">0</span><span class="bit">0</span><span class="bit">0</span><span class="bit">1</span><span class="bit">1</span><span class="bit">1</span><span class="bit">1</span><span class="bit">0</span><span class="bit">1</span><span class="bit">1</span><span class="bit">0</span><span class="bit">0</span><span class="bit">0</span><span class="bit">0</span>
+    <!-- Row 6 -->
+    <span class="bit">1</span><span class="bit">0</span><span class="bit">0</span><span class="bit">0</span><span class="bit">0</span><span class="bit">1</span><span class="bit">0</span><span class="bit">0</span><span class="bit">1</span><span class="bit">1</span><span class="bit">0</span><span class="bit">0</span><span class="bit">1</span><span class="bit">0</span>
+  </div>
+
+  <!-- ── Tab navigation: Travel / Rooms / Cars ── -->
+  <div class="flex items-center gap-6 px-5 pt-3 pb-3 bg-white">
+    <span class="tab-active">Travel</span>
+    <span class="tab-inactive">Rooms</span>
+    <span class="tab-inactive">Cars</span>
+  </div>
+
+  <!-- ── Search form ── -->
+  <div class="px-4 pb-4 bg-white">
+
+    <!-- Return + passengers dropdown row -->
+    <div class="dropdown-row">
+      <div class="dropdown-half">
+        <div class="flex items-center gap-2">
+          <!-- Swap arrows icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-500" viewBox="0 0 24 24" fill="#667">
+            <path d="M6.99 11L3 15l3.99 4v-3H14v-2H6.99v-3zM21 9l-3.99-4v3H10v2h7.01v3L21 9z"/>
+          </svg>
+          <span class="text-gray-700 text-sm font-medium">Return</span>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="#999" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </div>
+      <div class="dropdown-half">
+        <div class="flex items-center gap-3">
+          <!-- Person icon + count -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="#667">
+            <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+          </svg>
+          <span class="text-gray-700 text-sm font-medium">1</span>
+          <!-- Bag icon + count -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-1" viewBox="0 0 24 24" fill="#667">
+            <path d="M20 6h-2.18c.07-.44.18-.88.18-1.35C18 2.53 15.47 0 12.35 0c-3.12 0-5.65 2.53-5.65 5.65 0 .47.11.91.18 1.35H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h15c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM12.35 2c2.01 0 3.65 1.64 3.65 3.65 0 .47-.1.91-.23 1.35H8.93c-.13-.44-.23-.88-.23-1.35C8.7 3.64 10.34 2 12.35 2zM20 20H5V8h15v12z"/>
+          </svg>
+          <span class="text-gray-700 text-sm font-medium">0</span>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="#999" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- From field -->
+    <div class="field-row">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="#8090a0">
+        <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+      </svg>
+      <div><span class="field-label">From: </span><span class="field-value">Melbourne</span></div>
+    </div>
+
+    <!-- To field -->
+    <div class="field-row">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="#8090a0">
+        <path d="M2.5 19h19v2h-19zm7.18-1.73l4.35 1.16 5.31 1.42c.8.21 1.62-.26 1.84-1.06.21-.8-.26-1.62-1.06-1.84l-4.07-1.09L14 12l-2-.53v4.71L8.9 15.1l-.4-2.28L7 12.29V17c0 .43.28.81.68.92z"/>
+      </svg>
+      <div><span class="field-label">To: </span><span class="field-value">Anywhere</span></div>
+    </div>
+
+    <!-- Departure field -->
+    <div class="field-row">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="#8090a0">
+        <path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/>
+      </svg>
+      <div><span class="field-label">Departure: </span><span class="field-value">Anytime</span></div>
+    </div>
+
+    <!-- Return date field -->
+    <div class="field-row" style="margin-bottom:16px;">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="#8090a0">
+        <path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/>
+      </svg>
+      <div><span class="field-label">Return: </span><span class="field-value">Anytime</span></div>
+    </div>
+
+    <!-- Search button -->
+    <button class="search-btn">Search</button>
+  </div>
+
+  <!-- Spacer -->
+  <div class="flex-1" style="background:white;"></div>
+
+  <!-- ── Bottom navigation ── -->
+  <div class="flex items-center border-t border-gray-200 bg-white py-3">
+
+    <!-- Search (active) -->
+    <div class="nav-item">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="#2bbb9e" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <span class="nav-label active">Search</span>
+    </div>
+
+    <!-- Deals -->
+    <div class="nav-item">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="#8090a0">
+        <path d="M12.79 2.96L9 9H3l6 5.47L6.18 21 12 17.77 17.82 21 16 14.47 22 9h-6.21zM12 15.9l-3.76 2.27 1.08-4.38L6.1 11h4.51L12 7.1l1.39 3.9H17.9l-3.22 2.79 1.08 4.38L12 15.9z"/>
+      </svg>
+      <span class="nav-label">Deals</span>
+    </div>
+
+    <!-- My trips -->
+    <div class="nav-item">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="#8090a0">
+        <path d="M20 6h-2.18c.07-.44.18-.88.18-1.35C18 2.53 15.47 0 12.35 0c-3.12 0-5.65 2.53-5.65 5.65 0 .47.11.91.18 1.35H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h15c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7.65-4c2.01 0 3.65 1.64 3.65 3.65 0 .47-.1.91-.23 1.35H8.93c-.13-.44-.23-.88-.23-1.35C8.7 3.64 10.34 2 12.35 2zM20 20H5V8h15v12z"/>
+      </svg>
+      <span class="nav-label">My trips</span>
+    </div>
+
+    <!-- Profile -->
+    <div class="nav-item">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="#8090a0">
+        <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+      </svg>
+      <span class="nav-label">Profile</span>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>

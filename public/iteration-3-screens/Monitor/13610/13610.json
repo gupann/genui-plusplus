@@ -1,0 +1,1042 @@
+{
+  "tag": "2023-07-08_160836",
+  "state_str": "d9774a418998d01f0887a3ca178ecfca",
+  "state_str_content_free": "610dbe669f57b22b27802e16b95bf80a",
+  "foreground_activity": "com.gps.route.finder.mobile.location.tracker.maps.navigation/.radar.RadarMapActivity",
+  "activity_stack": [
+    "com.gps.route.finder.mobile.location.tracker.maps.navigation/.radar.RadarMapActivity",
+    "com.gps.route.finder.mobile.location.tracker.maps.navigation/.ui.activity.MainActivity"
+  ],
+  "background_services": [
+    "com.google.android.apps.messaging/com.google.android.ims.service.JibeService",
+    "com.google.android.networkstack.tethering/com.android.networkstack.tethering.TetheringService",
+    "com.google.android.ext.services/com.android.textclassifier.DefaultTextClassifierService",
+    "com.google.android.gms/.nearby.sharing.ReceiveSurfaceService",
+    "com.google.android.gms/.deviceconnection.service.DeviceConnectionWatcherService",
+    "com.android.systemui/.keyguard.KeyguardService",
+    "com.android.chrome/org.chromium.content.app.SandboxedProcessService0",
+    "com.google.android.gms/.measurement.service.MeasurementBrokerService",
+    "com.google.android.gms/.droidguard.DroidGuardService",
+    "com.google.android.gms/org.chromium.content.app.SandboxedProcessService0",
+    "com.google.android.gms/org.chromium.content.app.SandboxedProcessService0",
+    "com.android.systemui/.ImageWallpaper",
+    "com.google.android.gms/.auth.setup.devicesignals.LockScreenService",
+    "com.google.android.gms/.gcm.GcmService",
+    "com.google.android.gms/.auth.proximity.firstparty.SystemMemoryCacheService",
+    "com.google.android.gms/.clearcut.debug.ClearcutDebugDumpService",
+    "com.google.android.apps.messaging/com.google.android.ims.binding.SystemBindingService",
+    "com.google.android.gms/.chimera.PersistentApiService",
+    "com.google.android.gms/.location.geocode.GeocodeService",
+    "com.android.phone/com.android.internal.telephony.CellularNetworkService",
+    "com.google.android.gms/.chimera.PersistentBoundBrokerService",
+    "com.google.android.gms/.chimera.GmsBoundBrokerService",
+    "com.google.android.gms/.chimera.GmsApiService",
+    "com.google.android.gms/.fido.fido2.pollux.CableAuthenticatorService",
+    "com.google.android.googlequicksearchbox/com.google.android.apps.gsa.nowoverlayservice.DrawerOverlayService",
+    "io.github.ylimit.droidbotapp/.DroidBotIME",
+    "com.google.android.gms/com.google.android.location.fused.FusedLocationService",
+    "com.google.android.gms/.gcm.nts.SchedulerService",
+    "com.google.android.ext.services/android.ext.services.autofill.InlineSuggestionRenderServiceImpl",
+    "com.google.android.providers.media.module/com.android.providers.media.fuse.ExternalStorageServiceImpl",
+    "com.google.android.gms/.ads.AdRequestBrokerService",
+    "io.github.ylimit.droidbotapp/io.github.privacystreams.accessibility.PSAccessibilityService",
+    "com.google.android.googlequicksearchbox/com.google.android.apps.gsa.nga.engine.viss.NgaService",
+    "com.google.android.gms/.thunderbird.EmergencyPersistentService",
+    "com.gps.route.finder.mobile.location.tracker.maps.navigation/org.chromium.content.app.SandboxedProcessService0",
+    "com.google.android.apps.nexuslauncher/com.android.launcher3.notification.NotificationListener",
+    "com.android.systemui/.SystemUIService",
+    "com.google.android.gms/.nearby.exposurenotification.service.ExposureMatchingService",
+    "com.android.chrome/org.chromium.content.app.PrivilegedProcessService0",
+    "android/.hardware.location.GeofenceHardwareService",
+    "com.android.se/.SecureElementService",
+    "com.google.android.gms/.presencemanager.service.PresenceManagerPresenceReportService",
+    "com.google.android.gms/.chimera.PersistentDirectBootAwareApiService",
+    "com.google.android.gms/.geotimezone.GeoTimeZoneService",
+    "com.google.android.gms/.location.persistent.LocationPersistentService",
+    "com.google.android.gms/com.google.android.location.internal.PendingIntentCallbackService",
+    "com.google.android.gms/com.google.android.location.internal.server.GoogleLocationService",
+    "com.google.android.gms/com.google.android.contextmanager.service.ContextManagerService",
+    "com.android.systemui/.dump.SystemUIAuxiliaryDumpService",
+    "com.google.android.gms/com.google.android.location.network.NetworkLocationService",
+    "com.android.stk/.StkAppService",
+    "com.google.android.gms/com.google.android.location.internal.GoogleLocationManagerService",
+    "com.android.phone/com.android.internal.telephony.dataconnection.CellularDataService",
+    "com.android.server.telecom/.components.TelecomService",
+    "com.google.android.networkstack/com.android.server.NetworkStackService",
+    "com.google.android.googlequicksearchbox/com.google.android.voiceinteraction.GsaVoiceInteractionService",
+    "com.android.emulator.multidisplay/.MultiDisplayService",
+    "com.android.phone/.vvm.RemoteVvmTaskManager",
+    "com.android.ons/.OpportunisticNetworkService",
+    "com.google.android.gms/.common.stats.GmsCoreStatsService",
+    "com.google.android.gms/.auth.account.authenticator.GoogleAccountAuthenticatorService",
+    "com.google.android.gms/com.google.android.location.internal.server.HardwareArProviderService",
+    "com.android.phone/com.android.services.telephony.sip.components.TelephonySipService",
+    "com.android.phone/.TelephonyDebugService",
+    "com.google.android.apps.nexuslauncher/com.android.quickstep.TouchInteractionService",
+    "com.google.android.cellbroadcastservice/com.android.cellbroadcastservice.DefaultCellBroadcastService",
+    "com.google.android.googlequicksearchbox/com.google.android.apps.gsa.shared.util.keepalive.StandaloneKeepAlive"
+  ],
+  "width": 1440,
+  "height": 2560,
+  "views": [
+    {
+      "package": "com.gps.route.finder.mobile.location.tracker.maps.navigation",
+      "visible": true,
+      "checkable": false,
+      "child_count": 2,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        1,
+        24
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1440,
+          2560
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": -1,
+      "temp_id": 0,
+      "size": "1440*2560",
+      "signature": "[class]android.widget.FrameLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "1ecb22cd6724c526c0cd102864867fcb",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]None"
+    },
+    {
+      "package": "com.gps.route.finder.mobile.location.tracker.maps.navigation",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        2
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 0,
+      "temp_id": 1,
+      "size": "1440*2392",
+      "signature": "[class]android.widget.LinearLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "a40b6c95399676393100d7dc9f08ae08",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]None"
+    },
+    {
+      "package": "com.gps.route.finder.mobile.location.tracker.maps.navigation",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        3
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 1,
+      "temp_id": 2,
+      "size": "1440*2392",
+      "signature": "[class]android.widget.FrameLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "7cb64582f88f6e35fb56ae843aa5ea5b",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]None"
+    },
+    {
+      "package": "com.gps.route.finder.mobile.location.tracker.maps.navigation",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        4
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": "com.gps.route.finder.mobile.location.tracker.maps.navigation:id/action_bar_root",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.LinearLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 2,
+      "temp_id": 3,
+      "size": "1440*2392",
+      "signature": "[class]android.widget.LinearLayout[resource_id]com.gps.route.finder.mobile.location.tracker.maps.navigation:id/action_bar_root[text]None[enabled,,]",
+      "view_str": "d1fd2e302830608fe4ca3893dcd89202",
+      "content_free_signature": "[class]android.widget.LinearLayout[resource_id]com.gps.route.finder.mobile.location.tracker.maps.navigation:id/action_bar_root"
+    },
+    {
+      "package": "com.gps.route.finder.mobile.location.tracker.maps.navigation",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        5
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": "android:id/content",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 3,
+      "temp_id": 4,
+      "size": "1440*2392",
+      "signature": "[class]android.widget.FrameLayout[resource_id]android:id/content[text]None[enabled,,]",
+      "view_str": "3795b73d9a63c5707c9f2f21fa3d5602",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]android:id/content"
+    },
+    {
+      "package": "com.gps.route.finder.mobile.location.tracker.maps.navigation",
+      "visible": true,
+      "checkable": false,
+      "child_count": 14,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        6,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.ViewGroup",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 4,
+      "temp_id": 5,
+      "size": "1440*2392",
+      "signature": "[class]android.view.ViewGroup[resource_id]None[text]None[enabled,,]",
+      "view_str": "9cdfff15c7ee5e0de08cdee9942014b6",
+      "content_free_signature": "[class]android.view.ViewGroup[resource_id]None"
+    },
+    {
+      "package": "com.gps.route.finder.mobile.location.tracker.maps.navigation",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        7
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          84
+        ],
+        [
+          1440,
+          2108
+        ]
+      ],
+      "resource_id": "com.gps.route.finder.mobile.location.tracker.maps.navigation:id/mapview",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 5,
+      "temp_id": 6,
+      "size": "1440*2024",
+      "signature": "[class]android.widget.FrameLayout[resource_id]com.gps.route.finder.mobile.location.tracker.maps.navigation:id/mapview[text]None[enabled,,]",
+      "view_str": "25a0eb61a5cb9119496eeb2323262379",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]com.gps.route.finder.mobile.location.tracker.maps.navigation:id/mapview"
+    },
+    {
+      "package": "com.gps.route.finder.mobile.location.tracker.maps.navigation",
+      "visible": true,
+      "checkable": false,
+      "child_count": 3,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        8,
+        9,
+        11
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          84
+        ],
+        [
+          1440,
+          2108
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.FrameLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 6,
+      "temp_id": 7,
+      "size": "1440*2024",
+      "signature": "[class]android.widget.FrameLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "9c4c668f8af16aeace98f13ff3b82160",
+      "content_free_signature": "[class]android.widget.FrameLayout[resource_id]None"
+    },
+    {
+      "package": "com.gps.route.finder.mobile.location.tracker.maps.navigation",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": "Google Map",
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          84
+        ],
+        [
+          1440,
+          2108
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 7,
+      "temp_id": 8,
+      "size": "1440*2024",
+      "signature": "[class]android.view.View[resource_id]None[text]None[enabled,,]",
+      "view_str": "fe340d8277d39444674885b23c1885aa",
+      "content_free_signature": "[class]android.view.View[resource_id]None"
+    },
+    {
+      "package": "com.gps.route.finder.mobile.location.tracker.maps.navigation",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        10
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          84
+        ],
+        [
+          1440,
+          2108
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 7,
+      "temp_id": 9,
+      "size": "1440*2024",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "aeaf505bcae27048d0269f92d169dd4a",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]None"
+    },
+    {
+      "package": "com.gps.route.finder.mobile.location.tracker.maps.navigation",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1405,
+          119
+        ],
+        [
+          1405,
+          2073
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 9,
+      "temp_id": 10,
+      "size": "0*1954",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "24452e05d2527f52681ae87c18f9daa4",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]None"
+    },
+    {
+      "package": "com.gps.route.finder.mobile.location.tracker.maps.navigation",
+      "visible": true,
+      "checkable": false,
+      "child_count": 1,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [
+        12
+      ],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          84
+        ],
+        [
+          1440,
+          2108
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.RelativeLayout",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 7,
+      "temp_id": 11,
+      "size": "1440*2024",
+      "signature": "[class]android.widget.RelativeLayout[resource_id]None[text]None[enabled,,]",
+      "view_str": "f6ea41cf76ed478bf76f570ed7227c0f",
+      "content_free_signature": "[class]android.widget.RelativeLayout[resource_id]None"
+    },
+    {
+      "package": "com.gps.route.finder.mobile.location.tracker.maps.navigation",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          18,
+          2013
+        ],
+        [
+          228,
+          2090
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 11,
+      "temp_id": 12,
+      "size": "210*77",
+      "signature": "[class]android.widget.ImageView[resource_id]None[text]None[enabled,,]",
+      "view_str": "c6b9b3f78c86dfe89756be2e2f2db2b6",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]None"
+    },
+    {
+      "package": "com.gps.route.finder.mobile.location.tracker.maps.navigation",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          84
+        ],
+        [
+          1440,
+          280
+        ]
+      ],
+      "resource_id": "com.gps.route.finder.mobile.location.tracker.maps.navigation:id/bg_top",
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 5,
+      "temp_id": 13,
+      "size": "1440*196",
+      "signature": "[class]android.view.View[resource_id]com.gps.route.finder.mobile.location.tracker.maps.navigation:id/bg_top[text]None[enabled,,]",
+      "view_str": "3e1379e0bd869f5c266dba908467427b",
+      "content_free_signature": "[class]android.view.View[resource_id]com.gps.route.finder.mobile.location.tracker.maps.navigation:id/bg_top"
+    },
+    {
+      "package": "com.gps.route.finder.mobile.location.tracker.maps.navigation",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          25,
+          140
+        ],
+        [
+          109,
+          224
+        ]
+      ],
+      "resource_id": "com.gps.route.finder.mobile.location.tracker.maps.navigation:id/iv_back",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 5,
+      "temp_id": 14,
+      "size": "84*84",
+      "signature": "[class]android.widget.ImageView[resource_id]com.gps.route.finder.mobile.location.tracker.maps.navigation:id/iv_back[text]None[enabled,,]",
+      "view_str": "163360ab7aa16569d83cbeda637890ca",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.gps.route.finder.mobile.location.tracker.maps.navigation:id/iv_back"
+    },
+    {
+      "package": "com.gps.route.finder.mobile.location.tracker.maps.navigation",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          210,
+          144
+        ],
+        [
+          471,
+          220
+        ]
+      ],
+      "resource_id": "com.gps.route.finder.mobile.location.tracker.maps.navigation:id/tv_radar_map",
+      "checked": false,
+      "text": "Live Radar",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 5,
+      "temp_id": 15,
+      "size": "261*76",
+      "signature": "[class]android.widget.TextView[resource_id]com.gps.route.finder.mobile.location.tracker.maps.navigation:id/tv_radar_map[text]Live Radar[enabled,,]",
+      "view_str": "93c6819e854d652692a7d008876b9847",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.gps.route.finder.mobile.location.tracker.maps.navigation:id/tv_radar_map"
+    },
+    {
+      "package": "com.gps.route.finder.mobile.location.tracker.maps.navigation",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1251,
+          98
+        ],
+        [
+          1419,
+          266
+        ]
+      ],
+      "resource_id": "com.gps.route.finder.mobile.location.tracker.maps.navigation:id/iv_search",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 5,
+      "temp_id": 16,
+      "size": "168*168",
+      "signature": "[class]android.widget.ImageView[resource_id]com.gps.route.finder.mobile.location.tracker.maps.navigation:id/iv_search[text]None[enabled,,]",
+      "view_str": "6573b7ccdc7cf07c67c70c9254d70078",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.gps.route.finder.mobile.location.tracker.maps.navigation:id/iv_search"
+    },
+    {
+      "package": "com.gps.route.finder.mobile.location.tracker.maps.navigation",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          475
+        ],
+        [
+          1440,
+          662
+        ]
+      ],
+      "resource_id": "com.gps.route.finder.mobile.location.tracker.maps.navigation:id/tv_no_camera",
+      "checked": false,
+      "text": "No speed camera in front of you",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 5,
+      "temp_id": 17,
+      "size": "1440*187",
+      "signature": "[class]android.widget.TextView[resource_id]com.gps.route.finder.mobile.location.tracker.maps.navigation:id/tv_no_camera[text]No speed camera in front of you[enabled,,]",
+      "view_str": "ed5e6b8bb3985bfe0e1c7fba28660235",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.gps.route.finder.mobile.location.tracker.maps.navigation:id/tv_no_camera"
+    },
+    {
+      "package": "com.gps.route.finder.mobile.location.tracker.maps.navigation",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          20,
+          319
+        ],
+        [
+          1420,
+          835
+        ]
+      ],
+      "resource_id": "com.gps.route.finder.mobile.location.tracker.maps.navigation:id/iv_current_bg",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 5,
+      "temp_id": 18,
+      "size": "1400*516",
+      "signature": "[class]android.widget.ImageView[resource_id]com.gps.route.finder.mobile.location.tracker.maps.navigation:id/iv_current_bg[text]None[enabled,,]",
+      "view_str": "8b116c19e14378d70bde0b1d4d4f2e12",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.gps.route.finder.mobile.location.tracker.maps.navigation:id/iv_current_bg"
+    },
+    {
+      "package": "com.gps.route.finder.mobile.location.tracker.maps.navigation",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          39,
+          1733
+        ],
+        [
+          344,
+          2038
+        ]
+      ],
+      "resource_id": "com.gps.route.finder.mobile.location.tracker.maps.navigation:id/iv_speed_bg",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 5,
+      "temp_id": 19,
+      "size": "305*305",
+      "signature": "[class]android.widget.ImageView[resource_id]com.gps.route.finder.mobile.location.tracker.maps.navigation:id/iv_speed_bg[text]None[enabled,,]",
+      "view_str": "63bc7ecea8f5ece1c843296b70c6fa33",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.gps.route.finder.mobile.location.tracker.maps.navigation:id/iv_speed_bg"
+    },
+    {
+      "package": "com.gps.route.finder.mobile.location.tracker.maps.navigation",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          126,
+          1890
+        ],
+        [
+          257,
+          1966
+        ]
+      ],
+      "resource_id": "com.gps.route.finder.mobile.location.tracker.maps.navigation:id/tv_speed_unit",
+      "checked": false,
+      "text": "km/h",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 5,
+      "temp_id": 20,
+      "size": "131*76",
+      "signature": "[class]android.widget.TextView[resource_id]com.gps.route.finder.mobile.location.tracker.maps.navigation:id/tv_speed_unit[text]km/h[enabled,,]",
+      "view_str": "3786292a07cdea46a89f2ef7c3d48471",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.gps.route.finder.mobile.location.tracker.maps.navigation:id/tv_speed_unit"
+    },
+    {
+      "package": "com.gps.route.finder.mobile.location.tracker.maps.navigation",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          167,
+          1796
+        ],
+        [
+          216,
+          1908
+        ]
+      ],
+      "resource_id": "com.gps.route.finder.mobile.location.tracker.maps.navigation:id/tv_speed",
+      "checked": false,
+      "text": "0",
+      "class": "android.widget.TextView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 5,
+      "temp_id": 21,
+      "size": "49*112",
+      "signature": "[class]android.widget.TextView[resource_id]com.gps.route.finder.mobile.location.tracker.maps.navigation:id/tv_speed[text]0[enabled,,]",
+      "view_str": "3bca214e82d93c8e1834b8ef46c119c4",
+      "content_free_signature": "[class]android.widget.TextView[resource_id]com.gps.route.finder.mobile.location.tracker.maps.navigation:id/tv_speed"
+    },
+    {
+      "package": "com.gps.route.finder.mobile.location.tracker.maps.navigation",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": true,
+      "is_password": false,
+      "focusable": true,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          1216,
+          1863
+        ],
+        [
+          1384,
+          2031
+        ]
+      ],
+      "resource_id": "com.gps.route.finder.mobile.location.tracker.maps.navigation:id/iv_my_location",
+      "checked": false,
+      "text": null,
+      "class": "android.widget.ImageView",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 5,
+      "temp_id": 22,
+      "size": "168*168",
+      "signature": "[class]android.widget.ImageView[resource_id]com.gps.route.finder.mobile.location.tracker.maps.navigation:id/iv_my_location[text]None[enabled,,]",
+      "view_str": "6de24848bbdc20b82bc0d3d0522c4d68",
+      "content_free_signature": "[class]android.widget.ImageView[resource_id]com.gps.route.finder.mobile.location.tracker.maps.navigation:id/iv_my_location"
+    },
+    {
+      "package": "com.gps.route.finder.mobile.location.tracker.maps.navigation",
+      "visible": true,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          2108
+        ],
+        [
+          1440,
+          2392
+        ]
+      ],
+      "resource_id": null,
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 5,
+      "temp_id": 23,
+      "size": "1440*284",
+      "signature": "[class]android.view.View[resource_id]None[text]None[enabled,,]",
+      "view_str": "38e488dd9205492ba674fd2fc9c023e4",
+      "content_free_signature": "[class]android.view.View[resource_id]None"
+    },
+    {
+      "package": "com.gps.route.finder.mobile.location.tracker.maps.navigation",
+      "visible": false,
+      "checkable": false,
+      "child_count": 0,
+      "editable": false,
+      "clickable": false,
+      "is_password": false,
+      "focusable": false,
+      "enabled": true,
+      "content_description": null,
+      "children": [],
+      "focused": false,
+      "bounds": [
+        [
+          0,
+          2392
+        ],
+        [
+          1440,
+          2560
+        ]
+      ],
+      "resource_id": "android:id/navigationBarBackground",
+      "checked": false,
+      "text": null,
+      "class": "android.view.View",
+      "scrollable": false,
+      "selected": false,
+      "long_clickable": false,
+      "parent": 0,
+      "temp_id": 24,
+      "size": "1440*168",
+      "signature": "[class]android.view.View[resource_id]android:id/navigationBarBackground[text]None[enabled,,]",
+      "view_str": "24cbbb3a3d500c9913fc18761b7785b3",
+      "content_free_signature": "[class]android.view.View[resource_id]android:id/navigationBarBackground"
+    }
+  ]
+}

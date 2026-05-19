@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>JR Pass Search</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #f0f0f0; margin: 0; }
+
+  /* ── Top nav ── */
+  .top-nav {
+    background: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px 12px;
+    border-bottom: 1px solid #efefef;
+    position: sticky; top: 0; z-index: 10;
+  }
+  .nav-back {
+    background: none; border: none; cursor: pointer; padding: 4px 6px 4px 0;
+    display: flex; align-items: center; color: #222; flex-shrink: 0;
+  }
+  .search-pill {
+    flex: 1;
+    background: #f3f3f3;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 14px;
+  }
+  .search-placeholder { font-size: 15px; color: #bbb; }
+  .map-btn {
+    background: #fff;
+    border: 1.5px solid #e8e8e8;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #e86c3a;
+    white-space: nowrap;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  /* ── Filters ── */
+  .filters {
+    background: #fff;
+    display: flex;
+    gap: 0;
+    padding: 0 14px;
+    border-bottom: 1px solid #eee;
+  }
+  .filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    color: #222;
+    font-weight: 500;
+    padding: 13px 0;
+    margin-right: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* ── Results area ── */
+  .results-area {
+    background: #f5f5f5;
+    padding: 16px 14px 32px;
+  }
+  .results-count {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 14px;
+  }
+
+  /* ── Pass card ── */
+  .pass-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 18px 16px 16px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    position: relative;
+  }
+  .card-inner { padding-right: 88px; }
+
+  /* map thumbnail */
+  .map-thumb {
+    position: absolute;
+    top: 16px; right: 14px;
+    width: 72px; height: 72px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #cde8f5;
+  }
+  .map-thumb svg { width: 100%; height: 100%; }
+
+  .region-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #c0392b;
+    margin-bottom: 3px;
+  }
+  .pass-name {
+    font-size: 19px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .rating-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+    color: #444;
+    margin-bottom: 9px;
+    flex-wrap: wrap;
+  }
+  .star { color: #f5a623; font-size: 15px; line-height: 1; }
+  .sep { color: #ddd; margin: 0 2px; }
+
+  .badge {
+    display: inline-block;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1.5px solid;
+    margin-bottom: 8px;
+  }
+  .badge-green { color: #27ae60; border-color: #27ae60; background: #eafaf2; }
+  .badge-blue  { color: #2471a3; border-color: #2471a3; background: #eaf3fb; }
+
+  .desc-pill {
+    display: inline-block;
+    background: #f3f3f3;
+    border-radius: 8px;
+    padding: 5px 12px;
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 14px;
+  }
+
+  .price-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+  }
+  .price { font-size: 20px; font-weight: 700; color: #111; }
+
+  .days-row { display: flex; align-items: center; gap: 6px; }
+  .days-label { font-size: 13px; color: #999; }
+  .day-chip {
+    background: #e8e8e8;
+    border-radius: 50%;
+    width: 32px; height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 600; color: #333;
+  }
+
+  .delivery-note { font-size: 12px; color: #aaa; margin-top: 4px; }
+
+  .more-dots {
+    position: absolute;
+    bottom: 16px; right: 14px;
+    color: #ccc;
+    font-size: 18px;
+    letter-spacing: 2px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  /* partial card at bottom */
+  .partial-card {
+    background: #fff;
+    border-radius: 16px 16px 0 0;
+    padding: 18px 16px 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    position: relative;
+    overflow: hidden;
+    opacity: 0.95;
+  }
+</style>
+</head>
+<body>
+
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto border-x border-slate-200 bg-white">
+
+  <!-- ── Top nav ── -->
+  <div class="top-nav">
+    <button class="nav-back" aria-label="Back">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+    </button>
+    <div class="search-pill">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="2.2" stroke-linecap="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <span class="search-placeholder">Where to?</span>
+    </div>
+    <button class="map-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e86c3a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/>
+        <line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/>
+      </svg>
+      Open map
+    </button>
+  </div>
+
+  <!-- ── Filters ── -->
+  <div class="filters">
+    <button class="filter-btn">
+      Number of Days
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <button class="filter-btn">
+      Collection method
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+  </div>
+
+  <!-- ── Results ── -->
+  <div class="results-area">
+    <p class="results-count">28 JR Pass found</p>
+
+    <!-- ════ Card 1: Whole Japan ════ -->
+    <div class="pass-card">
+      <!-- Map thumbnail: whole Japan silhouette -->
+      <div class="map-thumb">
+        <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+          <rect width="72" height="72" fill="#cde8f5"/>
+          <!-- Simplified Japan archipelago silhouette -->
+          <!-- Hokkaido -->
+          <path d="M46 8 C48 7 52 8 54 10 C56 12 55 15 53 16 C50 17 47 16 45 14 C43 12 44 9 46 8 Z"
+                fill="#2471a3" opacity="0.85"/>
+          <!-- Honshu (main island) -->
+          <path d="M28 14 C32 12 38 13 42 16 C46 19 47 22 45 26 C42 30 39 34 36 38
+                   C33 42 30 44 27 43 C24 42 22 39 22 36 C21 32 22 27 24 22 C25 18 26 15 28 14 Z"
+                fill="#2471a3" opacity="0.85"/>
+          <!-- Shikoku -->
+          <path d="M24 46 C26 45 30 46 31 48 C32 50 31 52 29 53 C27 54 24 53 23 51 C22 49 22 47 24 46 Z"
+                fill="#2471a3" opacity="0.85"/>
+          <!-- Kyushu -->
+          <path d="M17 44 C19 42 23 43 24 45 C25 47 24 51 22 52 C20 53 17 52 16 50 C15 48 15 46 17 44 Z"
+                fill="#2471a3" opacity="0.85"/>
+          <!-- Small islands chain -->
+          <circle cx="13" cy="56" r="2" fill="#2471a3" opacity="0.7"/>
+          <circle cx="10" cy="60" r="1.5" fill="#2471a3" opacity="0.7"/>
+          <circle cx="8"  cy="63" r="1.2" fill="#2471a3" opacity="0.6"/>
+        </svg>
+      </div>
+
+      <div class="card-inner">
+        <div class="region-label">Whole Japan</div>
+        <div class="pass-name">Whole Japan Rail Pass</div>
+        <div class="rating-row">
+          <span class="star">★</span>
+          <strong>4.8</strong>
+          <span style="color:#777;">(18k+ reviews)</span>
+          <span class="sep">|</span>
+          <span>422k+ booked</span>
+        </div>
+        <div><span class="badge badge-green">Green Car</span></div>
+        <div class="desc-pill">Explore whole Japan with one Pass</div>
+      </div>
+
+      <div class="price-row">
+        <span class="price">US$205.49</span>
+        <div class="days-row">
+          <span class="days-label">Days</span>
+          <div class="day-chip">7</div>
+          <div class="day-chip">14</div>
+          <div class="day-chip">21</div>
+        </div>
+      </div>
+      <div class="delivery-note">11 mail delivery locations</div>
+      <div class="more-dots">···</div>
+    </div>
+
+    <!-- ════ Card 2: JR Kyushu ════ -->
+    <div class="pass-card">
+      <!-- Map thumbnail: Kyushu highlighted -->
+      <div class="map-thumb">
+        <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+          <rect width="72" height="72" fill="#cde8f5"/>
+          <!-- Faint Japan outline -->
+          <path d="M38 10 C41 9 45 10 47 12 C49 14 48 17 46 18 C43 19 40 18 39 16 C37 14 37 11 38 10 Z"
+                fill="#2471a3" opacity="0.25"/>
+          <path d="M26 16 C29 14 34 15 37 18 C40 21 41 24 39 28 C36 32 33 36 30 40
+                   C27 44 24 46 21 45 C18 44 16 41 16 38 C15 34 16 29 18 24 C20 20 24 17 26 16 Z"
+                fill="#2471a3" opacity="0.25"/>
+          <!-- Kyushu — highlighted red -->
+          <path d="M16 46 C18 44 22 44 24 46 C26 48 26 52 23 54 C20 56 16 55 15 52 C13 49 14 47 16 46 Z"
+                fill="#e74c3c" opacity="0.9"/>
+          <!-- Shikoku faint -->
+          <path d="M24 46 C26 45 29 46 30 48 C31 50 30 52 28 53 C26 54 23 53 22 51 C21 49 22 47 24 46 Z"
+                fill="#2471a3" opacity="0.25"/>
+          <!-- Kyushu small islands -->
+          <circle cx="12" cy="58" r="2"   fill="#e74c3c" opacity="0.75"/>
+          <circle cx="9"  cy="62" r="1.5" fill="#e74c3c" opacity="0.6"/>
+        </svg>
+      </div>
+
+      <div class="card-inner">
+        <div class="region-label">JR Kyushu</div>
+        <div class="pass-name">Kyushu Pass</div>
+        <div class="rating-row">
+          <span class="star">★</span>
+          <strong>4.8</strong>
+          <span style="color:#777;">(11k+ reviews)</span>
+          <span class="sep">|</span>
+          <span>179k+ booked</span>
+        </div>
+        <div><span class="badge badge-blue">E-Ticket</span></div>
+        <div class="desc-pill">Explore "The Land of Fire" with one pass</div>
+      </div>
+
+      <div class="price-row">
+        <span class="price">US$55.45</span>
+        <div class="days-row">
+          <span class="days-label">Days</span>
+          <div class="day-chip">3</div>
+          <div class="day-chip">5</div>
+        </div>
+      </div>
+      <div class="delivery-note">E-ticket (no physical Exchange Order)</div>
+      <div class="more-dots">···</div>
+    </div>
+
+    <!-- ════ Card 3: JR West (partial, cut off at bottom) ════ -->
+    <div class="partial-card">
+      <!-- Map thumbnail: West Japan / Kansai highlighted -->
+      <div class="map-thumb">
+        <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+          <rect width="72" height="72" fill="#cde8f5"/>
+          <!-- Faint Hokkaido -->
+          <path d="M46 8 C48 7 52 8 54 10 C56 12 55 15 53 16 C50 17 47 16 45 14 C43 12 44 9 46 8 Z"
+                fill="#2471a3" opacity="0.2"/>
+          <!-- Honshu — full outline faint, Kansai section bright -->
+          <path d="M28 14 C32 12 38 13 42 16 C46 19 47 22 45 26 C42 30 39 34 36 38
+                   C33 42 30 44 27 43 C24 42 22 39 22 36 C21 32 22 27 24 22 C25 18 26 15 28 14 Z"
+                fill="#2471a3" opacity="0.2"/>
+          <!-- Kansai / West Japan highlight (mid-western Honshu) -->
+          <path d="M24 28 C27 25 32 25 35 28 C37 31 36 35 33 38 C30 41 26 41 24 38 C21 35 21 31 24 28 Z"
+                fill="#2471a3" opacity="0.9"/>
+          <!-- Shikoku -->
+          <path d="M24 46 C26 45 30 46 31 48 C32 50 31 52 29 53 C27 54 24 53 23 51 C22 49 22 47 24 46 Z"
+                fill="#2471a3" opacity="0.5"/>
+          <!-- Kyushu faint -->
+          <path d="M17 44 C19 42 23 43 24 45 C25 47 24 51 22 52 C20 53 17 52 16 50 C15 48 15 46 17 44 Z"
+                fill="#2471a3" opacity="0.2"/>
+        </svg>
+      </div>
+
+      <div class="card-inner">
+        <div class="region-label">JR West</div>
+        <div class="pass-name" style="opacity:0.5;">Kansai WIDE Area Pass</div>
+      </div>
+    </div>
+
+  </div><!-- /results-area -->
+</div>
+
+</body>
+</html>

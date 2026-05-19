@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nearby Restaurants</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: #e5e7eb;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+<div class="relative flex min-h-screen w-full flex-col bg-white overflow-x-hidden max-w-md mx-auto border-x border-slate-200">
+
+  <!-- Header -->
+  <div class="flex items-center gap-3 px-4 py-4 border-b border-gray-200">
+    <button>
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="#e8191a" stroke-width="2.2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+      </svg>
+    </button>
+    <h1 class="text-2xl font-bold" style="color:#e8191a;">Nearby Restaurants</h1>
+  </div>
+
+  <!-- Main content -->
+  <div class="px-4 pt-5 pb-6 flex-1">
+
+    <!-- City/State/ZIP search input -->
+    <div class="flex items-center border border-gray-300 rounded px-4 py-4 mb-5">
+      <input
+        type="text"
+        placeholder="City, State OR ZIP"
+        class="flex-1 text-base text-gray-400 outline-none bg-transparent"
+        style="placeholder-color:#aaa;"
+      />
+      <!-- Red X clear button -->
+      <button>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#e8191a" stroke-width="2.5">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- OR divider -->
+    <p class="text-center text-gray-500 text-sm font-medium tracking-wider mb-5">- OR -</p>
+
+    <!-- Use My Current Location button -->
+    <button class="w-full py-4 rounded text-white font-bold text-sm tracking-widest mb-6" style="background:#e8191a; letter-spacing:0.1em;">
+      USE MY CURRENT LOCATION
+    </button>
+
+    <!-- Horizontal rule -->
+    <hr class="border-gray-200 mb-5" />
+
+    <!-- Restaurant result -->
+    <div>
+      <!-- Name + Current Location label -->
+      <div class="flex items-start justify-between mb-1">
+        <h2 class="text-xl font-bold text-gray-900">Mountain View</h2>
+        <span class="text-gray-500 text-sm mt-1">Current Location</span>
+      </div>
+
+      <!-- Address -->
+      <p class="text-gray-700 text-base mb-0.5">2560 W. El Camino Real</p>
+      <p class="text-gray-700 text-base mb-1">Mountain View, CA 94040</p>
+
+      <!-- Distance + status -->
+      <p class="text-sm mb-4">
+        <span class="font-bold" style="color:#e8191a;">2.07 miles</span>
+        <span class="text-gray-500">, </span>
+        <span class="font-semibold" style="color:#e8191a;">CLOSED</span>
+      </p>
+
+      <!-- Phone number -->
+      <div class="flex items-center gap-3 mb-5">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="#2e7d32">
+          <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+        </svg>
+        <a href="tel:6509412227" class="text-base font-medium" style="color:#2e7d32;">(650) 941-2227</a>
+      </div>
+
+      <!-- Feature icons row: dine-in, delivery, bar -->
+      <div class="flex items-center gap-5">
+
+        <!-- Dine-in icon (person at table) -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9" viewBox="0 0 36 36" fill="#e8191a">
+          <!-- Table surface -->
+          <rect x="4" y="22" width="28" height="3" rx="1.5"/>
+          <!-- Table legs -->
+          <rect x="7" y="25" width="3" height="7" rx="1"/>
+          <rect x="26" y="25" width="3" height="7" rx="1"/>
+          <!-- Person sitting: head -->
+          <circle cx="18" cy="8" r="3.5"/>
+          <!-- Person body -->
+          <path d="M12 22 Q12 14 18 14 Q24 14 24 22" fill="#e8191a"/>
+        </svg>
+
+        <!-- Delivery arrow/dash icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-6" viewBox="0 0 48 24" fill="#e8191a">
+          <!-- DoorDash-style swoosh arrow -->
+          <path d="M4 12 Q10 4 24 4 Q38 4 44 12 Q38 20 24 20 Q10 20 4 12Z" fill="none" stroke="#e8191a" stroke-width="3"/>
+          <polygon points="38,8 46,12 38,16" fill="#e8191a"/>
+        </svg>
+
+        <!-- Bar/cocktail glass icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-9" viewBox="0 0 24 32" fill="#e8191a">
+          <!-- Martini glass triangle -->
+          <polygon points="2,4 22,4 12,16"/>
+          <!-- Stem -->
+          <line x1="12" y1="16" x2="12" y2="26" stroke="#e8191a" stroke-width="2.5"/>
+          <!-- Base -->
+          <line x1="7" y1="26" x2="17" y2="26" stroke="#e8191a" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Share - Colorfit</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: #111;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    /* Colorfit rainbow logo text */
+    .colorfit-logo {
+      font-size: 1.9rem;
+      font-weight: 300;
+      letter-spacing: -0.5px;
+      line-height: 1;
+    }
+    .c1 { color: #4ec9e0; }
+    .c2 { color: #a855f7; }
+    .c3 { color: #22c55e; }
+    .c4 { color: #f97316; }
+    .c5 { color: #ec4899; }
+    .c6 { color: #3b82f6; }
+
+    /* Social icon circles */
+    .social-btn {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto border-x border-slate-700" style="background:#1a1a1a;">
+
+  <!-- Header -->
+  <div class="flex items-center justify-between px-4 py-4" style="background:#1a1a1a;">
+    <button>
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="#aaa" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+      </svg>
+    </button>
+    <span class="text-white text-xl font-light">Share</span>
+    <button>
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="#aaa">
+        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Promo card image -->
+  <div class="flex justify-center px-4 pt-2 pb-6">
+    <div class="relative overflow-hidden rounded-sm" style="width:320px; background:white;">
+
+      <!-- Colorful coloring art illustration area — using colored pencils photo as background of artwork section -->
+      <div class="relative" style="height: 340px; overflow:hidden;">
+
+        <!-- Coloring art background: colorful pencils photo as a stand-in for the illustrated coloring page -->
+        <img
+          src="https://images.pexels.com/photos/220325/pexels-photo-220325.jpeg?auto=compress&cs=tinysrgb&w=320&h=280&fit=crop"
+          alt="Colorful pencils coloring art"
+          class="w-full object-cover"
+          style="height:280px; object-position: center;"
+          onerror="this.onerror=null;this.src='https://placehold.co/320x280/f8f0ff/888?text=Coloring+Art';"
+        />
+
+        <!-- Pencil overlay (angled, upper-right) — SVG pencil -->
+        <svg class="absolute" style="top:10px; right:-10px; transform: rotate(-35deg);"
+          width="100" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg">
+          <!-- Pencil body gradient -->
+          <defs>
+            <linearGradient id="pencilGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#f5a623"/>
+              <stop offset="40%" stop-color="#f7c948"/>
+              <stop offset="70%" stop-color="#e88020"/>
+              <stop offset="85%" stop-color="#d4501a"/>
+              <stop offset="100%" stop-color="#b03010"/>
+            </linearGradient>
+          </defs>
+          <rect x="10" y="6" width="90" height="18" fill="url(#pencilGrad)" rx="2"/>
+          <!-- Pencil tip -->
+          <polygon points="100,6 115,15 100,24" fill="#f0d090"/>
+          <polygon points="108,11 115,15 108,19" fill="#c8a060"/>
+          <!-- Eraser end -->
+          <rect x="0" y="6" width="12" height="18" fill="#f0a0a0" rx="1"/>
+          <rect x="10" y="6" width="4" height="18" fill="#c8c8c8"/>
+        </svg>
+      </div>
+
+      <!-- Bottom white section with branding -->
+      <div class="flex flex-col items-center py-4 px-4" style="background:white;">
+        <!-- colorfit logo text -->
+        <div class="colorfit-logo mb-1">
+          <span class="c1">c</span><span class="c2">o</span><span class="c3">l</span><span class="c4">o</span><span class="c5">r</span><span style="color:#a3e635; font-style:italic; font-weight:400;">fit</span>
+        </div>
+        <p class="text-gray-600 text-sm mb-3">Free Coloring App</p>
+
+        <!-- Store badges row -->
+        <div class="flex items-center gap-4">
+          <!-- App Store badge -->
+          <div class="flex items-center gap-1.5 border border-gray-300 rounded px-2 py-1">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="#555">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            </svg>
+            <div>
+              <div class="text-gray-500" style="font-size:8px; line-height:1;">Download on the</div>
+              <div class="text-gray-800 font-semibold" style="font-size:11px; line-height:1.2;">App Store</div>
+            </div>
+          </div>
+          <!-- Google Play badge -->
+          <div class="flex items-center gap-1.5 border border-gray-300 rounded px-2 py-1">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24">
+              <path d="M3.18 23.76c.34.19.72.24 1.1.14L15.77 12 12 8.23z" fill="#EA4335"/>
+              <path d="M20.47 10.36L17.65 8.7 13.59 12l4.06 4.06 2.82-1.63c.8-.46.8-1.61 0-2.07z" fill="#FBBC05"/>
+              <path d="M4.28.1C3.9 0 3.52.05 3.18.24L12 9.06l3.77-3.77z" fill="#4285F4"/>
+              <path d="M3.18.24C2.76.47 2.5.95 2.5 1.55v20.9c0 .6.26 1.08.68 1.31L15.77 12z" fill="#34A853"/>
+            </svg>
+            <div>
+              <div class="text-gray-500" style="font-size:8px; line-height:1;">Download on the</div>
+              <div class="text-gray-800 font-semibold" style="font-size:11px; line-height:1.2;">Google Play</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Share to social networks -->
+  <div class="px-6 pb-6">
+    <p class="text-white text-center text-base mb-6">Share to social networks</p>
+    <div class="flex items-center gap-4 justify-start pl-2">
+
+      <!-- Google+ -->
+      <div class="social-btn" style="background:#dd4b39;">
+        <span class="text-white font-bold text-lg">g+</span>
+      </div>
+
+      <!-- Instagram -->
+      <div class="social-btn" style="background: linear-gradient(135deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="1.8">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/>
+        </svg>
+      </div>
+
+      <!-- Facebook -->
+      <div class="social-btn" style="background:#3b5998;">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 24 24" fill="white">
+          <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+        </svg>
+      </div>
+
+      <!-- Twitter -->
+      <div class="social-btn" style="background:#1da1f2;">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 24 24" fill="white">
+          <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+        </svg>
+      </div>
+
+      <!-- Generic share -->
+      <div class="social-btn" style="background:#333;">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 24 24" fill="white">
+          <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" stroke="white" stroke-width="2"/>
+          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" stroke="white" stroke-width="2"/>
+        </svg>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Spacer -->
+  <div class="flex-1"></div>
+
+</div>
+
+</body>
+</html>
