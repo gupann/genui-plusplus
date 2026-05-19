@@ -7,6 +7,7 @@ import Study from './pages/Study';
 import Iteration1Overview from './pages/iterations/Iteration1Overview';
 import Iteration1HumanEvaluation from './pages/iterations/Iteration1HumanEvaluation';
 import Iteration3FullAutoEval from './pages/iterations/Iteration3FullAutoEval';
+import Iteration3Study from './pages/iterations/Iteration3Study';
 import PreStudySurvey from './pages/iterations/PreStudySurvey';
 import IterationAuthGate from './components/auth/IterationAuthGate';
 
@@ -120,6 +121,7 @@ export default function App() {
                 title='Iteration #2'
                 studyBasePath='/iterations/2/study'
                 subtitle='Pick a case study to start Iteration #2. Please complete at least 15 case studies per session, or more if you can. If any LLM-generated screen fails to generate even after 2-3 attempts, let us know the case study number and LLM model as soon as possible.'
+                iterationId={2}
                 requireAuthBeforeStudy
                 disabledCaseStudyIds={TEMPORARILY_DISABLED_CASE_STUDIES}
                 guide={ITERATION_2_GUIDE}
@@ -143,6 +145,14 @@ export default function App() {
             element={
               <IterationProtected>
                 <Iteration3FullAutoEval />
+              </IterationProtected>
+            }
+          />
+          <Route
+            path='/iterations/3/study/:taskId'
+            element={
+              <IterationProtected>
+                <Iteration3Study />
               </IterationProtected>
             }
           />

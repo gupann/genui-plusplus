@@ -22,6 +22,7 @@ export default function UserStudy({
   studyBasePath = '/study',
   title = 'Phase 1: Data Collection',
   subtitle = 'Pick a case study to start.',
+  iterationId = 2,
   disabledCaseStudyIds = [],
   guide = null,
 }) {
@@ -43,7 +44,7 @@ export default function UserStudy({
         }
         const payload = await listStudySessions({
           participantId: participant.participantId,
-          iterationId: 2,
+          iterationId,
         });
         if (cancelled) return;
         const completed = new Set(
@@ -78,7 +79,7 @@ export default function UserStudy({
       window.removeEventListener('focus', handleWindowFocus);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
-  }, [location.pathname]);
+  }, [location.pathname, iterationId]);
 
   return (
     <div className='user-study'>

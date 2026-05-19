@@ -7,6 +7,7 @@ export default function Iteration1HumanEvaluation({
   description = 'Manual review with per-model generation, approvals, itemized feedback, and ranking.',
   studyBasePath = '/iterations/1/study',
   subtitle = 'Pick a case study to start Iteration #1.',
+  iterationId = 2,
   requireAuthBeforeStudy = false,
   disabledCaseStudyIds = [],
   guide = null,
@@ -16,6 +17,7 @@ export default function Iteration1HumanEvaluation({
       studyBasePath={studyBasePath}
       title='Case Study Selection'
       subtitle={subtitle}
+      iterationId={iterationId}
       disabledCaseStudyIds={disabledCaseStudyIds}
       guide={guide}
     />
